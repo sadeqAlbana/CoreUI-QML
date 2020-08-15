@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/CoreUI">
+        <file>MainScreen.qml</file>
+        <file>nav.json</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,304 @@
+[{
+    "title": "Dashboard",
+    "category": "",
+    "image": "qrc:/assets/icons/coreui/free/cil-speedometer.svg",
+    "path": ""
+},
+{
+    "title": "Colors",
+    "category": "THEME",
+    "image": "qrc:/assets/icons/coreui/free/cil-drop.svg",
+    "path": ""
+},
+{
+    "title": "Typography",
+    "category": "THEME",
+    "image": "qrc:/assets/icons/coreui/free/cil-pen.svg",
+    "path": ""
+},
+
+{
+    "title": "Base",
+    "category": "COMPONENTS",
+    "image": "qrc:/assets/icons/coreui/free/cil-pen.svg",
+    "path": "",
+    "childItems": [
+                {
+                    "title": "Breadcrumb",
+                    "path": ""
+                },
+                {
+                    "title": "Cards",
+                    "path": ""
+                },
+                {
+                    "title": "Carousel",
+                    "path": ""
+                },
+                {
+                    "title": "Collapse",
+                    "path": ""
+                },
+                {
+                    "title": "Jumborton",
+                    "path": ""
+                },
+                {
+                    "title": "List Group",
+                    "path": ""
+                },
+                {
+                    "title": "Navs",
+                    "path": ""
+                },
+                {
+                    "title": "Pagintion",
+                    "path": ""
+                },
+                {
+                    "title": "Popovers",
+                    "path": ""
+                },
+                {
+                    "title": "Progress",
+                    "path": ""
+                },
+                {
+                    "title": "Scrollspy",
+                    "path": ""
+                },
+                {
+                    "title": "Switeches",
+                    "path": ""
+                },
+                {
+                    "title": "Tabs",
+                    "path": ""
+                },
+                {
+                    "title": "Tooltips",
+                    "path": ""
+                }
+            ]
+},
+
+
+{
+    "title": "Buttons",
+    "category": "COMPONENTS",
+    "image": "qrc:/assets/icons/coreui/free/cil-cursor.svg",
+    "path": "",
+    "childItems": [
+                {
+                    "title": "Buttons",
+                    "path": ""
+                },
+                {
+                    "title": "Brand Buttons",
+                    "path": ""
+                },
+                {
+                    "title": "Buttons Group",
+                    "path": ""
+                },
+                {
+                    "title": "Dropdowns",
+                    "path": ""
+                },
+                {
+                    "title": "Loading Buttons",
+                    "path": ""
+                }
+
+
+            ]
+
+},
+{
+    "title": "Charts",
+    "category": "COMPONENTS",
+    "image": "qrc:/assets/icons/coreui/free/cil-chart-pie.svg",
+    "path": ""
+
+},
+{
+    "title": "Editors",
+    "category": "COMPONENTS",
+    "image": "qrc:/assets/icons/coreui/free/cil-code.svg",
+    "path": "",
+    "childItems": [
+                {
+                    "title": "Code Editor",
+                    "path": ""
+                },
+                {
+                    "title": "Markdown",
+                    "path": ""
+                },
+                {
+                    "title": "Rich Text Editor",
+                    "path": ""
+                }
+
+            ]
+
+},
+{
+    "title": "Forms",
+    "category": "COMPONENTS",
+    "image": "qrc:/assets/icons/coreui/free/cil-notes.svg",
+    "path": "",
+    "childItems": [
+                {
+                    "title": "Basic Forms",
+                    "path": ""
+                },
+                {
+                    "title": "Advanced",
+                    "path": ""
+                },
+                {
+                    "title": "Validation",
+                    "path": ""
+                }
+
+            ]
+
+},
+{
+    "title": "Google Maps",
+    "category": "COMPONENTS",
+    "image": "qrc:/assets/icons/coreui/free/cil-map.svg",
+    "path": ""
+
+},
+{
+    "title": "Icons",
+    "category": "COMPONENTS",
+    "image": "qrc:/assets/icons/coreui/free/cil-star.svg",
+    "path": "",
+    "childItems": [
+                {
+                    "title": "CoreUI Icons",
+                    "path": ""
+                },
+                {
+                    "title": "CoreUI Icons - Brand",
+                    "path": ""
+                },
+                {
+                    "title": "CoreUI Icons - Flag",
+                    "path": ""
+                }
+
+            ]
+},
+
+{
+    "title": "Notifications",
+    "category": "COMPONENTS",
+    "image": "qrc:/assets/icons/coreui/free/cil-bell.svg",
+    "path": "",
+    "childItems": [
+                {
+                    "title": "Alerts",
+                    "path": ""
+                },
+                {
+                    "title": "Badge",
+                    "path": ""
+                },
+                {
+                    "title": "Modals",
+                    "path": ""
+                },
+                {
+                    "title": "Toastr",
+                    "path": ""
+                }
+            ]
+},
+{
+    "title": "Plugins",
+    "category": "COMPONENTS",
+    "image": "qrc:/assets/icons/coreui/free/cil-bolt.svg",
+    "path": "",
+    "childItems": [
+                {
+                    "title": "Calendar",
+                    "path": ""
+                },
+                {
+                    "title": "Draggable",
+                    "path": ""
+                },
+                {
+                    "title": "Spinners",
+                    "path": ""
+                }
+            ]
+},
+{
+    "title": "Tables",
+    "category": "COMPONENTS",
+    "image": "qrc:/assets/icons/coreui/free/cil-columns.svg",
+    "path": "",
+    "childItems": [
+                {
+                    "title": "Standard Tables",
+                    "path": ""
+                },
+                {
+                    "title": "Data Tables",
+                    "path": ""
+                }
+            ]
+},
+{
+    "title": "Widgets",
+    "category": "COMPONENTS",
+    "image": "qrc:/assets/icons/coreui/free/cil-calculator.svg",
+    "path": ""
+},
+{
+    "title": "Pages",
+    "category": "EXTRAS",
+    "image": "qrc:/assets/icons/coreui/free/cil-star.svg",
+    "path": "",
+    "childItems": [
+                {
+                    "title": "Login",
+                    "path": ""
+                },
+                {
+                    "title": "Register",
+                    "path": ""
+                },
+                {
+                    "title": "Error 404",
+                    "path": ""
+                },
+                {
+                    "title": "Error 500",
+                    "path": ""
+                }
+            ]
+},
+{
+    "title": "Apps",
+    "category": "EXTRAS",
+    "image": "qrc:/assets/icons/coreui/free/cil-layers.svg",
+    "path": "",
+    "childItems": [
+                {
+                    "title": "Invocing",
+                    "path": ""
+                },
+                {
+                    "title": "Email",
+                    "path": ""
+                }
+            ]
+}
+
+]

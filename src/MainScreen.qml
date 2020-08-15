@@ -195,9 +195,6 @@ Item {
 
                     Label{
                         id: treeLabel
-
-
-
                         visible: model.childItems ? true : false
                         Layout.alignment: Qt.AlignRight
                         Layout.rightMargin: 13
@@ -216,6 +213,28 @@ Item {
                             RotationAnimation { duration: 150; direction: RotationAnimation.Shortest }
                         }
 
+                    }
+
+                    Rectangle{
+                        id:badge
+                        visible: model.title=="Dashboard"
+                        Layout.rightMargin: 13
+                        width: badgeText.width+10
+                        height: parent.height/3
+                        color: "#3399ff"
+                        radius: 4
+                        antialiasing: true
+
+
+                        Text {
+                            id: badgeText
+                            //id: name
+                            text: "NEW"
+                            font.pointSize: 8
+                            //font.bold: true
+                            color: "white"
+                            anchors.centerIn: parent;
+                        }
                     }
 
                 }

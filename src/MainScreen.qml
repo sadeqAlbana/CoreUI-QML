@@ -4,10 +4,9 @@ import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.12
 import "components/notifications"
+import "components/base"
 Item {
     id: rootItem
-
-
 
     ToolBar{
         id: toolBar;
@@ -41,8 +40,8 @@ Item {
             }
 
             Label {
-                text: "Title"
-                elide: Label.ElideRight
+                text: "Dashboard"
+                //elide: Label.ElideRight
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
                 Layout.fillWidth: true
@@ -136,8 +135,9 @@ Item {
                     cursorShape: Qt.PointingHandCursor
                 }
             }
+            headerPositioning: ListView.OverlayHeader
 
-            footerPositioning: ListView.OverlayFooter
+            footerPositioning: ListView.ListView.OverlayFooter
 
 
 
@@ -361,11 +361,20 @@ Item {
     }
 
     Rectangle{
+        id: contentArea
         y: toolBar.height
         width:drawer.opened ? rootItem.width-drawer.width : rootItem.width
         x: drawer.opened ? drawer.width  : 0
         height: rootItem.height-toolBar.height
         color: "#ebedef"
+
+        //content here
+
+        Card{
+            width: 488
+            height: 170
+            anchors.centerIn: parent;
+        }
     }
 
     function parseNavbar(listItems){
@@ -390,6 +399,9 @@ Item {
             }
         }
     }
+
+
+
 
     Component.onCompleted: {
         var xhr = new XMLHttpRequest;

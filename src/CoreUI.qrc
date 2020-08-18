@@ -3,5 +3,6 @@
         <file>MainScreen.qml</file>
         <file>nav.json</file>
         <file>components/notifications/Badge.qml</file>
+        <file>components/base/Card.qml</file>
     </qresource>
 </RCC>

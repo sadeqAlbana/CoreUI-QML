@@ -222,6 +222,7 @@ Item {
                         width: parent.width/8
                         height: parent.height/3
                         text: "NEW"
+                        variant: "info";
                     }
 
                 }

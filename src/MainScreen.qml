@@ -217,12 +217,12 @@ Item {
                     }
 
                     Badge{
-                        visible: model.title=="Dashboard"
+                        visible: model.badge ? true : false
                         Layout.rightMargin: 13
                         width: parent.width/8
                         height: parent.height/3
-                        text: "NEW"
-                        variant: "info";
+                        text: model.badge ? model.badge.text : ""
+                        state: model.badge ? model.badge.variant : ""
                     }
 
                 }

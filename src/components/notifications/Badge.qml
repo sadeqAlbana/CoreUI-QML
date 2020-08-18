@@ -4,9 +4,6 @@ Rectangle{
     id: badge;
     property alias textColor: badgeText.color
     property alias text: badgeText.text
-    property string hoverTextColor: badgeText.color
-    property string hoverColor: color;
-    property string variant: ""
 
     radius: 4
     antialiasing: true
@@ -15,7 +12,11 @@ Rectangle{
     Text {
         id: badgeText
         anchors.fill: parent;
-        padding: 1
+        leftPadding: parent.width/20
+        rightPadding : parent.width/20
+        bottomPadding: parent.height/20
+        topPadding: parent.height/20
+
         antialiasing: true
         fontSizeMode: Text.Fit
         horizontalAlignment: Text.AlignHCenter
@@ -25,31 +26,49 @@ Rectangle{
         text: "badge"
     }
 
-
-    HoverHandler{
-        id:hoverHandler
-    }
-    states:
+    states:[
         State{
-        name: "hovered"
-        when: hoverHandler.hovered;
-        PropertyChanges {target: badge; textColor: hoverTextColor; restoreEntryValues: true}
-        PropertyChanges {target: badge; color: hoverColor; restoreEntryValues: true}
-
-    }
-    onVariantChanged: {
-         var variantMap= {"info":{
-            "color":"#39f",
-            "textColor":"#fff",
-            "hoverTextColor":"#fff",
-            "hoverColor": "#0080ff"
-            }};
-        if(variant in variantMap){
-            var selectedVariant=variantMap[variant];
-            color=selectedVariant.color;
-            textColor=selectedVariant.textColor;
-            hoverColor=selectedVariant.hoverColor;
-            hoverTextColor=selectedVariant.hoverTextColor;
+            name: "primary"
+            PropertyChanges {target: badge; textColor: "#fff";}
+            PropertyChanges {target: badge; color: "#321fdb";}
+        },
+        State{
+            name: "secondary"
+            PropertyChanges {target: badge; textColor: "#4f5d73";}
+            PropertyChanges {target: badge; color: "#ced2d8";}
+        },
+        State{
+            name: "success"
+            PropertyChanges {target: badge; textColor: "#fff";}
+            PropertyChanges {target: badge; color: "#2eb85c";}
+        },
+        State{
+            name: "danger"
+            PropertyChanges {target: badge; textColor: "#fff";}
+            PropertyChanges {target: badge; color: "#e55353";}
+        },
+        State{
+            name: "warning"
+            PropertyChanges {target: badge; textColor: "#4f5d73";}
+            PropertyChanges {target: badge; color: "#f9b115";}
+        },
+        State{
+            name: "info"
+            PropertyChanges {target: badge; textColor: "#fff";}
+            PropertyChanges {target: badge; color: "#39f";}
+        },
+        State{
+            name: "light"
+            PropertyChanges {target: badge; textColor: "#4f5d73";}
+            PropertyChanges {target: badge; color: "#ebedef";}
+        },
+        State{
+            name: "dark"
+            PropertyChanges {target: badge; textColor: "#fff";}
+            PropertyChanges {target: badge; color: "#636f83";}
         }
-    }
+
+    ]
+
+
 }

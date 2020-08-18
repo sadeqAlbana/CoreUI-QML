@@ -2,7 +2,11 @@
     "title": "Dashboard",
     "category": "",
     "image": "qrc:/assets/icons/coreui/free/cil-speedometer.svg",
-    "path": ""
+    "path": "",
+    "badge": {
+        "variant": "info",
+        "text": "NEW"
+    }
 },
 {
     "title": "Colors",
@@ -107,7 +111,11 @@
                 },
                 {
                     "title": "Loading Buttons",
-                    "path": ""
+                    "path": "",
+                    "badge": {
+                        "variant": "danger",
+                        "text": "PRO"
+                    }
                 }
 
 
@@ -129,15 +137,27 @@
     "childItems": [
                 {
                     "title": "Code Editor",
-                    "path": ""
+                    "path": "",
+                    "badge": {
+                        "variant": "danger",
+                        "text": "PRO"
+                    }
                 },
                 {
                     "title": "Markdown",
-                    "path": ""
+                    "path": "",
+                    "badge": {
+                        "variant": "danger",
+                        "text": "PRO"
+                    }
                 },
                 {
                     "title": "Rich Text Editor",
-                    "path": ""
+                    "path": "",
+                    "badge": {
+                        "variant": "danger",
+                        "text": "PRO"
+                    }
                 }
 
             ]
@@ -155,11 +175,19 @@
                 },
                 {
                     "title": "Advanced",
-                    "path": ""
+                    "path": "",
+                    "badge": {
+                        "variant": "danger",
+                        "text": "PRO"
+                    }
                 },
                 {
                     "title": "Validation",
-                    "path": ""
+                    "path": "",
+                    "badge": {
+                        "variant": "danger",
+                        "text": "PRO"
+                    }
                 }
 
             ]
@@ -169,7 +197,11 @@
     "title": "Google Maps",
     "category": "COMPONENTS",
     "image": "qrc:/assets/icons/coreui/free/cil-map.svg",
-    "path": ""
+    "path": "",
+    "badge": {
+        "variant": "danger",
+        "text": "PRO"
+    }
 
 },
 {
@@ -180,7 +212,11 @@
     "childItems": [
                 {
                     "title": "CoreUI Icons",
-                    "path": ""
+                    "path": "",
+                    "badge": {
+                        "variant": "success",
+                        "text": "Free"
+                    }
                 },
                 {
                     "title": "CoreUI Icons - Brand",
@@ -214,7 +250,11 @@
                 },
                 {
                     "title": "Toastr",
-                    "path": ""
+                    "path": "",
+                    "badge": {
+                        "variant": "danger",
+                        "text": "PRO"
+                    }
                 }
             ]
 },
@@ -226,15 +266,27 @@
     "childItems": [
                 {
                     "title": "Calendar",
-                    "path": ""
+                    "path": "",
+                    "badge": {
+                        "variant": "danger",
+                        "text": "PRO"
+                    }
                 },
                 {
                     "title": "Draggable",
-                    "path": ""
+                    "path": "",
+                    "badge": {
+                        "variant": "danger",
+                        "text": "PRO"
+                    }
                 },
                 {
                     "title": "Spinners",
-                    "path": ""
+                    "path": "",
+                    "badge": {
+                        "variant": "danger",
+                        "text": "PRO"
+                    }
                 }
             ]
 },
@@ -250,7 +302,11 @@
                 },
                 {
                     "title": "Data Tables",
-                    "path": ""
+                    "path": "",
+                    "badge": {
+                        "variant": "danger",
+                        "text": "PRO"
+                    }
                 }
             ]
 },
@@ -258,7 +314,11 @@
     "title": "Widgets",
     "category": "COMPONENTS",
     "image": "qrc:/assets/icons/coreui/free/cil-calculator.svg",
-    "path": ""
+    "path": "",
+    "badge": {
+        "variant": "info",
+        "text": "NEW"
+    }
 },
 {
     "title": "Pages",

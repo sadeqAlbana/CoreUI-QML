@@ -3,6 +3,7 @@ import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.12
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.12
+import "components/notifications"
 Item {
     id: rootItem
 
@@ -215,26 +216,12 @@ Item {
 
                     }
 
-                    Rectangle{
-                        id:badge
+                    Badge{
                         visible: model.title=="Dashboard"
                         Layout.rightMargin: 13
-                        width: badgeText.width+10
+                        width: parent.width/8
                         height: parent.height/3
-                        color: "#3399ff"
-                        radius: 4
-                        antialiasing: true
-
-
-                        Text {
-                            id: badgeText
-                            //id: name
-                            text: "NEW"
-                            font.pointSize: 8
-                            //font.bold: true
-                            color: "white"
-                            anchors.centerIn: parent;
-                        }
+                        text: "NEW"
                     }
 
                 }

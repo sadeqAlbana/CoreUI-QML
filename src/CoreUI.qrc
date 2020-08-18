@@ -2,5 +2,6 @@
     <qresource prefix="/CoreUI">
         <file>MainScreen.qml</file>
         <file>nav.json</file>
+        <file>components/notifications/Badge.qml</file>
     </qresource>
 </RCC>

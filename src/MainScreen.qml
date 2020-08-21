@@ -380,7 +380,7 @@ Item {
                 height: 170
                 //anchors.centerIn: parent;
             }
-
+            //implement clipper and clipped !
             RoundedRect{
             Layout.alignment: Qt.AlignHCenter
             width: 488
@@ -388,7 +388,12 @@ Item {
                 //anchors.centerIn: parent;
                 radius: 25
                 color : "pink"
-                border.color: "red"
+                //border.color: "red"
+
+                Component.onCompleted: {
+                    console.log(border.color)
+                    console.log(border.width)
+                }
             }
         }
     }

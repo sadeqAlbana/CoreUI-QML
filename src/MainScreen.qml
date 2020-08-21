@@ -385,15 +385,9 @@ Item {
             Layout.alignment: Qt.AlignHCenter
             width: 488
             height: 170
-                //anchors.centerIn: parent;
-                radius: 25
-                color : "pink"
-                //border.color: "red"
-
-                Component.onCompleted: {
-                    console.log(border.color)
-                    console.log(border.width)
-                }
+                radius: 4
+                color : "white"
+                border.color: "#d8dbe0";
             }
         }
     }

@@ -2,10 +2,10 @@ import QtQuick 2.0
 
 Rectangle{
     id: mainRect
-    property bool topLeft: false
-    property bool topRight: false
-    property bool bottomLeft: false
-    property bool bottomRight: false
+    property bool topLeft: true
+    property bool topRight: true
+    property bool bottomLeft: true
+    property bool bottomRight: true
 
     border.color: color
 

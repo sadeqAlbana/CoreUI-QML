@@ -5,6 +5,7 @@ import QtGraphicalEffects 1.0
 import QtQml.Models 2.12
 import "components/notifications"
 import "components/base"
+import "components/SharedComponents"
 Item {
     id: rootItem
 
@@ -370,10 +371,25 @@ Item {
 
         //content here
 
-        Card{
+
+        ColumnLayout{
+            anchors.fill: parent
+            Card{
+                Layout.alignment: Qt.AlignHCenter
+                width: 488
+                height: 170
+                //anchors.centerIn: parent;
+            }
+
+            RoundedRect{
+            Layout.alignment: Qt.AlignHCenter
             width: 488
             height: 170
-            anchors.centerIn: parent;
+                //anchors.centerIn: parent;
+                radius: 25
+                color : "pink"
+                border.color: "red"
+            }
         }
     }
 

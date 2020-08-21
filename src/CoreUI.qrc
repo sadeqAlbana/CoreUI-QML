@@ -4,5 +4,6 @@
         <file>nav.json</file>
         <file>components/notifications/Badge.qml</file>
         <file>components/base/Card.qml</file>
+        <file>components/SharedComponents/RoundedRect.qml</file>
     </qresource>
 </RCC>

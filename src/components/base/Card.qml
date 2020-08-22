@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5
-
+import "../SharedComponents"
 
 
 Rectangle{
@@ -18,24 +18,30 @@ Rectangle{
         anchors.fill: parent
         spacing: 0
 
-        Rectangle{
+        RoundedRect{
             id:header
-            width: parent.width
+            bottomLeft: false
+            bottomRight: false
             height: 46
+            width: parent.width
             radius: card.radius
-            //color: card.color
-            color: "pink"
-            Rectangle{
-                height: parent.radius
-                anchors.bottom: parent.bottom
+            visible: false
+
+            Text{
+                id: headerText
+                height: parent.height
                 anchors.left: parent.left
-                anchors.right: parent.right
-                color: parent.color
+                color: "#3c4b64"
+                text: "Card Footer"
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.leftMargin: 20
             }
         }
 
 
         Rectangle{
+            visible: header.visible
             width: parent.width
             height: 1
             //color: "#d8dbe0";
@@ -44,15 +50,20 @@ Rectangle{
 
 
 
-        Rectangle{
+        RoundedRect{
             width: parent.width
-            //height: card.height-header.height-footer.height
             Layout.fillHeight: true
             //color: card.color
             color: "yellow"
+            topLeft: !header.visible
+            topRight: !header.visible
+            bottomLeft: !footer.visible
+            bottomRight: !footer.visible
+            radius: card.radius
         }
 
         Rectangle{
+            visible: footer.visible
             width: parent.width
             height: 1
             //color: "#d8dbe0";
@@ -60,32 +71,32 @@ Rectangle{
         }
 
 
-        Rectangle{
-            id:footer
-            width: parent.width
-            height: 46
-            radius: card.radius
-            //color: card.color
-            color: "pink"
 
-            Rectangle{
-                height: parent.radius
-                anchors.top: parent.top
+        RoundedRect{
+            id:footer
+            topLeft: false
+            topRight: false
+            height: 46
+            width: parent.width
+            radius: card.radius
+            visible: false
+
+            Text{
+                id: footerText
+                height: parent.height
                 anchors.left: parent.left
-                anchors.right: parent.right
-                color: parent.color
+                color: "#3c4b64"
+                text: "Card Footer"
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.leftMargin: 20
             }
         }
     }
 
 
 
-    Component{
-        id :semiRoundedRect
-        Rectangle{
 
-        }
-    }
 }
 
 

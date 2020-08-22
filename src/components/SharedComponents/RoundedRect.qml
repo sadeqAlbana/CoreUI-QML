@@ -8,6 +8,7 @@ Rectangle{
     property bool bottomRight: true
 
     border.color: color
+    clip: true
 
     Rectangle{
         width: mainRect.radius

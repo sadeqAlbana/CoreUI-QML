@@ -8,8 +8,8 @@ import "../SharedComponents"
 Rectangle{
     id: card
     color : "#fff"
-    border.color: "red"
-    radius: 25
+    border.color: "#d8dbe0";
+    radius: 4
     smooth: true
     antialiasing: true
 
@@ -25,14 +25,14 @@ Rectangle{
             height: 46
             width: parent.width
             radius: card.radius
-            visible: false
+            visible: true
 
             Text{
                 id: headerText
                 height: parent.height
                 anchors.left: parent.left
                 color: "#3c4b64"
-                text: "Card Footer"
+                text: "Card Header"
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
                 anchors.leftMargin: 20
@@ -44,8 +44,7 @@ Rectangle{
             visible: header.visible
             width: parent.width
             height: 1
-            //color: "#d8dbe0";
-            color: "blue"
+            color: card.border.color
         }
 
 
@@ -53,8 +52,7 @@ Rectangle{
         RoundedRect{
             width: parent.width
             Layout.fillHeight: true
-            //color: card.color
-            color: "yellow"
+            color: card.color
             topLeft: !header.visible
             topRight: !header.visible
             bottomLeft: !footer.visible
@@ -66,8 +64,7 @@ Rectangle{
             visible: footer.visible
             width: parent.width
             height: 1
-            //color: "#d8dbe0";
-            color: "blue"
+            color: card.border.color
         }
 
 

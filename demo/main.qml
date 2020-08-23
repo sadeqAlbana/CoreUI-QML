@@ -17,10 +17,6 @@ ApplicationWindow {
     Loader{
         id: rootLoader
         anchors.fill: parent;
-//        sourceComponent: LoginScreen{
-//            anchors.fill: parent;
-//            id: loginScreen
-//        }
 
         sourceComponent: MainScreen{
             anchors.fill: parent;

@@ -8,7 +8,7 @@ import "components/base"
 import "components/SharedComponents"
 Item {
     id: rootItem
-
+    property alias screenLoader: baseLoader
     ToolBar{
         id: toolBar;
         y:0
@@ -138,7 +138,7 @@ Item {
             }
             headerPositioning: ListView.OverlayHeader
 
-            footerPositioning: ListView.ListView.OverlayFooter
+            footerPositioning: ListView.OverlayFooter
 
 
 
@@ -303,9 +303,6 @@ Item {
                     if (listView.currentIndex !== index && !model.childCount) {
                         listView.currentIndex = index
                         //shrink other items;
-
-
-
                     }
                     if(model.childCount){
                         model.expanded=!model.expanded;
@@ -372,23 +369,11 @@ Item {
         //content here
 
 
-        ColumnLayout{
+        Loader{
+            id: baseLoader
             anchors.fill: parent
-            Card{
-                Layout.alignment: Qt.AlignHCenter
-                width: 488
-                height: 170
-                //anchors.centerIn: parent;
-            }
-            //implement clipper and clipped !
-            RoundedRect{
-            Layout.alignment: Qt.AlignHCenter
-            width: 488
-            height: 170
-                radius: 4
-                color : "white"
-                border.color: "#d8dbe0";
-            }
+            anchors.margins: 30
+            source: listModel.get(listView.currentIndex).path; //change this later
         }
     }
 
@@ -413,6 +398,8 @@ Item {
                 listModel.append(item);
             }
         }
+
+        listView.currentIndex=5
     }
 
 

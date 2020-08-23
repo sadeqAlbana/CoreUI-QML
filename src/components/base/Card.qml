@@ -12,6 +12,13 @@ Rectangle{
     radius: 4
     smooth: true
     antialiasing: true
+    property alias headerText: headerText.text
+    property alias footerText: footerText.text
+    property alias headerVisible: header.visible
+    property alias footerVisible: footer.visible
+    property alias content: contentRect.contentComponent
+    property color accentColor: "#d8dbe0"
+
 
     ColumnLayout {
         anchors.margins: card.border.width
@@ -44,12 +51,14 @@ Rectangle{
             visible: header.visible
             width: parent.width
             height: 1
-            color: card.border.color
+            color: accentColor
         }
 
 
 
         RoundedRect{
+            id: contentRect
+            property Component contentComponent
             width: parent.width
             Layout.fillHeight: true
             color: card.color
@@ -58,13 +67,20 @@ Rectangle{
             bottomLeft: !footer.visible
             bottomRight: !footer.visible
             radius: card.radius
+
+            Loader{
+                anchors.fill: parent;
+                anchors.margins: 5
+                id: contentLoader;
+                sourceComponent: contentRect.contentComponent
+            }
         }
 
         Rectangle{
             visible: footer.visible
             width: parent.width
             height: 1
-            color: card.border.color
+            color: accentColor
         }
 
 

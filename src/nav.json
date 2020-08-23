@@ -33,7 +33,7 @@
                 },
                 {
                     "title": "Cards",
-                    "path": ""
+                    "path": "qrc:/Pages/Cards.qml"
                 },
                 {
                     "title": "Carousel",

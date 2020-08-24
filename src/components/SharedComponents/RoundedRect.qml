@@ -6,7 +6,6 @@ Rectangle{
     property bool topRight: true
     property bool bottomLeft: true
     property bool bottomRight: true
-
     border.color: color
     clip: true
 

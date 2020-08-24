@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>Pages/Cards.qml</file>
+        <file>Pages/Forms.qml</file>
     </qresource>
 </RCC>

@@ -171,7 +171,7 @@
     "childItems": [
                 {
                     "title": "Basic Forms",
-                    "path": ""
+                    "path": "qrc:/Pages/Forms.qml"
                 },
                 {
                     "title": "Advanced",

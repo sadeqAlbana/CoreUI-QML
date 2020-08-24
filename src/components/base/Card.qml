@@ -5,13 +5,16 @@ import QtQuick.Controls 2.5
 import "../SharedComponents"
 
 
-Rectangle{
+RoundedRect{
     id: card
     color : "#fff"
     border.color: "#d8dbe0";
     radius: 4
     smooth: true
     antialiasing: true
+
+//    implicitHeight: 100
+//    implicitWidth: 100
     property alias headerText: headerText.text
     property alias footerText: footerText.text
     property alias headerVisible: header.visible
@@ -25,11 +28,9 @@ Rectangle{
         anchors.fill: parent
         spacing: 0
 
-        RoundedRect{
+        Rectangle{
             id:header
-            bottomLeft: false
-            bottomRight: false
-            height: 46
+            implicitHeight: 46
             width: parent.width
             radius: card.radius
             visible: true
@@ -49,23 +50,20 @@ Rectangle{
 
         Rectangle{
             visible: header.visible
-            width: parent.width
-            height: 1
+            Layout.fillWidth: true
+            implicitHeight: 1
             color: accentColor
         }
 
 
 
-        RoundedRect{
+        Rectangle{
             id: contentRect
             property Component contentComponent
-            width: parent.width
+            //width: parent.width
             Layout.fillHeight: true
+            Layout.fillWidth: true
             color: card.color
-            topLeft: !header.visible
-            topRight: !header.visible
-            bottomLeft: !footer.visible
-            bottomRight: !footer.visible
             radius: card.radius
 
             Loader{
@@ -78,18 +76,14 @@ Rectangle{
 
         Rectangle{
             visible: footer.visible
-            width: parent.width
-            height: 1
+            Layout.fillWidth: true
+            implicitHeight: 1
             color: accentColor
         }
 
-
-
-        RoundedRect{
+        Rectangle{
             id:footer
-            topLeft: false
-            topRight: false
-            height: 46
+            implicitHeight: 46
             width: parent.width
             radius: card.radius
             visible: false
@@ -106,70 +100,110 @@ Rectangle{
             }
         }
     }
-
-
-
-
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Rectangle {
+//Rectangle{
 //    id: card
-//    color: "#fff";
+//    color : "#fff"
 //    border.color: "#d8dbe0";
-//    radius: 7
-//    property alias title: headerText.text;
-//    Rectangle{
-//        id: header
-//        x:card.border.width;
-//        y:0
-//        width: parent.width-(card.border.width*2)
-//        //anchors.leftMargin: card.border.width
-//        radius: parent.radius
-//        height: 46
-//        //color: "red"
-//        //border.color: parent.border.color
+//    radius: 4
+//    smooth: true
+//    antialiasing: true
+//    property alias headerText: headerText.text
+//    property alias footerText: footerText.text
+//    property alias headerVisible: header.visible
+//    property alias footerVisible: footer.visible
+//    property alias content: contentRect.contentComponent
+//    property color accentColor: "#d8dbe0"
 
-//        Rectangle {
-//          id: squareRect
 
-//          //color: header.border.color
-//          height: header.radius
-//          anchors.bottom : header.bottom
-//          anchors.left : header.left
-//          anchors.right : header.right
+//    ColumnLayout {
+//        anchors.margins: card.border.width
+//        anchors.fill: parent
+//        spacing: 0
 
+//        RoundedRect{
+//            id:header
+//            bottomLeft: false
+//            bottomRight: false
+//            height: 46
+//            width: parent.width
+//            radius: card.radius
+//            visible: true
+
+//            Text{
+//                id: headerText
+//                height: parent.height
+//                anchors.left: parent.left
+//                color: "#3c4b64"
+//                text: "Card Header"
+//                horizontalAlignment: Text.AlignHCenter
+//                verticalAlignment: Text.AlignVCenter
+//                anchors.leftMargin: 20
+//            }
 //        }
 
-//       Text{
-//           id: headerText
-//           height: parent.height
-//           anchors.left: parent.left
-//           color: "#3c4b64"
-//           text: "Card title"
-//           horizontalAlignment: Text.AlignHCenter
-//           verticalAlignment: Text.AlignVCenter
-//           anchors.leftMargin: 20
-//       }
+
+//        Rectangle{
+//            visible: header.visible
+//            width: parent.width
+//            height: 1
+//            color: accentColor
+//        }
+
+
+
+//        RoundedRect{
+//            id: contentRect
+//            property Component contentComponent
+//            width: parent.width
+//            Layout.fillHeight: true
+//            color: card.color
+//            topLeft: !header.visible
+//            topRight: !header.visible
+//            bottomLeft: !footer.visible
+//            bottomRight: !footer.visible
+//            radius: card.radius
+
+//            Loader{
+//                anchors.fill: parent;
+//                anchors.margins: 5
+//                id: contentLoader;
+//                sourceComponent: contentRect.contentComponent
+//            }
+//        }
+
+//        Rectangle{
+//            visible: footer.visible
+//            width: parent.width
+//            height: 1
+//            color: accentColor
+//        }
+
+
+
+//        RoundedRect{
+//            id:footer
+//            topLeft: false
+//            topRight: false
+//            height: 46
+//            width: parent.width
+//            radius: card.radius
+//            visible: false
+
+//            Text{
+//                id: footerText
+//                height: parent.height
+//                anchors.left: parent.left
+//                color: "#3c4b64"
+//                text: "Card Footer"
+//                horizontalAlignment: Text.AlignHCenter
+//                verticalAlignment: Text.AlignVCenter
+//                anchors.leftMargin: 20
+//            }
+//        }
 //    }
 //}
+

@@ -370,6 +370,7 @@ Item {
                 }
             }
         }
+        modal: false
     }
 
     Rectangle{

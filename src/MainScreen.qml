@@ -66,6 +66,20 @@ Item {
 
     }
 
+    ToolBar{
+        id: breadcrumbToolbar
+        y:toolBar.height
+        width:drawer.opened ? rootItem.width-drawer.width : rootItem.width
+        //        x: rootItem.width-drawer.width
+        x: drawer.opened ? drawer.width  : 0
+        height: 56
+
+        background: Rectangle{
+
+            color: "white"
+        }
+    }
+
     Drawer{
         id: drawer
 
@@ -360,10 +374,10 @@ Item {
 
     Rectangle{
         id: contentArea
-        y: toolBar.height
+        y: toolBar.height+breadcrumbToolbar.height
         width:drawer.opened ? rootItem.width-drawer.width : rootItem.width
         x: drawer.opened ? drawer.width  : 0
-        height: rootItem.height-toolBar.height
+        height: rootItem.height-toolBar.height-breadcrumbToolbar.height
         color: "#ebedef"
 
         //content here

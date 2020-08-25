@@ -5,8 +5,7 @@
         <file>components/notifications/Badge.qml</file>
         <file>components/base/Card.qml</file>
         <file>components/SharedComponents/RoundedRect.qml</file>
-    </qresource>
-    <qresource prefix="/">
         <file>components/forms/FormGroup.qml</file>
+        <file>components/forms/CTextInput.qml</file>
     </qresource>
 </RCC>

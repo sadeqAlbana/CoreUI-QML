@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.12
 import "qrc:/CoreUI/components/base"
 import QtQuick.Controls 2.5
+import "qrc:/CoreUI/components/forms"
 ScrollView{
     id:scrollView
     clip: true
@@ -27,7 +28,19 @@ ScrollView{
             Layout.preferredHeight: 170
             Layout.fillHeight: true
             Layout.fillWidth: true
-            content: ColumnLayout{
+            content: FormGroup{
+
+            }
+        }
+
+        Card{
+            headerText: "Company"
+            //Layout.alignment: Qt.AlignHCenter
+            Layout.preferredWidth: 488
+            Layout.preferredHeight: 170
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            content: FormGroup{
 
             }
         }

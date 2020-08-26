@@ -12,14 +12,13 @@ RoundedRect{
     radius: 4
     smooth: true
     antialiasing: true
-
 //    implicitHeight: 100
 //    implicitWidth: 100
     property alias headerText: headerText.text
     property alias footerText: footerText.text
     property alias headerVisible: header.visible
     property alias footerVisible: footer.visible
-    property alias content: contentRect.contentComponent
+    property alias content: contentLoader.sourceComponent
     property color accentColor: "#d8dbe0"
 
 
@@ -27,6 +26,7 @@ RoundedRect{
         anchors.margins: card.border.width
         anchors.fill: parent
         spacing: 0
+
 
         Rectangle{
             id:header
@@ -57,22 +57,27 @@ RoundedRect{
 
 
 
-        Rectangle{
-            id: contentRect
-            property Component contentComponent
-            //width: parent.width
+        Loader{
+            id: contentLoader;
+            Layout.margins: 10
             Layout.fillHeight: true
             Layout.fillWidth: true
-            color: card.color
-            radius: card.radius
-
-            Loader{
-                anchors.fill: parent;
-                anchors.margins: 5
-                id: contentLoader;
-                sourceComponent: contentRect.contentComponent
-            }
+            Layout.minimumHeight: childrenRect.height
+            //Layout.minimumWidth: childrenRect.width
         }
+
+//        Rectangle{
+//            id: contentRect
+//            property Component contentComponent
+//            //width: parent.width
+//            Layout.fillHeight: true
+//            Layout.fillWidth: true
+//            color: card.color
+//            radius: card.radius
+////            Layout.minimumWidth: contentLoader.item.width
+////            Layout.minimumHeight: contentLoader.item.height
+
+//        }
 
         Rectangle{
             visible: footer.visible

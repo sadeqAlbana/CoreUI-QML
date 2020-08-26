@@ -17,6 +17,7 @@ ScrollView{
 //        height: Math.max(implicitHeight, scrollView.availableHeight)
 
         width: parent.parent.width
+        height: parent.parent.height
         columnSpacing: 30
         rowSpacing: 30
         columns: 2
@@ -26,7 +27,7 @@ ScrollView{
             //Layout.alignment: Qt.AlignHCenter
             Layout.preferredWidth: 488
             Layout.preferredHeight: 170
-            Layout.fillHeight: true
+            //Layout.fillHeight: true
             Layout.fillWidth: true
             content: FormGroup{
 

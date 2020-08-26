@@ -12,8 +12,8 @@ RoundedRect{
     radius: 4
     smooth: true
     antialiasing: true
-//    implicitHeight: 100
-//    implicitWidth: 100
+    implicitHeight: layout.implicitHeight
+    implicitWidth: layout.implicitWidth
     property alias headerText: headerText.text
     property alias footerText: footerText.text
     property alias headerVisible: header.visible
@@ -23,6 +23,7 @@ RoundedRect{
 
 
     ColumnLayout {
+        id: layout;
         anchors.margins: card.border.width
         anchors.fill: parent
         spacing: 0
@@ -62,22 +63,9 @@ RoundedRect{
             Layout.margins: 10
             Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.minimumHeight: childrenRect.height
+            //Layout.minimumHeight: childrenRect.height
             //Layout.minimumWidth: childrenRect.width
         }
-
-//        Rectangle{
-//            id: contentRect
-//            property Component contentComponent
-//            //width: parent.width
-//            Layout.fillHeight: true
-//            Layout.fillWidth: true
-//            color: card.color
-//            radius: card.radius
-////            Layout.minimumWidth: contentLoader.item.width
-////            Layout.minimumHeight: contentLoader.item.height
-
-//        }
 
         Rectangle{
             visible: footer.visible

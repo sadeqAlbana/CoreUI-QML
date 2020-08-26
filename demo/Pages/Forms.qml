@@ -24,10 +24,6 @@ ScrollView{
 
         Card{
             headerText: "Credit Card"
-            //Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
-            //Layout.fillHeight: true
             Layout.fillWidth: true
             content: FormGroup{
 
@@ -37,9 +33,9 @@ ScrollView{
         Card{
             headerText: "Company"
             //Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
-            Layout.fillHeight: true
+//            Layout.preferredWidth: 488
+//            Layout.preferredHeight: 170
+            //Layout.fillHeight: true
             Layout.fillWidth: true
             content: FormGroup{
 

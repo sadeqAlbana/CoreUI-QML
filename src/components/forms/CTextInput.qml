@@ -3,6 +3,8 @@ import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.0
 TextField {
     id:textField
+    selectByMouse: true
+
     background: Rectangle{
         id: rect;
         color : "#fff"

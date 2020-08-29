@@ -4,9 +4,7 @@ import "qrc:/CoreUI/components/forms"
 import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.0
 ColumnLayout {
-    //spacing: 8
-    //implicitHeight: childrenRect.height
-    //implicitWidth: childrenRect.width
+
     Label{
         text: "Name";
         verticalAlignment: Qt.AlignBottom
@@ -24,13 +22,10 @@ ColumnLayout {
 
     }
 
-    ComboBox{
-        id:cb
+    CComboBox{
         Layout.fillWidth: true
         Layout.margins: 10
         Layout.leftMargin: 10
         Layout.rightMargin: 10
-
     }
-
 }

@@ -7,5 +7,6 @@
         <file>components/SharedComponents/RoundedRect.qml</file>
         <file>components/forms/FormGroup.qml</file>
         <file>components/forms/CTextInput.qml</file>
+        <file>components/forms/CComboBox.qml</file>
     </qresource>
 </RCC>

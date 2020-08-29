@@ -7,15 +7,8 @@ ScrollView{
     id:scrollView
     clip: true
     anchors.fill: parent;
-//    contentWidth: grildLayout.width    // The important part
-//    contentHeight: grildLayout.height
-    property string cardText: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.";
     GridLayout {
         id:grildLayout
-        //anchors.fill: parent;
-//        width: Math.max(implicitWidth, scrollView.availableWidth)
-//        height: Math.max(implicitHeight, scrollView.availableHeight)
-
         width: parent.parent.width
         height: parent.parent.height
         columnSpacing: 30
@@ -25,8 +18,48 @@ ScrollView{
         Card{
             headerText: "Credit Card"
             Layout.fillWidth: true
-            content: FormGroup{
+            content: ColumnLayout {
 
+                Label{
+                    text: "Name";
+                    verticalAlignment: Qt.AlignBottom
+                    Layout.fillHeight: true
+                    Layout.margins: 10
+                    color: "#3c4b64"
+
+                }
+                CTextInput{
+                    placeholderText: "Enter your name"
+                    Layout.fillWidth: true
+                    Layout.margins: 10
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+
+                }
+
+                Label{
+                    text: "Credit Card Number";
+                    verticalAlignment: Qt.AlignBottom
+                    Layout.fillHeight: true
+                    Layout.margins: 10
+                    color: "#3c4b64"
+
+                }
+                CTextInput{
+                    placeholderText: "0000 0000 0000 0000"
+                    Layout.fillWidth: true
+                    Layout.margins: 10
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+
+                }
+
+                CComboBox{
+                    Layout.fillWidth: true
+                    Layout.margins: 10
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                }
             }
         }
 

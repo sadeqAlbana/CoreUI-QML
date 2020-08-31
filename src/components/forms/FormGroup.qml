@@ -5,7 +5,7 @@ import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.0
 GridLayout {
     property bool horizontal: false
-    //property alias label: textLabel
+    property alias label: textLabel
     rows: horizontal ? 1 : 2
     columns: horizontal ? 2 : 1
 
@@ -18,6 +18,5 @@ GridLayout {
         //Layout.topMargin: horizontal ? 0 : 10
         //Layout.bottomMargin: 0
         color: "#3c4b64"
-        text: "Name"
     }
 }

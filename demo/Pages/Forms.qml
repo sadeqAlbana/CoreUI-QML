@@ -39,7 +39,7 @@ ScrollView{
 //                }
 
                 CTextInputGroup{
-
+                    label.text: "Name"
                 }
 
                 Label{

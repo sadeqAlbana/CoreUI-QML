@@ -183,8 +183,8 @@ ScrollView{
         id : contentTextArea
 
         TextArea{
-            anchors.fill: parent;
-            anchors.margins: 5
+            width: parent.width
+            height: parent.height
             text: cardText
             readOnly: true
             wrapMode: Text.WordWrap

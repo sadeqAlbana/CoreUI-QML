@@ -8,5 +8,7 @@
         <file>components/forms/FormGroup.qml</file>
         <file>components/forms/CTextInput.qml</file>
         <file>components/forms/CComboBox.qml</file>
+        <file>components/forms/CLabel.qml</file>
+        <file>components/forms/CTextInputGroup.qml</file>
     </qresource>
 </RCC>

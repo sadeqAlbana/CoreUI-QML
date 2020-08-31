@@ -3,29 +3,21 @@ import QtQuick.Layouts 1.12
 import "qrc:/CoreUI/components/forms"
 import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.0
-ColumnLayout {
+GridLayout {
+    property bool horizontal: false
+    //property alias label: textLabel
+    rows: horizontal ? 1 : 2
+    columns: horizontal ? 2 : 1
 
     Label{
-        text: "Name";
-        verticalAlignment: Qt.AlignBottom
-        Layout.fillHeight: true
-        Layout.margins: 10
+        id: textLabel
+        verticalAlignment: horizontal ? Qt.AlignVCenter : Qt.AlignBottom
+        Layout.fillHeight: horizontal
+        Layout.leftMargin: 10
+        Layout.rightMargin: 10
+        //Layout.topMargin: horizontal ? 0 : 10
+        //Layout.bottomMargin: 0
         color: "#3c4b64"
-
-    }
-    CTextInput{
-        placeholderText: "Enter your name"
-        Layout.fillWidth: true
-        Layout.margins: 10
-        Layout.leftMargin: 10
-        Layout.rightMargin: 10
-
-    }
-
-    CComboBox{
-        Layout.fillWidth: true
-        Layout.margins: 10
-        Layout.leftMargin: 10
-        Layout.rightMargin: 10
+        text: "Name"
     }
 }

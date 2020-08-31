@@ -20,20 +20,25 @@ ScrollView{
             Layout.fillWidth: true
             content: ColumnLayout {
 
-                Label{
-                    text: "Name";
-                    verticalAlignment: Qt.AlignBottom
-                    Layout.fillHeight: true
-                    Layout.margins: 10
-                    color: "#3c4b64"
+//                Label{
+//                    text: "Name";
+//                    verticalAlignment: Qt.AlignBottom
+//                    Layout.fillHeight: true
+//                    Layout.leftMargin: 10
 
-                }
-                CTextInput{
-                    placeholderText: "Enter your name"
-                    Layout.fillWidth: true
-                    Layout.margins: 10
-                    Layout.leftMargin: 10
-                    Layout.rightMargin: 10
+//                    color: "#3c4b64"
+
+//                }
+//                CTextInput{
+//                    placeholderText: "Enter your name"
+//                    Layout.fillWidth: true
+//                    Layout.margins: 10
+//                    Layout.leftMargin: 10
+//                    Layout.rightMargin: 10
+
+//                }
+
+                CTextInputGroup{
 
                 }
 
@@ -41,7 +46,7 @@ ScrollView{
                     text: "Credit Card Number";
                     verticalAlignment: Qt.AlignBottom
                     Layout.fillHeight: true
-                    Layout.margins: 10
+                    Layout.leftMargin: 10
                     color: "#3c4b64"
 
                 }
@@ -54,11 +59,62 @@ ScrollView{
 
                 }
 
-                CComboBox{
-                    Layout.fillWidth: true
-                    Layout.margins: 10
-                    Layout.leftMargin: 10
-                    Layout.rightMargin: 10
+
+
+                GridLayout{
+                    rows: 2
+                    columns: 3
+                    layoutDirection: Qt.LeftToRight
+                    flow: GridLayout.TopToBottom
+                    rowSpacing: 0
+                    Label{
+                        text: "Month";
+                        verticalAlignment: Qt.AlignBottom
+                        //Layout.fillHeight: true
+                        //Layout.margins: 10
+                        Layout.leftMargin: 10
+                        color: "#3c4b64"
+
+                    }
+
+                    CComboBox{
+                        Layout.fillWidth: true
+                        Layout.margins: 10
+                        Layout.leftMargin: 10
+                        Layout.rightMargin: 10
+                    }
+
+                    Label{
+                        text: "Year";
+                        verticalAlignment: Qt.AlignBottom
+                        //Layout.fillHeight: true
+                        Layout.leftMargin: 10
+                        color: "#3c4b64"
+
+                    }
+
+                    CComboBox{
+                        Layout.fillWidth: true
+                        Layout.margins: 10
+                        Layout.leftMargin: 10
+                        Layout.rightMargin: 10
+                    }
+
+                    Label{
+                        text: "CV/CVC";
+                        verticalAlignment: Qt.AlignBottom
+                        //Layout.fillHeight: true
+                        Layout.leftMargin: 10
+                        color: "#3c4b64"
+
+                    }
+
+                    CComboBox{
+                        Layout.fillWidth: true
+                        Layout.margins: 10
+                        Layout.leftMargin: 10
+                        Layout.rightMargin: 10
+                    }
                 }
             }
         }
@@ -66,8 +122,8 @@ ScrollView{
         Card{
             headerText: "Company"
             //Layout.alignment: Qt.AlignHCenter
-//            Layout.preferredWidth: 488
-//            Layout.preferredHeight: 170
+            //            Layout.preferredWidth: 488
+            //            Layout.preferredHeight: 170
             //Layout.fillHeight: true
             Layout.fillWidth: true
             content: FormGroup{

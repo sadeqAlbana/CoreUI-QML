@@ -88,6 +88,18 @@ ScrollView{
                     textInput.placeholderText: "Country name"
                 }
             }
+        }//end Card
+        Card{
+            headerText: "Company"
+            Layout.fillWidth: true
+            content: ColumnLayout {
+                spacing: 20
+                CTextInputGroup{
+                    label.text: "Email"
+                    textInput.placeholderText: "Country name"
+                    horizontal: true
+                }
+            }
         }
     }
 }

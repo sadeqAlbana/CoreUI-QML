@@ -10,5 +10,6 @@
         <file>components/forms/CComboBox.qml</file>
         <file>components/forms/CLabel.qml</file>
         <file>components/forms/CTextInputGroup.qml</file>
+        <file>components/forms/CComboBoxGroup.qml</file>
     </qresource>
 </RCC>

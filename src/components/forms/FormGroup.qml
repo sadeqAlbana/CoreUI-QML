@@ -15,8 +15,6 @@ GridLayout {
         Layout.fillHeight: horizontal
         Layout.leftMargin: 10
         Layout.rightMargin: 10
-        //Layout.topMargin: horizontal ? 0 : 10
-        //Layout.bottomMargin: 0
         color: "#3c4b64"
     }
 }

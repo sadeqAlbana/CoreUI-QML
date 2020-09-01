@@ -56,11 +56,12 @@ RoundedRect{
             color: accentColor
         }
 
-
-
         Loader{
             id: contentLoader;
-            Layout.margins: 10
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
+            Layout.topMargin: 25
+            Layout.bottomMargin: 25
             Layout.fillHeight: true
             Layout.fillWidth: true
             //Layout.minimumHeight: childrenRect.height
@@ -94,109 +95,3 @@ RoundedRect{
         }
     }
 }
-
-
-
-//Rectangle{
-//    id: card
-//    color : "#fff"
-//    border.color: "#d8dbe0";
-//    radius: 4
-//    smooth: true
-//    antialiasing: true
-//    property alias headerText: headerText.text
-//    property alias footerText: footerText.text
-//    property alias headerVisible: header.visible
-//    property alias footerVisible: footer.visible
-//    property alias content: contentRect.contentComponent
-//    property color accentColor: "#d8dbe0"
-
-
-//    ColumnLayout {
-//        anchors.margins: card.border.width
-//        anchors.fill: parent
-//        spacing: 0
-
-//        RoundedRect{
-//            id:header
-//            bottomLeft: false
-//            bottomRight: false
-//            height: 46
-//            width: parent.width
-//            radius: card.radius
-//            visible: true
-
-//            Text{
-//                id: headerText
-//                height: parent.height
-//                anchors.left: parent.left
-//                color: "#3c4b64"
-//                text: "Card Header"
-//                horizontalAlignment: Text.AlignHCenter
-//                verticalAlignment: Text.AlignVCenter
-//                anchors.leftMargin: 20
-//            }
-//        }
-
-
-//        Rectangle{
-//            visible: header.visible
-//            width: parent.width
-//            height: 1
-//            color: accentColor
-//        }
-
-
-
-//        RoundedRect{
-//            id: contentRect
-//            property Component contentComponent
-//            width: parent.width
-//            Layout.fillHeight: true
-//            color: card.color
-//            topLeft: !header.visible
-//            topRight: !header.visible
-//            bottomLeft: !footer.visible
-//            bottomRight: !footer.visible
-//            radius: card.radius
-
-//            Loader{
-//                anchors.fill: parent;
-//                anchors.margins: 5
-//                id: contentLoader;
-//                sourceComponent: contentRect.contentComponent
-//            }
-//        }
-
-//        Rectangle{
-//            visible: footer.visible
-//            width: parent.width
-//            height: 1
-//            color: accentColor
-//        }
-
-
-
-//        RoundedRect{
-//            id:footer
-//            topLeft: false
-//            topRight: false
-//            height: 46
-//            width: parent.width
-//            radius: card.radius
-//            visible: false
-
-//            Text{
-//                id: footerText
-//                height: parent.height
-//                anchors.left: parent.left
-//                color: "#3c4b64"
-//                text: "Card Footer"
-//                horizontalAlignment: Text.AlignHCenter
-//                verticalAlignment: Text.AlignVCenter
-//                anchors.leftMargin: 20
-//            }
-//        }
-//    }
-//}
-

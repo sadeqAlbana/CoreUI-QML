@@ -26,9 +26,9 @@ ScrollView{
 
         Card{
             headerText: "Card title"
-            //Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
+            //
+
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -38,8 +38,8 @@ ScrollView{
             footerText: "Card footer"
             headerVisible: false
             footerVisible: true
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
+
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -47,9 +47,9 @@ ScrollView{
 
         Card{
             headerText: "Card with icon"
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
+
+
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -57,9 +57,9 @@ ScrollView{
 
         Card{
             headerText: "Card with switch"
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
+
+
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -67,9 +67,9 @@ ScrollView{
 
         Card{
             headerText: "Card with label"
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
+
+
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -77,9 +77,9 @@ ScrollView{
 
         Card{
             headerText: "Card with label"
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
+
+
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -87,9 +87,9 @@ ScrollView{
 
         Card{
             headerText: "Card Outline"
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
+
+
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -99,9 +99,9 @@ ScrollView{
         //repeated
         Card{
             headerText: "Card Outline"
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
+
+
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -109,9 +109,9 @@ ScrollView{
         }
         Card{
             headerText: "Card Outline"
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
+
+
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -119,9 +119,9 @@ ScrollView{
         }
         Card{
             headerText: "Card Outline"
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
+
+
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -129,9 +129,9 @@ ScrollView{
         }
         Card{
             headerText: "Card Outline"
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
+
+
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -139,9 +139,9 @@ ScrollView{
         }
         Card{
             headerText: "Card Outline"
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
+
+
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -149,9 +149,9 @@ ScrollView{
         }
         Card{
             headerText: "Card Outline"
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
+
+
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -159,9 +159,9 @@ ScrollView{
         }
         Card{
             headerText: "Card Outline"
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
+
+
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -169,9 +169,9 @@ ScrollView{
         }
         Card{
             headerText: "Card Outline"
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: 488
-            Layout.preferredHeight: 170
+
+
+
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea

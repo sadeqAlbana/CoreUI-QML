@@ -19,101 +19,33 @@ ScrollView{
             headerText: "Credit Card"
             Layout.fillWidth: true
             content: ColumnLayout {
-
-//                Label{
-//                    text: "Name";
-//                    verticalAlignment: Qt.AlignBottom
-//                    Layout.fillHeight: true
-//                    Layout.leftMargin: 10
-
-//                    color: "#3c4b64"
-
-//                }
-//                CTextInput{
-//                    placeholderText: "Enter your name"
-//                    Layout.fillWidth: true
-//                    Layout.margins: 10
-//                    Layout.leftMargin: 10
-//                    Layout.rightMargin: 10
-
-//                }
-
+                spacing: 20
                 CTextInputGroup{
                     label.text: "Name"
+                    textInput.placeholderText: "Enter your name"
                 }
 
-                Label{
-                    text: "Credit Card Number";
-                    verticalAlignment: Qt.AlignBottom
-                    Layout.fillHeight: true
-                    Layout.leftMargin: 10
-                    color: "#3c4b64"
-
+                CTextInputGroup{
+                    label.text: "Credit Card Number"
+                    textInput.placeholderText: "0000 0000 0000 0000"
                 }
-                CTextInput{
-                    placeholderText: "0000 0000 0000 0000"
+
+                RowLayout{
                     Layout.fillWidth: true
-                    Layout.margins: 10
-                    Layout.leftMargin: 10
-                    Layout.rightMargin: 10
 
-                }
-
-
-
-                GridLayout{
-                    rows: 2
-                    columns: 3
-                    layoutDirection: Qt.LeftToRight
-                    flow: GridLayout.TopToBottom
-                    rowSpacing: 0
-                    Label{
-                        text: "Month";
-                        verticalAlignment: Qt.AlignBottom
-                        //Layout.fillHeight: true
-                        //Layout.margins: 10
-                        Layout.leftMargin: 10
-                        color: "#3c4b64"
+                    CComboBoxGroup{
+                        label.text: "Month"
 
                     }
 
-                    CComboBox{
-                        Layout.fillWidth: true
-                        Layout.margins: 10
-                        Layout.leftMargin: 10
-                        Layout.rightMargin: 10
-                    }
-
-                    Label{
-                        text: "Year";
-                        verticalAlignment: Qt.AlignBottom
-                        //Layout.fillHeight: true
-                        Layout.leftMargin: 10
-                        color: "#3c4b64"
+                    CComboBoxGroup{
+                        label.text: "Year"
 
                     }
 
-                    CComboBox{
-                        Layout.fillWidth: true
-                        Layout.margins: 10
-                        Layout.leftMargin: 10
-                        Layout.rightMargin: 10
-                    }
+                    CComboBoxGroup{
+                        label.text: "CV/CVC"
 
-                    Label{
-                        text: "CV/CVC";
-                        verticalAlignment: Qt.AlignBottom
-                        //Layout.fillHeight: true
-                        Layout.leftMargin: 10
-                        color: "#3c4b64"
-
-                    }
-
-                    CComboBox{
-                        Layout.fillWidth: true
-                        Layout.margins: 10
-                        Layout.leftMargin: 10
-                        Layout.rightMargin: 10
                     }
                 }
             }
@@ -121,13 +53,40 @@ ScrollView{
 
         Card{
             headerText: "Company"
-            //Layout.alignment: Qt.AlignHCenter
-            //            Layout.preferredWidth: 488
-            //            Layout.preferredHeight: 170
-            //Layout.fillHeight: true
             Layout.fillWidth: true
-            content: FormGroup{
+            content: ColumnLayout {
+                spacing: 20
+                CTextInputGroup{
+                    label.text: "Company"
+                    textInput.placeholderText: "Enter your company name"
+                }
 
+                CTextInputGroup{
+                    label.text: "VAT"
+                    textInput.placeholderText: "pl1234567890"
+                }
+
+                CTextInputGroup{
+                    label.text: "Street"
+                    textInput.placeholderText: "Enter street name"
+                }
+
+                RowLayout{
+                    CTextInputGroup{
+                        label.text: "City"
+                        textInput.placeholderText: "Enter your city"
+                    }
+
+                    CTextInputGroup{
+                        label.text: "Postal Code"
+                        textInput.placeholderText: "Postal Code"
+                    }
+                }
+
+                CTextInputGroup{
+                    label.text: "Country"
+                    textInput.placeholderText: "Country name"
+                }
             }
         }
     }

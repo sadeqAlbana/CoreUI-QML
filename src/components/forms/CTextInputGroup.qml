@@ -21,11 +21,11 @@ FormGroup {
                 implicitHeight: input.height
                 implicitWidth: 50
                 color: "#F0F3F5"
-                Layout.rightMargin: -1*input.background.border.width
+                Layout.rightMargin: -1*(input.border.width+input.radius)
                 Component.onCompleted: {
                     input.background.topLeft=Qt.binding(function(){return !visible })
                     input.background.bottomLeft=Qt.binding(function(){return !visible })
-                    border.color= input.background.border.color
+                    border.color= input.border.color
 
                 }
             }

@@ -5,8 +5,11 @@ import "../SharedComponents"
 TextField {
     id:textField
     selectByMouse: true
+    implicitHeight: 35
+    property alias radius: backgroundRect.radius
+    property alias border: backgroundRect.border
     background: RoundedRect{
-        id: rect;
+        id: backgroundRect;
         color : "#fff"
         border.color: "#d8dbe0";
         radius: 4
@@ -25,7 +28,7 @@ TextField {
     states: State{
         name: "active"
         when: activeFocus
-        PropertyChanges {target: rect.border; color: "#8AD4EE";}
+        PropertyChanges {target: backgroundRect.border; color: "#8AD4EE";}
         PropertyChanges {target: layer; enabled: true;}
     }
 }

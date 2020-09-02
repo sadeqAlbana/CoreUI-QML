@@ -99,6 +99,12 @@ ScrollView{
                     textInput.placeholderText: "Country name"
                     horizontal: true
                 }
+                CTextInputGroup{
+                    label.text: "Password"
+                    textInput.placeholderText: "Password"
+
+                    horizontal: true
+                }
             }
         }
     }

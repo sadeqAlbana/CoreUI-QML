@@ -1,11 +1,11 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.0
+import "../SharedComponents"
 TextField {
     id:textField
     selectByMouse: true
-
-    background: Rectangle{
+    background: RoundedRect{
         id: rect;
         color : "#fff"
         border.color: "#d8dbe0";

@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.12
+import "qrc:/CoreUI/components/SharedComponents"
 FormGroup {
     property alias textInput: input
 
@@ -9,9 +10,30 @@ FormGroup {
         Layout.fillWidth: true
         Layout.leftMargin: 10
         Layout.rightMargin: 10
-        CTextInput{
-            id:input
-            Layout.fillWidth: true
+
+        RowLayout{
+        spacing: 0
+            RoundedRect{
+
+                topRight: false
+                bottomRight: false
+                radius: input.background.radius
+                implicitHeight: input.height
+                implicitWidth: 50
+                color: "#F0F3F5"
+                Layout.rightMargin: -1*input.background.border.width
+                Component.onCompleted: {
+                    input.background.topLeft=Qt.binding(function(){return !visible })
+                    input.background.bottomLeft=Qt.binding(function(){return !visible })
+                    border.color= input.background.border.color
+
+                }
+            }
+
+            CTextInput{
+                id:input
+                Layout.fillWidth: true
+            }
         }
         Label{
             id: helpBlock

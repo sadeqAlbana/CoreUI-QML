@@ -6,22 +6,22 @@ TextField {
     id:textField
     selectByMouse: true
     implicitHeight: 35
+    layer.enabled: false
     property alias radius: backgroundRect.radius
     property alias border: backgroundRect.border
+    property color glowColor : "#DCD9F9"
+
     background: RoundedRect{
         id: backgroundRect;
         color : "#fff"
         border.color: "#d8dbe0";
         radius: 4
-
     }
-
-    layer.enabled: false
     layer.effect: Glow {
-        id: glow
+        id: glowItem
         samples: 8
         spread: 1
-        color: "#DCD9F9"
+        color: glowColor
         transparentBorder: true
     }
 

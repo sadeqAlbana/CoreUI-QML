@@ -98,8 +98,8 @@ ScrollView{
                     label.text: "Email"
                     textInput.placeholderText: "Country name"
                     horizontal: true
-//                    leftRectVisible: true
-//                    rightRectVisible: true
+                    //                    leftRectVisible: true
+                    //                    rightRectVisible: true
                     //labelWidth: 600
                 }
                 CTextInputGroup{
@@ -111,12 +111,37 @@ ScrollView{
                 }
 
                 AdvancedTextInput{
-                Layout.fillWidth: true
-                leftRectVisible: true
-                rightRectVisible: true
+                    Layout.fillWidth: true
+                    leftRectVisible: true
+                    rightRectVisible: true
 
                 }
             }
-        }
+        }//card
+
+        Card{
+            headerText: "Horizontal Form"
+            Layout.fillWidth: true
+            content: GridLayout {
+                columns: 2
+                Label{
+                    id: textLabel
+//                    verticalAlignment: horizontal ? Qt.AlignVCenter : Qt.AlignBottom
+//                    Layout.fillHeight: horizontal
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Email"
+                }
+
+
+                AdvancedTextInput{
+                    Layout.fillWidth: true
+                    leftRectVisible: true
+                    rightRectVisible: true
+
+                }
+            }
+        }//card end
     }
 }

@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.12
 ColumnLayout{
     id:layout
     property alias text: input.text
+    //property alias helpText: helpBlock.text
     property alias leftRectContent: leftRectLoader.sourceComponent
     property alias leftRectVisible: leftRect.visible
     property alias rightRectVisible: rightRect.visible
@@ -81,15 +82,22 @@ ColumnLayout{
             }
         }
     }
-    Label{
-        id: helpBlock
-        visible: text!=""
-        text: "test"
-        //color: label.color
-        //            Component.onCompleted: {
-        //                label.bottomPadding = Qt.binding(function(){
-        //                    return (visible && horizontal) ? height+layout.spacing : 0})
-        //            }
+    Loader{
+        id: helpBlockLoader
+        sourceComponent: Label{
+            id: helpBlock
+            visible: text!=""
+            text: "test"
+            color: "#3c4b64"
+            //            Component.onCompleted: {
+            //                label.bottomPadding = Qt.binding(function(){
+            //                    return (visible && horizontal) ? height+layout.spacing : 0})
+            //            }
+        }
+
+
     }
+
+
 }//layout end
 

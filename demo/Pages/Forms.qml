@@ -98,12 +98,23 @@ ScrollView{
                     label.text: "Email"
                     textInput.placeholderText: "Country name"
                     horizontal: true
+//                    leftRectVisible: true
+//                    rightRectVisible: true
+                    //labelWidth: 600
                 }
                 CTextInputGroup{
                     label.text: "Password"
                     textInput.placeholderText: "Password"
-
                     horizontal: true
+                    //labelWidth: 600
+
+                }
+
+                AdvancedTextInput{
+                Layout.fillWidth: true
+                leftRectVisible: true
+                rightRectVisible: true
+
                 }
             }
         }

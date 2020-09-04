@@ -6,6 +6,9 @@ FormGroup {
     property alias textInput: input
     property alias text: input.text
     property alias leftRectContent: leftRectLoader.sourceComponent
+    property alias leftRectVisible: leftRect.visible
+    property alias rightRectVisible: rightRect.visible
+    property alias rightRectContent: rightRectLoader.sourceComponent
 
     ColumnLayout{
         id:layout
@@ -15,6 +18,8 @@ FormGroup {
         RowLayout{
         spacing: 0
             RoundedRect{
+                id: leftRect;
+                visible: false
                 topRight: false
                 bottomRight: false
                 radius: input.background.radius
@@ -27,19 +32,19 @@ FormGroup {
                     input.background.bottomLeft=Qt.binding(function(){return !visible })
                     border.color= input.border.color
                 }
-
                 Loader{
                     id:leftRectLoader
                     anchors.fill: parent;
                     sourceComponent: Label{
-                        anchors.leftMargin: 50
-
-                        text: "test"
+                        leftPadding: 10
+                        rightPadding: 15
                         width: paintedWidth
-                        //height: paintedHeight
+                        height: paintedHeight
                         anchors.centerIn: parent
-                        horizontalAlignment: Qt.AlignHCenter
-                        verticalAlignment: Qt.AlignVCenter
+                        text: "Left"
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+
                     }
                 }
             }
@@ -47,6 +52,39 @@ FormGroup {
             CTextInput{
                 id:input
                 Layout.fillWidth: true
+                z:2
+            }
+
+            RoundedRect{
+                id: rightRect;
+                visible: false
+                topLeft: false
+                bottomLeft: false
+                radius: input.background.radius
+                implicitHeight: input.height
+                implicitWidth: rightRectLoader.implicitWidth
+                color: "#F0F3F5"
+                Layout.leftMargin: -1*(input.border.width+input.radius)
+                Component.onCompleted: {
+                    input.background.topRight=Qt.binding(function(){return !visible })
+                    input.background.bottomRight=Qt.binding(function(){return !visible })
+                    border.color= input.border.color
+                }
+                Loader{
+                    id:rightRectLoader
+                    anchors.fill: parent;
+                    sourceComponent: Label{
+                        leftPadding: 15
+                        rightPadding: 10
+                        width: paintedWidth
+                        height: paintedHeight
+                        anchors.centerIn: parent
+                        text: "Right"
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+
+                    }
+                }
             }
         }
         Label{
@@ -59,5 +97,5 @@ FormGroup {
                     return (visible && horizontal) ? height+layout.spacing : 0})
             }
         }
-    }
+    }//layout end
 }

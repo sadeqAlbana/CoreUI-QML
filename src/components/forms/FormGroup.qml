@@ -6,6 +6,7 @@ import QtGraphicalEffects 1.0
 GridLayout {
     property bool horizontal: false
     property alias label: textLabel
+//    property alias labelWidth: textLabel.width
     rows: horizontal ? 1 : 2
     columns: horizontal ? 2 : 1
 

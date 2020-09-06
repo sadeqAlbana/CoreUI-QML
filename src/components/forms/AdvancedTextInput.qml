@@ -5,11 +5,15 @@ import QtQuick.Layouts 1.12
 ColumnLayout{
     id:layout
     property alias text: input.text
+    property alias echoMode: input.echoMode
+    property alias placeHolderText: input.placeholderText
+    property alias placeholderTextColor : input.placeholderTextColor
     //property alias helpText: helpBlock.text
     property alias leftRectContent: leftRectLoader.sourceComponent
     property alias leftRectVisible: leftRect.visible
     property alias rightRectVisible: rightRect.visible
     property alias rightRectContent: rightRectLoader.sourceComponent
+    property alias helpBlock: helpBlockLoader.sourceComponent
     RowLayout{
         spacing: 0
         RoundedRect{
@@ -84,18 +88,6 @@ ColumnLayout{
     }
     Loader{
         id: helpBlockLoader
-        sourceComponent: Label{
-            id: helpBlock
-            visible: text!=""
-            text: "test"
-            color: "#3c4b64"
-            //            Component.onCompleted: {
-            //                label.bottomPadding = Qt.binding(function(){
-            //                    return (visible && horizontal) ? height+layout.spacing : 0})
-            //            }
-        }
-
-
     }
 
 

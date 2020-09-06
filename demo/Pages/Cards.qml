@@ -6,29 +6,15 @@ ScrollView{
     id:scrollView
     clip: true
     anchors.fill: parent;
-//    contentWidth: grildLayout.width    // The important part
-//    contentHeight: grildLayout.height
     property string cardText: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.";
     GridLayout {
         id:grildLayout
-        //anchors.fill: parent;
-//        width: Math.max(implicitWidth, scrollView.availableWidth)
-//        height: Math.max(implicitHeight, scrollView.availableHeight)
-
         width: parent.parent.width
-        //height: parent.parent.height
         columnSpacing: 30
         rowSpacing: 30
         columns: 3
-
-        //rows: 10
-
-
         Card{
             headerText: "Card title"
-            //
-
-
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -38,8 +24,6 @@ ScrollView{
             footerText: "Card footer"
             headerVisible: false
             footerVisible: true
-
-
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -47,9 +31,6 @@ ScrollView{
 
         Card{
             headerText: "Card with icon"
-
-
-
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
@@ -57,9 +38,6 @@ ScrollView{
 
         Card{
             headerText: "Card with switch"
-
-
-
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea

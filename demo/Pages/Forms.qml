@@ -92,30 +92,40 @@ ScrollView{
         Card{
             headerText: "Company"
             Layout.fillWidth: true
-            content: ColumnLayout {
-                spacing: 20
-                CTextInputGroup{
-                    label.text: "Email"
-                    textInput.placeholderText: "Country name"
-                    horizontal: true
-                    //                    leftRectVisible: true
-                    //                    rightRectVisible: true
-                    //labelWidth: 600
+            content: GridLayout {
+                columns: 2
+                rowSpacing: 30
+                columnSpacing: 100
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Static"
                 }
-                CTextInputGroup{
-                    label.text: "Password"
-                    textInput.placeholderText: "Password"
-                    horizontal: true
-                    //labelWidth: 600
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Username"
+                }
 
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Text Input"
+                    bottomPadding: 25
                 }
 
                 AdvancedTextInput{
-                    Layout.fillWidth: true
-                    leftRectVisible: true
-                    rightRectVisible: true
-
+                    placeHolderText: "Text"
+                    helpBlock : Label{
+                        id: textHelpBlock
+                        color: "#3c4b64"
+                        text: "This is a help text"
+                    }
                 }
+
             }
         }//card
 
@@ -124,23 +134,40 @@ ScrollView{
             Layout.fillWidth: true
             content: GridLayout {
                 columns: 2
+                rowSpacing: 30
+                columnSpacing: 100
                 Label{
-                    id: textLabel
-//                    verticalAlignment: horizontal ? Qt.AlignVCenter : Qt.AlignBottom
-//                    Layout.fillHeight: horizontal
                     Layout.leftMargin: 10
                     Layout.rightMargin: 10
                     color: "#3c4b64"
                     text: "Email"
+                    bottomPadding: 25
                 }
-
-
                 AdvancedTextInput{
                     Layout.fillWidth: true
-                    leftRectVisible: true
-                    rightRectVisible: true
-
+                    helpBlock : Label{
+                        color: "#3c4b64"
+                        text: "Please enter your email"
+                    }
                 }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Password"
+                    bottomPadding: 25
+                }
+                AdvancedTextInput{
+                    Layout.fillWidth: true
+                    echoMode: TextInput.Password
+                    helpBlock : Label{
+                        color: "#3c4b64"
+                        text: "Please enter your password"
+                    }
+                }
+
+
             }
         }//card end
     }

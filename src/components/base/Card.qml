@@ -28,7 +28,6 @@ RoundedRect{
         anchors.fill: parent
         spacing: 0
 
-
         Rectangle{
             id:header
             implicitHeight: 46

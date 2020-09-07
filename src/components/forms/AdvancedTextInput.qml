@@ -8,12 +8,12 @@ ColumnLayout{
     property alias echoMode: input.echoMode
     property alias placeHolderText: input.placeholderText
     property alias placeholderTextColor : input.placeholderTextColor
-    //property alias helpText: helpBlock.text
     property alias leftRectContent: leftRectLoader.sourceComponent
     property alias leftRectVisible: leftRect.visible
     property alias rightRectVisible: rightRect.visible
     property alias rightRectContent: rightRectLoader.sourceComponent
     property alias helpBlock: helpBlockLoader.sourceComponent
+    property alias textInput : input
     RowLayout{
         spacing: 0
         RoundedRect{

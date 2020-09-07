@@ -126,6 +126,64 @@ ScrollView{
                     }
                 }
 
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Email"
+                    bottomPadding: 25
+                }
+                AdvancedTextInput{
+                    Layout.fillWidth: true
+                    helpBlock : Label{
+                        color: "#3c4b64"
+                        text: "Please enter your email"
+                    }
+                }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Password"
+                    bottomPadding: 25
+                }
+                AdvancedTextInput{
+                    Layout.fillWidth: true
+                    echoMode: TextInput.Password
+                    helpBlock : Label{
+                        color: "#3c4b64"
+                        text: "Please enter your password"
+                    }
+                }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Date Input"
+                    bottomPadding: 25
+                }
+                AdvancedTextInput{
+                    Layout.fillWidth: true
+                    text:"15/04/2012"
+                    textInput.inputMask: "00/00/0000"
+
+                    onTextChanged: {
+                        var validator = RegExpValidator;
+
+                    }
+
+//                    textInput.validator : RegExpValidator{
+//                        regExp: /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/
+//                    }
+
+                    helpBlock : Label{
+                        color: "#3c4b64"
+                        text: "Please enter a valid date"
+                    }
+                }
+
             }
         }//card
 

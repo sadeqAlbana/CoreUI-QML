@@ -28,14 +28,14 @@ TextField {
     states: [
         State{
             name: "rejected and active"
-            when: validator!==null && !acceptableInput && activeFocus
+            when:  !acceptableInput && activeFocus
             PropertyChanges {target: backgroundRect.border; color: "red";}
             PropertyChanges {target: layer; enabled: true;}
             PropertyChanges {target: textField; glowColor: "#F2A8A8";}
         },
         State{
             name: "rejected"
-            when: validator!==null && !acceptableInput
+            when: !acceptableInput
             PropertyChanges {target: backgroundRect.border; color: "red";}
         },
         State{
@@ -45,10 +45,4 @@ TextField {
             PropertyChanges {target: layer; enabled: true;}
         }
     ]
-
-    Component.onCompleted: {
-        console.log(validator);
-    }
-
-
 }

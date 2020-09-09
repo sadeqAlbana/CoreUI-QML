@@ -30,4 +30,16 @@ ComboBox{
         state=activeFocus ? "active" : ""
         layer.enabled=activeFocus ? true : false
     }
+
+    model: ListModel {
+        id: model
+        ListElement { text: "Banana" }
+        ListElement { text: "Apple" }
+        ListElement { text: "Coconut" }
+    }
+
+    delegate: CheckDelegate{
+
+    }
+
 }

@@ -2,7 +2,7 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.12
-import "CoreUI"
+import "qrc:/CoreUI"
 ApplicationWindow {
     visible: true
     width: 640
@@ -11,8 +11,6 @@ ApplicationWindow {
     visibility: Window.Maximized
 
     id: rootItem
-
-
 
     Loader{
         id: rootLoader

@@ -2,10 +2,10 @@ import QtQuick 2.0
 import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.0
 import "../SharedComponents"
-TextField {
-    id:textField
+TextArea {
+    id:textArea
     selectByMouse: true
-    implicitHeight: 35
+    implicitHeight: 150
     layer.enabled: false
     property alias radius: backgroundRect.radius
     property alias border: backgroundRect.border

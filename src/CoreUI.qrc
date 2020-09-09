@@ -12,5 +12,7 @@
         <file>components/forms/CTextInputGroup.qml</file>
         <file>components/forms/CComboBoxGroup.qml</file>
         <file>components/forms/AdvancedTextInput.qml</file>
+        <file>components/forms/CTextArea.qml</file>
+        <file>components/forms/CheckableComboBox.qml</file>
     </qresource>
 </RCC>

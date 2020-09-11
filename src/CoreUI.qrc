@@ -14,5 +14,6 @@
         <file>components/forms/AdvancedTextInput.qml</file>
         <file>components/forms/CTextArea.qml</file>
         <file>components/forms/CheckableComboBox.qml</file>
+        <file>components/forms/CListView.qml</file>
     </qresource>
 </RCC>

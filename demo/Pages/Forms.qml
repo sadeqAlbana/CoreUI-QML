@@ -35,7 +35,6 @@ ScrollView{
 
                     CComboBoxGroup{
                         label.text: "Month"
-
                     }
 
                     CComboBoxGroup{
@@ -211,25 +210,80 @@ ScrollView{
                     Layout.leftMargin: 10
                     Layout.rightMargin: 10
                     color: "#3c4b64"
-                    text: "Email"
+                    text: "Select"
                 }
 
                 CComboBox{
-                    id:cb
                     Layout.fillWidth: true
                     model: ListModel {
-                        id: model
-                        ListElement { text: "Banana"; checked:false;}
-                        ListElement { text: "Apple"; checked:false; }
-                        ListElement { text: "Coconut"; checked:false; }
+                        ListElement { modelData: "Option #1"; }
+                        ListElement { modelData: "Option #2";  }
+                        ListElement { modelData: "Option #3"; }
                     }
-                    displayText: "multi select"
-                    delegate: CheckDelegate{
-                        text: model.text
-                        checked: model.checked
-                        highlighted: cb.highlightedIndex==index
-//                        display: AbstractButton.IconOnly
+                }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Select Large"
+                }
+
+                CComboBox{
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: implicitHeight*1.3
+                    model: ListModel {
+                        ListElement { modelData: "Option #1"; }
+                        ListElement { modelData: "Option #2";  }
+                        ListElement { modelData: "Option #3"; }
                     }
+                }
+
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Select Small"
+                }
+
+                CComboBox{
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: implicitHeight/1.3
+                    model: ListModel {
+                        ListElement { modelData: "Option #1"; }
+                        ListElement { modelData: "Option #2";  }
+                        ListElement { modelData: "Option #3"; }
+                    }
+                }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Disabled Select"
+                }
+
+                CComboBox{
+                    Layout.fillWidth: true
+                    enabled: false
+                    model: ListModel {
+                        ListElement { modelData: "Option #1"; }
+                        ListElement { modelData: "Option #2";  }
+                        ListElement { modelData: "Option #3"; }
+                    }
+                }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Multiple select"
+                }
+
+                CListView{
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 500
                 }
 
             }
@@ -272,6 +326,7 @@ ScrollView{
                         text: "Please enter your password"
                     }
                 }
+
             }
         }//card end
     }

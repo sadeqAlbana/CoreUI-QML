@@ -168,7 +168,7 @@ Item {
 
                 }
 
-                width: parent.width;
+                width: ListView.view.width
                 height: 48.33
                 hoverEnabled: true
                 highlighted: ListView.isCurrentItem
@@ -353,7 +353,7 @@ Item {
 
             section.property: "category"
             section.criteria: ViewSection.FullString
-            section.delegate: Rectangle{
+            section.delegate: Rectangle{ //change to item delegate  ?
                 id: sectionHeading
                 width: parent.width
                 height: 52.33

@@ -3,46 +3,74 @@ import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.0
 import "../SharedComponents"
 TextField {
-    id:textField
+    id:control
     selectByMouse: true
     layer.enabled: false
-    //implicitHeight: contentHeight+bottomPadding
 
 
     property alias radius: backgroundRect.radius
     property alias border: backgroundRect.border
     property color glowColor : "#DCD9F9"
-    //topInset: 25
+
+//    property alias leftRectContent: leftRectLoader.sourceComponent
+//    property alias rightRectContent: rightRectLoader.sourceComponent
+
+
     text: "test"
-    //padding: 0
-    //bottomInset: helpBlockLoader.implicitHeight
     bottomInset: helpBlockLoader.visible ? helpBlockLoader.implicitHeight : 0
     bottomPadding:bottomInset+padding
+
+    leftInset: leftRect.visible ? leftRect.implicitWidth : 0
+    leftPadding:leftRect.visible ? leftInset+padding : leftPadding
+//    leftInset: 35
+//    leftPadding: 35
     property alias helpBlock: helpBlockLoader.sourceComponent
-//    Component.onCompleted: {
-//        console.log(bottomInset)
-//        console.log(bottomPadding)
-//        console.log(implicitHeight)
-//        console.log(height)
-//        console.log(contentHeight)
-//    }
+
 
 
     background: RoundedRect{
         id: backgroundRect;
         implicitHeight: 35
-
         color : "#fff"
         border.color: "#d8dbe0";
         radius: 4
+
+
+
     }
-    layer.effect: Glow {
+
+    RoundedRect{
+        id: leftRect;
+        //visible: leftRectLoader.sourceComponent!==null
+        visible: true
+        topRight: false
+        bottomRight: false
+        radius: control.background.radius
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.bottomMargin: control.bottomInset
+        //implicitWidth: leftRectLoader.implicitWidth
+        implicitWidth: 35
+        color: "#F0F3F5"
+        z:-1
+        Component.onCompleted: {
+            control.background.topLeft=Qt.binding(function(){return !visible })
+            control.background.bottomLeft=Qt.binding(function(){return !visible })
+            border.color= control.border.color
+        }
+    }
+
+     Glow {
         id: glowItem
         samples: 8
         spread: 1
-        color: glowColor
+        //color: glowColor
         transparentBorder: true
+        anchors.fill: background
+        color: "transparent"
     }
+
 
     states: [
         State{

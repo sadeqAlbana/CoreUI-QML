@@ -132,6 +132,7 @@ ScrollView{
                         id: textHelpBlock
                         color: "#3c4b64"
                         text: "This is a help text"
+                        topPadding: 6
                     }
 
 

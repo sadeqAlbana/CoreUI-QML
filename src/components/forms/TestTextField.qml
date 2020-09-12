@@ -6,9 +6,27 @@ TextField {
     id:textField
     selectByMouse: true
     layer.enabled: false
+    //implicitHeight: contentHeight+bottomPadding
+
+
     property alias radius: backgroundRect.radius
     property alias border: backgroundRect.border
     property color glowColor : "#DCD9F9"
+    //topInset: 25
+    text: "test"
+    //padding: 0
+    //bottomInset: helpBlockLoader.implicitHeight
+    bottomInset: helpBlockLoader.visible ? helpBlockLoader.implicitHeight : 0
+    bottomPadding:bottomInset+padding
+    property alias helpBlock: helpBlockLoader.sourceComponent
+//    Component.onCompleted: {
+//        console.log(bottomInset)
+//        console.log(bottomPadding)
+//        console.log(implicitHeight)
+//        console.log(height)
+//        console.log(contentHeight)
+//    }
+
 
     background: RoundedRect{
         id: backgroundRect;
@@ -51,4 +69,16 @@ TextField {
             PropertyChanges {target: backgroundRect; color: "#E4E7EA";}
         }
     ]
+
+    Loader{
+        id: helpBlockLoader
+        visible: sourceComponent!==null
+        anchors.bottom: parent.bottom;
+        anchors.left: parent.left
+        anchors.right: parent.right
+    }
+
+
+
+
 }

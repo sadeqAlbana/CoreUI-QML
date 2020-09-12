@@ -15,5 +15,6 @@
         <file>components/forms/CTextArea.qml</file>
         <file>components/forms/CheckableComboBox.qml</file>
         <file>components/forms/CListView.qml</file>
+        <file>components/forms/TestTextField.qml</file>
     </qresource>
 </RCC>

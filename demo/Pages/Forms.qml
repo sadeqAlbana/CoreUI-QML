@@ -116,13 +116,25 @@ ScrollView{
                     bottomPadding: 25
                 }
 
-                AdvancedTextInput{
-                    placeHolderText: "Text"
+//                AdvancedTextInput{
+//                    placeHolderText: "Text"
+//                    helpBlock : Label{
+//                        id: textHelpBlock
+//                        color: "#3c4b64"
+//                        text: "This is a help text"
+//                    }
+//                }
+
+                TestTextField{
+                    Layout.fillWidth: true
+                    placeholderText: "test222222222222"
                     helpBlock : Label{
                         id: textHelpBlock
                         color: "#3c4b64"
                         text: "This is a help text"
                     }
+
+
                 }
 
                 Label{
@@ -281,10 +293,27 @@ ScrollView{
                     text: "Multiple select"
                 }
 
-                CListView{
+
+                CTextInput{
+//                    placeHolderText: "Text"
                     Layout.fillWidth: true
-                    Layout.preferredHeight: 500
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+//                    Component.onCompleted: {
+//                        console.log("ctextinput: " +bottomInset)
+//                        console.log("ctextinput: " +bottomPadding)
+//                        console.log("ctextinput: " +implicitHeight)
+//                        console.log("ctextinput: " +height)
+//                        console.log("ctextinput: " +contentHeight)
+
+//                    }
+
                 }
+
+//                CListView{
+//                    Layout.fillWidth: true
+//                    Layout.preferredHeight: 500
+//                }
 
             }
         }//card

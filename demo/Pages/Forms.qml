@@ -116,14 +116,14 @@ ScrollView{
                     bottomPadding: 25
                 }
 
-//                AdvancedTextInput{
-//                    placeHolderText: "Text"
-//                    helpBlock : Label{
-//                        id: textHelpBlock
-//                        color: "#3c4b64"
-//                        text: "This is a help text"
-//                    }
-//                }
+                //                AdvancedTextInput{
+                //                    placeHolderText: "Text"
+                //                    helpBlock : Label{
+                //                        id: textHelpBlock
+                //                        color: "#3c4b64"
+                //                        text: "This is a help text"
+                //                    }
+                //                }
 
                 TestTextField{
                     Layout.fillWidth: true
@@ -135,6 +135,24 @@ ScrollView{
                         topPadding: 6
                     }
 
+                    text: " test 22222222222222222222222222222111"
+
+//                    leftRectContent: Rectangle{
+//                        color: "red"
+
+//                        anchors.fill: parent;
+//                    }
+
+                    leftRectContent: Label{
+                        leftPadding: 15
+                        rightPadding: 10
+                        width: paintedWidth
+//                        height: paintedHeight
+                        anchors.centerIn: parent
+                        text: "Right"
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
 
                 }
 
@@ -296,25 +314,25 @@ ScrollView{
 
 
                 CTextInput{
-//                    placeHolderText: "Text"
+                    //                    placeHolderText: "Text"
                     Layout.fillWidth: true
                     Layout.leftMargin: 10
                     Layout.rightMargin: 10
-//                    Component.onCompleted: {
-//                        console.log("ctextinput: " +bottomInset)
-//                        console.log("ctextinput: " +bottomPadding)
-//                        console.log("ctextinput: " +implicitHeight)
-//                        console.log("ctextinput: " +height)
-//                        console.log("ctextinput: " +contentHeight)
+                    //                    Component.onCompleted: {
+                    //                        console.log("ctextinput: " +bottomInset)
+                    //                        console.log("ctextinput: " +bottomPadding)
+                    //                        console.log("ctextinput: " +implicitHeight)
+                    //                        console.log("ctextinput: " +height)
+                    //                        console.log("ctextinput: " +contentHeight)
 
-//                    }
+                    //                    }
 
                 }
 
-//                CListView{
-//                    Layout.fillWidth: true
-//                    Layout.preferredHeight: 500
-//                }
+                //                CListView{
+                //                    Layout.fillWidth: true
+                //                    Layout.preferredHeight: 500
+                //                }
 
             }
         }//card

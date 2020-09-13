@@ -139,15 +139,17 @@ ScrollView{
 
 //                    leftRectContent: Rectangle{
 //                        color: "red"
-
 //                        anchors.fill: parent;
+//                        implicitWidth: 40
 //                    }
 
                     leftRectContent: Label{
-                        leftPadding: 15
-                        rightPadding: 10
+                        //leftPadding: 15
+                        //rightPadding: 10
+                        rightPadding: 100
                         width: paintedWidth
-//                        height: paintedHeight
+
+                        height: paintedHeight
                         anchors.centerIn: parent
                         text: "Right"
                         horizontalAlignment: Text.AlignHCenter

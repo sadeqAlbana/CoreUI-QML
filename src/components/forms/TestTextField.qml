@@ -51,11 +51,12 @@ TextField {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.bottomMargin: control.bottomInset
-        anchors.leftMargin: -1*(control.border.width+control.radius)
+        anchors.rightMargin: -1*(control.border.width+control.radius)
+        anchors.right: backgroundRect.left
         color: "red"
         //implicitWidth: leftRectLoader.implicitWidth
-        implicitHeight: parent.height-1
-        implicitWidth: leftRectLoader.implicitWidth ? leftRectLoader.implicitWidth : 35
+        implicitHeight: parent.height
+        implicitWidth: leftRectLoader.implicitWidth
         //color: "#F0F3F5"
         z:-2
 
@@ -69,7 +70,8 @@ TextField {
             id:leftRectLoader
             clip: true
             anchors.fill: parent;
-            anchors.margins: leftRect.border.width*2
+            anchors.margins: parent.radius
+
         }
     }
 

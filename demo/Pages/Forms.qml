@@ -122,15 +122,15 @@ ScrollView{
                     layoutDirection: Qt.LeftToRight
                     flow: GridLayout.TopToBottom
 
-//                    CComboBoxGroup{
-//                        label.text: "Year"
+                    //                    CComboBoxGroup{
+                    //                        label.text: "Year"
 
-//                    }
+                    //                    }
 
-//                    CComboBoxGroup{
-//                        label.text: "CV/CVC"
+                    //                    CComboBoxGroup{
+                    //                        label.text: "CV/CVC"
 
-//                    }
+                    //                    }
                 }
             }
         }
@@ -226,23 +226,23 @@ ScrollView{
 
                     text: " test 22222222222222222222222222222111"
 
-//                    leftRectContent: Rectangle{
-//                        color: "red"
-//                        anchors.fill: parent;
-//                        implicitWidth: 40
-//                        //anchors.margins: 2
-//                        opacity: 0.2
-//                        //clip: true
+                    //                    leftRectContent: Rectangle{
+                    //                        color: "red"
+                    //                        anchors.fill: parent;
+                    //                        implicitWidth: 40
+                    //                        //anchors.margins: 2
+                    //                        opacity: 0.2
+                    //                        //clip: true
 
-//                        MouseArea{
-//                            anchors.fill: parent;
-//                            hoverEnabled: true
-//                            onHoveredChanged: {
-//                                parent.opacity= hovered ? 1  : 0.2
-//                                console.log(hovered);
-//                            }
-//                        }
-//                    }
+                    //                        MouseArea{
+                    //                            anchors.fill: parent;
+                    //                            hoverEnabled: true
+                    //                            onHoveredChanged: {
+                    //                                parent.opacity= hovered ? 1  : 0.2
+                    //                                console.log(hovered);
+                    //                            }
+                    //                        }
+                    //                    }
 
                     leftRectContent: Label{
                         leftPadding: 10
@@ -425,26 +425,26 @@ ScrollView{
                 }
 
 
-                CTextInput{
-                    //                    placeHolderText: "Text"
+//                CTextInput{
+//                    //                    placeHolderText: "Text"
+//                    Layout.fillWidth: true
+//                    Layout.leftMargin: 10
+//                    Layout.rightMargin: 10
+//                    //                    Component.onCompleted: {
+//                    //                        console.log("ctextinput: " +bottomInset)
+//                    //                        console.log("ctextinput: " +bottomPadding)
+//                    //                        console.log("ctextinput: " +implicitHeight)
+//                    //                        console.log("ctextinput: " +height)
+//                    //                        console.log("ctextinput: " +contentHeight)
+
+//                    //                    }
+
+//                }
+
+                CListView{
                     Layout.fillWidth: true
-                    Layout.leftMargin: 10
-                    Layout.rightMargin: 10
-                    //                    Component.onCompleted: {
-                    //                        console.log("ctextinput: " +bottomInset)
-                    //                        console.log("ctextinput: " +bottomPadding)
-                    //                        console.log("ctextinput: " +implicitHeight)
-                    //                        console.log("ctextinput: " +height)
-                    //                        console.log("ctextinput: " +contentHeight)
-
-                    //                    }
-
+                    Layout.preferredHeight: 500
                 }
-
-                //                CListView{
-                //                    Layout.fillWidth: true
-                //                    Layout.preferredHeight: 500
-                //                }
 
             }
         }//card

@@ -23,6 +23,7 @@ TextField {
 
 
     background: RoundedRect{
+        //border.width: 3
         id: backgroundRect;
         implicitHeight: 35
         color : "#fff"
@@ -51,19 +52,21 @@ TextField {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.bottomMargin: control.bottomInset
-        anchors.rightMargin: -1*(control.border.width+control.radius)
+        anchors.rightMargin: -1*(control.border.width)
+
         anchors.right: backgroundRect.left
-        color: "red"
+        //color: "red"
         //implicitWidth: leftRectLoader.implicitWidth
         implicitHeight: parent.height
         implicitWidth: leftRectLoader.implicitWidth
-        //color: "#F0F3F5"
+        color: "#F0F3F5"
         z:-2
 
         Component.onCompleted: {
             control.background.topLeft=Qt.binding(function(){return !visible })
             control.background.bottomLeft=Qt.binding(function(){return !visible })
             border.color= control.border.color
+            border.width=control.border.width
         }
 
         Loader{
@@ -85,9 +88,12 @@ TextField {
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         anchors.bottomMargin: control.bottomInset
-        //implicitWidth: leftRectLoader.implicitWidth
+        anchors.leftMargin: -1*(control.border.width)
+
+        implicitHeight: parent.height
+        implicitWidth: leftRectLoader.implicitWidth
         color: "#F0F3F5"
-        z:-1
+        z:-2
         Component.onCompleted: {
             control.background.topRight=Qt.binding(function(){return !visible })
             control.background.bottomRight=Qt.binding(function(){return !visible })

@@ -18,6 +18,7 @@ ScrollView{
         Card{
             headerText: "Credit Card"
             Layout.fillWidth: true
+            Layout.alignment: Qt.AlignTop
             content: ColumnLayout {
                 spacing: 20
                 CTextInputGroup{
@@ -30,22 +31,100 @@ ScrollView{
                     textInput.placeholderText: "0000 0000 0000 0000"
                 }
 
-                RowLayout{
+                GridLayout{
                     Layout.fillWidth: true
+                    rows:2
+                    columns:3
 
-                    CComboBoxGroup{
-                        label.text: "Month"
+
+                    Label{
+                        Layout.leftMargin: 10
+                        Layout.rightMargin: 10
+                        color: "#3c4b64"
+                        text: "Month"
+                    }
+                    CComboBox{
+                        Layout.fillWidth: true
+                        Layout.leftMargin: 10
+                        Layout.rightMargin: 10
+                        model: ListModel {
+                            ListElement { modelData: 1;}
+                            ListElement { modelData: 2; }
+                            ListElement { modelData: 3;}
+                            ListElement { modelData: 4;}
+                            ListElement { modelData: 5;}
+                            ListElement { modelData: 6;}
+                            ListElement { modelData: 7;}
+                            ListElement { modelData: 8;}
+                            ListElement { modelData: 9;}
+                            ListElement { modelData: 10;}
+                            ListElement { modelData: 11;}
+                            ListElement { modelData: 12;}
+                        }
                     }
 
-                    CComboBoxGroup{
-                        label.text: "Year"
-
+                    Label{
+                        Layout.leftMargin: 10
+                        Layout.rightMargin: 10
+                        color: "#3c4b64"
+                        text: "Year"
                     }
 
-                    CComboBoxGroup{
-                        label.text: "CV/CVC"
 
+                    CComboBox{
+                        Layout.fillWidth: true
+                        Layout.leftMargin: 10
+                        Layout.rightMargin: 10
+                        model: ListModel {
+                            ListElement { modelData: 2020;}
+                            ListElement { modelData: 2021; }
+                            ListElement { modelData: 2022;}
+                            ListElement { modelData: 2023;}
+                            ListElement { modelData: 2024;}
+                            ListElement { modelData: 2025;}
+                            ListElement { modelData: 2026;}
+                            ListElement { modelData: 2027;}
+                            ListElement { modelData: 2028;}
+                            ListElement { modelData: 2029;}
+                            ListElement { modelData: 2030;}
+
+
+                        }
                     }
+
+                    Label{
+                        Layout.leftMargin: 10
+                        Layout.rightMargin: 10
+
+                        color: "#3c4b64"
+                        text: "CV/CVC"
+                    }
+
+                    CTextInput{
+                        Layout.fillWidth: true
+                        Layout.leftMargin: 10
+                        Layout.rightMargin: 10
+                        placeholderText: "123"
+                        validator: IntValidator{
+                            bottom: 100
+                            top:999
+                        }
+                    }
+
+
+
+                    layoutDirection: Qt.LeftToRight
+                    flow: GridLayout.TopToBottom
+
+//                    CComboBoxGroup{
+//                        label.text: "Year"
+
+//                    }
+
+//                    CComboBoxGroup{
+//                        label.text: "CV/CVC"
+
+//                    }
                 }
             }
         }
@@ -141,15 +220,36 @@ ScrollView{
 //                        color: "red"
 //                        anchors.fill: parent;
 //                        implicitWidth: 40
+//                        //anchors.margins: 2
+//                        opacity: 0.2
+//                        //clip: true
+
+//                        MouseArea{
+//                            anchors.fill: parent;
+//                            hoverEnabled: true
+//                            onHoveredChanged: {
+//                                parent.opacity= hovered ? 1  : 0.2
+//                                console.log(hovered);
+//                            }
+//                        }
 //                    }
 
                     leftRectContent: Label{
-                        //leftPadding: 15
-                        //rightPadding: 10
-                        rightPadding: 100
-                        width: paintedWidth
+                        leftPadding: 10
+                        rightPadding: 10
+                        anchors.fill: parent;
+                        clip:true
+                        anchors.centerIn: parent
+                        text: "Left"
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
 
-                        height: paintedHeight
+                    rightRectContent: Label{
+                        leftPadding: 10
+                        rightPadding: 10
+                        anchors.fill: parent;
+                        clip:true
                         anchors.centerIn: parent
                         text: "Right"
                         horizontalAlignment: Text.AlignHCenter
@@ -342,6 +442,8 @@ ScrollView{
         Card{
             headerText: "Horizontal Form"
             Layout.fillWidth: true
+            Layout.alignment: Qt.AlignTop
+
             content: GridLayout {
                 columns: 2
                 rowSpacing: 30

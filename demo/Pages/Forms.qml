@@ -3,10 +3,12 @@ import QtQuick.Layouts 1.12
 import "qrc:/CoreUI/components/base"
 import QtQuick.Controls 2.5
 import "qrc:/CoreUI/components/forms"
+import QtGraphicalEffects 1.0
 ScrollView{
     id:scrollView
     clip: true
     anchors.fill: parent;
+
     GridLayout {
         id:grildLayout
         width: parent.parent.width
@@ -15,10 +17,14 @@ ScrollView{
         rowSpacing: 30
         columns: 2
 
+
         Card{
             headerText: "Credit Card"
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
+
             content: ColumnLayout {
                 spacing: 20
                 CTextInputGroup{
@@ -132,6 +138,8 @@ ScrollView{
         Card{
             headerText: "Company"
             Layout.fillWidth: true
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
             content: ColumnLayout {
                 spacing: 20
                 CTextInputGroup{
@@ -170,6 +178,8 @@ ScrollView{
         Card{
             headerText: "Company"
             Layout.fillWidth: true
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
             content: GridLayout {
                 columns: 2
                 rowSpacing: 30
@@ -443,6 +453,8 @@ ScrollView{
             headerText: "Horizontal Form"
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
 
             content: GridLayout {
                 columns: 2

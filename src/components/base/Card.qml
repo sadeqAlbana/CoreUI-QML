@@ -21,6 +21,18 @@ RoundedRect{
     property alias content: contentLoader.sourceComponent
     property color accentColor: "#d8dbe0"
 
+    layer.enabled: true
+    layer.effect:  DropShadow{
+        radius: 3
+        samples: 40
+        verticalOffset: 1
+        spread: 0.1
+        color: "silver"
+    }
+
+
+
+
 
     ColumnLayout {
         id: layout;

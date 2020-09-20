@@ -14,7 +14,8 @@ RoundedRect{
     antialiasing: true
     implicitHeight: layout.implicitHeight
     implicitWidth: layout.implicitWidth
-    property alias headerText: headerText.text
+    property alias headerComponent: headerLoader.sourceComponent;
+    //property alias headerText: headerText.text
     property alias footerText: footerText.text
     property alias headerVisible: header.visible
     property alias footerVisible: footer.visible
@@ -43,19 +44,17 @@ RoundedRect{
         Rectangle{
             id:header
             implicitHeight: 46
-            width: parent.width
+            implicitWidth: parent.implicitWidth
             radius: card.radius
             visible: true
 
-            Text{
-                id: headerText
-                height: parent.height
-                anchors.left: parent.left
-                color: "#3c4b64"
-                text: "Card Header"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                anchors.leftMargin: 20
+
+            Loader{
+               id: headerLoader
+               anchors.fill: parent;
+               //width: 100
+               //height: 50
+               //anchors.margins: header.radius
             }
         }
 

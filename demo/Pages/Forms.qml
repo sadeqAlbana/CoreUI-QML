@@ -20,7 +20,18 @@ ScrollView{
 
 
         Card{
-            headerText: "Credit Card"
+
+
+
+            headerComponent: Label{
+                height: parent.height
+                anchors.left: parent.left
+                color: "#3c4b64"
+                text: "Credit Card"
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignVCenter
+                anchors.leftMargin: 20
+            }
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
             Layout.leftMargin: 10
@@ -127,7 +138,15 @@ ScrollView{
         }
 
         Card{
-            headerText: "Company"
+            headerComponent: Text{
+                height: parent.height
+                anchors.left: parent.left
+                color: "#3c4b64"
+                text: "Company"
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.leftMargin: 20
+            }
             Layout.fillWidth: true
             Layout.leftMargin: 10
             Layout.rightMargin: 10
@@ -167,7 +186,15 @@ ScrollView{
             }
         }//end Card
         Card{
-            headerText: "Company"
+            headerComponent: Text{
+                height: parent.height
+                anchors.left: parent.left
+                color: "#3c4b64"
+                text: "Company"
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.leftMargin: 20
+            }
             Layout.fillWidth: true
             Layout.leftMargin: 10
             Layout.rightMargin: 10
@@ -537,7 +564,15 @@ ScrollView{
         }//card
 
         Card{
-            headerText: "Horizontal Form"
+            headerComponent: Text{
+                height: parent.height
+                anchors.left: parent.left
+                color: "#3c4b64"
+                text: "Horizontal Form"
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.leftMargin: 20
+            }
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
             Layout.leftMargin: 10

@@ -4,6 +4,7 @@ import "qrc:/CoreUI/components/base"
 import QtQuick.Controls 2.5
 import "qrc:/CoreUI/components/forms"
 import QtGraphicalEffects 1.0
+import QtQuick.Dialogs 1.3
 ScrollView{
     id:scrollView
     clip: true
@@ -121,16 +122,6 @@ ScrollView{
 
                     layoutDirection: Qt.LeftToRight
                     flow: GridLayout.TopToBottom
-
-                    //                    CComboBoxGroup{
-                    //                        label.text: "Year"
-
-                    //                    }
-
-                    //                    CComboBoxGroup{
-                    //                        label.text: "CV/CVC"
-
-                    //                    }
                 }
             }
         }
@@ -223,26 +214,6 @@ ScrollView{
                         text: "This is a help text"
                         topPadding: 6
                     }
-
-                    text: " test 22222222222222222222222222222111"
-
-                    //                    leftRectContent: Rectangle{
-                    //                        color: "red"
-                    //                        anchors.fill: parent;
-                    //                        implicitWidth: 40
-                    //                        //anchors.margins: 2
-                    //                        opacity: 0.2
-                    //                        //clip: true
-
-                    //                        MouseArea{
-                    //                            anchors.fill: parent;
-                    //                            hoverEnabled: true
-                    //                            onHoveredChanged: {
-                    //                                parent.opacity= hovered ? 1  : 0.2
-                    //                                console.log(hovered);
-                    //                            }
-                    //                        }
-                    //                    }
 
                     leftRectContent: Label{
                         leftPadding: 10
@@ -424,27 +395,143 @@ ScrollView{
                     text: "Multiple select"
                 }
 
-
-//                CTextInput{
-//                    //                    placeHolderText: "Text"
-//                    Layout.fillWidth: true
-//                    Layout.leftMargin: 10
-//                    Layout.rightMargin: 10
-//                    //                    Component.onCompleted: {
-//                    //                        console.log("ctextinput: " +bottomInset)
-//                    //                        console.log("ctextinput: " +bottomPadding)
-//                    //                        console.log("ctextinput: " +implicitHeight)
-//                    //                        console.log("ctextinput: " +height)
-//                    //                        console.log("ctextinput: " +contentHeight)
-
-//                    //                    }
-
-//                }
-
                 CListView{
                     Layout.fillWidth: true
                     Layout.preferredHeight: 500
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
                 }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Radios"
+                }
+
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    RadioButton {
+                        checked: true
+                        text: qsTr("Option 1")
+                    }
+                    RadioButton {
+                        text: qsTr("Option 2")
+                    }
+                    RadioButton {
+                        text: qsTr("Option 3")
+                    }
+                }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Inline Radios"
+                }
+
+                RowLayout {
+                    Layout.fillWidth: true
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    RadioButton {
+                        checked: true
+                        text: qsTr("One")
+                    }
+                    RadioButton {
+                        text: qsTr("Two")
+                    }
+                    RadioButton {
+                        text: qsTr("Three")
+                    }
+                }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Checkboxes"
+                }
+
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    CheckBox {
+                        checked: true
+                        text: qsTr("Option 1")
+                    }
+                    CheckBox {
+                        text: qsTr("Option 2")
+                    }
+                    CheckBox {
+                        checked: true
+                        text: qsTr("Option 3")
+                    }
+                }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Inline Checkboxes"
+                }
+
+                RowLayout {
+                    Layout.fillWidth: true
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    CheckBox {
+                        checked: true
+                        text: qsTr("One")
+                    }
+                    CheckBox {
+                        text: qsTr("Two")
+                    }
+                    CheckBox {
+                        checked: true
+                        text: qsTr("Three")
+                    }
+                }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "File Input"
+                }
+
+
+
+                Button{
+                    implicitWidth: 150
+                    implicitHeight: 43
+                    text: "Browse..."
+                    background: Rectangle{
+                        color: "#d8dbe0";
+                    }
+
+
+                    onClicked: {
+                        fileDialog.visible=true
+                    }
+                    FileDialog {
+                        id: fileDialog
+                        title: "Please choose a file"
+                        //folder: shortcuts.home
+                        onAccepted: {
+                            console.log("You chose: " + fileDialog.fileUrls)
+                            //Qt.quit()
+                        }
+                        onRejected: {
+                            console.log("Canceled")
+                        }
+                        //Component.onCompleted: visible = true
+                    }
+                }
+
 
             }
         }//card

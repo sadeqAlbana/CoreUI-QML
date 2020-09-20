@@ -8,31 +8,19 @@ Control{
     property alias radius: backgroundRect.radius
     property alias border: backgroundRect.border
     property color glowColor : "#DCD9F9"
+//    MouseArea {
+//        anchors.fill: parent
+//        acceptedButtons: Qt.LeftButton
+//        propagateComposedEvents: true
+//        onClicked: {
+//            console.log("clicked control")
+//            mouse.accepted = false
+//            control.forceActiveFocus();
+//        }
+//    }
     padding: 10
-    hoverEnabled: true
-    wheelEnabled: true
-
-
-    focus: true
-    Keys.onPressed: {
-        console.log("key event");
-
-        if(event.key==Qt.Key_Left){
-            console.log("key A was pressed");
-            event.accepted=true
-        }
-    }
-
-    focusPolicy: Qt.ClickFocus
-    onActiveFocusChanged: {
-        console.log(activeFocus);
-    }
-
-    onFocusChanged: {
-        console.log(focus);
-    }
-
-
+    //hoverEnabled: true
+    //wheelEnabled: true
 
     background: RoundedRect{
         anchors.fill: parent;
@@ -65,68 +53,49 @@ Control{
         }
     ]
 
-    contentItem:     FocusScope {
-        id: focusScope
-        focus: true
+    contentItem: ListView{
 
-        Rectangle {
-            id: input
-            focus: true
-            color: "red"
-            anchors.fill: parent;
-            Keys.onPressed: {
-                console.log("key event");
 
-                if(event.key==Qt.Key_Left){
-                    console.log("key A was pressed");
-                    event.accepted=true
+        id : list
+        clip: true
+        delegate: CheckDelegate{
+            id: listDelegate
+            onCheckedChanged: model.checked=checked
+            width: parent.width;
+            leftInset: backgroundRect.border.width
+            rightInset: backgroundRect.border.width
+            background: RoundedRect{
+                color : "#fff"
+                radius: 4
+            }
+            text: model.text
+            highlighted: ListView.isCurrentItem;
+            onClicked: {
+                control.forceActiveFocus();
+                if (list.currentIndex !== index) {
+                    list.currentIndex = index
+
+
                 }
             }
 
-            onActiveFocusChanged: {
-                console.log(activeFocus);
-            }
-
-            onFocusChanged: {
-                console.log(focus);
-            }
         }
+
+        model: ListModel {
+
+            ListElement { text: "Option #1"; checked : false;}
+            ListElement { text: "Option #2"; checked : false;}
+            ListElement { text: "Option #3"; checked : false;}
+            ListElement { text: "Option #4"; checked : false;}
+            ListElement { text: "Option #5"; checked : false;}
+            ListElement { text: "Option #6"; checked : false;}
+            ListElement { text: "Option #7"; checked : false;}
+            ListElement { text: "Option #8"; checked : false;}
+            ListElement { text: "Option #9"; checked : false;}
+            ListElement { text: "Option #10"; checked : false;}
+        }
+
+
     }
 
-//    contentItem: ListView{
-//        id : list
-//        clip: true
-//        delegate: CheckDelegate{
-//            id: listDelegate
-//            onCheckedChanged: model.checked=checked
-//            width: parent.width;
-//            leftInset: backgroundRect.border.width
-//            rightInset: backgroundRect.border.width
-//            background: RoundedRect{
-//                color : "#fff"
-//                radius: 4
-//            }
-//            text: model.text
-//            highlighted: ListView.isCurrentItem;
-//            onClicked: {
-//                if (list.currentIndex !== index) {
-//                    list.currentIndex = index
-//                }
-//            }
-
-//        }
-//        model: ListModel {
-
-//            ListElement { text: "Option #1"; checked : false;}
-//            ListElement { text: "Option #2"; checked : false;}
-//            ListElement { text: "Option #3"; checked : false;}
-//            ListElement { text: "Option #4"; checked : false;}
-//            ListElement { text: "Option #5"; checked : false;}
-//            ListElement { text: "Option #6"; checked : false;}
-//            ListElement { text: "Option #7"; checked : false;}
-//            ListElement { text: "Option #8"; checked : false;}
-//            ListElement { text: "Option #9"; checked : false;}
-//            ListElement { text: "Option #10"; checked : false;}
-//        }
-//    }
 }

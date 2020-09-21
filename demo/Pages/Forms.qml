@@ -18,20 +18,22 @@ ScrollView{
         rowSpacing: 30
         columns: 2
 
-
-        Card{
-
-
-
-            headerComponent: Label{
+        Component{
+            id: header
+            Label{
                 height: parent.height
                 anchors.left: parent.left
                 color: "#3c4b64"
-                text: "Credit Card"
+                //text: "Credit Card"
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignVCenter
                 anchors.leftMargin: 20
             }
+        }
+
+
+        Card{
+            headerComponent: Qt.createObject(header);
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
             Layout.leftMargin: 10

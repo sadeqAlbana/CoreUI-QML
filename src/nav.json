@@ -95,7 +95,7 @@
     "childItems": [
                 {
                     "title": "Buttons",
-                    "path": ""
+                    "path": "qrc:/Pages/Buttons.qml"
                 },
                 {
                     "title": "Brand Buttons",

@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>Pages/Cards.qml</file>
         <file>Pages/Forms.qml</file>
+        <file>Pages/Buttons.qml</file>
     </qresource>
 </RCC>

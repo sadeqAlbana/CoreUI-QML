@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.12
 import "qrc:/CoreUI/components/base"
 import QtQuick.Controls 2.5
 import "qrc:/CoreUI/components/forms"
+import "qrc:/CoreUI/components/buttons"
 import QtGraphicalEffects 1.0
 import QtQuick.Dialogs 1.3
 ScrollView{
@@ -33,7 +34,7 @@ ScrollView{
 
 
         Card{
-            headerComponent: Qt.createObject(header);
+            //headerComponent: Qt.createObject(header);
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
             Layout.leftMargin: 10
@@ -534,7 +535,7 @@ ScrollView{
 
 
 
-                Button{
+                CButton{
                     implicitWidth: 150
                     implicitHeight: 43
                     text: "Browse..."
@@ -566,14 +567,9 @@ ScrollView{
         }//card
 
         Card{
-            headerComponent: Text{
-                height: parent.height
-                anchors.left: parent.left
-                color: "#3c4b64"
+            headerComponent: CardLabel{
                 text: "Horizontal Form"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                anchors.leftMargin: 20
+
             }
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop

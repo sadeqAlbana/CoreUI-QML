@@ -249,6 +249,16 @@ Item {
                         SequentialAnimation {
                             PropertyAnimation {property: "height"; duration: 75 }
                         }
+                    },
+                    Transition {
+                        reversible: true
+                        from: "*"
+                        to: "hovered"
+                        ColorAnimation {
+                            easing.type: Easing.InOutQuad;
+                            duration: 300;
+                            //alwaysRunToEnd: true
+                        }
                     }
                 ]
 

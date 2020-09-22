@@ -1,90 +1,103 @@
-import QtQuick 2.0
+import QtQuick 2.12
 import QtQuick.Controls 2.5
+import QtGraphicalEffects 1.0
 
 Button {
     id: control
     hoverEnabled: true
     property color color;
-    property color hoverColor: Qt.darker(color,1.2)
+    property color hoverColor: Qt.darker(color,1.1)
+    property color disabledColor: Qt.lighter(color,1.1)
+
     property alias border: backgroundRect.border
-    property alias textColor: content.color
+    property color textColor
     property alias radius: backgroundRect.radius
-    property string type: "primary"
+    property string type: ""
     implicitHeight: 35
     implicitWidth: 120
+    radius: 4
 
-
+    layer.enabled: true
+    layer.effect:  DropShadow{
+        radius: 4
+        samples: 40
+        verticalOffset: 1
+        spread: 0.1
+        color: "silver"
+    }
 
     property var types : {
         "primary" : {
             "color" : "#321fdb",
             "borderColor" : "#321fdb",
-            "text" : "#fffff"
+            "text" : "#ffffff",
         },
 
         "secondary" : {
             "color" : "#ced2d8",
-            "borderColor" : "#321fdb",
-            "text" : "#ffffff"
+            "borderColor" : "#ced2d8",
+            "text" : "#4F5D73"
         },
 
-        "Success" : {
+        "success" : {
             "color" : "#2eb85c",
-            "borderColor" : "#321fdb",
+            "borderColor" : "##2eb85c",
             "text" : "#ffffff"
         },
 
         "warning" : {
             "color" : "#f9b115",
             "borderColor" : "#321fdb",
-            "text" : "#321fdb"
-            },
+            "text" : "#4f5d73"
+        },
 
         "danger" : {
             "color" : "#e55353",
-            "borderColor" : "#321fdb",
+            "borderColor" : "#e55353",
             "text" : "#ffffff"
-            },
+        },
 
         "info" : {
             "color" : "#39f",
-            "borderColor" : "#321fdb",
+            "borderColor" : "#39f",
             "text" : "#ffffff"
-            },
+        },
         "light" : {
             "color" : "#ebedef",
-            "borderColor" : "#321fdb",
-            "text" : "#615D73"
-            },
+            "borderColor" : "#ebedef",
+            "text" : "#4f5d73"
+        },
         "dark" : {
             "color" : "#636f83",
-            "borderColor" : "#321fdb",
+            "borderColor" : "#636f83",
             "text" : "#ffffff"
-            }
+        }
     }
 
-
+    transitions: Transition {
+        NumberAnimation {target: control; property: "color"; easing.type: Easing.InOutQuad; duration: 150  }
+    }
 
     Component.onCompleted: {
-//        color="#321fdb"
-//        radius=4
-//        textColor="#ffffff"
-//        text= "Primary"
+        if(type=="")
+            return;
 
-        console.log("type: " + type)
-        console.log(types[type])
+        var tp=types[type];
 
-        if(type!="")
-            var tp=types[type];
-
-        //if(tp!==undefined){
-            console.log(tp.text)
-            console.log(tp["text"])
+        if(tp!==undefined){
             color=tp.color
             textColor=tp.text
-        //}
+        }
 
 
+
+
+
+    }
+
+    MouseArea{
+        anchors.fill: parent;
+        cursorShape: Qt.PointingHandCursor
     }
 
     background: Rectangle{
@@ -128,11 +141,11 @@ Button {
             when: hovered
             PropertyChanges {target: backgroundRect; color: hoverColor;}
             //PropertyChanges {target: layer; enabled: true;}
-        }
-        //        State{
-        //            name: "disabled"
-        //            when: !enabled
-        //            PropertyChanges {target: backgroundRect; color: "#E4E7EA";}
-        //        }
+        },
+                State{
+                    name: "disabled"
+                    when: !enabled
+                    PropertyChanges {target: control; opacity: 0.6;}
+                }
     ]
 }

@@ -30,7 +30,7 @@ ScrollView{
             Layout.rightMargin: 10
 
             content: GridLayout {
-                columns: 10
+                columns: 9
                 rowSpacing: 30
                 columnSpacing: 45
 
@@ -43,10 +43,156 @@ ScrollView{
                 }
 
                 CButton{
-                    //text: "test"
                     type: "primary"
                     text: "Primary"
                 }
+
+                CButton{
+                    type: "secondary"
+                    text: "Secondary"
+                }
+
+                CButton{
+                    type: "success"
+                    text: "Success"
+                }
+
+                CButton{
+                    type: "warning"
+                    text: "Warning"
+                }
+
+                CButton{
+                    type: "danger"
+                    text: "Danger"
+                }
+
+                CButton{
+                    type: "info"
+                    text: "Info"
+                }
+
+                CButton{
+                    type: "light"
+                    text: "Light"
+                }
+
+                CButton{
+                    type: "dark"
+                    text: "Dark"
+                }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Active State"
+                }
+
+                CButton{
+                    type: "primary"
+                    text: "Primary"
+
+
+                }
+
+                CButton{
+                    type: "secondary"
+                    text: "Secondary"
+                }
+
+                CButton{
+                    type: "success"
+                    text: "Success"
+                }
+
+                CButton{
+                    type: "warning"
+                    text: "Warning"
+                }
+
+                CButton{
+                    type: "danger"
+                    text: "Danger"
+                }
+
+                CButton{
+                    type: "info"
+                    text: "Info"
+                }
+
+                CButton{
+                    type: "light"
+                    text: "Light"
+                }
+
+                CButton{
+                    type: "dark"
+                    text: "Dark"
+                }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Disabled"
+                }
+
+                CButton{
+                    type: "primary"
+                    text: "Primary"
+                    enabled: false
+                }
+
+                CButton{
+                    type: "secondary"
+                    text: "Secondary"
+                    enabled: false
+
+                }
+
+                CButton{
+                    type: "success"
+                    text: "Success"
+                    enabled: false
+
+                }
+
+                CButton{
+                    type: "warning"
+                    text: "Warning"
+                    enabled: false
+
+                }
+
+                CButton{
+                    type: "danger"
+                    text: "Danger"
+                    enabled: false
+
+                }
+
+                CButton{
+                    type: "info"
+                    text: "Info"
+                    enabled: false
+
+                }
+
+                CButton{
+                    type: "light"
+                    text: "Light"
+                    enabled: false
+
+                }
+
+                CButton{
+                    type: "dark"
+                    text: "Dark"
+                    enabled: false
+
+                }
+
 
             }
         }//card end

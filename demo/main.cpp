@@ -3,7 +3,11 @@
 
 int main(int argc, char *argv[])
 {
+    QCoreApplication::setOrganizationName("sadeqTech");
+    QCoreApplication::setApplicationName("CoreUIDemo");
+
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    //QCoreApplication::setAttribute(Qt::AA_Use96Dpi);
 
     QGuiApplication app(argc, argv);
 

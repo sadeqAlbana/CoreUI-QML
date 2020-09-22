@@ -75,7 +75,10 @@ Button {
     }
 
     transitions: Transition {
-        NumberAnimation {target: control; property: "color"; easing.type: Easing.InOutQuad; duration: 150  }
+        reversible: true
+        from: "*"
+        to: "hovered"
+        ColorAnimation {easing.type: Easing.InOutQuad; duration: 150  }
     }
 
     Component.onCompleted: {

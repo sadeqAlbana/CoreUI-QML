@@ -14,6 +14,7 @@ Button {
     property alias radius: backgroundRect.radius
     property string type: ""
     property bool outline: false
+    property string style: "" //parse standard css !
     implicitHeight: 35
     implicitWidth: 120
     radius: 4
@@ -92,6 +93,9 @@ Button {
             color=tp.color
             textColor=tp.text
             border.color=color;
+
+            control["textColor"]=tp.text;
+
         }
 
 

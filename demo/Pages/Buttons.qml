@@ -216,47 +216,63 @@ ScrollView{
                     Layout.rightMargin: 10
                     color: "#3c4b64"
                     text: "Normal"
+
                     //bottomPadding: 25
                 }
 
                 CButton{
                     type: "primary"
                     text: "Primary"
+                    outline: true
                 }
 
                 CButton{
                     type: "secondary"
                     text: "Secondary"
+                    outline: true
+
                 }
 
                 CButton{
                     type: "success"
                     text: "Success"
+                    outline: true
+
                 }
 
                 CButton{
                     type: "warning"
                     text: "Warning"
+                    outline: true
+
                 }
 
                 CButton{
                     type: "danger"
                     text: "Danger"
+                    outline: true
+
                 }
 
                 CButton{
                     type: "info"
                     text: "Info"
+                    outline: true
+
                 }
 
                 CButton{
                     type: "light"
                     text: "Light"
+                    outline: true
+
                 }
 
                 CButton{
                     type: "dark"
                     text: "Dark"
+                    outline: true
+
                 }
 
                 Label{
@@ -264,11 +280,14 @@ ScrollView{
                     Layout.rightMargin: 10
                     color: "#3c4b64"
                     text: "Active State"
+
                 }
 
                 CButton{
                     type: "primary"
                     text: "Primary"
+                    outline: true
+
 
 
                 }
@@ -276,36 +295,44 @@ ScrollView{
                 CButton{
                     type: "secondary"
                     text: "Secondary"
+                    outline: true
+
                 }
 
                 CButton{
                     type: "success"
                     text: "Success"
+                    outline: true
                 }
 
                 CButton{
                     type: "warning"
                     text: "Warning"
+                    outline: true
                 }
 
                 CButton{
                     type: "danger"
                     text: "Danger"
+                    outline: true
                 }
 
                 CButton{
                     type: "info"
                     text: "Info"
+                    outline: true
                 }
 
                 CButton{
                     type: "light"
                     text: "Light"
+                    outline: true
                 }
 
                 CButton{
                     type: "dark"
                     text: "Dark"
+                    outline: true
                 }
 
                 Label{
@@ -319,12 +346,14 @@ ScrollView{
                     type: "primary"
                     text: "Primary"
                     enabled: false
+                    outline: true
                 }
 
                 CButton{
                     type: "secondary"
                     text: "Secondary"
                     enabled: false
+                    outline: true
 
                 }
 
@@ -332,6 +361,7 @@ ScrollView{
                     type: "success"
                     text: "Success"
                     enabled: false
+                    outline: true
 
                 }
 
@@ -339,6 +369,7 @@ ScrollView{
                     type: "warning"
                     text: "Warning"
                     enabled: false
+                    outline: true
 
                 }
 
@@ -346,6 +377,7 @@ ScrollView{
                     type: "danger"
                     text: "Danger"
                     enabled: false
+                    outline: true
 
                 }
 
@@ -353,6 +385,7 @@ ScrollView{
                     type: "info"
                     text: "Info"
                     enabled: false
+                    outline: true
 
                 }
 
@@ -360,6 +393,7 @@ ScrollView{
                     type: "light"
                     text: "Light"
                     enabled: false
+                    outline: true
 
                 }
 
@@ -367,6 +401,7 @@ ScrollView{
                     type: "dark"
                     text: "Dark"
                     enabled: false
+                    outline: true
 
                 }
 

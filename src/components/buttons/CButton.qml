@@ -13,11 +13,12 @@ Button {
     property color textColor
     property alias radius: backgroundRect.radius
     property string type: ""
+    property bool outline: false
     implicitHeight: 35
     implicitWidth: 120
     radius: 4
 
-    layer.enabled: true
+    layer.enabled: !outline
     layer.effect:  DropShadow{
         radius: 4
         samples: 40
@@ -90,6 +91,7 @@ Button {
         if(tp!==undefined){
             color=tp.color
             textColor=tp.text
+            border.color=color;
         }
 
 
@@ -105,14 +107,14 @@ Button {
 
     background: Rectangle{
         id: backgroundRect
-        color: control.color
+        color: outline ? "white" :  control.color
     }
 
     contentItem: Text {
         id: content
         text: control.text
         font: control.font
-        color: control.textColor
+        color: outline ? control.color : control.textColor
         //opacity: enabled ? 1.0 : 0.3
         //color: control.down ? "#17a81a" : "#21be2b"
         horizontalAlignment: Text.AlignHCenter
@@ -140,10 +142,16 @@ Button {
             //PropertyChanges {target: layer; enabled: true;}
         },
         State{
+            name: "outlineHovered"
+            extend: "hovered"
+            when: hovered && outline
+            PropertyChanges {target: content; color: textColor;}
+        },
+
+        State{
             name: "hovered"
             when: hovered
             PropertyChanges {target: backgroundRect; color: hoverColor;}
-            //PropertyChanges {target: layer; enabled: true;}
         },
                 State{
                     name: "disabled"

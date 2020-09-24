@@ -14,48 +14,40 @@ ScrollView{
         rowSpacing: 30
         columns: 3
         Card{
-            headerText: "Card title"
+            headerComponent: CardLabel{text: "Card title"; }
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+
+            content: contentTextArea
+        }
+
+//        Card{
+//            footerText: "Card footer"
+//            headerVisible: false
+//            footerVisible: true
+//            Layout.fillHeight: true
+//            Layout.fillWidth: true
+//            content: contentTextArea
+//        }
+
+        Card{
+            headerComponent: CardLabel{text: "Card with icon";}
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+
+            content: contentTextArea
+        }
+
+
+        Card{
+            headerComponent: CardLabel{text: "Card with switch";}
             Layout.fillHeight: true
             Layout.fillWidth: true
             content: contentTextArea
         }
 
         Card{
-            footerText: "Card footer"
-            headerVisible: false
-            footerVisible: true
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-        }
-
-        Card{
-            headerText: "Card with icon"
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-        }
-
-        Card{
-            headerText: "Card with switch"
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-        }
-
-        Card{
-            headerText: "Card with label"
-
-
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-        }
-
-        Card{
-            headerText: "Card with label"
-
+            headerComponent: CardLabel{text: "Card with label";}
 
 
             Layout.fillHeight: true
@@ -64,8 +56,16 @@ ScrollView{
         }
 
         Card{
-            headerText: "Card Outline"
+            headerComponent: CardLabel{text: "Card with label";}
 
+
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            content: contentTextArea
+        }
+
+        Card{
+            headerComponent: CardLabel{text: "Card Outline";}
 
 
             Layout.fillHeight: true
@@ -76,18 +76,7 @@ ScrollView{
 
         //repeated
         Card{
-            headerText: "Card Outline"
-
-
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-            border.color: "blue"
-        }
-        Card{
-            headerText: "Card Outline"
-
+            headerComponent: CardLabel{text: "Card Outline";}
 
 
             Layout.fillHeight: true
@@ -96,18 +85,7 @@ ScrollView{
             border.color: "blue"
         }
         Card{
-            headerText: "Card Outline"
-
-
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-            border.color: "blue"
-        }
-        Card{
-            headerText: "Card Outline"
-
+            headerComponent: CardLabel{text: "Card Outline";}
 
 
             Layout.fillHeight: true
@@ -116,18 +94,7 @@ ScrollView{
             border.color: "blue"
         }
         Card{
-            headerText: "Card Outline"
-
-
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-            border.color: "blue"
-        }
-        Card{
-            headerText: "Card Outline"
-
+            headerComponent: CardLabel{text: "Card Outline";}
 
 
             Layout.fillHeight: true
@@ -136,8 +103,7 @@ ScrollView{
             border.color: "blue"
         }
         Card{
-            headerText: "Card Outline"
-
+            headerComponent: CardLabel{text: "Card Outline";}
 
 
             Layout.fillHeight: true
@@ -146,8 +112,7 @@ ScrollView{
             border.color: "blue"
         }
         Card{
-            headerText: "Card Outline"
-
+            headerComponent: CardLabel{text: "Card Outline";}
 
 
             Layout.fillHeight: true
@@ -155,14 +120,53 @@ ScrollView{
             content: contentTextArea
             border.color: "blue"
         }
+        Card{
+            headerComponent: CardLabel{text: "Card Outline";}
+
+
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            content: contentTextArea
+            border.color: "blue"
+        }
+        Card{
+            headerComponent: CardLabel{text: "Card Outline";}
+
+
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            content: contentTextArea
+            border.color: "blue"
+        }
+        Card{
+            headerComponent: CardLabel{text: "Card Outline";}
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            content: contentTextArea
+            border.color: "blue"
+        }
+
+        Card{
+            headerComponent: CardLabel{text: "Card Outline";}
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            content: contentTextArea
+            border.color: "blue"
+        }
+
+
     }
 
     Component {
         id : contentTextArea
 
         TextArea{
-            width: parent.width
-            height: parent.height
+            //width: parent.width
+            //height: parent.height
+
+            implicitWidth: 400
+            implicitHeight: 110
+
             text: cardText
             readOnly: true
             wrapMode: Text.WordWrap

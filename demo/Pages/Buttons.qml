@@ -20,10 +20,7 @@ ScrollView{
         columns: 1
 
         Card{
-            headerComponent: CardLabel{
-                text: "Standard Buttons"
-
-            }
+            headerComponent: CardLabel{text: "Standard Buttons";}
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
             Layout.leftMargin: 10

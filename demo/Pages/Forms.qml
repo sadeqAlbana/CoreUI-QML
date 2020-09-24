@@ -35,6 +35,11 @@ ScrollView{
 
         Card{
             //headerComponent: Qt.createObject(header);
+            headerComponent: CardLabel{
+                anchors.fill: parent
+                text: "Credit Card form"
+            }
+
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
             Layout.leftMargin: 10

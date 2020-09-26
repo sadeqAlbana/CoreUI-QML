@@ -18,5 +18,6 @@
         <file>components/forms/TestTextField.qml</file>
         <file>components/buttons/CButton.qml</file>
         <file>components/base/CardLabel.qml</file>
+        <file>components/buttons/CButtonOutline.qml</file>
     </qresource>
 </RCC>

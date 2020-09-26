@@ -40,43 +40,51 @@ ScrollView{
                 }
 
                 CButton{
-                    type: "primary"
                     text: "Primary"
+                    color: "#321fdb"
+                    textColor: "#ffffff"
                 }
 
                 CButton{
-                    type: "secondary"
                     text: "Secondary"
+                    color: "#ced2d8"
+                    textColor: "#4F5D73"
                 }
 
                 CButton{
-                    type: "success"
                     text: "Success"
+                    color: "#2eb85c"
+                    textColor: "#ffffff"
                 }
 
                 CButton{
-                    type: "warning"
                     text: "Warning"
+                    color: "#f9b115"
+                    textColor: "#4f5d73"
                 }
 
                 CButton{
-                    type: "danger"
                     text: "Danger"
+                    color: "#e55353"
+                    textColor: "#ffffff"
                 }
 
                 CButton{
-                    type: "info"
                     text: "Info"
+                    color: "#39f"
+                    textColor: "#ffffff"
                 }
 
                 CButton{
-                    type: "light"
                     text: "Light"
+                    color: "#ebedef"
+                    textColor: "#4f5d73"
                 }
 
                 CButton{
-                    type: "dark"
                     text: "Dark"
+                    color: "#636f83"
+                    textColor: "#ffffff"
                 }
 
                 Label{
@@ -87,45 +95,51 @@ ScrollView{
                 }
 
                 CButton{
-                    type: "primary"
                     text: "Primary"
-
-
+                    color: "#321fdb"
+                    textColor: "#ffffff"
                 }
 
                 CButton{
-                    type: "secondary"
                     text: "Secondary"
+                    color: "#ced2d8"
+                    textColor: "#4F5D73"
                 }
 
                 CButton{
-                    type: "success"
                     text: "Success"
+                    color: "#2eb85c"
+                    textColor: "#ffffff"
                 }
 
                 CButton{
-                    type: "warning"
                     text: "Warning"
+                    color: "#f9b115"
+                    textColor: "#4f5d73"
                 }
 
                 CButton{
-                    type: "danger"
                     text: "Danger"
+                    color: "#e55353"
+                    textColor: "#ffffff"
                 }
 
                 CButton{
-                    type: "info"
                     text: "Info"
+                    color: "#39f"
+                    textColor: "#ffffff"
                 }
 
                 CButton{
-                    type: "light"
                     text: "Light"
+                    color: "#ebedef"
+                    textColor: "#4f5d73"
                 }
 
                 CButton{
-                    type: "dark"
                     text: "Dark"
+                    color: "#636f83"
+                    textColor: "#ffffff"
                 }
 
                 Label{
@@ -133,62 +147,72 @@ ScrollView{
                     Layout.rightMargin: 10
                     color: "#3c4b64"
                     text: "Disabled"
+
                 }
 
                 CButton{
-                    type: "primary"
                     text: "Primary"
+                    color: "#321fdb"
+                    textColor: "#ffffff"
                     enabled: false
+
                 }
 
                 CButton{
-                    type: "secondary"
                     text: "Secondary"
+                    color: "#ced2d8"
+                    textColor: "#4F5D73"
                     enabled: false
 
                 }
 
                 CButton{
-                    type: "success"
                     text: "Success"
+                    color: "#2eb85c"
+                    textColor: "#ffffff"
                     enabled: false
 
                 }
 
                 CButton{
-                    type: "warning"
                     text: "Warning"
+                    color: "#f9b115"
+                    textColor: "#4f5d73"
                     enabled: false
 
                 }
 
                 CButton{
-                    type: "danger"
                     text: "Danger"
+                    color: "#e55353"
+                    textColor: "#ffffff"
                     enabled: false
 
                 }
 
                 CButton{
-                    type: "info"
                     text: "Info"
+                    color: "#39f"
+                    textColor: "#ffffff"
                     enabled: false
 
                 }
 
                 CButton{
-                    type: "light"
                     text: "Light"
+                    color: "#ebedef"
+                    textColor: "#4f5d73"
                     enabled: false
 
                 }
 
                 CButton{
-                    type: "dark"
                     text: "Dark"
+                    color: "#636f83"
+                    textColor: "#ffffff"
                     enabled: false
-
                 }
+
 
 
             }
@@ -220,60 +244,6 @@ ScrollView{
                     //bottomPadding: 25
                 }
 
-                CButton{
-                    type: "primary"
-                    text: "Primary"
-                    outline: true
-                }
-
-                CButton{
-                    type: "secondary"
-                    text: "Secondary"
-                    outline: true
-
-                }
-
-                CButton{
-                    type: "success"
-                    text: "Success"
-                    outline: true
-
-                }
-
-                CButton{
-                    type: "warning"
-                    text: "Warning"
-                    outline: true
-
-                }
-
-                CButton{
-                    type: "danger"
-                    text: "Danger"
-                    outline: true
-
-                }
-
-                CButton{
-                    type: "info"
-                    text: "Info"
-                    outline: true
-
-                }
-
-                CButton{
-                    type: "light"
-                    text: "Light"
-                    outline: true
-
-                }
-
-                CButton{
-                    type: "dark"
-                    text: "Dark"
-                    outline: true
-
-                }
 
                 Label{
                     Layout.leftMargin: 10
@@ -283,57 +253,7 @@ ScrollView{
 
                 }
 
-                CButton{
-                    type: "primary"
-                    text: "Primary"
-                    outline: true
 
-
-
-                }
-
-                CButton{
-                    type: "secondary"
-                    text: "Secondary"
-                    outline: true
-
-                }
-
-                CButton{
-                    type: "success"
-                    text: "Success"
-                    outline: true
-                }
-
-                CButton{
-                    type: "warning"
-                    text: "Warning"
-                    outline: true
-                }
-
-                CButton{
-                    type: "danger"
-                    text: "Danger"
-                    outline: true
-                }
-
-                CButton{
-                    type: "info"
-                    text: "Info"
-                    outline: true
-                }
-
-                CButton{
-                    type: "light"
-                    text: "Light"
-                    outline: true
-                }
-
-                CButton{
-                    type: "dark"
-                    text: "Dark"
-                    outline: true
-                }
 
                 Label{
                     Layout.leftMargin: 10
@@ -342,68 +262,7 @@ ScrollView{
                     text: "Disabled"
                 }
 
-                CButton{
-                    type: "primary"
-                    text: "Primary"
-                    enabled: false
-                    outline: true
-                }
 
-                CButton{
-                    type: "secondary"
-                    text: "Secondary"
-                    enabled: false
-                    outline: true
-
-                }
-
-                CButton{
-                    type: "success"
-                    text: "Success"
-                    enabled: false
-                    outline: true
-
-                }
-
-                CButton{
-                    type: "warning"
-                    text: "Warning"
-                    enabled: false
-                    outline: true
-
-                }
-
-                CButton{
-                    type: "danger"
-                    text: "Danger"
-                    enabled: false
-                    outline: true
-
-                }
-
-                CButton{
-                    type: "info"
-                    text: "Info"
-                    enabled: false
-                    outline: true
-
-                }
-
-                CButton{
-                    type: "light"
-                    text: "Light"
-                    enabled: false
-                    outline: true
-
-                }
-
-                CButton{
-                    type: "dark"
-                    text: "Dark"
-                    enabled: false
-                    outline: true
-
-                }
 
 
             }

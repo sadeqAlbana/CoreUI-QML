@@ -3,24 +3,19 @@ import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.0
 Button {
     id: control
-    hoverEnabled: true
     property color color;
-
-    onPressed: forceActiveFocus();
-
-
-
-    property alias border: backgroundRect.border
+    property color borderColor : "transparent"
+    property int   borderWidth : 0;
     property color textColor
-    property alias radius: backgroundRect.radius
-    property bool outline: false
+    property int radius: 4
     property int shadowRadius: 4;
     property real shadowSpread: 0.1
     implicitHeight: 35
     implicitWidth: 120
-    radius: 4
-
+    hoverEnabled: true
+    onPressed: forceActiveFocus();
     layer.enabled: true
+
     layer.effect:  DropShadow{
         id: dropShadow
         radius: shadowRadius
@@ -30,7 +25,6 @@ Button {
         color: "silver"
     }
 
-
     transitions: Transition {
         reversible: true
         from: "*"
@@ -38,15 +32,12 @@ Button {
         ColorAnimation {easing.type: Easing.InOutQuad; duration: 150  }
     }
 
-
-    //    MouseArea{
-    //        anchors.fill: parent;
-    //        cursorShape: Qt.PointingHandCursor
-    //    }
-
     background: Rectangle{
         id: backgroundRect
         color: control.color
+        radius: control.radius
+        border.color: control.borderColor
+        border.width: control.borderWidth
     }
 
 
@@ -61,11 +52,6 @@ Button {
         verticalAlignment: Text.AlignVCenter
         //elide: Text.ElideRight
     }
-
-
-
-
-
 
     states: [
         State{

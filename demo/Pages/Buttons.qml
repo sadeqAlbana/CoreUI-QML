@@ -240,26 +240,183 @@ ScrollView{
                     Layout.rightMargin: 10
                     color: "#3c4b64"
                     text: "Normal"
-
                     //bottomPadding: 25
                 }
 
+                CButtonOutline{
+                    text: "Primary"
+                    color: "#321fdb"
+                    textColor: "#ffffff"
+                }
+
+                CButtonOutline{
+                    text: "Secondary"
+                    color: "#ced2d8"
+                    textColor: "#4F5D73"
+                }
+
+
+
+                CButtonOutline{
+                    text: "Success"
+                    color: "#2eb85c"
+                    textColor: "#ffffff"
+                }
+
+                CButtonOutline{
+                    text: "Warning"
+                    color: "#f9b115"
+                    textColor: "#4f5d73"
+                }
+
+                CButtonOutline{
+                    text: "Danger"
+                    color: "#e55353"
+                    textColor: "#ffffff"
+                }
+
+                CButtonOutline{
+                    text: "Info"
+                    color: "#39f"
+                    textColor: "#ffffff"
+                }
+
+                CButtonOutline{
+                    text: "Light"
+                    color: "#ebedef"
+                    textColor: "#4f5d73"
+                }
+
+                CButtonOutline{
+                    text: "Dark"
+                    color: "#636f83"
+                    textColor: "#ffffff"
+                }
 
                 Label{
                     Layout.leftMargin: 10
                     Layout.rightMargin: 10
                     color: "#3c4b64"
                     text: "Active State"
-
                 }
 
+                CButtonOutline{
+                    text: "Primary"
+                    color: "#321fdb"
+                    textColor: "#ffffff"
+                }
 
+                CButtonOutline{
+                    text: "Secondary"
+                    color: "#ced2d8"
+                    textColor: "#4F5D73"
+                }
+
+                CButtonOutline{
+                    text: "Success"
+                    color: "#2eb85c"
+                    textColor: "#ffffff"
+                }
+
+                CButtonOutline{
+                    text: "Warning"
+                    color: "#f9b115"
+                    textColor: "#4f5d73"
+                }
+
+                CButtonOutline{
+                    text: "Danger"
+                    color: "#e55353"
+                    textColor: "#ffffff"
+                }
+
+                CButtonOutline{
+                    text: "Info"
+                    color: "#39f"
+                    textColor: "#ffffff"
+                }
+
+                CButtonOutline{
+                    text: "Light"
+                    color: "#ebedef"
+                    textColor: "#4f5d73"
+                }
+
+                CButtonOutline{
+                    text: "Dark"
+                    color: "#636f83"
+                    textColor: "#ffffff"
+                }
 
                 Label{
                     Layout.leftMargin: 10
                     Layout.rightMargin: 10
                     color: "#3c4b64"
                     text: "Disabled"
+
+                }
+
+                CButtonOutline{
+                    text: "Primary"
+                    color: "#321fdb"
+                    textColor: "#ffffff"
+                    enabled: false
+
+                }
+
+                CButtonOutline{
+                    text: "Secondary"
+                    color: "#ced2d8"
+                    textColor: "#4F5D73"
+                    enabled: false
+
+                }
+
+                CButtonOutline{
+                    text: "Success"
+                    color: "#2eb85c"
+                    textColor: "#ffffff"
+                    enabled: false
+
+                }
+
+                CButtonOutline{
+                    text: "Warning"
+                    color: "#f9b115"
+                    textColor: "#4f5d73"
+                    enabled: false
+
+                }
+
+                CButtonOutline{
+                    text: "Danger"
+                    color: "#e55353"
+                    textColor: "#ffffff"
+                    enabled: false
+
+                }
+
+                CButtonOutline{
+                    text: "Info"
+                    color: "#39f"
+                    textColor: "#ffffff"
+                    enabled: false
+
+                }
+
+                CButton{
+                    text: "Light"
+                    color: "#ebedef"
+                    textColor: "#4f5d73"
+                    enabled: false
+
+                }
+
+                CButton{
+                    text: "Dark"
+                    color: "#636f83"
+                    textColor: "#ffffff"
+                    enabled: false
                 }
 
 

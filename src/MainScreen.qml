@@ -112,9 +112,10 @@ Item {
                     source:"qrc:/assets/icons/coreui/brand/cib-coreui.svg"
                     sourceSize.width: 82
                     sourceSize.height: 82
-                    ColorOverlay{
-                        anchors.fill: image
-                        source:image
+                    layer.enabled: true
+                    layer.effect: ColorOverlay{
+                        //anchors.fill: image
+                        //source:image
                         color:"white"
 
                     }
@@ -177,20 +178,23 @@ Item {
                     anchors.fill: parent
                     Image{
                         id: itemImage
+                        property color color : "#afb5c0"
                         source: model.image ? model.image : source
                         sourceSize.width: 17
                         sourceSize.height: 17
+
                         width: 17
                         height: 17
                         //                        width: 56
                         //                        height: 17.5
                         Layout.alignment: Qt.AlignVCenter
                         Layout.leftMargin: 13
-                        ColorOverlay{
-                            id: overlay
-                            anchors.fill: itemImage
-                            source:itemImage
-                            color:"#afb5c0"
+                        layer.enabled: true
+                        layer.effect: ColorOverlay{
+                            //id: overlay
+//                            anchors.fill: itemImage
+//                            source:itemImage
+                            color: itemImage.color
                         }
 
                     }
@@ -299,7 +303,7 @@ Item {
                         when: control.hovered
                         PropertyChanges {target: controlBackground; color: "#321fdb"}
                         PropertyChanges {target: itemText; color: "white"}
-                        PropertyChanges {target: overlay; color: "white"}
+                        PropertyChanges {target: itemImage; color: "white"}
                         PropertyChanges {target: treeLabel; color: "white"}
                         PropertyChanges {target: treeLabel; font.bold: true}
                     },
@@ -309,7 +313,7 @@ Item {
                         when: control.highlighted
                         PropertyChanges {target: controlBackground; color: "#46546c" }
                         PropertyChanges {target: itemText; color: "white"}
-                        PropertyChanges {target: overlay; color: "white"}
+                        PropertyChanges {target: itemImage; color: "white"}
                         //PropertyChanges {target: treeLabel; state: "toggled";}
                     }
 

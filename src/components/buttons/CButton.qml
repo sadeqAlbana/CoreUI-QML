@@ -1,19 +1,14 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtGraphicalEffects 1.0
-
 Button {
     id: control
     hoverEnabled: true
     property color color;
 
-    onPressed:  {
-        forceActiveFocus();
+    onPressed: forceActiveFocus();
 
-    }
-    onPressedChanged: {
-        console.log(pressed)
-    }
+
 
     property alias border: backgroundRect.border
     property color textColor
@@ -36,14 +31,12 @@ Button {
     }
 
 
-
     transitions: Transition {
         reversible: true
         from: "*"
         to: "hovered"
         ColorAnimation {easing.type: Easing.InOutQuad; duration: 150  }
     }
-
 
 
     //    MouseArea{
@@ -70,9 +63,7 @@ Button {
     }
 
 
-    onStateChanged: {
-        console.log(state);
-    }
+
 
 
 

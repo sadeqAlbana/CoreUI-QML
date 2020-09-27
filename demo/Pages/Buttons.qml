@@ -404,7 +404,7 @@ ScrollView{
 
                 }
 
-                CButton{
+                CButtonOutline{
                     text: "Light"
                     color: "#ebedef"
                     textColor: "#4f5d73"
@@ -412,21 +412,421 @@ ScrollView{
 
                 }
 
-                CButton{
+                CButtonOutline{
                     text: "Dark"
                     color: "#636f83"
                     textColor: "#ffffff"
                     enabled: false
                 }
 
+            }
+        }//card end
 
 
+        Card{
+            headerComponent: CardLabel{
+                text: "Ghost Buttons"
+
+            }
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignTop
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
+
+            content: GridLayout {
+                columns: 9
+                rowSpacing: 30
+                columnSpacing: 45
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Normal"
+                    //bottomPadding: 25
+                }
+
+                CGhostButton{
+                    text: "Primary"
+                    color: "#321fdb"
+                    textColor: "#ffffff"
+                    //borderWidth: 0
+                }
+
+                CGhostButton{
+                    text: "Secondary"
+                    color: "#ced2d8"
+                    textColor: "#4F5D73"
+                }
+
+
+
+                CGhostButton{
+                    text: "Success"
+                    color: "#2eb85c"
+                    textColor: "#ffffff"
+                }
+
+                CGhostButton{
+                    text: "Warning"
+                    color: "#f9b115"
+                    textColor: "#4f5d73"
+                }
+
+                CGhostButton{
+                    text: "Danger"
+                    color: "#e55353"
+                    textColor: "#ffffff"
+                }
+
+                CGhostButton{
+                    text: "Info"
+                    color: "#39f"
+                    textColor: "#ffffff"
+                }
+
+                CGhostButton{
+                    text: "Light"
+                    color: "#ebedef"
+                    textColor: "#4f5d73"
+                }
+
+                CGhostButton{
+                    text: "Dark"
+                    color: "#636f83"
+                    textColor: "#ffffff"
+                }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Active State"
+                }
+
+                CGhostButton{
+                    text: "Primary"
+                    color: "#321fdb"
+                    textColor: "#ffffff"
+                }
+
+                CGhostButton{
+                    text: "Secondary"
+                    color: "#ced2d8"
+                    textColor: "#4F5D73"
+                }
+
+                CGhostButton{
+                    text: "Success"
+                    color: "#2eb85c"
+                    textColor: "#ffffff"
+                }
+
+                CGhostButton{
+                    text: "Warning"
+                    color: "#f9b115"
+                    textColor: "#4f5d73"
+                }
+
+                CGhostButton{
+                    text: "Danger"
+                    color: "#e55353"
+                    textColor: "#ffffff"
+                }
+
+                CGhostButton{
+                    text: "Info"
+                    color: "#39f"
+                    textColor: "#ffffff"
+                }
+
+                CGhostButton{
+                    text: "Light"
+                    color: "#ebedef"
+                    textColor: "#4f5d73"
+                }
+
+                CGhostButton{
+                    text: "Dark"
+                    color: "#636f83"
+                    textColor: "#ffffff"
+                }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Disabled"
+
+                }
+
+                CGhostButton{
+                    text: "Primary"
+                    color: "#321fdb"
+                    textColor: "#ffffff"
+                    enabled: false
+
+                }
+
+                CGhostButton{
+                    text: "Secondary"
+                    color: "#ced2d8"
+                    textColor: "#4F5D73"
+                    enabled: false
+
+                }
+
+                CGhostButton{
+                    text: "Success"
+                    color: "#2eb85c"
+                    textColor: "#ffffff"
+                    enabled: false
+
+                }
+
+                CGhostButton{
+                    text: "Warning"
+                    color: "#f9b115"
+                    textColor: "#4f5d73"
+                    enabled: false
+
+                }
+
+                CGhostButton{
+                    text: "Danger"
+                    color: "#e55353"
+                    textColor: "#ffffff"
+                    enabled: false
+
+                }
+
+                CGhostButton{
+                    text: "Info"
+                    color: "#39f"
+                    textColor: "#ffffff"
+                    enabled: false
+
+                }
+
+                CGhostButton{
+                    text: "Light"
+                    color: "#ebedef"
+                    textColor: "#4f5d73"
+                    enabled: false
+
+                }
+
+                CGhostButton{
+                    text: "Dark"
+                    color: "#636f83"
+                    textColor: "#ffffff"
+                    enabled: false
+                }
 
             }
         }//card end
 
 
 
+        Card{
+            headerComponent: CardLabel{text: "Pill Buttons";}
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignTop
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
 
+            content: GridLayout {
+                columns: 9
+                rowSpacing: 30
+                columnSpacing: 45
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Normal"
+                    //bottomPadding: 25
+                }
+
+                CPillButton{
+                    text: "Primary"
+                    color: "#321fdb"
+                    textColor: "#ffffff"
+                    radius: height
+                }
+
+                CPillButton{
+                    text: "Secondary"
+                    color: "#ced2d8"
+                    textColor: "#4F5D73"
+                }
+
+                CPillButton{
+                    text: "Success"
+                    color: "#2eb85c"
+                    textColor: "#ffffff"
+                }
+
+                CPillButton{
+                    text: "Warning"
+                    color: "#f9b115"
+                    textColor: "#4f5d73"
+                }
+
+                CPillButton{
+                    text: "Danger"
+                    color: "#e55353"
+                    textColor: "#ffffff"
+                }
+
+                CPillButton{
+                    text: "Info"
+                    color: "#39f"
+                    textColor: "#ffffff"
+                }
+
+                CPillButton{
+                    text: "Light"
+                    color: "#ebedef"
+                    textColor: "#4f5d73"
+                }
+
+                CPillButton{
+                    text: "Dark"
+                    color: "#636f83"
+                    textColor: "#ffffff"
+                }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Active State"
+                }
+
+                CPillButton{
+                    text: "Primary"
+                    color: "#321fdb"
+                    textColor: "#ffffff"
+                }
+
+                CPillButton{
+                    text: "Secondary"
+                    color: "#ced2d8"
+                    textColor: "#4F5D73"
+                }
+
+                CPillButton{
+                    text: "Success"
+                    color: "#2eb85c"
+                    textColor: "#ffffff"
+                }
+
+                CPillButton{
+                    text: "Warning"
+                    color: "#f9b115"
+                    textColor: "#4f5d73"
+                }
+
+                CPillButton{
+                    text: "Danger"
+                    color: "#e55353"
+                    textColor: "#ffffff"
+                }
+
+                CPillButton{
+                    text: "Info"
+                    color: "#39f"
+                    textColor: "#ffffff"
+                }
+
+                CPillButton{
+                    text: "Light"
+                    color: "#ebedef"
+                    textColor: "#4f5d73"
+                }
+
+                CPillButton{
+                    text: "Dark"
+                    color: "#636f83"
+                    textColor: "#ffffff"
+                }
+
+                Label{
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
+                    color: "#3c4b64"
+                    text: "Disabled"
+
+                }
+
+                CPillButton{
+                    text: "Primary"
+                    color: "#321fdb"
+                    textColor: "#ffffff"
+                    enabled: false
+
+                }
+
+                CPillButton{
+                    text: "Secondary"
+                    color: "#ced2d8"
+                    textColor: "#4F5D73"
+                    enabled: false
+
+                }
+
+                CPillButton{
+                    text: "Success"
+                    color: "#2eb85c"
+                    textColor: "#ffffff"
+                    enabled: false
+
+                }
+
+                CPillButton{
+                    text: "Warning"
+                    color: "#f9b115"
+                    textColor: "#4f5d73"
+                    enabled: false
+
+                }
+
+                CPillButton{
+                    text: "Danger"
+                    color: "#e55353"
+                    textColor: "#ffffff"
+                    enabled: false
+
+                }
+
+                CPillButton{
+                    text: "Info"
+                    color: "#39f"
+                    textColor: "#ffffff"
+                    enabled: false
+
+                }
+
+                CPillButton{
+                    text: "Light"
+                    color: "#ebedef"
+                    textColor: "#4f5d73"
+                    enabled: false
+
+                }
+
+                CPillButton{
+                    text: "Dark"
+                    color: "#636f83"
+                    textColor: "#ffffff"
+                    enabled: false
+
+                }
+
+
+
+            }
+        }//card end
     }
 }

@@ -7,7 +7,7 @@ Button {
     property color color;
     property color textColor;
     property int   borderWidth : 1;
-    property int   radius: 4
+    property int   radius: 4;
 
 
     implicitHeight: 35
@@ -60,7 +60,7 @@ Button {
 
         State{
             name: "active"
-            when: activeFocus
+            when: activeFocus || focus
             PropertyChanges {target: control.layer; enabled: true}
 
         },

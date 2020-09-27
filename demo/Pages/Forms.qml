@@ -146,14 +146,9 @@ ScrollView{
         }
 
         Card{
-            headerComponent: Text{
-                height: parent.height
-                anchors.left: parent.left
-                color: "#3c4b64"
+            headerComponent: CardLabel{
+                anchors.fill: parent
                 text: "Company"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                anchors.leftMargin: 20
             }
             Layout.fillWidth: true
             Layout.leftMargin: 10
@@ -194,14 +189,9 @@ ScrollView{
             }
         }//end Card
         Card{
-            headerComponent: Text{
-                height: parent.height
-                anchors.left: parent.left
-                color: "#3c4b64"
+            headerComponent: CardLabel{
+                anchors.fill: parent
                 text: "Company"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                anchors.leftMargin: 20
             }
             Layout.fillWidth: true
             Layout.leftMargin: 10
@@ -616,6 +606,29 @@ ScrollView{
                     }
                 }
 
+            }
+
+
+            footerComponent: RowLayout{
+                anchors.fill: parent;
+                anchors.margins: 10
+
+                CButton{
+                    text: "Submit"
+                    color: "#321fdb"
+                    textColor: "#ffffff"
+                    Layout.fillHeight: true
+                    implicitWidth: 60
+                }
+
+
+                CButton{
+                    text: "Reset"
+                    color: "#e55353"
+                    textColor: "#ffffff"
+                    Layout.fillHeight: true
+                    implicitWidth: 60
+                }
             }
         }//card end
     }

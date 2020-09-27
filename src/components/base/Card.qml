@@ -15,8 +15,9 @@ RoundedRect{
     implicitHeight: layout.implicitHeight
     implicitWidth: layout.implicitWidth
     property alias headerComponent: headerLoader.sourceComponent;
+    property alias footerComponent: footerLoader.sourceComponent;
     //property alias headerText: headerText.text
-    property alias footerText: footerText.text
+    //property alias footerText: footerText.text
     property alias headerVisible: header.visible
     property alias footerVisible: footer.visible
     property alias content: contentLoader.sourceComponent
@@ -90,18 +91,26 @@ RoundedRect{
             implicitHeight: 46
             width: parent.width
             radius: card.radius
-            visible: false
+            visible: footerLoader.sourceComponent !=null
 
-            Text{
-                id: footerText
-                height: parent.height
-                anchors.left: parent.left
-                color: "#3c4b64"
-                text: "Card Footer"
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                anchors.leftMargin: 20
+            Loader{
+               id: footerLoader
+               anchors.fill: parent;
+               //width: 100
+               //height: 50
+               //anchors.margins: header.radius
             }
+
+//            Text{
+//                id: footerText
+//                height: parent.height
+//                anchors.left: parent.left
+//                color: "#3c4b64"
+//                text: "Card Footer"
+//                horizontalAlignment: Text.AlignHCenter
+//                verticalAlignment: Text.AlignVCenter
+//                anchors.leftMargin: 20
+//            }
         }
     }
 }

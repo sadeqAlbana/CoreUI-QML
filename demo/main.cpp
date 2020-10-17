@@ -1,6 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-
+#include <QFontInfo>
 int main(int argc, char *argv[])
 {
     QCoreApplication::setOrganizationName("sadeqTech");
@@ -10,6 +10,12 @@ int main(int argc, char *argv[])
     //QCoreApplication::setAttribute(Qt::AA_Use96Dpi);
 
     QGuiApplication app(argc, argv);
+
+    auto font = app.font();
+    QFontInfo fi(font.defaultFamily());
+    font.setPixelSize(14);
+    app.setFont(font);
+
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

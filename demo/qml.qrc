@@ -4,5 +4,6 @@
         <file>Pages/Cards.qml</file>
         <file>Pages/Forms.qml</file>
         <file>Pages/Buttons.qml</file>
+        <file>Pages/tables/DataTables.qml</file>
     </qresource>
 </RCC>

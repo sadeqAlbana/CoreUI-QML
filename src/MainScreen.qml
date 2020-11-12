@@ -100,6 +100,11 @@ Item {
             id: listView
             anchors.fill: parent;
             interactive: true
+
+//            onCurrentIndexChanged: {
+//                console.log(currentIndex);
+//            }
+
             property real delegateHeight: 0
             header : Rectangle{
                 //color: drawer.background.color
@@ -429,8 +434,9 @@ Item {
         }
 
         //listView.currentIndex=5
-        listView.currentIndex=30
-        //.currentIndex=19
+        //listView.currentIndex=30
+        listView.currentIndex=49
+
     }
 
 

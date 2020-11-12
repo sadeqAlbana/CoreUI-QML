@@ -302,7 +302,7 @@
                 },
                 {
                     "title": "Data Tables",
-                    "path": "",
+                    "path": "qrc:/Pages/tables/DataTables.qml",
                     "badge": {
                         "variant": "danger",
                         "text": "PRO"

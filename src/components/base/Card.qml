@@ -44,7 +44,7 @@ RoundedRect{
 
         Rectangle{
             id:header
-            implicitHeight: 46
+            implicitHeight: headerLoader.implicitHeight > 46 ? headerLoader.implicitHeight : 46
             width: parent.width
             radius: card.radius
             visible: true
@@ -52,7 +52,7 @@ RoundedRect{
 
             Loader{
                id: headerLoader
-               anchors.fill: parent;
+               //anchors.fill: parent;
                //width: 100
                //height: 50
                //anchors.margins: header.radius
@@ -88,14 +88,14 @@ RoundedRect{
 
         Rectangle{
             id:footer
-            implicitHeight: 46
+            implicitHeight: footerLoader.implicitHeight > 46 ? footerLoader.implicitHeight : 46
             width: parent.width
             radius: card.radius
             visible: footerLoader.sourceComponent !=null
 
             Loader{
                id: footerLoader
-               anchors.fill: parent;
+               //width: parent.width
                //width: 100
                //height: 50
                //anchors.margins: header.radius

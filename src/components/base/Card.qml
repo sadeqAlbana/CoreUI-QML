@@ -52,6 +52,8 @@ RoundedRect{
 
             Loader{
                id: headerLoader
+               //width: header.width
+               anchors.fill: parent;
                //anchors.fill: parent;
                //width: 100
                //height: 50
@@ -89,28 +91,16 @@ RoundedRect{
         Rectangle{
             id:footer
             implicitHeight: footerLoader.implicitHeight > 46 ? footerLoader.implicitHeight : 46
-            width: parent.width
+            implicitWidth: parent.width
             radius: card.radius
             visible: footerLoader.sourceComponent !=null
 
             Loader{
                id: footerLoader
-               //width: parent.width
-               //width: 100
-               //height: 50
-               //anchors.margins: header.radius
+               anchors.fill: parent
             }
 
-//            Text{
-//                id: footerText
-//                height: parent.height
-//                anchors.left: parent.left
-//                color: "#3c4b64"
-//                text: "Card Footer"
-//                horizontalAlignment: Text.AlignHCenter
-//                verticalAlignment: Text.AlignVCenter
-//                anchors.leftMargin: 20
-//            }
+
         }
     }
 }

@@ -1,6 +1,6 @@
 import QtQuick 2.0
-
-Text{
+import QtQuick.Controls 2.5
+Label{
     height: parent.height
     anchors.left: parent.left
     color: "#3c4b64"

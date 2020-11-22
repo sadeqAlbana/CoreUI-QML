@@ -45,7 +45,7 @@ RoundedRect{
         Rectangle{
             id:header
             implicitHeight: headerLoader.implicitHeight > 46 ? headerLoader.implicitHeight : 46
-            width: parent.width
+            implicitWidth: parent.width
             radius: card.radius
             visible: true
 

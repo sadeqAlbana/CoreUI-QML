@@ -80,7 +80,7 @@ TextField {
 
     RoundedRect{
         id: rightRect;
-        visible: leftRectLoader.sourceComponent!==null
+        visible: rightRectLoader.sourceComponent!==null
         topLeft: false
         bottomLeft: false
         radius: control.background.radius
@@ -103,6 +103,7 @@ TextField {
         Loader{
             id:rightRectLoader
             anchors.fill: parent;
+
         }
     }
 

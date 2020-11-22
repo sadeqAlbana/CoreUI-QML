@@ -48,6 +48,7 @@ RoundedRect{
             implicitWidth: parent.width
             radius: card.radius
             visible: true
+            color: "transparent"
 
 
             Loader{
@@ -94,6 +95,7 @@ RoundedRect{
             implicitWidth: parent.width
             radius: card.radius
             visible: footerLoader.sourceComponent !=null
+            color: "transparent"
 
             Loader{
                id: footerLoader

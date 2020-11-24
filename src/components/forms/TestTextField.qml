@@ -73,7 +73,7 @@ TextField {
             id:leftRectLoader
             clip: true
             anchors.fill: parent;
-            anchors.margins: parent.radius
+           // anchors.margins: parent.radius
 
         }
     }
@@ -102,7 +102,7 @@ TextField {
 
         Loader{
             id:rightRectLoader
-            anchors.fill: parent;
+            //anchors.fill: parent;
 
         }
     }

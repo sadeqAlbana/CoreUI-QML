@@ -434,8 +434,8 @@ Item {
         }
 
         //listView.currentIndex=5
-        listView.currentIndex=30
-        //listView.currentIndex=49
+        //listView.currentIndex=30
+        listView.currentIndex=48
 
     }
 

@@ -4,7 +4,7 @@
 
 
 #include <QAbstractTableModel>
-
+#include <QDebug>
 class TableModel : public QAbstractTableModel
 {
     Q_OBJECT
@@ -21,11 +21,12 @@ public:
 
     int columnCount(const QModelIndex & = QModelIndex()) const override
     {
-        return 5;
+        return 2;
     }
 
     QVariant data(const QModelIndex &index, int role) const override
     {
+        //qDebug()<<"data requested " << index <<" " << role;
         switch (role) {
             case Qt::DisplayRole:
                 return QString("%1, %2").arg(index.column()).arg(index.row());
@@ -38,12 +39,7 @@ public:
         return QVariant();
     }
 
-    QHash<int, QByteArray> roleNames() const override
-    {
-        return { {Qt::DisplayRole, "display"}
-                //{Qt::UserRole+1, "row"}
-        };
-    }
+    QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 

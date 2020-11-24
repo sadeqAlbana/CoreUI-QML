@@ -89,8 +89,6 @@ Item{
                 color: row%2==0 ? "#F2F2F3" : "white"
                 border.color: "#D8DBE0"
             }
-
-
         }
     }
 

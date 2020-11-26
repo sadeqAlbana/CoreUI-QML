@@ -22,5 +22,6 @@
         <file>components/buttons/CGhostButton.qml</file>
         <file>components/buttons/CPillButton.qml</file>
         <file>components/tables/QQTableView.qml</file>
+        <file>components/tables/QQTableViewItemDelegate.qml</file>
     </qresource>
 </RCC>

@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.12
 import "qrc:/CoreUI/components/base"
 import QtQuick.Controls 2.5
 import QtQuick.Controls 1.4 as TT
-import QtQml.Models 2.12
+import QtQuick.Controls.Styles 1.4 as TS
 TT.TableView{
     id: tableView
     frameVisible: false
@@ -20,8 +20,31 @@ TT.TableView{
 
     }
 
-    headerDelegate : Rectangle {
+    style: TS.TableViewStyle{
 
+        frame: Rectangle{
+            //border.color: "#D8DBE0"
+            color: "#D8DBE0"
+            //border.width: 10
+        }
+        transientScrollBars: true
+
+//        scrollBarBackground: Rectangle{
+//            color: "red"
+//        }
+
+    }
+
+
+//    style: TS.ScrollViewStyle{
+//        frame: Rectangle{
+////            border.color: "red"
+//            color: "red"
+//        }
+//    }
+
+    headerDelegate : Rectangle {
+        clip: true
         implicitHeight: 50
 
         TextEdit {
@@ -35,7 +58,7 @@ TT.TableView{
             //readOnly: true
             persistentSelection: true
             readOnly: true
-
+            font.pixelSize: 18
             font.bold: true
         }
 
@@ -43,28 +66,8 @@ TT.TableView{
         border.color: "#D8DBE0"
     }
 
-    itemDelegate: Rectangle {
-        implicitWidth: 100
-        implicitHeight: 70
+    itemDelegate: QQTableViewItemDelegate{
 
-
-        TextEdit {
-            anchors.centerIn: parent
-            text: styleData.value
-            horizontalAlignment: TextEdit.AlignHCenter
-            verticalAlignment: TextEdit.AlignVCenter
-            color: styleData.selected ? "white"  : "#4F5D73"
-            selectByMouse: true
-            //readOnly: true
-            persistentSelection: true
-            readOnly: true
-        }
-
-        color:  {
-            var itemColor=styleData.row%2==0 ? "#F2F2F3" : "white";
-            return styleData.selected ? "#0078D7" : itemColor
-        }
-        border.color: styleData.selected ? "#0078D7" :  "#D8DBE0"
     }
 
 }

@@ -4,7 +4,7 @@ Rectangle{
     id: badge;
     property alias textColor: badgeText.color
     property alias text: badgeText.text
-
+    property alias font : badgeText.font
     radius: 4
     antialiasing: true
     clip: true

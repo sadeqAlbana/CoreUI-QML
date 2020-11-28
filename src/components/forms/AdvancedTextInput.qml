@@ -14,6 +14,7 @@ ColumnLayout{
     property alias rightRectContent: rightRectLoader.sourceComponent
     property alias helpBlock: helpBlockLoader.sourceComponent
     property alias textInput : input
+    property alias font : input.font
     RowLayout{
         spacing: 0
         RoundedRect{
@@ -26,6 +27,7 @@ ColumnLayout{
             implicitWidth: leftRectLoader.implicitWidth
             color: "#F0F3F5"
             Layout.rightMargin: -1*(input.border.width+input.radius)
+            Layout.fillHeight: true
             Component.onCompleted: {
                 input.background.topLeft=Qt.binding(function(){return !visible })
                 input.background.bottomLeft=Qt.binding(function(){return !visible })
@@ -51,6 +53,7 @@ ColumnLayout{
         CTextInput{
             id:input
             Layout.fillWidth: true
+            Layout.fillHeight: true
             z:2
         }
 
@@ -64,6 +67,7 @@ ColumnLayout{
             implicitWidth: rightRectLoader.implicitWidth
             color: "#F0F3F5"
             Layout.leftMargin: -1*(input.border.width+input.radius)
+            Layout.fillHeight: true
             Component.onCompleted: {
                 input.background.topRight=Qt.binding(function(){return !visible })
                 input.background.bottomRight=Qt.binding(function(){return !visible })

@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtGraphicalEffects 1.0
 import QtQuick.Controls 2.5
 ComboBox{
-    id:cb
+    id:control
     background: Rectangle{
         implicitHeight: 40
         id: rect;
@@ -10,6 +10,16 @@ ComboBox{
         border.color: "#d8dbe0";
         radius: 4
 
+    }
+
+    delegate: ItemDelegate {
+        width: control.width
+        text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : model[control.textRole]) : modelData
+        font.weight: control.currentIndex === index ? Font.DemiBold : Font.Normal
+        font.family: control.font.family
+        font.pointSize: control.font.pointSize
+        highlighted: control.highlightedIndex === index
+        hoverEnabled: control.hoverEnabled
     }
 
     states: State{
@@ -24,7 +34,7 @@ ComboBox{
         spread: 1
         color: "#DCD9F9"
         transparentBorder: true
-        source: cb
+        source: control
     }
     onActiveFocusChanged: {
         state=activeFocus ? "active" : ""

@@ -47,7 +47,7 @@ RoundedRect{
             implicitHeight: headerLoader.implicitHeight > 46 ? headerLoader.implicitHeight : 46
             implicitWidth: parent.width
             radius: card.radius
-            visible: true
+            visible: headerLoader.sourceComponent !=null
             color: "transparent"
 
 

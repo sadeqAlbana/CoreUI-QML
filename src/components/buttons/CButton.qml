@@ -1,6 +1,6 @@
-import QtQuick 2.12
-import QtQuick.Controls 2.5
-import QtGraphicalEffects 1.0
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtGraphicalEffects 1.15
 Button {
     id: control
     property color color;
@@ -23,6 +23,7 @@ Button {
         verticalOffset: 1
         spread: 0.1
         color: "silver"
+        cached: true
     }
 
     transitions: Transition {

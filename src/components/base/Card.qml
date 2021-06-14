@@ -1,7 +1,7 @@
-import QtQuick 2.0
-import QtGraphicalEffects 1.0
-import QtQuick.Layouts 1.12
-import QtQuick.Controls 2.5
+import QtQuick 2.15
+import QtGraphicalEffects 1.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15
 import "../SharedComponents"
 
 
@@ -30,6 +30,7 @@ RoundedRect{
         verticalOffset: 1
         spread: 0.1
         color: "silver"
+        cached: true
     }
 
 

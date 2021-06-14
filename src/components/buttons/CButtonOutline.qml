@@ -1,6 +1,6 @@
-import QtQuick 2.12
-import QtQuick.Controls 2.5
-import QtGraphicalEffects 1.0
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtGraphicalEffects 1.15
 
 Button {
     id: control
@@ -38,6 +38,7 @@ Button {
         color: lighterColor(1.5)
         transparentBorder: true
         source: control
+        cached: true
     }
     contentItem: Text {
         id: content

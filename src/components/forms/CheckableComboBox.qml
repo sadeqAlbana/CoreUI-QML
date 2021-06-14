@@ -1,6 +1,6 @@
-import QtQuick 2.0
-import QtGraphicalEffects 1.0
-import QtQuick.Controls 2.5
+import QtQuick 2.15
+import QtGraphicalEffects 1.15
+import QtQuick.Controls 2.15
 ComboBox{
     id:cb
     background: Rectangle{
@@ -25,6 +25,7 @@ ComboBox{
         color: "#DCD9F9"
         transparentBorder: true
         source: cb
+        cached: true
     }
     onActiveFocusChanged: {
         state=activeFocus ? "active" : ""

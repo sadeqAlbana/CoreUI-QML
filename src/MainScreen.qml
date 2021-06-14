@@ -1,7 +1,7 @@
-import QtQuick 2.12
-import QtQuick.Controls 2.5
-import QtQuick.Layouts 1.12
-import QtGraphicalEffects 1.0
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
+import QtGraphicalEffects 1.15
 import QtQml.Models 2.12
 import "components/notifications"
 import "components/base"
@@ -122,6 +122,7 @@ Item {
                         //anchors.fill: image
                         //source:image
                         color:"white"
+                        cached: true
 
                     }
                 }
@@ -200,6 +201,7 @@ Item {
 //                            anchors.fill: itemImage
 //                            source:itemImage
                             color: itemImage.color
+                            cached: true
                         }
 
                     }
@@ -435,7 +437,10 @@ Item {
 
         //listView.currentIndex=5
         //listView.currentIndex=30
-        listView.currentIndex=48
+        //listView.currentIndex=48
+        //listView.currentIndex=listModel.indexOf("activities");
+        listView.currentIndex=2
+
 
     }
 

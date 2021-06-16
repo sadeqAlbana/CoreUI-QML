@@ -44,7 +44,7 @@ Rectangle{
         id: valueLabel
         font.pixelSize: 35
         font.family: "Arial"
-        font.bold: true
+        font.bold: false
         text: "0"
         anchors.right: parent.right
         anchors.bottom: parent.bottom

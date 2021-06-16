@@ -23,7 +23,7 @@ RoundedRect{
     property alias content: contentLoader.sourceComponent
     property color accentColor: "#d8dbe0"
 
-    layer.enabled: true
+    layer.enabled: false
     layer.effect:  DropShadow{
         radius: 3
         samples: 40
@@ -32,6 +32,7 @@ RoundedRect{
         color: "silver"
         cached: true
     }
+
 
 
 

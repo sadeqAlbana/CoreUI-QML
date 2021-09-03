@@ -1,0 +1,55 @@
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+
+ItemDelegate {
+    property bool  isCurrentItem : TableView.view.hoveredRow===model.row
+    implicitWidth: 100
+    implicitHeight: 60
+
+    hoverEnabled: true
+    highlighted: TableView.view.selectedRow===model.row;
+    onClicked: TableView.view.selectedRow=model.row
+
+    onHoveredChanged: {
+        if(hovered){
+            TableView.view.hoveredRow=model.row;
+        }
+    }
+
+    states:[
+        State{
+            id: hnh
+            name: "hovered_highlighted"
+            when: highlighted && isCurrentItem
+            extend: "highlighted"
+            PropertyChanges {target: contentItem; color: "black"}
+        },
+
+        State{
+            id: stateHighlighted;
+            name: "highlighted"
+            when: highlighted
+            PropertyChanges {target: rect; color: "#0078D7"}
+            PropertyChanges {target: contentItem; color: "white"}
+        },
+        State{
+            id: stateHovered;
+            name: "hovered"
+            when: isCurrentItem
+            PropertyChanges {target: rect; color: Qt.darker("#F2F2F3",1.3)}
+            PropertyChanges {target: contentItem; color: "white"}
+        }
+    ]
+
+
+    contentItem: Text {
+        anchors.centerIn: parent
+        text: model.display
+        horizontalAlignment: TextEdit.AlignHCenter
+        verticalAlignment: TextEdit.AlignVCenter
+        color: "#4F5D73"
+
+    }
+
+    background: Rectangle{id: rect; color: model.row%2==0 ? "#F2F2F3" : "white"; border.color: "#D8DBE0"}
+}

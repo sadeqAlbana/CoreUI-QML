@@ -11,6 +11,7 @@ Control {
     property color textColor : "#4F5D73"
     property color color : styleData.row%2==0 ? "#F2F2F3" : "white";
     property color borderColor : "#D8DBE0"
+    property alias text: textEdit.text
 
     background: Rectangle{
         color: delegate.color

@@ -2,7 +2,7 @@ import QtQuick 2.15
 import QtGraphicalEffects 1.15
 import QtQuick.Controls 2.15
 ComboBox{
-    id:cb
+    id:control
     background: Rectangle{
         implicitHeight: 40
         id: rect;
@@ -24,7 +24,7 @@ ComboBox{
         spread: 1
         color: "#DCD9F9"
         transparentBorder: true
-        source: cb
+        source: control
         cached: true
     }
     onActiveFocusChanged: {
@@ -40,6 +40,9 @@ ComboBox{
     }
 
     delegate: CheckDelegate{
+        text: model.text
+        width: control.width
+        //LayoutMirroring.enabled: true
 
     }
 

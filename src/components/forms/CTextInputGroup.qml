@@ -13,8 +13,6 @@ FormGroup {
     ColumnLayout{
         id:layout
         Layout.fillWidth: true
-        Layout.leftMargin: 10
-        Layout.rightMargin: 10
         RowLayout{
         spacing: 0
             RoundedRect{
@@ -90,7 +88,7 @@ FormGroup {
         Label{
             id: helpBlock
             visible: text!=""
-            text: "test"
+//            text: "test"
             color: label.color
             Component.onCompleted: {
                 label.bottomPadding = Qt.binding(function(){

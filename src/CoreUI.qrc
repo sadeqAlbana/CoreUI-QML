@@ -14,7 +14,7 @@
         <file>components/forms/AdvancedTextInput.qml</file>
         <file>components/forms/CTextArea.qml</file>
         <file>components/forms/CheckableComboBox.qml</file>
-        <file>components/forms/CListView.qml</file>
+        <file>components/forms/CheckableListView.qml</file>
         <file>components/forms/TestTextField.qml</file>
         <file>components/buttons/CButton.qml</file>
         <file>components/base/CardLabel.qml</file>
@@ -24,5 +24,15 @@
         <file>components/tables/QQTableView.qml</file>
         <file>components/tables/QQTableViewItemDelegate.qml</file>
         <file>components/base/DashboardWidget.qml</file>
+        <file>components/ToastrService.qml</file>
+        <file>components/tables/CTableView.qml</file>
+        <file>components/tables/CTableViewDelegate.qml</file>
+        <file>components/tables/CHorizontalHeaderDelegate.qml</file>
+        <file>components/tables/CMenuItem.qml</file>
+        <file>components/forms/CTextFieldGroup.qml</file>
+        <file>components/forms/CCheckableComboBoxGroup.qml</file>
+        <file>components/views/CListView.qml</file>
+        <file>components/views/CListViewDelegate.qml</file>
+        <file>components/views/CListViewHeaderDelegate.qml</file>
     </qresource>
 </RCC>

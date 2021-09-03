@@ -8,6 +8,7 @@ Control{
     property alias radius: backgroundRect.radius
     property alias border: backgroundRect.border
     property color glowColor : "#DCD9F9"
+    property alias list : list;
 //    MouseArea {
 //        anchors.fill: parent
 //        acceptedButtons: Qt.LeftButton
@@ -55,8 +56,6 @@ Control{
     ]
 
     contentItem: ListView{
-
-
         id : list
         clip: true
         delegate: CheckDelegate{
@@ -69,34 +68,16 @@ Control{
                 color : "#fff"
                 radius: 4
             }
-            text: model.text
+            text: model.display
             highlighted: ListView.isCurrentItem;
             onClicked: {
                 control.forceActiveFocus();
                 if (list.currentIndex !== index) {
                     list.currentIndex = index
-
-
                 }
             }
 
         }
-
-        model: ListModel {
-
-            ListElement { text: "Option #1"; checked : false;}
-            ListElement { text: "Option #2"; checked : false;}
-            ListElement { text: "Option #3"; checked : false;}
-            ListElement { text: "Option #4"; checked : false;}
-            ListElement { text: "Option #5"; checked : false;}
-            ListElement { text: "Option #6"; checked : false;}
-            ListElement { text: "Option #7"; checked : false;}
-            ListElement { text: "Option #8"; checked : false;}
-            ListElement { text: "Option #9"; checked : false;}
-            ListElement { text: "Option #10"; checked : false;}
-        }
-
-
     }
 
 }

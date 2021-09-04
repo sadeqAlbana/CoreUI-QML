@@ -11,6 +11,7 @@ ComboBox{
         radius: 4
 
     }
+    textRole: "display"
 
     states: State{
         name: "active"
@@ -32,16 +33,16 @@ ComboBox{
         layer.enabled=activeFocus ? true : false
     }
 
-    model: ListModel {
-        id: model
-        ListElement { text: "Banana" }
-        ListElement { text: "Apple" }
-        ListElement { text: "Coconut" }
-    }
+
 
     delegate: CheckDelegate{
-        text: model.text
+        text: model[textRole]
         width: control.width
+        Component.onCompleted: console.log(model.checkstate)
+        checkState: model.checkstate
+
+        onCheckStateChanged: model.checkstate=checkState //should be binded !
+
         //LayoutMirroring.enabled: true
 
     }

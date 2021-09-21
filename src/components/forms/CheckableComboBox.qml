@@ -38,7 +38,6 @@ ComboBox{
     delegate: CheckDelegate{
         text: model[textRole]
         width: control.width
-        Component.onCompleted: console.log(model.checkstate)
         checkState: model.checkstate
 
         onCheckStateChanged: model.checkstate=checkState //should be binded !

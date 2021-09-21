@@ -2,7 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtGraphicalEffects 1.15
 import "../SharedComponents"
-Control{
+Control{ //use Container instead ?
     id: control
     clip: true
     property alias radius: backgroundRect.radius

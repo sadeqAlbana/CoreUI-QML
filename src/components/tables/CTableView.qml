@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.15
 import "qrc:/CoreUI/components/base"
 import QtQuick.Controls 2.15
 import QtGraphicalEffects 1.0
-Control{
+Control{ //use Container instead ?
     id: rootItem
 
 //    enum SelectionMode{ //no need for it for now

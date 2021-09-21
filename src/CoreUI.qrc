@@ -11,11 +11,10 @@
         <file>components/forms/CLabel.qml</file>
         <file>components/forms/CTextInputGroup.qml</file>
         <file>components/forms/CComboBoxGroup.qml</file>
-        <file>components/forms/AdvancedTextInput.qml</file>
         <file>components/forms/CTextArea.qml</file>
         <file>components/forms/CheckableComboBox.qml</file>
         <file>components/forms/CheckableListView.qml</file>
-        <file>components/forms/TestTextField.qml</file>
+        <file>components/forms/CTextField.qml</file>
         <file>components/buttons/CButton.qml</file>
         <file>components/base/CardLabel.qml</file>
         <file>components/buttons/CButtonOutline.qml</file>
@@ -34,5 +33,7 @@
         <file>components/views/CListView.qml</file>
         <file>components/views/CListViewDelegate.qml</file>
         <file>components/views/CListViewHeaderDelegate.qml</file>
+        <file>components/SharedComponents/CMenuBar.qml</file>
+        <file>components/SharedComponents/CMenu.qml</file>
     </qresource>
 </RCC>

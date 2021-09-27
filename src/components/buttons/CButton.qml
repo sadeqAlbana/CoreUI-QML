@@ -42,16 +42,30 @@ Button {
     }
 
 
-    contentItem: Text {
-        id: content
-        text: control.text
-        font: control.font
-        color: control.textColor
-        //opacity: enabled ? 1.0 : 0.3
-        //color: control.down ? "#17a81a" : "#21be2b"
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        //elide: Text.ElideRight
+    contentItem: Item {
+        Text{
+            anchors.fill: parent;
+            //id: content
+            text: control.text
+            font: control.font
+            color: control.textColor
+            //opacity: enabled ? 1.0 : 0.3
+            //color: control.down ? "#17a81a" : "#21be2b"
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            visible: control.text? true : false
+            //elide: Text.ElideRight
+        }
+        Image{
+            anchors.fill: parent;
+            source: icon.source
+            antialiasing: true
+            sourceSize.width: icon.width
+            sourceSize.height: icon.height
+            layer.enabled: icon.color? true : false
+            layer.effect: ColorOverlay{color: icon.color}
+            visible: control.icon.source ? true : false
+        }
     }
 
     states: [

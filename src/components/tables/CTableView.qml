@@ -17,6 +17,7 @@ Control{ //use Container instead ?
     property alias selectedRow: tableView.selectedRow
 
     property alias delegate: tableView.delegate;
+    property alias columnWidthProvider : tableView.columnWidthProvider
 
 
     implicitHeight: horizontalHeader.height+tableView.height

@@ -18,6 +18,8 @@ Control{ //use Container instead ?
 
     property alias delegate: tableView.delegate;
     property alias columnWidthProvider : tableView.columnWidthProvider
+    property alias rowHeightProvider : tableView.rowHeightProvider
+
 
 
     implicitHeight: horizontalHeader.height+tableView.height
@@ -52,7 +54,7 @@ Control{ //use Container instead ?
 
         property int selectedRow: -1
         property int hoveredRow: -1
-
+        rowHeightProvider: 20
 
 
         anchors{

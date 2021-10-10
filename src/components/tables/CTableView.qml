@@ -54,7 +54,7 @@ Control{ //use Container instead ?
 
         property int selectedRow: -1
         property int hoveredRow: -1
-        rowHeightProvider: 20
+        rowHeightProvider: function(row){return 60}
 
 
         anchors{

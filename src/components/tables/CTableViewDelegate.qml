@@ -53,8 +53,17 @@ ItemDelegate {
         horizontalAlignment: TextEdit.AlignHCenter
         verticalAlignment: TextEdit.AlignVCenter
         color: textColor
+        wrapMode: Text.WordWrap
+        padding: 0
+        clip: true
 
     }
+
+//    topInset:0
+//    bottomInset:0
+//    leftInset:0
+//    rightInset:0
+    padding: 2
 
     background: Rectangle{id: rect; color: model.row%2==0 ? "#F2F2F3" : "white"; border.color: "#D8DBE0"}
 }

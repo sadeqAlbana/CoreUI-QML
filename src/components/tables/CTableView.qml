@@ -22,7 +22,7 @@ Control{ //use Container instead ?
 
 
 
-    implicitHeight: horizontalHeader.height+tableView.height
+    implicitHeight: horizontalHeader.implicitHeight+tableView.implicitHeight
     implicitWidth: tableView.width
 
     background: Rectangle{
@@ -36,7 +36,7 @@ Control{ //use Container instead ?
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
-
+        implicitHeight: 60
 
         height: 60
         clip: tableView.clip
@@ -55,6 +55,7 @@ Control{ //use Container instead ?
         property int selectedRow: -1
         property int hoveredRow: -1
         rowHeightProvider: function(row){return 60}
+        implicitHeight: rowHeightProvider(0)*rows;
 
 
         anchors{

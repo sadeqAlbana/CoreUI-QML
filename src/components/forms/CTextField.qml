@@ -12,7 +12,7 @@ TextField {
     property alias rightDelegate: rightDelegateLoader.sourceComponent
     property alias leftDelegate: leftDelegateLoader.sourceComponent;
     property alias helpBlock: helpBlockLoader.sourceComponent
-
+    signal entered(var text)
     bottomInset: helpBlockLoader.visible ? helpBlockLoader.implicitHeight : 0
     bottomPadding:bottomInset+padding
 
@@ -22,7 +22,7 @@ TextField {
     rightInset: rightDelegateContainer.visible ? rightDelegateContainer.implicitWidth : 0
     rightPadding:rightDelegateContainer.visible ? rightInset+padding : rightPadding
 
-
+    onAccepted: entered(control.text)
 
 
 
@@ -46,6 +46,8 @@ TextField {
                 color:"#5C6873"
             }
         }
+
+        onClicked: control.entered(control.text)
         MouseArea{
             anchors.fill: parent;
             onClicked: parent.clicked();
@@ -93,7 +95,6 @@ TextField {
         anchors.left: parent.left
         anchors.bottomMargin: control.bottomInset
         anchors.rightMargin: -1*(control.border.width)
-
         anchors.right: backgroundRect.left
         //color: "red"
         //implicitWidth: leftDelegateLoader.implicitWidth

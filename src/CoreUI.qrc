@@ -35,5 +35,7 @@
         <file>components/views/CListViewHeaderDelegate.qml</file>
         <file>components/SharedComponents/CMenuBar.qml</file>
         <file>components/SharedComponents/CMenu.qml</file>
+        <file>components/forms/NewCTextField.qml</file>
+        <file>components/forms/CTextFieldDelegate.qml</file>
     </qresource>
 </RCC>

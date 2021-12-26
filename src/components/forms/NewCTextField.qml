@@ -10,13 +10,14 @@ TextField {
     property alias radius: backgroundRect.radius
     property alias border: backgroundRect.border
     property color glowColor : "#DCD9F9"
-    property CTextFieldDelegate rightDelegate: CTextFieldDelegate{parent: rightDelegateContainer};
-    property CTextFieldDelegate leftDelegate: CTextFieldDelegate{parent: leftDelegateContainer};
+    property string leftIcon
+    property string rightIcon
 
-    onLeftDelegateChanged: leftDelegate.parent=leftDelegateContainer
-    onRightDelegateChanged: rightDelegate.parent=rightDelegateContainer
+
 
     property alias helpBlock: helpBlockLoader.sourceComponent
+    signal entered(var text)
+    onAccepted: entered(control.text)
 
     bottomInset: helpBlockLoader.visible ? helpBlockLoader.implicitHeight : 0
     bottomPadding:bottomInset+padding
@@ -30,7 +31,28 @@ TextField {
 
 
 
+    component Delegate :
+        ItemDelegate { //change to item delegate ?
+        visible: (icon.source!="")
+        //padding: height/2
+        anchors.fill: parent;
+        implicitWidth: 50
+        implicitHeight: parent.height
+        contentItem: Image{
+            anchors.centerIn: parent
+            source: icon.source;
+            sourceSize.width: parent.height*0.5
+            sourceSize.height: parent.height*0.5
+            fillMode: Image.PreserveAspectFit
+            layer.enabled: true
+            layer.effect: ColorOverlay{
+                color:"#5C6873"
+            }
+        }
 
+
+
+    }
 
 
 
@@ -65,7 +87,7 @@ TextField {
     RoundedRect{
         id: leftDelegateContainer;
         clip: true
-        visible: leftDelegate.sourceComponent!==null
+        visible: leftDelegate.visible;
         topRight: false
         bottomRight: false
         radius: control.background.radius
@@ -90,10 +112,12 @@ TextField {
             border.width=control.border.width
         }
 
-//        CTextFieldDelegate{
-//            id: leftDelegateItem
-//            anchors.fill: parent;
-//        }
+        Delegate{
+            id: leftDelegate
+            icon.source: control.leftIcon;
+            onClicked: control.entered(control.text)
+
+        }
     }
 
     RoundedRect{
@@ -120,6 +144,12 @@ TextField {
         }
 
         //children[0]:rightDelegate
+
+        Delegate{
+            id: rightDelegate
+            icon.source: control.rightIcon
+            onClicked: control.clicked(cotrol.text)
+        }
     }
 
 

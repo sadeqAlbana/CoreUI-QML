@@ -6,13 +6,19 @@ import "../SharedComponents"
 TextField {
     id:control
     selectByMouse: true
+
     property alias radius: backgroundRect.radius
     property alias border: backgroundRect.border
     property color glowColor : "#DCD9F9"
-    property alias rightDelegate: rightDelegateLoader.sourceComponent
-    property alias leftDelegate: leftDelegateLoader.sourceComponent;
+    property string leftIcon
+    property string rightIcon
+
+
+
     property alias helpBlock: helpBlockLoader.sourceComponent
     signal entered(var text)
+    onAccepted: entered(control.text)
+
     bottomInset: helpBlockLoader.visible ? helpBlockLoader.implicitHeight : 0
     bottomPadding:bottomInset+padding
 
@@ -22,22 +28,19 @@ TextField {
     rightInset: rightDelegateContainer.visible ? rightDelegateContainer.implicitWidth : 0
     rightPadding:rightDelegateContainer.visible ? rightInset+padding : rightPadding
 
-    onAccepted: entered(control.text)
-
 
 
 
     component Delegate :
-        Control { //change to item delegate ?
-        padding: height/2
+        ItemDelegate { //change to item delegate ?
+        visible: (icon.source!="")
+        //padding: height/2
         anchors.fill: parent;
         implicitWidth: 50
-        implicitHeight: 50
-        signal clicked();
-        property string icon;
-        Image{
+        implicitHeight: parent.height
+        contentItem: Image{
             anchors.centerIn: parent
-            source: icon;
+            source: icon.source;
             sourceSize.width: parent.height*0.5
             sourceSize.height: parent.height*0.5
             fillMode: Image.PreserveAspectFit
@@ -47,13 +50,11 @@ TextField {
             }
         }
 
-        onClicked: control.entered(control.text)
-        MouseArea{
-            anchors.fill: parent;
-            onClicked: parent.clicked();
-        }
+
 
     }
+
+
 
     component HelpBlockDelegate:    Label{
         topPadding: 5
@@ -86,7 +87,7 @@ TextField {
     RoundedRect{
         id: leftDelegateContainer;
         clip: true
-        visible: leftDelegateLoader.sourceComponent!==null
+        visible: leftDelegate.visible;
         topRight: false
         bottomRight: false
         radius: control.background.radius
@@ -95,11 +96,12 @@ TextField {
         anchors.left: parent.left
         anchors.bottomMargin: control.bottomInset
         anchors.rightMargin: -1*(control.border.width)
+
         anchors.right: backgroundRect.left
         //color: "red"
         //implicitWidth: leftDelegateLoader.implicitWidth
         implicitHeight: parent.height
-        implicitWidth: leftDelegateLoader.implicitWidth
+        implicitWidth: leftDelegate.implicitWidth
         color: "#F0F3F5"
         z: visible ? -2 : 0
 
@@ -110,17 +112,18 @@ TextField {
             border.width=control.border.width
         }
 
-        Loader{
-            id:leftDelegateLoader
-            clip: true
-            anchors.fill: parent;
+        Delegate{
+            id: leftDelegate
+            icon.source: control.leftIcon;
+            onClicked: control.entered(control.text)
 
         }
     }
 
     RoundedRect{
         id: rightDelegateContainer;
-        visible: rightDelegateLoader.sourceComponent!==null
+        clip: true
+        visible: rightDelegate.visible
         topLeft: false
         bottomLeft: false
         radius: control.background.radius
@@ -129,9 +132,9 @@ TextField {
         anchors.right: parent.right
         anchors.bottomMargin: control.bottomInset
         anchors.leftMargin: -1*(control.border.width)
-
+        anchors.left: backgroundRect.right
         implicitHeight: parent.height
-        implicitWidth: rightDelegateLoader.implicitWidth
+        implicitWidth: rightDelegate.implicitWidth
         color: "#F0F3F5"
         z: visible ? -2 : 0
         Component.onCompleted: {
@@ -140,10 +143,12 @@ TextField {
             border.color= control.border.color
         }
 
-        Loader{
-            id:rightDelegateLoader
-            clip: true
-            anchors.fill: parent;
+        //children[0]:rightDelegate
+
+        Delegate{
+            id: rightDelegate
+            icon.source: control.rightIcon
+            onClicked: control.entered(control.text)
         }
     }
 

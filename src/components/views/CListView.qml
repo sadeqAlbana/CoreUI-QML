@@ -8,10 +8,11 @@ ListView {
     id: listView
     clip: true
     property list<Action> actions;
+    property string title;
     headerPositioning: ListView.OverlayHeader
 
     header: CListViewHeaderDelegate{
-        title: "Categories"
+        title: listView.title;
         width: ListView.view.width;
 
     }

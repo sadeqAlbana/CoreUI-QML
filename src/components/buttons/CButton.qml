@@ -3,13 +3,14 @@ import QtQuick.Controls 2.15
 import QtGraphicalEffects 1.15
 Button {
     id: control
-    property color color;
+    property alias color : control.palette.button
     property color borderColor : "transparent"
     property int   borderWidth : 0;
-    property color textColor
+    property alias textColor : control.palette.buttonText
     property int radius: 4
     property int shadowRadius: 4;
     property real shadowSpread: 0.1
+    palette.shadow: "silver"
     implicitHeight: 35
     implicitWidth: 120
     hoverEnabled: true
@@ -22,7 +23,7 @@ Button {
         samples: 40
         verticalOffset: 1
         spread: 0.1
-        color: "silver"
+        color: palette.shadow
         cached: true
     }
 
@@ -35,7 +36,7 @@ Button {
 
     background: Rectangle{
         id: backgroundRect
-        color: control.color
+        color: palette.button
         radius: control.radius
         border.color: control.borderColor
         border.width: control.borderWidth
@@ -48,7 +49,7 @@ Button {
             //id: content
             text: control.text
             font: control.font
-            color: control.textColor
+            color: palette.buttonText
             //opacity: enabled ? 1.0 : 0.3
             //color: control.down ? "#17a81a" : "#21be2b"
             horizontalAlignment: Text.AlignHCenter
@@ -73,30 +74,30 @@ Button {
             name: "pressed"
             when: pressed
             extend: "active"
-            PropertyChanges {target: backgroundRect; color: darkerColor(1.3)}
+            PropertyChanges {target: control; palette.button: darkerColor(1.3); explicit: true}
         },
 
         State{
             name: "active"
             when: activeFocus
             extend: "hovered"
-            PropertyChanges {target: control; shadowRadius: 16;}
-            PropertyChanges {target: control; shadowSpread: 1;}
+            PropertyChanges {target: control; shadowRadius: 16; explicit: true}
+            PropertyChanges {target: control; shadowSpread: 1; explicit: true}
         },
         State{
             name: "hovered"
             when: hovered
-            PropertyChanges {target: backgroundRect; color: darkerColor(1.1)}
+            PropertyChanges {target: control; palette.button: darkerColor(1.1); explicit: true}
         },
         State{
             name: "disabled"
             when: !enabled
-            PropertyChanges {target: control; opacity: 0.6;}
+            PropertyChanges {target: control; opacity: 0.6; explicit: true}
         }
     ]
 
     function darkerColor(factor){
-        return Qt.darker(control.color,factor);
+        return Qt.darker(palette.button,factor);
     }
 
 }

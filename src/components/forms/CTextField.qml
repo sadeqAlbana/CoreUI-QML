@@ -91,9 +91,9 @@ TextField {
         topRight: false
         bottomRight: false
         radius: control.background.radius
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
+        anchors.top: control.top
+        anchors.bottom: control.bottom
+        anchors.left: control.left
         anchors.bottomMargin: control.bottomInset
         anchors.rightMargin: -1*(control.border.width)
 
@@ -127,9 +127,9 @@ TextField {
         topLeft: false
         bottomLeft: false
         radius: control.background.radius
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
+        anchors.top: control.top
+        anchors.bottom: control.bottom
+        anchors.right: control.right
         anchors.bottomMargin: control.bottomInset
         anchors.leftMargin: -1*(control.border.width)
         anchors.left: backgroundRect.right
@@ -183,8 +183,8 @@ TextField {
     Loader{
         id: helpBlockLoader
         visible: sourceComponent!==null
-        anchors.bottom: parent.bottom;
-        anchors.left: parent.left
-        anchors.right: parent.right
+        anchors.bottom: control.bottom;
+        anchors.left: control.left
+        anchors.right: control.right
     }
 }

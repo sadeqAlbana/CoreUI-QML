@@ -33,9 +33,9 @@ Control{ //use Container instead ?
     HorizontalHeaderView {
         id: horizontalHeader
         syncView: tableView
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
+        anchors.top: rootItem.top
+        anchors.left: rootItem.left
+        anchors.right: rootItem.right
         implicitHeight: 60
 
         height: 60
@@ -60,9 +60,9 @@ Control{ //use Container instead ?
 
         anchors{
             top: horizontalHeader.bottom
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
+            left: rootItem.left
+            right: rootItem.right
+            bottom: rootItem.bottom
 
         }
 

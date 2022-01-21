@@ -49,9 +49,6 @@ TextField {
                 color:"#5C6873"
             }
         }
-
-
-
     }
 
 

@@ -18,7 +18,6 @@ ComboBox{
     }
 
 
-
     leftInset: leftDelegateContainer.visible ? leftDelegateContainer.implicitWidth : 0
     leftPadding:leftDelegateContainer.visible ? leftInset+padding : leftPadding
 
@@ -79,7 +78,7 @@ ComboBox{
     RoundedRect{
         id: leftDelegateContainer;
         clip: true
-        visible: children.length
+        visible: leftIcon!=""
         topRight: false
         bottomRight: false
         radius: control.background.radius

@@ -1,18 +1,25 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtGraphicalEffects 1.15
-Button {
+import QtQuick.Templates 2.15 as T
+import QtQuick.Controls.impl 2.15
+RoundButton {
     id: control
     property alias color : control.palette.button
     property color borderColor : "transparent"
     property int   borderWidth : 0;
     property alias textColor : control.palette.buttonText
-    property int radius: 4
+    //property int radius: 4
     property int shadowRadius: 4;
     property real shadowSpread: 0.1
+    radius: 4
+//    leftPadding: implicitContentWidth/2
+//    rightPadding: implicitContentWidth/2
+
+    clip: true
     palette.shadow: "silver"
-    implicitHeight: 35
-    implicitWidth: 120
+    //implicitHeight: 35
+    //implicitWidth: 120
     hoverEnabled: true
     onPressed: forceActiveFocus();
     layer.enabled: true
@@ -43,31 +50,19 @@ Button {
     }
 
 
-    contentItem: Item {
-        Text{
-            anchors.fill: parent;
-            //id: content
-            text: control.text
-            font: control.font
-            color: palette.buttonText
-            //opacity: enabled ? 1.0 : 0.3
-            //color: control.down ? "#17a81a" : "#21be2b"
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            visible: control.text? true : false
-            //elide: Text.ElideRight
-        }
-        Image{
-            anchors.fill: parent;
-            source: icon.source
-            antialiasing: true
-            sourceSize.width: icon.width
-            sourceSize.height: icon.height
-            layer.enabled: icon.color? true : false
-            layer.effect: ColorOverlay{color: icon.color}
-            visible: control.icon.source ? true : false
-        }
-    }
+//    contentItem: IconLabel{
+//        spacing: control.spacing
+//        mirrored: control.mirrored
+//        display: control.display
+
+//        icon: control.icon
+//        text: control.text
+//        font: control.font
+//        color: control.flat && !control.down ? (control.visualFocus ? control.palette.highlight : control.palette.windowText) : control.palette.buttonText
+//    }
+
+
+
 
     states: [
         State{

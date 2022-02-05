@@ -37,5 +37,6 @@
         <file>components/SharedComponents/CMenu.qml</file>
         <file>components/forms/NewCTextField.qml</file>
         <file>components/forms/CTextFieldDelegate.qml</file>
+        <file>palettes/ButtonPrimary.qml</file>
     </qresource>
 </RCC>

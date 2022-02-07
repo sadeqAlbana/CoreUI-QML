@@ -10,6 +10,7 @@ ComboBox{
     property color glowColor : "#DCD9F9"
     background: RoundedRect{
         implicitHeight: 40
+        implicitWidth: 200
         id: backgroundRect;
         color : "#fff"
         border.color: "#d8dbe0";

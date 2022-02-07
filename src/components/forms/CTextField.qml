@@ -64,7 +64,8 @@ TextField {
     background: RoundedRect{
         //border.width: 3
         id: backgroundRect;
-        implicitHeight: 35
+        implicitHeight: 40
+        implicitWidth: 200
         color : "#fff"
         border.color: "#d8dbe0";
         radius: 4
@@ -179,7 +180,7 @@ TextField {
 
     Loader{
         id: helpBlockLoader
-        visible: sourceComponent!==null
+        visible: sourceComponent!==undefined
         anchors.bottom: control.bottom;
         anchors.left: control.left
         anchors.right: control.right

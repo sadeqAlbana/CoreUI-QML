@@ -6,5 +6,6 @@ FormGroup {
     CTextField{
         id:control
         Layout.fillWidth: true
+        //Layout.fillHeight: true //setting it to false was causing a problem inside cards....margins !
     }
 }

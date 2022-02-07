@@ -13,7 +13,8 @@ GridLayout {
     Label{
         id: textLabel
         verticalAlignment: horizontal ? Qt.AlignVCenter : Qt.AlignBottom
-        Layout.fillHeight: horizontal
+       // Layout.fillHeight: horizontal
         color: "#3c4b64"
+        visible: false
     }
 }

@@ -21,7 +21,6 @@ Control{ //use Container instead ?
     property alias rowHeightProvider : tableView.rowHeightProvider
 
 
-
     implicitHeight: horizontalHeader.implicitHeight+tableView.implicitHeight
     implicitWidth: tableView.width
 
@@ -51,7 +50,6 @@ Control{ //use Container instead ?
 
     TableView{
         id: tableView
-
         property int selectedRow: -1
         property int hoveredRow: -1
         rowHeightProvider: function(row){return 60}
@@ -63,6 +61,8 @@ Control{ //use Container instead ?
             left: rootItem.left
             right: rootItem.right
             bottom: rootItem.bottom
+            bottomMargin: 1
+
 
         }
 
@@ -108,11 +108,7 @@ Control{ //use Container instead ?
         } //end MouseArea
 
         delegate: CTableViewDelegate{}
-
-
         onWidthChanged: forceLayout();
 
     }
-
-
 }

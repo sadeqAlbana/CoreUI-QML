@@ -7,17 +7,7 @@ import "qrc:/CoreUI/components/SharedComponents"
 Page{
     id: control
     property color accentColor: "#d8dbe0"
-    //contentHeight: contentItem.implicitHeight+headerLine.implicitHeight+ footerLine.implicitHeight
-    //contentWidth: contentChildren[2].implicitWidth
-//    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-//                            contentWidth + leftPadding + rightPadding,
-//                            implicitHeaderWidth,
-//                            implicitFooterWidth)
-//    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-//                             contentHeight + topPadding + bottomPadding + headerLine.implicitHeight+ footerLine.implicitHeight
-//                             + (implicitHeaderHeight > 0 ? implicitHeaderHeight + spacing : 0)
-//                             + (implicitFooterHeight > 0 ? implicitFooterHeight + spacing : 0))
-//    clip: true
+
     background: Rectangle{
         id: background
         color : "#fff"
@@ -49,11 +39,11 @@ Page{
 
     property Item headerLine: Rectangle{
         visible: header? header.visible : false
-        anchors.left: parent.left
-        anchors.right: parent.right
+        anchors.left: parent? parent.left : undefined
+        anchors.right: parent? parent.right : undefined
         anchors.leftMargin: background.border.width
-        anchors.rightMargin: background.border.widt
-        anchors.bottom: contentItem.top
+        anchors.rightMargin: background.border.width
+        anchors.top: header? header.bottom : undefined
         parent: control
         implicitHeight: 1
         color: "#d8dbe0"
@@ -61,11 +51,11 @@ Page{
 
     property Item footerLine :Rectangle{
         visible: footer? footer.visible : false
-        anchors.left: parent.left
-        anchors.right: parent.right
+        anchors.left: parent? parent.left : undefined
+        anchors.right: parent? parent.right : undefined
         anchors.leftMargin: background.border.width
         anchors.rightMargin: background.border.width
-        anchors.top: contentItem.bottom
+        anchors.bottom: footer? footer.top : undefined
         implicitHeight: 1
         parent: control
         color: "#d8dbe0"

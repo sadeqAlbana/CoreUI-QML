@@ -50,20 +50,6 @@ RoundButton {
     }
 
 
-//    contentItem: IconLabel{
-//        spacing: control.spacing
-//        mirrored: control.mirrored
-//        display: control.display
-
-//        icon: control.icon
-//        text: control.text
-//        font: control.font
-//        color: control.flat && !control.down ? (control.visualFocus ? control.palette.highlight : control.palette.windowText) : control.palette.buttonText
-//    }
-
-
-
-
     states: [
         State{
             name: "pressed"

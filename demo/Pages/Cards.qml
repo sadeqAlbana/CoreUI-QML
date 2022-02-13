@@ -1,11 +1,12 @@
-import QtQuick 2.0
-import QtQuick.Layouts 1.12
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
 import "qrc:/CoreUI/components/base"
-import QtQuick.Controls 2.5
+import QtQuick.Controls 2.15
 ScrollView{
-    id:scrollView
+    id: scrollView
     clip: true
     anchors.fill: parent;
+    padding: 25
     property string cardText: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.";
     GridLayout {
         id:grildLayout
@@ -14,153 +15,141 @@ ScrollView{
         rowSpacing: 30
         columns: 3
         Card{
-            headerComponent: CardLabel{text: "Card title"; }
+            title: "Card title"
             Layout.fillHeight: true
             Layout.fillWidth: true
 
-            content: contentTextArea
+            ContentTextArea{}
         }
 
-//        Card{
-//            footerText: "Card footer"
-//            headerVisible: false
-//            footerVisible: true
-//            Layout.fillHeight: true
-//            Layout.fillWidth: true
-//            content: contentTextArea
-//        }
+            Card{
+                title: "Card with icon"
 
-        Card{
-            headerComponent: CardLabel{text: "Card with icon";}
-            Layout.fillHeight: true
-            Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.fillWidth: true
 
-            content: contentTextArea
+                ContentTextArea{}
+            }
+
+
+            Card{
+                title: "Card with switch"
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                ContentTextArea{}
+            }
+
+            Card{
+                title: "Card with label"
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                ContentTextArea{}
+            }
+
+            Card{
+                title: "Card with label"
+
+
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                ContentTextArea{}
+            }
+
+            Card{
+                title: "Card Outline";
+
+
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                ContentTextArea{}
+                accentColor: "blue"
+            }
+
+            //repeated
+            Card{
+                title: "Card Outline";
+
+
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                ContentTextArea{}
+                accentColor: "blue"
+            }
+            Card{
+                title: "Card Outline";
+
+
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                ContentTextArea{}
+                accentColor: "blue"
+            }
+            Card{
+                title: "Card Outline";
+
+
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                ContentTextArea{}
+                accentColor: "blue"
+            }
+            Card{
+                title: "Card Outline";
+
+
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                ContentTextArea{}
+                accentColor: "blue"
+            }
+            Card{
+               title: "Card Outline";
+
+
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                ContentTextArea{}
+                accentColor: "blue"
+            }
+            Card{
+                title: "Card Outline";
+
+
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                ContentTextArea{}
+                accentColor: "blue"
+            }
+            Card{
+                title: "Card Outline";
+
+
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                ContentTextArea{}
+                accentColor: "blue"
+            }
+            Card{
+                title: "Card Outline";
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                ContentTextArea{}
+                accentColor: "blue"
+            }
+
+            Card{
+                title: "Card Outline";
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                ContentTextArea{}
+                accentColor: "blue"
+            }
+
+
         }
 
+        component ContentTextArea : TextArea {
 
-        Card{
-            headerComponent: CardLabel{text: "Card with switch";}
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-        }
-
-        Card{
-            headerComponent: CardLabel{text: "Card with label";}
-
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-        }
-
-        Card{
-            headerComponent: CardLabel{text: "Card with label";}
-
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-        }
-
-        Card{
-            headerComponent: CardLabel{text: "Card Outline";}
-
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-            border.color: "blue"
-        }
-
-        //repeated
-        Card{
-            headerComponent: CardLabel{text: "Card Outline";}
-
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-            border.color: "blue"
-        }
-        Card{
-            headerComponent: CardLabel{text: "Card Outline";}
-
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-            border.color: "blue"
-        }
-        Card{
-            headerComponent: CardLabel{text: "Card Outline";}
-
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-            border.color: "blue"
-        }
-        Card{
-            headerComponent: CardLabel{text: "Card Outline";}
-
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-            border.color: "blue"
-        }
-        Card{
-            headerComponent: CardLabel{text: "Card Outline";}
-
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-            border.color: "blue"
-        }
-        Card{
-            headerComponent: CardLabel{text: "Card Outline";}
-
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-            border.color: "blue"
-        }
-        Card{
-            headerComponent: CardLabel{text: "Card Outline";}
-
-
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-            border.color: "blue"
-        }
-        Card{
-            headerComponent: CardLabel{text: "Card Outline";}
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-            border.color: "blue"
-        }
-
-        Card{
-            headerComponent: CardLabel{text: "Card Outline";}
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            content: contentTextArea
-            border.color: "blue"
-        }
-
-
-    }
-
-    Component {
-        id : contentTextArea
-
-        TextArea{
             //width: parent.width
             //height: parent.height
 
@@ -170,8 +159,9 @@ ScrollView{
             text: cardText
             readOnly: true
             wrapMode: Text.WordWrap
+            anchors.fill: parent;
+
 
         }
-    }
 
-}
+    }

@@ -11,11 +11,16 @@ import QtQuick.Controls 2.15
 ItemDelegate {
     id: control
     property bool  isCurrentItem : TableView.view.hoveredRow===model.row
-    property color  textColor : "#4F5D73"
-
-
     implicitWidth: 100
     implicitHeight: 60
+    padding: 5
+    text: model.display? model.display : ""
+    palette{
+        buttonText: "#4F5D73"
+        base: "#F2F2F3"
+        alternateBase: "white"
+        shadow: "#D8DBE0"
+    }
 
     hoverEnabled: true
     highlighted: TableView.view.selectedRow===model.row;
@@ -29,48 +34,40 @@ ItemDelegate {
 
     states:[
         State{
-            id: hnh
-            name: "hovered_highlighted"
+            name: "hovered_and_highlighted"
             when: highlighted && isCurrentItem
             extend: "highlighted"
-            PropertyChanges {target: control; textColor: "black"}
+            PropertyChanges {target: control; palette.buttonText: "black"}
         },
 
         State{
-            id: stateHighlighted;
             name: "highlighted"
             when: highlighted
-            PropertyChanges {target: rect; color: "#0078D7"}
-            PropertyChanges {target: control; textColor: "white"}
+            PropertyChanges {target: control; palette.base: "#0078D7"}
+            PropertyChanges {target: control; palette.alternateBase: "#0078D7"}
+
+            PropertyChanges {target: control; palette.buttonText: "white"}
         },
         State{
-            id: stateHovered;
             name: "hovered"
             when: isCurrentItem
             PropertyChanges {target: rect; color: Qt.darker("#F2F2F3",1.3)}
-            PropertyChanges {target: control; textColor: "white"}
+            PropertyChanges {target: control; palette.buttonText: "white"}
         }
     ]
 
 
     contentItem: Text {
         id: contentItem
-        anchors.centerIn: parent
-        text: model.display? model.display : ""
+        text: control.text
         horizontalAlignment: TextEdit.AlignHCenter
         verticalAlignment: TextEdit.AlignVCenter
-        color: textColor
+        color: palette.buttonText
         wrapMode: Text.WordWrap
-        padding: 0
         clip: true
 
     }
 
-//    topInset:0
-//    bottomInset:0
-//    leftInset:0
-//    rightInset:0
-    padding: 2
 
-    background: Rectangle{id: rect; color: model.row%2==0 ? "#F2F2F3" : "white"; border.color: "#D8DBE0"}
+    background: Rectangle{id: rect; color: model.row%2==0 ? palette.base : palette.alternateBase; border.color: palette.shadow}
 }

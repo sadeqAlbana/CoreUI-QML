@@ -28,6 +28,8 @@ Control{ //use Container instead ?
     property alias rowHeightProvider : tableView.rowHeightProvider
 
 
+
+
     implicitHeight: horizontalHeader.implicitHeight+tableView.implicitHeight
     implicitWidth: tableView.width
 
@@ -61,7 +63,11 @@ Control{ //use Container instead ?
         property int hoveredRow: -1
         rowHeightProvider: function(row){return 60}
         implicitHeight: rowHeightProvider(0)*rows;
-
+        onRowsChanged:{
+            if(selectedRow>=rows){
+                selectedRow=-1;
+            }
+        }
 
         anchors{
             top: horizontalHeader.bottom

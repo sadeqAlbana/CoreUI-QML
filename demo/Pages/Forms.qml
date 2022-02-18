@@ -4,8 +4,10 @@ import "qrc:/CoreUI/components/base"
 import QtQuick.Controls 2.5
 import "qrc:/CoreUI/components/forms"
 import "qrc:/CoreUI/components/buttons"
+import "qrc:/CoreUI/components/views"
 import QtGraphicalEffects 1.0
 import QtQuick.Dialogs 1.3
+import QtQml.Models 2.15
 ScrollView{
     id:scrollView
     clip: true
@@ -19,22 +21,19 @@ ScrollView{
         rowSpacing: 30
         columns: 2
 
-
-
-
         Card{
             //headerComponent: Qt.createObject(header);
-            headerComponent: CardLabel{
-                text: "Credit Card form"
-            }
+                title: "Credit Card form"
+
 
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
             Layout.leftMargin: 10
             Layout.rightMargin: 10
-
-            content: ColumnLayout {
+            padding: 15
+             ColumnLayout {
                 spacing: 20
+                anchors.fill: parent;
                 CTextInputGroup{
                     label.text: "Name"
                     textInput.placeholderText: "Enter your name"
@@ -134,13 +133,15 @@ ScrollView{
         }
 
         Card{
-            headerComponent: CardLabel{
-                text: "Company"
-            }
+                title: "Company"
+
             Layout.fillWidth: true
             Layout.leftMargin: 10
             Layout.rightMargin: 10
-            content: ColumnLayout {
+            padding: 15
+
+            ColumnLayout {
+                anchors.fill: parent;
                 spacing: 20
                 CTextInputGroup{
                     label.text: "Company"
@@ -176,14 +177,14 @@ ScrollView{
             }
         }//end Card
         Card{
-            headerComponent: CardLabel{
-                anchors.fill: parent
-                text: "Company"
-            }
+                title: "Company"
+
             Layout.fillWidth: true
             Layout.leftMargin: 10
             Layout.rightMargin: 10
-            content: GridLayout {
+            padding: 15
+
+             GridLayout {
                 columns: 2
                 rowSpacing: 30
                 columnSpacing: 100
@@ -217,7 +218,7 @@ ScrollView{
                 //                    }
                 //                }
 
-                TestTextField{
+                CTextField{
                     Layout.fillWidth: true
                     placeholderText: "test222222222222"
                     helpBlock : Label{
@@ -227,27 +228,27 @@ ScrollView{
                         topPadding: 6
                     }
 
-                    leftRectContent: Label{
-                        leftPadding: 10
-                        rightPadding: 10
-                        anchors.fill: parent;
-                        clip:true
-                        anchors.centerIn: parent
-                        text: "Left"
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
-                    }
+//                    leftRectContent: Label{
+//                        leftPadding: 10
+//                        rightPadding: 10
+//                        anchors.fill: parent;
+//                        clip:true
+//                        anchors.centerIn: parent
+//                        text: "Left"
+//                        horizontalAlignment: Text.AlignHCenter
+//                        verticalAlignment: Text.AlignVCenter
+//                    }
 
-                    rightRectContent: Label{
-                        leftPadding: 10
-                        rightPadding: 10
-                        anchors.fill: parent;
-                        clip:true
-                        anchors.centerIn: parent
-                        text: "Right"
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
-                    }
+//                    rightRectContent: Label{
+//                        leftPadding: 10
+//                        rightPadding: 10
+//                        anchors.fill: parent;
+//                        clip:true
+//                        anchors.centerIn: parent
+//                        text: "Right"
+//                        horizontalAlignment: Text.AlignHCenter
+//                        verticalAlignment: Text.AlignVCenter
+//                    }
 
                 }
 
@@ -258,7 +259,7 @@ ScrollView{
                     text: "Email"
                     bottomPadding: 25
                 }
-                AdvancedTextInput{
+                CTextField{
                     Layout.fillWidth: true
                     helpBlock : Label{
                         color: "#3c4b64"
@@ -273,7 +274,7 @@ ScrollView{
                     text: "Password"
                     bottomPadding: 25
                 }
-                AdvancedTextInput{
+                CTextField{
                     Layout.fillWidth: true
                     echoMode: TextInput.Password
                     helpBlock : Label{
@@ -289,12 +290,12 @@ ScrollView{
                     text: "Date Input"
                     bottomPadding: 25
                 }
-                AdvancedTextInput{
+                CTextField{
                     Layout.fillWidth: true
 
-                    textInput.inputMask: "00/00/0000"
+                    inputMask: "00/00/0000"
                     //text:"202002-02"
-                    placeHolderText:"dd/mm/yyyy"
+                    placeholderText:"dd/mm/yyyy"
                     helpBlock : Label{
                         color: "#3c4b64"
                         text: "Please enter a valid date"
@@ -308,9 +309,9 @@ ScrollView{
                     text: "Disabled"
 
                 }
-                AdvancedTextInput{
+                CTextField{
                     Layout.fillWidth: true
-                    placeHolderText:"Disabled"
+                    placeholderText:"Disabled"
                     enabled: false
                 }
 
@@ -549,16 +550,17 @@ ScrollView{
         }//card
 
         Card{
-            headerComponent: CardLabel{
-                text: "Horizontal Form"
+                title: "Horizontal Form"
 
-            }
+
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
             Layout.leftMargin: 10
             Layout.rightMargin: 10
+            padding: 15
 
-            content: GridLayout {
+             GridLayout {
+                 anchors.fill: parent;
                 columns: 2
                 rowSpacing: 30
                 columnSpacing: 100
@@ -569,7 +571,7 @@ ScrollView{
                     text: "Email"
                     bottomPadding: 25
                 }
-                AdvancedTextInput{
+                CTextField{
                     Layout.fillWidth: true
                     helpBlock : Label{
                         color: "#3c4b64"
@@ -584,7 +586,7 @@ ScrollView{
                     text: "Password"
                     bottomPadding: 25
                 }
-                AdvancedTextInput{
+                CTextField{
                     Layout.fillWidth: true
                     echoMode: TextInput.Password
                     helpBlock : Label{
@@ -596,16 +598,21 @@ ScrollView{
             }
 
 
-            footerComponent: RowLayout{
-                anchors.fill: parent;
-                anchors.margins: 10
+            footer: RowLayout{
+                Rectangle{
+                    color: "transparent"
+                    Layout.fillWidth: true
+
+                }
 
                 CButton{
                     text: "Submit"
                     color: "#321fdb"
                     textColor: "#ffffff"
-                    Layout.fillHeight: true
                     implicitWidth: 60
+                    implicitHeight: 40
+                    Layout.margins: 10
+
                 }
 
 
@@ -613,8 +620,11 @@ ScrollView{
                     text: "Reset"
                     color: "#e55353"
                     textColor: "#ffffff"
-                    Layout.fillHeight: true
                     implicitWidth: 60
+                    implicitHeight: 40
+                    Layout.margins: 10
+
+
                 }
             }
         }//card end

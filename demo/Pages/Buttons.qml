@@ -20,16 +20,18 @@ ScrollView{
         columns: 1
 
         Card{
-            headerComponent: CardLabel{text: "Standard Buttons";}
+            title: "Standard Buttons"
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
             Layout.leftMargin: 10
             Layout.rightMargin: 10
+            padding: 25
 
-            content: GridLayout {
+             GridLayout {
                 columns: 9
                 rowSpacing: 30
                 columnSpacing: 45
+                anchors.fill: parent;
 
                 Label{
                     Layout.leftMargin: 10
@@ -221,19 +223,18 @@ ScrollView{
 
 
         Card{
-            headerComponent: CardLabel{
-                text: "Outline Buttons"
-
-            }
+            title: "Outline Buttons"
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
             Layout.leftMargin: 10
             Layout.rightMargin: 10
+            padding: 25
 
-            content: GridLayout {
+             GridLayout {
                 columns: 9
                 rowSpacing: 30
                 columnSpacing: 45
+                anchors.fill: parent
 
                 Label{
                     Layout.leftMargin: 10
@@ -424,19 +425,17 @@ ScrollView{
 
 
         Card{
-            headerComponent: CardLabel{
-                text: "Ghost Buttons"
-
-            }
+            title: "Ghost Buttons"
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
             Layout.leftMargin: 10
             Layout.rightMargin: 10
-
-            content: GridLayout {
+            padding: 25
+             GridLayout {
                 columns: 9
                 rowSpacing: 30
                 columnSpacing: 45
+                anchors.fill: parent
 
                 Label{
                     Layout.leftMargin: 10
@@ -629,16 +628,17 @@ ScrollView{
 
 
         Card{
-            headerComponent: CardLabel{text: "Pill Buttons";}
+            title: "Pill Buttons"
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
             Layout.leftMargin: 10
             Layout.rightMargin: 10
-
-            content: GridLayout {
+            padding: 25
+             GridLayout {
                 columns: 9
                 rowSpacing: 30
                 columnSpacing: 45
+                anchors.fill: parent;
 
                 Label{
                     Layout.leftMargin: 10

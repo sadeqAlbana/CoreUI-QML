@@ -67,6 +67,7 @@ Control{ //use Container instead ?
             if(selectedRow>=rows){
                 selectedRow=-1;
             }
+            contentY=0; //this is a temprary bug fix for items now showing after model reset/rows deletion
         }
 
         anchors{

@@ -1,0 +1,17 @@
+[Icon Theme]
+Name=CoreUI
+
+
+Directories=brand,flag,free
+
+[brand]
+Size=32
+Type=Scalable
+
+[flag]
+Size=32
+Type=Scalable
+
+[free]
+Size=32
+Type=Scalable

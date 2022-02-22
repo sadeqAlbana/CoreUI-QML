@@ -9,7 +9,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtGraphicalEffects 1.15
 import "../SharedComponents"
-
+import QtQuick.Controls.impl 2.15 as Impl
 TextField {
     id:control
     selectByMouse: true
@@ -40,22 +40,12 @@ TextField {
 
     component Delegate :
         ItemDelegate { //change to item delegate ?
-        visible: (icon.source!="")
+        visible: (icon.name!="")
         //padding: height/2
         anchors.fill: parent;
-        implicitWidth: 50
-        implicitHeight: parent.height
-        contentItem: Image{
-            anchors.centerIn: parent
-            source: icon.source;
-            sourceSize.width: parent.height*0.5
-            sourceSize.height: parent.height*0.5
-            fillMode: Image.PreserveAspectFit
-            layer.enabled: true
-            layer.effect: ColorOverlay{
-                color:"#5C6873"
-            }
-        }
+        implicitHeight: 50
+        implicitWidth: implicitHeight
+        icon.color: "#5C6873"
     }
 
 
@@ -119,7 +109,7 @@ TextField {
 
         Delegate{
             id: leftDelegate
-            icon.source: control.leftIcon;
+            icon.name: control.leftIcon;
             onClicked: control.entered(control.text)
 
         }
@@ -152,7 +142,7 @@ TextField {
 
         Delegate{
             id: rightDelegate
-            icon.source: control.rightIcon
+            icon.name: control.rightIcon
             onClicked: control.entered(control.text)
         }
     }

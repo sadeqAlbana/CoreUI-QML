@@ -33,22 +33,25 @@ ComboBox{
 
     component Delegate :
         ItemDelegate { //change to item delegate ?
-        visible: (icon.source!="")
+        visible: (icon.name!="")
+        icon.color: "#5C6873"
         //padding: height/2
         anchors.fill: parent;
         implicitWidth: 50
         implicitHeight: parent.height
-        contentItem: Image{
-            anchors.centerIn: parent
-            source: icon.source;
-            sourceSize.width: parent.height*0.5
-            sourceSize.height: parent.height*0.5
-            fillMode: Image.PreserveAspectFit
-            layer.enabled: true
-            layer.effect: ColorOverlay{
-                color:"#5C6873"
-            }
-        }
+
+
+//        contentItem: Image{
+//            anchors.centerIn: parent
+//            source: icon.source;
+//            sourceSize.width: parent.height*0.5
+//            sourceSize.height: parent.height*0.5
+//            fillMode: Image.PreserveAspectFit
+//            layer.enabled: true
+//            layer.effect: ColorOverlay{
+//                color:"#5C6873"
+//            }
+//        }
     }
 
     delegate: ItemDelegate {
@@ -115,7 +118,7 @@ ComboBox{
 
         Delegate{
             id: leftDelegate
-            icon.source: control.leftIcon;
+            icon.name: control.leftIcon;
             onClicked: control.entered(control.text)
 
         }

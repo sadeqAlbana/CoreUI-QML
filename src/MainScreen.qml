@@ -121,7 +121,7 @@ Item {
                 Image{
                     id: image
                     anchors.centerIn: parent;
-                    source:"qrc:/assets/icons/coreui/brand/cib-coreui.svg"
+                    source:"qrc:/icons/CoreUI/brand/cib-coreui.svg"
                     sourceSize.width: 82
                     sourceSize.height: 82
                     layer.enabled: true

@@ -1,7 +1,7 @@
 [{
     "title": "Dashboard",
     "category": "",
-    "image": "qrc:/assets/icons/coreui/free/cil-speedometer.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-speedometer.svg",
     "path": "",
     "badge": {
         "variant": "info",
@@ -11,20 +11,20 @@
 {
     "title": "Colors",
     "category": "THEME",
-    "image": "qrc:/assets/icons/coreui/free/cil-drop.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-drop.svg",
     "path": ""
 },
 {
     "title": "Typography",
     "category": "THEME",
-    "image": "qrc:/assets/icons/coreui/free/cil-pen.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-pen.svg",
     "path": ""
 },
 
 {
     "title": "Base",
     "category": "COMPONENTS",
-    "image": "qrc:/assets/icons/coreui/free/cil-pen.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-pen.svg",
     "path": "",
     "childItems": [
                 {
@@ -90,7 +90,7 @@
 {
     "title": "Buttons",
     "category": "COMPONENTS",
-    "image": "qrc:/assets/icons/coreui/free/cil-cursor.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-cursor.svg",
     "path": "",
     "childItems": [
                 {
@@ -125,14 +125,14 @@
 {
     "title": "Charts",
     "category": "COMPONENTS",
-    "image": "qrc:/assets/icons/coreui/free/cil-chart-pie.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-chart-pie.svg",
     "path": ""
 
 },
 {
     "title": "Editors",
     "category": "COMPONENTS",
-    "image": "qrc:/assets/icons/coreui/free/cil-code.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-code.svg",
     "path": "",
     "childItems": [
                 {
@@ -166,7 +166,7 @@
 {
     "title": "Forms",
     "category": "COMPONENTS",
-    "image": "qrc:/assets/icons/coreui/free/cil-notes.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-notes.svg",
     "path": "",
     "childItems": [
                 {
@@ -196,7 +196,7 @@
 {
     "title": "Google Maps",
     "category": "COMPONENTS",
-    "image": "qrc:/assets/icons/coreui/free/cil-map.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-map.svg",
     "path": "",
     "badge": {
         "variant": "danger",
@@ -207,7 +207,7 @@
 {
     "title": "Icons",
     "category": "COMPONENTS",
-    "image": "qrc:/assets/icons/coreui/free/cil-star.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-star.svg",
     "path": "",
     "childItems": [
                 {
@@ -233,7 +233,7 @@
 {
     "title": "Notifications",
     "category": "COMPONENTS",
-    "image": "qrc:/assets/icons/coreui/free/cil-bell.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-bell.svg",
     "path": "",
     "childItems": [
                 {
@@ -261,7 +261,7 @@
 {
     "title": "Plugins",
     "category": "COMPONENTS",
-    "image": "qrc:/assets/icons/coreui/free/cil-bolt.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-bolt.svg",
     "path": "",
     "childItems": [
                 {
@@ -293,7 +293,7 @@
 {
     "title": "Tables",
     "category": "COMPONENTS",
-    "image": "qrc:/assets/icons/coreui/free/cil-columns.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-columns.svg",
     "path": "",
     "childItems": [
                 {
@@ -313,7 +313,7 @@
 {
     "title": "Widgets",
     "category": "COMPONENTS",
-    "image": "qrc:/assets/icons/coreui/free/cil-calculator.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-calculator.svg",
     "path": "",
     "badge": {
         "variant": "info",
@@ -323,7 +323,7 @@
 {
     "title": "Pages",
     "category": "EXTRAS",
-    "image": "qrc:/assets/icons/coreui/free/cil-star.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-star.svg",
     "path": "",
     "childItems": [
                 {
@@ -347,7 +347,7 @@
 {
     "title": "Apps",
     "category": "EXTRAS",
-    "image": "qrc:/assets/icons/coreui/free/cil-layers.svg",
+    "image": "qrc:/icons/CoreUI/free/cil-layers.svg",
     "path": "",
     "childItems": [
                 {

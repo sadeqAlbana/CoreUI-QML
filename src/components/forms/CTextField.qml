@@ -82,7 +82,7 @@ TextField {
     RoundedRect{
         id: leftDelegateContainer;
         clip: true
-        visible: leftDelegate.visible;
+        visible: leftDelegate.icon.name!=""
         topRight: false
         bottomRight: false
         radius: control.background.radius
@@ -118,7 +118,7 @@ TextField {
     RoundedRect{
         id: rightDelegateContainer;
         clip: true
-        visible: rightDelegate.visible
+        visible: rightDelegate.icon.name!=""
         topLeft: false
         bottomLeft: false
         radius: control.background.radius

@@ -7,13 +7,13 @@
 
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-
 ItemDelegate {
     id: control
+    clip: true
     property bool  isCurrentItem : TableView.view.hoveredRow===model.row
-    implicitWidth: 100
+    display: AbstractButton.TextUnderIcon
     implicitHeight: 60
-    padding: 5
+
     text: model.display? model.display : ""
     palette{
         buttonText: "#4F5D73"
@@ -21,6 +21,17 @@ ItemDelegate {
         alternateBase: "white"
         shadow: "#D8DBE0"
     }
+
+//    Component.onCompleted: {
+//        TableView.view.implicitColumnSizes[column]=implicitWidth
+//    }
+
+//    implicitWidth: Math.max((Math.max(implicitBackgroundWidth + leftInset + rightInset,
+//                            implicitContentWidth + leftPadding + rightPadding)),75)
+
+
+//    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
+//                            implicitContentWidth + leftPadding + rightPadding)
 
     hoverEnabled: true
     highlighted: TableView.view.selectedRow===model.row;
@@ -57,16 +68,6 @@ ItemDelegate {
     ]
 
 
-    contentItem: Text {
-        id: contentItem
-        text: control.text
-        horizontalAlignment: TextEdit.AlignHCenter
-        verticalAlignment: TextEdit.AlignVCenter
-        color: palette.buttonText
-        wrapMode: Text.WordWrap
-        clip: true
-
-    }
 
 
     background: Rectangle{id: rect; color: model.row%2==0 ? palette.base : palette.alternateBase; border.color: palette.shadow}

@@ -18,7 +18,11 @@ import QtGraphicalEffects 1.0
 TableView{
     id: tableView
     property list<Action> actions
-    property var implicitColumnSizes: []
+    property var implicitColumnSizes: ({})
+    //    onImplicitColumnSizesChanged: {
+    //        console.log(implicitColumnSizes)
+    //    }
+
     topMargin: horizontalHeader.implicitHeight
     Layout.fillWidth: true
     property int selectedRow: -1
@@ -27,19 +31,56 @@ TableView{
     //implicitHeight: rowHeightProvider(0)*rows;
     boundsBehavior: Flickable.StopAtBounds
     clip: true
-//    columnWidthProvider: function (column){
+    columnWidthProvider: tableView.widthProvider;
+
+    onImplicitColumnSizesChanged: {
+        forceLayoutTimer.restart();
+    }
+
+    reuseItems: false
+    Timer{
+        id: forceLayoutTimer
+        interval: 25
+        onTriggered: tableView.forceLayout();
+    }
+
+    implicitWidth: {
+        var implicit=0;
+        for(const key in implicitColumnSizes){
+            implicit+=implicitColumnSizes[key];
+        }
+        return implicit;
+    }
+
+//    contentWidth: implicitWidth
+    function widthProvider(column){
+
+        var max = tableView.implicitColumnSizes[column]
 
 
-//        return tableView.width/model.columnCount();
-//    }
+        if(max<=0 || max===NaN)
+            return -1 //will use implicit width when returning -1
 
-    //    function sizeHintForColumn(column){
-    //        for(var i=0; i<rows; i++){
-    //            var txt=
-    //        }
+        var availableSpaceTotal=tableView.width-tableView.implicitWidth;
 
-    //    }
-    HorizontalHeaderView {
+        if(availableSpaceTotal>0 && availableSpaceTotal>max){ //??
+
+            var columnSpace=parseInt(availableSpaceTotal/tableView.columns);
+//            console.log("availableSpace: " + availableSpace)
+//            console.log("width: " + tableView.width);
+//            console.log("contentWidth: " + tableView.contentWidth);
+//            console.log("implicitWidth: " + tableView.implicitWidth);
+//            console.log("max: " + max);
+
+            return max+columnSpace
+
+        }
+        return max
+    }
+
+
+    property HorizontalHeaderView horizontalHeaderView: HorizontalHeaderView{
+
         id: horizontalHeader
         syncView: tableView
         implicitHeight: 60
@@ -48,6 +89,7 @@ TableView{
         height: 60
         clip: tableView.clip
         boundsBehavior: tableView.boundsBehavior
+        //columnWidthProvider: tableView.widthProvider;
         delegate: CHorizontalHeaderDelegate{}
 
     }
@@ -57,6 +99,7 @@ TableView{
             selectedRow=-1;
         }
         contentY=topMargin*-1; //this is a temprary bug fix for items now showing after model reset/rows deletion
+
     }
 
 
@@ -74,7 +117,6 @@ TableView{
             if (mouse.source === Qt.MouseEventNotSynthesized)
                 contextMenu.popup()
         }
-        onDoubleClicked: console.log("double clicked")
 
         Menu {
             id: contextMenu
@@ -95,6 +137,11 @@ TableView{
 
     delegate: CTableViewDelegate{}
     onWidthChanged: forceLayout();
+
+
+    //    onColumnsChanged: forceLayout();
+    //    onImplicitColumnSizesChanged: forceLayout();
+
 
 }
 //}

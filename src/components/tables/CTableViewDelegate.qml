@@ -68,7 +68,15 @@ ItemDelegate {
     ]
 
 
+    onTextChanged: evaluationSize();
+    function evaluationSize(){
+        if(implicitWidth>TableView.view.implicitColumnSizes[column] || TableView.view.implicitColumnSizes[column]===undefined){
+            TableView.view.implicitColumnSizes[column]=implicitWidth
+            TableView.view.implicitColumnSizesChanged(); //basic types won't emit changed if changed  internally so you must emit the changed signal manually !
+        }
+    }
 
+    Component.onCompleted: evaluationSize()
 
     background: Rectangle{id: rect; color: model.row%2==0 ? palette.base : palette.alternateBase; border.color: palette.shadow}
 }

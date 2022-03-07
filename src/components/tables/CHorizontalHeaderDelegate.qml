@@ -34,4 +34,17 @@ ItemDelegate {
 
         //work on drag !
     }
+
+
+    onTextChanged: evaluationSize();
+    function evaluationSize(){
+        if(implicitWidth>TableView.view.syncView.implicitColumnSizes[column] || TableView.view.syncView.implicitColumnSizes[column]===undefined){
+            TableView.view.syncView.implicitColumnSizes[column]=implicitWidth
+            TableView.view.syncView.implicitColumnSizesChanged();
+        }
+    }
+
+    Component.onCompleted: evaluationSize()
+
+
 }

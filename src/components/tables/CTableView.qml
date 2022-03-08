@@ -52,7 +52,7 @@ TableView{
         return implicit;
     }
 
-//    contentWidth: implicitWidth
+    //contentWidth: Math.max(implicitWidth,width);
     function widthProvider(column){
 
         var max = tableView.implicitColumnSizes[column]
@@ -63,14 +63,15 @@ TableView{
 
         var availableSpaceTotal=tableView.width-tableView.implicitWidth;
 
-        if(availableSpaceTotal>0 && availableSpaceTotal>max){ //??
-
+        if(availableSpaceTotal>0){
             var columnSpace=parseInt(availableSpaceTotal/tableView.columns);
-//            console.log("availableSpace: " + availableSpace)
-//            console.log("width: " + tableView.width);
-//            console.log("contentWidth: " + tableView.contentWidth);
-//            console.log("implicitWidth: " + tableView.implicitWidth);
-//            console.log("max: " + max);
+//            console.log("availableSpaceTotal: " + availableSpaceTotal)
+//            console.log("width:          " + tableView.width);
+//            console.log("contentWidth:   " + tableView.contentWidth);
+//            console.log("implicitWidth:  " + tableView.implicitWidth);
+//            console.log("max:            " + max);
+//            console.log("columnSpace:    " + columnSpace);
+//            console.log("comb:    " + (max+columnSpace));
 
             return max+columnSpace
 
@@ -80,7 +81,7 @@ TableView{
 
 
     property HorizontalHeaderView horizontalHeaderView: HorizontalHeaderView{
-
+        reuseItems: false
         id: horizontalHeader
         syncView: tableView
         implicitHeight: 60

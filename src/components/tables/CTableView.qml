@@ -19,6 +19,7 @@ TableView{
     id: tableView
     property list<Action> actions
     property var implicitColumnSizes: ({})
+    property var hiddenColumns: []
     //    onImplicitColumnSizesChanged: {
     //        console.log(implicitColumnSizes)
     //    }
@@ -27,14 +28,26 @@ TableView{
     Layout.fillWidth: true
     property int selectedRow: -1
     property int hoveredRow: -1
-    //rowHeightProvider: function(row){return 60}
-    //implicitHeight: rowHeightProvider(0)*rows;
     boundsBehavior: Flickable.StopAtBounds
     clip: true
     columnWidthProvider: tableView.widthProvider;
 
     onImplicitColumnSizesChanged: {
         forceLayoutTimer.restart();
+    }
+
+    function hideColumn(column){
+        if(isColumnHidden(column))
+            return
+
+        tableView.hiddenColumns.push(column);
+    }
+
+    function showColumn(column){
+        if(!isColumnHidden(column))
+            return
+
+        tableView.hiddenColumns.pop(tableView.hiddenColumns.indexOf(column))
     }
 
     reuseItems: false
@@ -47,16 +60,31 @@ TableView{
     implicitWidth: {
         var implicit=0;
         for(const key in implicitColumnSizes){
-            implicit+=implicitColumnSizes[key];
+            if(!isColumnHidden(key)){
+                implicit+=implicitColumnSizes[key];
+            }
         }
         return implicit;
     }
 
+    function isColumnHidden(column){
+        for(let i=0; i<tableView.hiddenColumns.length; i++){
+            if(tableView.hiddenColumns[i]===column){
+                return true
+            }
+        }
+        return false
+    }
+
+
+
     //contentWidth: Math.max(implicitWidth,width);
     function widthProvider(column){
 
-        var max = tableView.implicitColumnSizes[column]
+        if(isColumnHidden(column))
+            return 0
 
+        var max = tableView.implicitColumnSizes[column]
 
         if(max<=0 || max===NaN)
             return -1 //will use implicit width when returning -1
@@ -64,7 +92,7 @@ TableView{
         var availableSpaceTotal=tableView.width-tableView.implicitWidth;
 
         if(availableSpaceTotal>0){
-            var columnSpace=parseInt(availableSpaceTotal/tableView.columns);
+            var columnSpace=parseInt(availableSpaceTotal/(tableView.columns-tableView.hiddenColumns.length));
 //            console.log("availableSpaceTotal: " + availableSpaceTotal)
 //            console.log("width:          " + tableView.width);
 //            console.log("contentWidth:   " + tableView.contentWidth);
@@ -138,11 +166,7 @@ TableView{
 
     delegate: CTableViewDelegate{}
     onWidthChanged: forceLayout();
-
-
-    //    onColumnsChanged: forceLayout();
-    //    onImplicitColumnSizesChanged: forceLayout();
-
+    onHeightChanged: forceLayout();
 
 }
 //}

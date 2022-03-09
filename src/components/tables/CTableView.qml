@@ -36,11 +36,15 @@ TableView{
         forceLayoutTimer.restart();
     }
 
+    onHiddenColumnsChanged: forceLayout();
+
     function hideColumn(column){
         if(isColumnHidden(column))
             return
 
         tableView.hiddenColumns.push(column);
+        hiddenColumnsChanged();
+
     }
 
     function showColumn(column){
@@ -48,6 +52,8 @@ TableView{
             return
 
         tableView.hiddenColumns.pop(tableView.hiddenColumns.indexOf(column))
+        hiddenColumnsChanged();
+
     }
 
     reuseItems: false

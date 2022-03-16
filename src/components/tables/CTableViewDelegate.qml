@@ -15,12 +15,23 @@ ItemDelegate {
     implicitHeight: 60
 
     text: model.display? model.display : ""
+
     palette{
         buttonText: "#4F5D73"
         base: "#F2F2F3"
         alternateBase: "white"
         shadow: "#D8DBE0"
     }
+//    contentItem: TextEdit{
+//        readOnly: true
+//        text: control.text
+//        font: control.font
+//        color: control.palette.text
+//        selectByMouse: true
+//        horizontalAlignment: Text.AlignHCenter
+//        verticalAlignment: Text.AlignVCenter
+
+//    }
 
 //    Component.onCompleted: {
 //        TableView.view.implicitColumnSizes[column]=implicitWidth

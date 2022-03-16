@@ -8,6 +8,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtGraphicalEffects 1.0
+import QtQuick.Controls.impl 2.15 as Impl
 
 MenuBar {
     id: control
@@ -18,16 +19,14 @@ MenuBar {
 
         contentItem: Row{
             spacing: 5
-            Image{
+            Impl.IconImage{
                 anchors.verticalCenter: parent.verticalCenter
-                source: controlItem.menu.icon
+                name: controlItem.menu.icon
                 sourceSize.width: parent.height*0.5
                 sourceSize.height: parent.height*0.5
                 fillMode: Image.PreserveAspectFit
-                layer.enabled: true
-                layer.effect: ColorOverlay{
-                    color:"white"
-                }
+                color: "#FFFFFF"
+
             }
 
             Text {
@@ -46,14 +45,15 @@ MenuBar {
             implicitWidth: 55
             implicitHeight: 55
             opacity: enabled ? 1 : 0.3
+            radius: 5
             color: controlItem.highlighted ? control.color : Qt.darker(control.color,1.1)
         }
     }
 
-    background: Rectangle {
-        implicitWidth: 55
-        implicitHeight: 55
-        color: control.highlighted ? control.color : Qt.darker(control.color,1.1)
+//    background: Rectangle {
+//        implicitWidth: 55
+//        implicitHeight: 55
+//        color: control.highlighted ? control.color : Qt.darker(control.color,1.1)
 
-    }
+//    }
 } //end menu bar

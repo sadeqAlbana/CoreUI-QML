@@ -36,22 +36,31 @@ TableView{
         forceLayoutTimer.restart();
     }
 
-    onHiddenColumnsChanged: forceLayout();
+    onHiddenColumnsChanged: {
+        console.log("hidden columns changed: " + hiddenColumns)
+        forceLayout();
+        returnToBounds();
+    }
+
 
     function hideColumn(column){
+        console.log("hideColumn: " + column)
+
         if(isColumnHidden(column))
             return
 
-        tableView.hiddenColumns.push(column);
+        tableView.hiddenColumns.push(parseInt(column));
         hiddenColumnsChanged();
 
     }
 
     function showColumn(column){
+        console.log("showColumn: " + column)
+
         if(!isColumnHidden(column))
             return
 
-        tableView.hiddenColumns.pop(tableView.hiddenColumns.indexOf(column))
+        hiddenColumns.pop(hiddenColumns.indexOf(column))
         hiddenColumnsChanged();
 
     }
@@ -66,7 +75,10 @@ TableView{
     implicitWidth: {
         var implicit=0;
         for(const key in implicitColumnSizes){
-            if(!isColumnHidden(key)){
+//            console.log("key: "  + key)
+//            console.log("keyValue: "  + implicitColumnSizes[key])
+
+            if(!isColumnHidden(parseInt(key))){
                 implicit+=implicitColumnSizes[key];
             }
         }
@@ -75,6 +87,9 @@ TableView{
 
     function isColumnHidden(column){
         for(let i=0; i<tableView.hiddenColumns.length; i++){
+            //console.log("typeof hiddenc: " + typeof(tableView.hiddenColumns[i]))
+            //console.log("typeof column: " + typeof(column))
+
             if(tableView.hiddenColumns[i]===column){
                 return true
             }

@@ -15,7 +15,6 @@ ItemDelegate {
     implicitHeight: 60
 
     text: model.display? model.display : ""
-
     palette{
         buttonText: "#4F5D73"
         base: "#F2F2F3"

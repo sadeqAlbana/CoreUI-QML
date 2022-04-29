@@ -5,9 +5,9 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick 2.15
-import QtGraphicalEffects 1.15
-import QtQuick.Controls 2.15
+import QtQuick;import QtQuick.Controls.Basic;
+import Qt5Compat.GraphicalEffects
+import QtQuick.Controls
 import "qrc:/CoreUI/components/SharedComponents"
 ComboBox{
     id:control
@@ -72,7 +72,7 @@ ComboBox{
     layer.enabled: false
     layer.effect: Glow {
         id: glow
-        samples: 8
+        //samples: 8
         spread: 1
         color: "#DCD9F9"
         transparentBorder: true

@@ -5,9 +5,9 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtGraphicalEffects 1.15
+import QtQuick;import QtQuick.Controls.Basic;
+import QtQuick.Controls
+import Qt5Compat.GraphicalEffects
 import "../SharedComponents"
 TextArea {
     id:textArea
@@ -26,7 +26,7 @@ TextArea {
     }
     layer.effect: Glow {
         id: glowItem
-        samples: 8
+        //samples: 8
         spread: 1
         color: glowColor
         transparentBorder: true

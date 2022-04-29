@@ -5,10 +5,10 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick 2.15
-import QtGraphicalEffects 1.15
-import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.15
+import QtQuick;import QtQuick.Controls.Basic;
+import Qt5Compat.GraphicalEffects
+import QtQuick.Layouts
+import QtQuick.Controls
 import "qrc:/CoreUI/components/SharedComponents"
 
 Page{
@@ -26,11 +26,12 @@ Page{
         layer.enabled: false
         layer.effect:  DropShadow{
             radius: 3
-            samples: 40
+            //samples: 40
             verticalOffset: 1
             spread: 0.1
             color: "silver"
             cached: true
+            transparentBorder: true
         }
     } //end background
 

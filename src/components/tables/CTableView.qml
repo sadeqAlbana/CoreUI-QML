@@ -5,11 +5,11 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
+import QtQuick;import QtQuick.Controls.Basic;
+import QtQuick.Layouts
 import "qrc:/CoreUI/components/base"
-import QtQuick.Controls 2.15
-import QtGraphicalEffects 1.0
+import QtQuick.Controls
+import Qt5Compat.GraphicalEffects
 
 //https://github.com/qt/qtdeclarative/blob/5.15.2/src/quick/items/qquicktableview.cpp
 //qreal QQuickTableViewPrivate::cellWidth(const QPoint& cell)

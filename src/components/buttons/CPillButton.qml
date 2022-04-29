@@ -5,7 +5,7 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick 2.15
+import QtQuick;import QtQuick.Controls.Basic;
 
 CButton {
     id: control

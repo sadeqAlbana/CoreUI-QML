@@ -5,10 +5,10 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtGraphicalEffects 1.0
-import QtQuick.Controls.impl 2.15 as Impl
+import QtQuick;import QtQuick.Controls.Basic;
+import QtQuick.Controls
+import Qt5Compat.GraphicalEffects
+import QtQuick.Controls.impl as Impl
 
 MenuBar {
     id: control

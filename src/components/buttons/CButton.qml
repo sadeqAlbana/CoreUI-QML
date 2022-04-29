@@ -5,16 +5,14 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtGraphicalEffects 1.15
-import QtQuick.Templates 2.15 as T
-import QtQuick.Controls.impl 2.15
+import QtQuick;import QtQuick.Controls.Basic;
+import QtQuick.Controls
+import Qt5Compat.GraphicalEffects
+import QtQuick.Templates as T
+import QtQuick.Controls.impl
+
 T.RoundButton {
     id: control
-
-    property alias color : control.palette.button
-    property alias textColor : control.palette.buttonText
     property color borderColor : "transparent"
     property int   borderWidth : 0;
     //property int radius: 4
@@ -45,6 +43,7 @@ T.RoundButton {
     clip: true
     palette.shadow: "silver"
 
+
     hoverEnabled: true
     onPressed: forceActiveFocus();
     layer.enabled: true
@@ -52,11 +51,12 @@ T.RoundButton {
     layer.effect:  DropShadow{
         id: dropShadow
         radius: shadowRadius
-        samples: 40
+        //samples: 40
         verticalOffset: 1
         spread: 0.1
         color: palette.shadow
         cached: true
+        transparentBorder: true
     }
 
     transitions: Transition {

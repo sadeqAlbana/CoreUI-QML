@@ -5,14 +5,13 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtGraphicalEffects 1.15
+import QtQuick;import QtQuick.Controls.Basic;
+import QtQuick.Controls
+import Qt5Compat.GraphicalEffects
 
 Button {
     id: control
-    property color color;
-    property color textColor;
+
     property int   borderWidth : 1;
     property int   radius: 4;
 
@@ -34,13 +33,13 @@ Button {
         id: backgroundRect
         color: "white"
         radius: control.radius
-        border.color: control.color
+        border.color: control.palette.button
         border.width: control.borderWidth
     }
 
     layer.effect: Glow {
         id: glow
-        samples: 8
+        //samples: 8
         spread: 1
         color: lighterColor(1.5)
         transparentBorder: true
@@ -76,7 +75,7 @@ Button {
             name: "hovered"
             when: hovered
             PropertyChanges {target: backgroundRect; color: control.color}
-            PropertyChanges {target: content; color: textColor}
+            PropertyChanges {target: content; color: control.palette.buttonText}
         },
         State{
             name: "disabled"

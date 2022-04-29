@@ -20,8 +20,6 @@
         <file>components/buttons/CButtonOutline.qml</file>
         <file>components/buttons/CGhostButton.qml</file>
         <file>components/buttons/CPillButton.qml</file>
-        <file>components/tables/QQTableView.qml</file>
-        <file>components/tables/QQTableViewItemDelegate.qml</file>
         <file>components/base/DashboardWidget.qml</file>
         <file>components/ToastrService.qml</file>
         <file>components/tables/CTableView.qml</file>

@@ -5,8 +5,8 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
+import QtQuick;import QtQuick.Controls.Basic;
+import QtQuick.Layouts
 Rectangle{
     id: badge;
     property alias textColor: badgeText.color
@@ -16,6 +16,7 @@ Rectangle{
     antialiasing: true
     clip: true
     color: "silver"
+
     Text {
         id: badgeText
         anchors.fill: parent;

@@ -159,11 +159,11 @@ TableView{
 
 
         enabled: tableView.selectedRow>=0
-        onClicked: {
+        onClicked:(mouse)=> {
             if (mouse.button === Qt.RightButton)
                 contextMenu.popup()
         }
-        onPressAndHold: {
+        onPressAndHold:(mouse)=> {
             if (mouse.source === Qt.MouseEventNotSynthesized)
                 contextMenu.popup()
         }

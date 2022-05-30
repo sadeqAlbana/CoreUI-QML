@@ -10,22 +10,22 @@ import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
 import "../SharedComponents"
 TextArea {
-    id:textArea
+    id:control
     selectByMouse: true
     implicitHeight: 150
     layer.enabled: false
-    property alias radius: backgroundRect.radius
-    property alias border: backgroundRect.border
-    property color glowColor : "#DCD9F9"
 
-    background: RoundedRect{
-        id: backgroundRect;
-        color : "#fff"
-        border.color: "#d8dbe0";
+    property color glowColor : "#DCD9F9"
+    property CBorder border: CBorder{
+        color: "#d8dbe0";
         radius: 4
     }
+    background: RoundedRect{
+        color : "#fff"
+        border.color: control.border.color
+        radius: control.border.radius
+    }
     layer.effect: Glow {
-        id: glowItem
         //samples: 8
         spread: 1
         color: glowColor
@@ -37,25 +37,25 @@ TextArea {
         State{
             name: "rejected and active"
             when:  !acceptableInput && activeFocus
-            PropertyChanges {target: backgroundRect.border; color: "red";}
+            PropertyChanges {target: control.border; color: "red";}
             PropertyChanges {target: layer; enabled: true;}
-            PropertyChanges {target: textField; glowColor: "#F2A8A8";}
+            PropertyChanges {target: control; glowColor: "#F2A8A8";}
         },
         State{
             name: "rejected"
             when: !acceptableInput
-            PropertyChanges {target: backgroundRect.border; color: "red";}
+            PropertyChanges {target: control.border; color: "red";}
         },
         State{
             name: "active"
             when: activeFocus
-            PropertyChanges {target: backgroundRect.border; color: "#8AD4EE";}
+            PropertyChanges {target: control.border; color: "#8AD4EE";}
             PropertyChanges {target: layer; enabled: true;}
         },
         State{
             name: "disabled"
             when: !enabled
-            PropertyChanges {target: backgroundRect; color: "#E4E7EA";}
+            PropertyChanges {target: control; color: "#E4E7EA";}
         }
     ]
 }

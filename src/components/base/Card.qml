@@ -14,11 +14,13 @@ import "qrc:/CoreUI/components/SharedComponents"
 Page{
     id: control
     property color accentColor: "#d8dbe0"
+    property CBorder border: CBorder{
+        color: accentColor;
+    }
 
     background: Rectangle{
-        id: background
         color : "#fff"
-        border.color: accentColor
+        border.color: control.border.color;
         radius: 4
         smooth: true
         antialiasing: true
@@ -26,7 +28,6 @@ Page{
         layer.enabled: false
         layer.effect:  DropShadow{
             radius: 3
-            //samples: 40
             verticalOffset: 1
             spread: 0.1
             color: "silver"
@@ -49,8 +50,8 @@ Page{
         visible: header? header.visible : false
         anchors.left: parent? parent.left : undefined
         anchors.right: parent? parent.right : undefined
-        anchors.leftMargin: background.border.width
-        anchors.rightMargin: background.border.width
+        anchors.leftMargin: control.border.width
+        anchors.rightMargin: control.border.width
         anchors.top: header? header.bottom : undefined
         parent: control
         implicitHeight: 1
@@ -61,8 +62,8 @@ Page{
         visible: footer? footer.visible : false
         anchors.left: parent? parent.left : undefined
         anchors.right: parent? parent.right : undefined
-        anchors.leftMargin: background.border.width
-        anchors.rightMargin: background.border.width
+        anchors.leftMargin: control.border.width
+        anchors.rightMargin: control.border.width
         anchors.bottom: footer? footer.top : undefined
         implicitHeight: 1
         parent: control

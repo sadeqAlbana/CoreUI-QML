@@ -8,13 +8,15 @@
 import QtQuick;import QtQuick.Controls.Basic;
 import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
+import "qrc:/CoreUI/components/SharedComponents"
 
 Button {
     id: control
 
-    property int   borderWidth : 1;
     property int   radius: 4;
-
+    property CBorder border: CBorder{
+        color: "white";
+    }
 
     implicitHeight: 35
     implicitWidth: 120
@@ -30,11 +32,10 @@ Button {
     }
 
     background: Rectangle{
-        id: backgroundRect
-        color: "white"
+        color: control.border.color
         radius: control.radius
         border.color: control.palette.button
-        border.width: control.borderWidth
+        border.width: control.border.width
     }
 
     layer.effect: Glow {
@@ -74,7 +75,7 @@ Button {
         State{
             name: "hovered"
             when: hovered
-            PropertyChanges {target: backgroundRect; color: control.color}
+            PropertyChanges {target: control.border; color: control.color}
             PropertyChanges {target: content; color: control.palette.buttonText}
         },
         State{

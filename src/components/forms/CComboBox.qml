@@ -5,23 +5,27 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick;import QtQuick.Controls.Basic;
+import QtQuick;
+import QtQuick.Controls.Basic;
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls
 import "qrc:/CoreUI/components/SharedComponents"
 ComboBox{
     id:control
     property string leftIcon
-    property int radius: 4
-    property alias border: backgroundRect.border
+    property CBorder border: CBorder{
+        color: "#d8dbe0";
+        radius: 4
+    }
     property color glowColor : "#DCD9F9"
     background: RoundedRect{
         implicitHeight: 40
         implicitWidth: 200
-        id: backgroundRect;
         color : "#fff"
         border.color: "#d8dbe0";
-        radius: control.radius
+        radius: control.border.radius
+        topLeft: !leftDelegateContainer.visible
+        bottomLeft: !leftDelegateContainer.visible
 
     }
 
@@ -66,7 +70,7 @@ ComboBox{
 
     states: State{
         name: "active"
-        PropertyChanges {target: backgroundRect.border; color: "#8AD4EE";}
+        PropertyChanges {target: control.border; color: "#8AD4EE";}
     }
 
     layer.enabled: false
@@ -92,14 +96,14 @@ ComboBox{
         visible: leftIcon!=""
         topRight: false
         bottomRight: false
-        radius: control.background.radius
+        radius: control.border.radius
         anchors.top: control.top
         anchors.bottom: control.bottom
         anchors.left: control.left
         anchors.bottomMargin: control.bottomInset
         anchors.rightMargin: -1*(control.border.width)
 
-        anchors.right: backgroundRect.left
+        anchors.right: background.left
         //color: "red"
         //implicitWidth: leftDelegateLoader.implicitWidth
         implicitHeight: parent.height
@@ -109,12 +113,8 @@ ComboBox{
         color: "#F0F3F5"
         z: visible ? -2 : 0
 
-        Component.onCompleted: {
-            control.background.topLeft=Qt.binding(function(){return !visible })
-            control.background.bottomLeft=Qt.binding(function(){return !visible })
-            border.color= control.border.color
-            border.width=control.border.width
-        }
+        border.color: control.border.color
+        border.width: control.border.width
 
         Delegate{
             id: leftDelegate

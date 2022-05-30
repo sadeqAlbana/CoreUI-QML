@@ -12,8 +12,13 @@ import "../SharedComponents"
 Control{ //use Container instead ?
     id: control
     clip: true
-    property alias radius: backgroundRect.radius
-    property alias border: backgroundRect.border
+
+    property CBorder border: CBorder{
+        color: "#d8dbe0";
+        radius: 4
+    }
+
+
     property color glowColor : "#DCD9F9"
     property alias list : list;
 //    MouseArea {
@@ -32,15 +37,13 @@ Control{ //use Container instead ?
 
     background: RoundedRect{
         anchors.fill: parent;
-        id: backgroundRect;
-        color : "#fff"
-        border.color: "#d8dbe0";
-        radius: 4
+        color : control.palette.base
+        border.color: control.border.color
+        radius: control.border.radius
 
     }
 
     layer.effect: Glow {
-        id: glowItem
         //samples: 8
         spread: 1
         color: glowColor
@@ -52,13 +55,13 @@ Control{ //use Container instead ?
         State{
             name: "active"
             when: activeFocus
-            PropertyChanges {target: backgroundRect.border; color: "#8AD4EE";}
+            PropertyChanges {target: control.border; color: "#8AD4EE";}
             PropertyChanges {target: layer; enabled: true;}
         },
         State{
             name: "disabled"
             when: !enabled
-            PropertyChanges {target: backgroundRect; color: "#E4E7EA";}
+            PropertyChanges {target: control.palette; base: "#E4E7EA";}
         }
     ]
 
@@ -69,11 +72,11 @@ Control{ //use Container instead ?
             id: listDelegate
             onCheckedChanged: model.checked=checked
             width: parent.width;
-            leftInset: backgroundRect.border.width
-            rightInset: backgroundRect.border.width
+            leftInset: control.border.width
+            rightInset: control.border.width
             background: RoundedRect{
                 color : "#fff"
-                radius: 4
+                radius: control.border.radius
             }
             text: model.display
             highlighted: ListView.isCurrentItem;

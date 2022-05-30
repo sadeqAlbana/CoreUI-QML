@@ -33,7 +33,6 @@
         <file>components/views/CListViewHeaderDelegate.qml</file>
         <file>components/SharedComponents/CMenuBar.qml</file>
         <file>components/SharedComponents/CMenu.qml</file>
-        <file>components/forms/NewCTextField.qml</file>
         <file>components/forms/CTextFieldDelegate.qml</file>
         <file>palettes/BrandPrimary.qml</file>
         <file>components/SharedComponents/HorizontalSpacer.qml</file>
@@ -46,5 +45,6 @@
         <file>palettes/BrandLight.qml</file>
         <file>palettes/BrandDark.qml</file>
         <file>components/notifications/NewBadge.qml</file>
+        <file>components/SharedComponents/CBorder.qml</file>
     </qresource>
 </RCC>

@@ -29,7 +29,7 @@ Popup{
 
     Component.onCompleted: open();
 
-    contentItem: ListView{
+    ListView{
 
         id: listView
         visible: count>0

@@ -14,12 +14,14 @@ TextField {
     id:control
     selectByMouse: true
 
-    property alias radius: backgroundRect.radius
-    property alias border: backgroundRect.border
+    palette.base: "#fff"
     property color glowColor : "#DCD9F9"
     property string leftIcon
     property string rightIcon
-
+    property CBorder border: CBorder{
+        color: "#d8dbe0";
+        radius: 4
+    }
 
 
     property alias helpBlock: helpBlockLoader.sourceComponent
@@ -60,15 +62,17 @@ TextField {
 
     background: RoundedRect{
         //border.width: 3
-        id: backgroundRect;
         implicitHeight: 40
         implicitWidth: 200
-        color : "#fff"
-        border.color: "#d8dbe0";
-        radius: 4
+        color : control.palette.base
+        border.color: control.border.color
+        radius: control.border.radius
+        topLeft: !leftDelegateContainer.visible
+        bottomLeft: !leftDelegateContainer.visible
 
+        topRight: !rightDelegateContainer.visible
+        bottomRight: !rightDelegateContainer.visible
         layer.effect: Glow {
-            id: glowItem
             //samples: 8
             spread: 1
             color: glowColor
@@ -85,14 +89,14 @@ TextField {
         visible: leftDelegate.icon.name!=""
         topRight: false
         bottomRight: false
-        radius: control.background.radius
+        radius: control.border.radius
         anchors.top: control.top
         anchors.bottom: control.bottom
         anchors.left: control.left
         anchors.bottomMargin: control.bottomInset
         anchors.rightMargin: -1*(control.border.width)
 
-        anchors.right: backgroundRect.left
+        anchors.right: control.background.left
         //color: "red"
         //implicitWidth: leftDelegateLoader.implicitWidth
         implicitHeight: parent.height
@@ -100,12 +104,8 @@ TextField {
         color: "#F0F3F5"
         z: visible ? -2 : 0
 
-        Component.onCompleted: {
-            control.background.topLeft=Qt.binding(function(){return !visible })
-            control.background.bottomLeft=Qt.binding(function(){return !visible })
-            border.color= control.border.color
-            border.width=control.border.width
-        }
+        border.color: control.border.color
+        border.width: control.border.width
 
         Delegate{
             id: leftDelegate
@@ -121,22 +121,20 @@ TextField {
         visible: rightDelegate.icon.name!=""
         topLeft: false
         bottomLeft: false
-        radius: control.background.radius
+        radius: control.border.radius
         anchors.top: control.top
         anchors.bottom: control.bottom
         anchors.right: control.right
         anchors.bottomMargin: control.bottomInset
         anchors.leftMargin: -1*(control.border.width)
-        anchors.left: backgroundRect.right
+        anchors.left: background.right
         implicitHeight: parent.height
         implicitWidth: rightDelegate.implicitWidth
         color: "#F0F3F5"
         z: visible ? -2 : 0
-        Component.onCompleted: {
-            control.background.topRight=Qt.binding(function(){return !visible })
-            control.background.bottomRight=Qt.binding(function(){return !visible })
-            border.color= control.border.color
-        }
+
+        border.color: control.border.color
+        border.width: control.border.width
 
         //children[0]:rightDelegate
 
@@ -153,25 +151,25 @@ TextField {
         State{
             name: "rejected and active"
             when:  !acceptableInput && activeFocus
-            PropertyChanges {target: backgroundRect.border; color: "red";}
-            PropertyChanges {target: backgroundRect.layer; enabled: true;}
+            PropertyChanges {target: control.border; color: "red";}
+            PropertyChanges {target: background.layer; enabled: true;}
             PropertyChanges {target: control; glowColor: "#F2A8A8";}
         },
         State{
             name: "rejected"
             when: !acceptableInput
-            PropertyChanges {target: backgroundRect.border; color: "red";}
+            PropertyChanges {target: control.border; color: "red";}
         },
         State{
             name: "active"
             when: activeFocus
-            PropertyChanges {target: backgroundRect.border; color: "#8AD4EE";}
-            PropertyChanges {target: backgroundRect.layer; enabled: true;}
+            PropertyChanges {target: control.border; color: "#8AD4EE";}
+            PropertyChanges {target: background.layer; enabled: true;}
         },
         State{
             name: "disabled"
             when: !enabled
-            PropertyChanges {target: backgroundRect; color: "#E4E7EA";}
+            PropertyChanges {target: control.palette; base: "#E4E7EA";}
         }
     ]
 

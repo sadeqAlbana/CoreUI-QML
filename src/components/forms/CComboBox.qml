@@ -64,8 +64,15 @@ ComboBox{
         font.weight: control.currentIndex === index ? Font.DemiBold : Font.Normal
         font.family: control.font.family
         font.pointSize: control.font.pointSize
-        highlighted: control.highlightedIndex === index
+        highlighted: control.highlightedIndex === index || hovered
         hoverEnabled: control.hoverEnabled
+        palette.highlight: "#0078D7"
+        palette.light: "#0078D7"
+        palette.midlight: "#0078D7"
+
+
+//        palette.buttonText: "#000"
+//        palette.highlightedText: "#000"
     }
 
     states: State{
@@ -74,19 +81,19 @@ ComboBox{
     }
 
     layer.enabled: false
-    layer.effect: Glow {
-        id: glow
-        //samples: 8
-        spread: 1
-        color: "#DCD9F9"
-        transparentBorder: true
-        source: control
-        cached: true
-    }
-    onActiveFocusChanged: {
-        state=activeFocus ? "active" : ""
-        layer.enabled=activeFocus ? true : false
-    }
+//    layer.effect: Glow {
+//        id: glow
+//        //samples: 8
+//        spread: 1
+//        color: "#DCD9F9"
+//        transparentBorder: true
+//        source: control
+//        cached: true
+//    }
+//    onActiveFocusChanged: {
+//        state=activeFocus ? "active" : ""
+//        layer.enabled=activeFocus ? true : false
+//    }
 
 
 

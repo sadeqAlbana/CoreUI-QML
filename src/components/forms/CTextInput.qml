@@ -4,7 +4,6 @@
  * Licensed under the GNU Lesser General Public License v3.0 :
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
-
 import QtQuick;
 import QtQuick.Controls.Basic;
 import QtQuick.Controls
@@ -22,7 +21,6 @@ TextField {
     }
     background: RoundedRect{
         implicitHeight: 35
-
         color : control.palette.base
         border.color: control.border.color
         radius: control.border.radius

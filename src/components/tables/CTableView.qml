@@ -148,7 +148,7 @@ TableView{
         if(selectedRow>=rows){
             selectedRow=-1;
         }
-        contentY=topMargin*-1; //this is a temprary bug fix for items now showing after model reset/rows deletion
+        //contentY=topMargin*-1; //this is a temprary bug fix for items now showing after model reset/rows deletion
 
     }
 

@@ -28,6 +28,7 @@ TableView{
     Layout.fillWidth: true
     property int selectedRow: -1
     property int hoveredRow: -1
+    property bool validRow: selectedRow>=0
     boundsBehavior: Flickable.StopAtBounds
     clip: true
     columnWidthProvider: tableView.widthProvider;

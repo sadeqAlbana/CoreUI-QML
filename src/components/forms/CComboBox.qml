@@ -9,9 +9,12 @@ import QtQuick;
 import QtQuick.Controls.Basic;
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls
+
 import "qrc:/CoreUI/components/SharedComponents"
 ComboBox{
     id:control
+    palette.buttonText: "#3c4b64"
+
     property string leftIcon
     property CBorder border: CBorder{
         color: "#d8dbe0";
@@ -26,7 +29,6 @@ ComboBox{
         radius: control.border.radius
         topLeft: !leftDelegateContainer.visible
         bottomLeft: !leftDelegateContainer.visible
-
     }
 
 
@@ -45,17 +47,17 @@ ComboBox{
         implicitHeight: parent.height
 
 
-//        contentItem: Image{
-//            anchors.centerIn: parent
-//            source: icon.source;
-//            sourceSize.width: parent.height*0.5
-//            sourceSize.height: parent.height*0.5
-//            fillMode: Image.PreserveAspectFit
-//            layer.enabled: true
-//            layer.effect: ColorOverlay{
-//                color:"#5C6873"
-//            }
-//        }
+        //        contentItem: Image{
+        //            anchors.centerIn: parent
+        //            source: icon.source;
+        //            sourceSize.width: parent.height*0.5
+        //            sourceSize.height: parent.height*0.5
+        //            fillMode: Image.PreserveAspectFit
+        //            layer.enabled: true
+        //            layer.effect: ColorOverlay{
+        //                color:"#5C6873"
+        //            }
+        //        }
     }
 
     delegate: ItemDelegate {
@@ -71,8 +73,8 @@ ComboBox{
         palette.midlight: "#0078D7"
 
 
-//        palette.buttonText: "#000"
-//        palette.highlightedText: "#000"
+        //        palette.buttonText: "#000"
+        //        palette.highlightedText: "#000"
     }
 
     states: State{
@@ -81,19 +83,19 @@ ComboBox{
     }
 
     layer.enabled: false
-//    layer.effect: Glow {
-//        id: glow
-//        //samples: 8
-//        spread: 1
-//        color: "#DCD9F9"
-//        transparentBorder: true
-//        source: control
-//        cached: true
-//    }
-//    onActiveFocusChanged: {
-//        state=activeFocus ? "active" : ""
-//        layer.enabled=activeFocus ? true : false
-//    }
+    //    layer.effect: Glow {
+    //        id: glow
+    //        //samples: 8
+    //        spread: 1
+    //        color: "#DCD9F9"
+    //        transparentBorder: true
+    //        source: control
+    //        cached: true
+    //    }
+    //    onActiveFocusChanged: {
+    //        state=activeFocus ? "active" : ""
+    //        layer.enabled=activeFocus ? true : false
+    //    }
 
 
 
@@ -130,4 +132,11 @@ ComboBox{
 
         }
     }
+//    Connections{
+//        target: popup;
+
+//        function onOpened(){
+//            console.log("popup opened")
+//        }
+//    }
 }

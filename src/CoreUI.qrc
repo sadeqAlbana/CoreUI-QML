@@ -46,5 +46,6 @@
         <file>palettes/BrandDark.qml</file>
         <file>components/notifications/NewBadge.qml</file>
         <file>components/SharedComponents/CBorder.qml</file>
+        <file>components/forms/CDateInput.qml</file>
     </qresource>
 </RCC>

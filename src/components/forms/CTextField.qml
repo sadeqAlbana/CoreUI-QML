@@ -5,15 +5,16 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick;import QtQuick.Controls.Basic;
+import QtQuick;
+import QtQuick.Controls.Basic;
 import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
 import "../SharedComponents"
 import QtQuick.Controls.impl as Impl
+import QtQuick.Layouts
 TextField {
     id:control
     selectByMouse: true
-
     palette.base: "#fff"
     property color glowColor : "#DCD9F9"
     property string leftIcon

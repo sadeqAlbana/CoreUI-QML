@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Controls
 import QtQuick.Controls.Basic
 import QtQuick.Layouts
 
@@ -30,29 +31,36 @@ CTextField {
 
                 Layout.row: 0
                 Layout.fillWidth: true
+                hoverEnabled: true
             }
 
 
 
             MonthGrid {
                 id: grid
-                month: Calendar.December
-                year: 2000
+                month: Calendar.August
+                year: 2022
                 locale: Qt.locale("en_US")
                 Layout.row: 1
-
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+                hoverEnabled: true
 
-//                delegate: Text {
-//                    horizontalAlignment: Text.AlignHCenter
-//                    verticalAlignment: Text.AlignVCenter
-//                    opacity: model.month === control.month ? 1 : 0
-//                    text: model.day
-//                    font: control.font
+                onClicked: {
+                    console.log("clicked: "   + date);
+                }
 
-//                    required property var model
-//                }
+                delegate: Button {
+                    //horizontalAlignment: Text.AlignHCenter
+                  //  verticalAlignment: Text.AlignVCenter
+                   // opacity: grid.month === grid.month ? 1 : 0
+                    autoExclusive: true
+                    checked: model.day=parseInt(text)
+                    text: model.day
+                    font: grid.font
+
+                    required property var model
+                }
             }
         }
     }//popup

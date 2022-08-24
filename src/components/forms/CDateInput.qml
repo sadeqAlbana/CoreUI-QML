@@ -2,13 +2,17 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Basic
 import QtQuick.Layouts
-
+import "qrc:/CoreUI/palettes"
+import "qrc:/CoreUI/js/DateUtils.js" as DateUtils
 CTextField {
     id: control
+    property date date: new Date()
+    onDateChanged: {
+        control.text=Qt.formatDate(control.date,"yyyy-MM-dd")
+    }
     //Qt.formatDate("date","yyyy-mm-dd")
     inputMethodHints: Qt.ImhDate
     //inputMask: "0000-00-00"
-    text: "2000-01-01"
     rightIcon: "cil-calendar"
     validator: RegularExpressionValidator{
         //for non excact match ^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$
@@ -23,49 +27,55 @@ CTextField {
         width: 400
         height: 300
 
+        palette.window: "#fff"
+
 
         GridLayout {
             id: layout
             rows: 3
             anchors.fill: parent;
-            property date date;
+
+
             RowLayout{
                 Layout.row: 0
 
                 Button{
-                    icon.name: "cil-arrow-thick-left"
+                    text: "‹"
                     flat: true
                     Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
-                    display: AbstractButton.IconOnly
+                    display: AbstractButton.TextOnly
+                    font.pixelSize: 35
                     implicitWidth: 50
+                    onClicked: control.date=control.date.addMonths(-1);
+
+
                 }
 
                 Label{
                     Layout.fillWidth: true
-                    text: Qt.formatDate(layout.date,"MMMM yyyy")
-                    font.bold: true
-
+                    text: Qt.formatDate(control.date,"MMMM yyyy")
+                    font.pixelSize: 16
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     Layout.alignment: Qt.AlignCenter
                 }
 
                 Button{
-                    icon.name: "cil-arrow-thick-right"
+                    text: "›"
                     flat: true
+                    font.pixelSize: 35
+
                     Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
-                    display: AbstractButton.IconOnly
+                    display: AbstractButton.TextOnly
                     implicitWidth: 50
+                    onClicked: control.date=control.date.addMonths(1);
+
 
 
                 }
             }
 
-            CalendarModel{
-                id: cmodel;
-                from: "1900-01-01"
-                to: new Date()
-            }
+
 
             DayOfWeekRow {
                 locale: grid.locale
@@ -76,7 +86,7 @@ CTextField {
 
             CMonthGrid {
                 id: grid
-                month: Calendar.August
+                month: control.date.getMonth();
                 year: 2022
                 locale: Qt.locale("en_US")
                 Layout.row: 2
@@ -85,8 +95,7 @@ CTextField {
 
 
                 onClicked: (date)=> {
-                    console.log("clicked: " + date)
-                    layout.date=date
+                    control.date=date
                 }
             }
         }

@@ -48,5 +48,6 @@
         <file>components/SharedComponents/CBorder.qml</file>
         <file>components/forms/CDateInput.qml</file>
         <file>components/forms/CMonthGrid.qml</file>
+        <file>js/DateUtils.js</file>
     </qresource>
 </RCC>

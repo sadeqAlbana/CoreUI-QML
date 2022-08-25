@@ -23,3 +23,8 @@ Date.prototype.addMonths = function (value) {
     this.setDate(Math.min(n, this.getDaysInMonth()));
     return this;
 };
+
+Date.prototype.compare=function(date){
+
+    return Qt.formatDate(this,"yyyy-MM-dd")==Qt.formatDate(date,"yyyy-MM-dd")
+};

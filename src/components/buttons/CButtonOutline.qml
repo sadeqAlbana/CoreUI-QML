@@ -47,13 +47,16 @@ Button {
         source: control
         cached: true
     }
-    contentItem: Text {
-        id: content
+    contentItem: IconLabel {
+        spacing: control.spacing
+        mirrored: control.mirrored
+        display: control.display
+
+        icon: control.icon
         text: control.text
         font: control.font
-        color: control.color
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
+        color: control.checked || control.highlighted ? control.palette.brightText :
+               control.flat && !control.down ? (control.visualFocus ? control.palette.highlight : control.palette.windowText) : control.palette.buttonText
     }
 
     states: [

@@ -4,36 +4,29 @@ import QtQuick.Controls.Basic
 import QtQuick.Layouts
 import "qrc:/CoreUI/palettes"
 import "qrc:/CoreUI/components/buttons"
+import "qrc:/CoreUI/js/DateUtils.js" as DateUtils
 
 MonthGrid {
     id: control
+    required property date date
 
-    delegate: Button {
+
+    delegate: CMonthGridButton {
         required property var model
-        palette: BrandInfo{
-            //dark: "#3399ff"
-            //mid: "#3399ff"
 
-        }
 
-        opacity: enabled? 1 : 0
-        enabled: model.month === control.month ? 1 : 0
+        opacity: model.month === control.month ? 1 : 0
         hoverEnabled: true
-        highlighted: hovered;
+        highlighted: hovered && enabled;
         text: model.day
         font: control.font
-        flat: true
-        checkable: true
+        //checkable: enabled
+        checked: model.date.compare(control.date)
         autoExclusive: true
         onClicked: {
-            checked=true
-            down=true
-            control.clicked(model.date)
+            if(opacity>0){
+                control.clicked(model.date)
+            }
         }
-
-
-
     }
-
-
 }

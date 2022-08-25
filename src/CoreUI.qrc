@@ -49,5 +49,6 @@
         <file>components/forms/CDateInput.qml</file>
         <file>components/forms/CMonthGrid.qml</file>
         <file>js/DateUtils.js</file>
+        <file>components/forms/CMonthGridButton.qml</file>
     </qresource>
 </RCC>

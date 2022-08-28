@@ -24,6 +24,6 @@ Menu {
     }
     Repeater{
         model: control.actions.length
-        MenuItem{ action: control.actions[index]}
+        CMenuItem{ action: control.actions[index]}
     }
 }

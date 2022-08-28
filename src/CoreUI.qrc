@@ -50,5 +50,6 @@
         <file>components/forms/CMonthGrid.qml</file>
         <file>js/DateUtils.js</file>
         <file>components/forms/CMonthGridButton.qml</file>
+        <file>components/SharedComponents/CMenuItem.qml</file>
     </qresource>
 </RCC>

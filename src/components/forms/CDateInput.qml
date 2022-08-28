@@ -8,9 +8,14 @@ import "qrc:/CoreUI/components/buttons"
 import "qrc:/CoreUI/js/DateUtils.js" as DateUtils
 CTextField {
     id: control
+
+    function clearDate(){
+        control.date=new Date()
+        control.clear();
+    }
+
     property date date: new Date()
-
-
+    Component.onCompleted: text=""
     onDateChanged: {
         control.text=Qt.formatDate(control.date,"yyyy-MM-dd")
     }
@@ -142,11 +147,7 @@ CTextField {
                     text: qsTr("Clear")
                     palette: BrandLight{}
                     layer.enabled: false
-                    onClicked: {
-                        control.date=new Date()
-                        control.text=""
-
-                    }
+                    onClicked: control.clearDate();
                 }
             }
 

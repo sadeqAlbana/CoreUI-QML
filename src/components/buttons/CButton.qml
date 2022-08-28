@@ -16,8 +16,7 @@ T.RoundButton {
     property color borderColor : "transparent"
     property int   borderWidth : 0;
     //property int radius: 4
-    property int shadowRadius: 4;
-    property real shadowSpread: 0.1
+    property int  shadowRadius: control.enabled? (control.down? 20 : (control.hovered? 16 : 4)) : 0
 
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
@@ -45,19 +44,7 @@ T.RoundButton {
 
 
     hoverEnabled: true
-    onPressed: forceActiveFocus();
-    layer.enabled: true
 
-    layer.effect:  DropShadow{
-        id: dropShadow
-        radius: shadowRadius
-        //samples: 40
-        verticalOffset: 1
-        spread: 0.1
-        color: palette.shadow
-        cached: true
-        transparentBorder: true
-    }
 
     transitions: Transition {
         reversible: true
@@ -79,53 +66,84 @@ T.RoundButton {
     }
 
 
-    background: Rectangle{
+    layer.enabled: control.enabled
+    layer.effect:  DropShadow{
+        radius: control.shadowRadius
+        verticalOffset: 1
+        spread: 0.1
+        color: palette.shadow
+        cached: true
+        transparentBorder: true
+    }
+
+
+    background: Rectangle {
         implicitWidth: 100
         implicitHeight: 40
-//        color: palette.button
         radius: control.radius
-//        border.color: control.borderColor
-//        border.width: control.borderWidth
+
+        Behavior on color{
+            ColorAnimation {easing.type: Easing.InOutQuad; duration: 150  }
+
+        }
 
         visible: !control.flat || control.down || control.checked || control.highlighted
-        color: Color.blend(control.checked || control.highlighted ? control.palette.dark : control.palette.button,
-                                                                    control.palette.mid, control.down ? 0.5 : 0.0)
-        border.color: control.palette.highlight
-        border.width: control.visualFocus ? 2 : 0
-    }
+        color: {
+            if(!control.enabled)
+                return control.palette.button.lighter(1.3)
+
+            if(control.down && control.hovered){
+                return control.palette.button.lighter(1.2)
+            }
+
+            if(control.down || control.checkable){
+                return control.palette.button.darker(1.4)
+
+            }
+
+            if(control.visualFocus){
+                return control.palette.button.darker(1.1)
+            }
+
+            if(control.hovered){
+                return control.palette.button.darker(1.1)
+            }
 
 
 
-
-    states: [
-        State{
-            name: "pressed"
-            when: pressed
-            extend: "active"
-            PropertyChanges {target: control; palette.button: darkerColor(1.3); explicit: true}
-        },
-
-        State{
-            name: "active"
-            when: activeFocus
-            extend: "hovered"
-            PropertyChanges {target: control; shadowRadius: 16; explicit: true}
-            PropertyChanges {target: control; shadowSpread: 1; explicit: true}
-        },
-        State{
-            name: "hovered"
-            when: hovered
-            PropertyChanges {target: control; palette.button: darkerColor(1.1); explicit: true}
-        },
-        State{
-            name: "disabled"
-            when: !enabled
-            PropertyChanges {target: control; opacity: 0.6; explicit: true}
+            return control.palette.button
         }
-    ]
 
-    function darkerColor(factor){
-        return Qt.darker(palette.button,factor);
-    }
+        //border.color: control.palette.highlight
+        //border.width: control.visualFocus ? 2 : 0
+    }//background
+
+//    onHighlightedChanged: {
+//        console.log("highlighted: " + highlighted)
+//    }
+//    onPressedChanged: {
+//        console.log("pressed: " + pressed)
+
+//    }
+
+//    onCheckedChanged: {
+//        console.log("checked: " + checked)
+//    }
+
+//    onHoveredChanged: {
+//        console.log("hovered: " + hovered)
+
+//    }
+
+//    onActiveFocusChanged: {
+//        console.log("activeFocus: " + activeFocus)
+
+//    }
+
+//    onVisualFocusChanged: {
+//        console.log("visualFocus: " + visualFocus)
+
+//    }
+
 
 }

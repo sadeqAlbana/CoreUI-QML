@@ -10,6 +10,7 @@ import QtQuick.Controls
 
 ItemDelegate {
     property bool  isCurrentItem : ListView.view.hoveredRow===model.row
+    property color backgroundColor:  model.row%2==0 ? "#F2F2F3" : "white";
     implicitWidth: 100
     implicitHeight: 60
 
@@ -20,7 +21,6 @@ ItemDelegate {
 
     states:[
         State{
-            id: hnh
             name: "hovered_highlighted"
             when: highlighted && hovered
             extend: "highlighted"
@@ -28,17 +28,16 @@ ItemDelegate {
         },
 
         State{
-            id: stateHighlighted;
             name: "highlighted"
             when: highlighted
-            PropertyChanges {target: rect; color: "#0078D7"}
-            PropertyChanges {target: contentItem; color: "white"}
+            PropertyChanges {target: control; backgroundColor: "#0078D7"}
+            PropertyChanges {target: control; palette.buttonText: "white"}
+
         },
         State{
-            id: stateHovered;
             name: "hovered"
             when: hovered
-            PropertyChanges {target: rect; color: Qt.darker("#F2F2F3",1.3)}
+            PropertyChanges {target: control; backgroundColor: Qt.darker("#F2F2F3",1.3)}
             PropertyChanges {target: contentItem; color: "white"}
         }
     ]
@@ -53,5 +52,5 @@ ItemDelegate {
 
     }
 
-    background: Rectangle{id: rect; color: model.row%2==0 ? "#F2F2F3" : "white"; border.color: "#D8DBE0"}
+    background: Rectangle{color: control.backgroundColor; border.color: "#D8DBE0"}
 }

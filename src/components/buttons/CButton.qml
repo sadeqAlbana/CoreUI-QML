@@ -63,7 +63,7 @@ T.RoundButton {
         font: control.font
         color: control.checked || control.highlighted ? control.palette.brightText :
                control.flat && !control.down ? (control.visualFocus ? control.palette.highlight : control.palette.windowText) : control.palette.buttonText
-    }
+    }//contentItem
 
 
     layer.enabled: control.enabled

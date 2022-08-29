@@ -5,29 +5,24 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick;import QtQuick.Controls.Basic;
+import QtQuick;
+import QtQuick.Controls.Basic;
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls
 ComboBox{
     id:control
     background: Rectangle{
         implicitHeight: 40
-        id: rect;
         color : "#fff"
-        border.color: "#d8dbe0";
+        border.color: control.visualFocus? "#8AD4EE" :"#d8dbe0";
         radius: 4
 
     }
     textRole: "display"
 
-    states: State{
-        name: "active"
-        PropertyChanges {target: rect.border; color: "#8AD4EE";}
-    }
 
     layer.enabled: false
     layer.effect: Glow {
-        id: glow
         //samples: 8
         spread: 1
         color: "#DCD9F9"
@@ -36,7 +31,6 @@ ComboBox{
         cached: true
     }
     onActiveFocusChanged: {
-        state=activeFocus ? "active" : ""
         layer.enabled=activeFocus ? true : false
     }
 

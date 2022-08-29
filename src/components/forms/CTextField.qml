@@ -82,7 +82,7 @@ TextField {
 //        }
 
 
-    }
+    }//background
 
     RoundedRect{
         id: leftDelegateContainer;

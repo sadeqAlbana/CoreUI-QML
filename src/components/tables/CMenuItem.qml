@@ -5,7 +5,8 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick;import QtQuick.Controls.Basic;
+import QtQuick;
+import QtQuick.Controls.Basic;
 import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
 
@@ -14,4 +15,11 @@ MenuItem {
     implicitHeight: 50
     spacing: 10
     font.pixelSize: 18
+//    background: Rectangle {
+//         implicitWidth: 200
+//         implicitHeight: 20
+
+//         color: Fusion.highlight(control.palette)
+//         visible: control.down || control.highlighted || control.hovered
+//     }
 } //MenuItem end

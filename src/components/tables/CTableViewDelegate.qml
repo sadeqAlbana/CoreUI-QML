@@ -11,6 +11,8 @@ ItemDelegate {
     id: control
     clip: true
     property bool  isCurrentItem : TableView.view.hoveredRow===model.row
+    property color backgroundColor: model.row%2==0 ? palette.base : palette.alternateBase;
+
     display: AbstractButton.TextUnderIcon
     implicitHeight: 60
 
@@ -21,27 +23,7 @@ ItemDelegate {
         alternateBase: "white"
         shadow: "#D8DBE0"
     }
-//    contentItem: TextEdit{
-//        readOnly: true
-//        text: control.text
-//        font: control.font
-//        color: control.palette.text
-//        selectByMouse: true
-//        horizontalAlignment: Text.AlignHCenter
-//        verticalAlignment: Text.AlignVCenter
 
-//    }
-
-//    Component.onCompleted: {
-//        TableView.view.implicitColumnSizes[column]=implicitWidth
-//    }
-
-//    implicitWidth: Math.max((Math.max(implicitBackgroundWidth + leftInset + rightInset,
-//                            implicitContentWidth + leftPadding + rightPadding)),75)
-
-
-//    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-//                            implicitContentWidth + leftPadding + rightPadding)
 
     hoverEnabled: true
     highlighted: TableView.view.selectedRow===model.row;
@@ -72,7 +54,7 @@ ItemDelegate {
         State{
             name: "hovered"
             when: isCurrentItem
-            PropertyChanges {target: rect; color: Qt.darker("#F2F2F3",1.3)}
+            PropertyChanges {target: control; backgroundColor: Qt.darker("#F2F2F3",1.3)}
             PropertyChanges {target: control; palette.buttonText: "white"}
         }
     ]
@@ -88,5 +70,5 @@ ItemDelegate {
 
     Component.onCompleted: evaluationSize()
 
-    background: Rectangle{id: rect; color: model.row%2==0 ? palette.base : palette.alternateBase; border.color: palette.shadow}
+    background: Rectangle{color: control.backgroundColor; border.color: palette.shadow}
 }

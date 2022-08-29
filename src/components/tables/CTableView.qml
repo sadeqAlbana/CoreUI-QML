@@ -38,14 +38,12 @@ TableView{
     }
 
     onHiddenColumnsChanged: {
-        console.log("hidden columns changed: " + hiddenColumns)
         forceLayout();
         returnToBounds();
     }
 
 
     function hideColumn(column){
-        console.log("hideColumn: " + column)
 
         if(isColumnHidden(column))
             return
@@ -56,7 +54,6 @@ TableView{
     }
 
     function showColumn(column){
-        console.log("showColumn: " + column)
 
         if(!isColumnHidden(column))
             return

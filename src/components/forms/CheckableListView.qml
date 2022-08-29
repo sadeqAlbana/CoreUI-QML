@@ -66,10 +66,8 @@ Control{ //use Container instead ?
     ]
 
     contentItem: ListView{
-        id : list
         clip: true
         delegate: CheckDelegate{
-            id: listDelegate
             onCheckedChanged: model.checked=checked
             width: parent.width;
             leftInset: control.border.width
@@ -82,8 +80,8 @@ Control{ //use Container instead ?
             highlighted: ListView.isCurrentItem;
             onClicked: {
                 control.forceActiveFocus();
-                if (list.currentIndex !== index) {
-                    list.currentIndex = index
+                if (ListView.view.currentIndex !== index) {
+                    ListView.view.currentIndex = index
                 }
             }
 

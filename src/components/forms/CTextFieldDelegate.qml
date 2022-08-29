@@ -30,7 +30,6 @@ ItemDelegate { //change to item delegate ?
 
         //Rectangle{color:"red"; anchors.fill: parent;}
 
-        onSourceChanged: console.log(source)
 
         //            Timer{
         //                interval: 1000
@@ -54,8 +53,5 @@ ItemDelegate { //change to item delegate ?
         }
     }
 
-//    background: Rectangle{
-//        //anchors.fill: parent;
-//        color: "red"
-//    }
+
 }

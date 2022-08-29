@@ -44,7 +44,6 @@ Popup{
         model: ListModel{}
 
         delegate: Rectangle{
-            id: toastr;
             width: ListView.view.width
             height: ListView.view.delegateHeight
 
@@ -93,7 +92,6 @@ Popup{
                 background: Rectangle{color: "transparent"}
                 onClicked: remove();
                 contentItem: Label{
-                    id: label
                     horizontalAlignment: Text.AlignRight
                     verticalAlignment: Text.AlignVCenter
                     font.pixelSize: 20
@@ -101,12 +99,7 @@ Popup{
                     text: "×"
                     styleColor: "#000015"
                     font.bold: true
-                    opacity: 0.75
-                    states: [State{name: "hovered"; when: xBtn.hovered;
-                            PropertyChanges {
-                                target: label; opacity : 1; restoreEntryValues: true;
-                            }
-                        }]
+                    opacity: xBtn.hovered? 1: 0.75
                 }
             }
 
@@ -115,12 +108,12 @@ Popup{
                 interval: model.duration
                 running: true
                 repeat: false;
-                onTriggered: toastr.remove()
+                onTriggered: remove()
             }
 
             function remove(){
                 timer.stop();
-                ListView.view.model.remove(toastr.row,1)
+                ListView.view.model.remove(model.row,1)
             }
         }//delegate
 

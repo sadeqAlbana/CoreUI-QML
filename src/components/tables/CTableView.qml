@@ -5,7 +5,8 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick;import QtQuick.Controls.Basic;
+import QtQuick;
+import QtQuick.Controls.Basic;
 import QtQuick.Layouts
 import "qrc:/CoreUI/components/base"
 import QtQuick.Controls
@@ -24,7 +25,7 @@ TableView{
     //        console.log(implicitColumnSizes)
     //    }
 
-    topMargin: horizontalHeader.implicitHeight
+    topMargin: horizontalHeaderView.visible? horizontalHeaderView.implicitHeight : 0
     Layout.fillWidth: true
     property int selectedRow: -1
     property int hoveredRow: -1
@@ -85,8 +86,6 @@ TableView{
 
     function isColumnHidden(column){
         for(let i=0; i<tableView.hiddenColumns.length; i++){
-            //console.log("typeof hiddenc: " + typeof(tableView.hiddenColumns[i]))
-            //console.log("typeof column: " + typeof(column))
 
             if(tableView.hiddenColumns[i]===column){
                 return true
@@ -95,14 +94,9 @@ TableView{
         return false
     }
 
-
-
-    //contentWidth: Math.max(implicitWidth,width);
     function widthProvider(column){
-
         if(isColumnHidden(column))
             return 0
-
         var max = tableView.implicitColumnSizes[column]
 
         if(max<=0 || max===NaN)
@@ -112,16 +106,7 @@ TableView{
 
         if(availableSpaceTotal>0){
             var columnSpace=parseInt(availableSpaceTotal/(tableView.columns-tableView.hiddenColumns.length));
-//            console.log("availableSpaceTotal: " + availableSpaceTotal)
-//            console.log("width:          " + tableView.width);
-//            console.log("contentWidth:   " + tableView.contentWidth);
-//            console.log("implicitWidth:  " + tableView.implicitWidth);
-//            console.log("max:            " + max);
-//            console.log("columnSpace:    " + columnSpace);
-//            console.log("comb:    " + (max+columnSpace));
-
             return max+columnSpace
-
         }
         return max
     }

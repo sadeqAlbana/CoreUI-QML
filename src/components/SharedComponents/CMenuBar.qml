@@ -5,36 +5,37 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick;import QtQuick.Controls.Basic;
+import QtQuick;
+import QtQuick.Controls.Basic;
 import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls.impl as Impl
+import "qrc:/CoreUI/palettes"
 
 MenuBar {
-    id: control
-    property color color : "#3399ff"
 
     delegate: MenuBarItem {
-        id: controlItem
+        id: control
+        property color color : "#3399ff"
 
         contentItem: Row{
             spacing: 5
             Impl.IconImage{
                 anchors.verticalCenter: parent.verticalCenter
-                name: controlItem.menu.icon
+                name: control.menu.icon
                 sourceSize.width: parent.height*0.5
                 sourceSize.height: parent.height*0.5
                 fillMode: Image.PreserveAspectFit
-                color: "#FFFFFF"
+                color: control.palette.buttonText
 
             }
 
             Text {
-                text: controlItem.text
-                font: controlItem.font
+                text: control.text
+                font: control.font
                 anchors.verticalCenter: parent.verticalCenter
                 opacity: enabled ? 1.0 : 0.3
-                color: controlItem.highlighted ? "#ffffff" : "white"
+                color: control.palette.buttonText
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignVCenter
                 elide: Text.ElideRight
@@ -43,17 +44,12 @@ MenuBar {
 
         background: Rectangle {
             implicitWidth: 55
-            implicitHeight: 55
+            implicitHeight: 45
             opacity: enabled ? 1 : 0.3
             radius: 5
-            color: controlItem.highlighted ? control.color : Qt.darker(control.color,1.1)
+            color: control.highlighted ? control.color : Qt.darker(control.color,1.1)
         }
     }
 
-//    background: Rectangle {
-//        implicitWidth: 55
-//        implicitHeight: 55
-//        color: control.highlighted ? control.color : Qt.darker(control.color,1.1)
 
-//    }
 } //end menu bar

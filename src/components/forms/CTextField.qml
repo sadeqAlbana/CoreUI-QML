@@ -73,13 +73,13 @@ TextField {
 
         topRight: !rightDelegateContainer.visible
         bottomRight: !rightDelegateContainer.visible
-//        layer.effect: Glow {
-//            //samples: 8
-//            spread: 1
-//            color: glowColor
-//            transparentBorder: true
-//            cached: true
-//        }
+        layer.effect: Glow {
+            //samples: 8
+            spread: 1
+            color: glowColor
+            transparentBorder: true
+            cached: true
+        }
 
 
     }//background
@@ -153,7 +153,7 @@ TextField {
             name: "rejected and active"
             when:  !acceptableInput && activeFocus
             PropertyChanges {target: control.border; color: "red";}
-            //PropertyChanges {target: background.layer; enabled: true;}
+            PropertyChanges {target: background.layer; enabled: true;}
             PropertyChanges {target: control; glowColor: "#F2A8A8";}
         },
         State{
@@ -165,7 +165,7 @@ TextField {
             name: "active"
             when: activeFocus
             PropertyChanges {target: control.border; color: "#8AD4EE";}
-            //PropertyChanges {target: background.layer; enabled: true;}
+            PropertyChanges {target: background.layer; enabled: true;}
         },
         State{
             name: "disabled"

@@ -51,5 +51,6 @@
         <file>js/DateUtils.js</file>
         <file>components/forms/CMonthGridButton.qml</file>
         <file>components/SharedComponents/CMenuItem.qml</file>
+        <file>components/buttons/CCheckBox.qml</file>
     </qresource>
 </RCC>

@@ -26,4 +26,6 @@ Menu {
         model: control.actions.length
         CMenuItem{ action: control.actions[index]}
     }
+
+
 }

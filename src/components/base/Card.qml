@@ -5,7 +5,8 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick;import QtQuick.Controls.Basic;
+import QtQuick;
+import QtQuick.Controls.Basic;
 import Qt5Compat.GraphicalEffects
 import QtQuick.Layouts
 import QtQuick.Controls
@@ -37,7 +38,8 @@ Page{
     } //end background
 
     header: CardLabel{
-        visible: control.title !=""
+        //visible: control.title !=""
+        visible: false
         text: control.title
         font.pixelSize: 22
         bottomPadding: 20

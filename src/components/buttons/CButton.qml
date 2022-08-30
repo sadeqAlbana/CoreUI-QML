@@ -29,8 +29,11 @@ T.RoundButton {
     spacing: 6
 
 
-    icon.width: 24
-    icon.height: 24
+//    icon.width: 24
+//    icon.height: 24
+
+    icon.width: control.height*0.5
+    icon.height: control.height*0.5
     icon.color: control.checked || control.highlighted ? control.palette.brightText :
                 control.flat && !control.down ? (control.visualFocus ? control.palette.highlight : control.palette.windowText) : control.palette.buttonText
 
@@ -61,8 +64,7 @@ T.RoundButton {
         icon: control.icon
         text: control.text
         font: control.font
-        color: control.checked || control.highlighted ? control.palette.brightText :
-               control.flat && !control.down ? (control.visualFocus ? control.palette.highlight : control.palette.windowText) : control.palette.buttonText
+        color: control.enabled? control.palette.buttonText : "grey"
     }//contentItem
 
 
@@ -79,7 +81,7 @@ T.RoundButton {
 
     background: Rectangle {
         implicitWidth: 100
-        implicitHeight: 40
+        implicitHeight: 50
         radius: control.radius
 
         Behavior on color{
@@ -108,9 +110,6 @@ T.RoundButton {
             if(control.hovered){
                 return control.palette.button.darker(1.1)
             }
-
-
-
             return control.palette.button
         }
 

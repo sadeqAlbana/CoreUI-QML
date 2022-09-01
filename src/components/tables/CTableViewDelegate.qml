@@ -5,7 +5,8 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick;import QtQuick.Controls.Basic;
+import QtQuick;
+import QtQuick.Controls.Basic;
 import QtQuick.Controls
 ItemDelegate {
     id: control
@@ -60,15 +61,8 @@ ItemDelegate {
     ]
 
 
-    onTextChanged: evaluationSize();
-    function evaluationSize(){
-        if(implicitWidth>TableView.view.implicitColumnSizes[column] || TableView.view.implicitColumnSizes[column]===undefined){
-            TableView.view.implicitColumnSizes[column]=implicitWidth
-            TableView.view.implicitColumnSizesChanged(); //basic types won't emit changed if changed  internally so you must emit the changed signal manually !
-        }
-    }
 
-    Component.onCompleted: evaluationSize()
+
 
     background: Rectangle{color: control.backgroundColor; border.color: palette.shadow}
 }

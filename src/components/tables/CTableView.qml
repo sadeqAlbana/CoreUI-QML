@@ -19,24 +19,50 @@ import Qt5Compat.GraphicalEffects
 TableView{
     id: tableView
     property list<Action> actions
-    property var implicitColumnSizes: ({})
     property var hiddenColumns: []
-    //    onImplicitColumnSizesChanged: {
-    //        console.log(implicitColumnSizes)
-    //    }
-
-    topMargin: horizontalHeaderView.visible? horizontalHeaderView.implicitHeight : 0
-    Layout.fillWidth: true
     property int selectedRow: -1
     property int hoveredRow: -1
     property bool validRow: selectedRow>=0
+    topMargin: horizontalHeaderView.visible? horizontalHeaderView.implicitHeight : 0
+    Layout.fillWidth: true
+    delegate: CTableViewDelegate{}
     boundsBehavior: Flickable.StopAtBounds
     clip: true
     columnWidthProvider: tableView.widthProvider;
-
-    onImplicitColumnSizesChanged: {
-        forceLayoutTimer.restart();
+    implicitWidth: getImplicitWidth();
+    //onImplicitHeightChanged: console.log("ih: " + implicitHeight)
+    onWidthChanged: {
+        forceLayout();
     }
+    Timer{
+        interval: 400
+        running: true
+        repeat: true
+        onTriggered: {
+            tableView.implicitWidth=getImplicitWidth();
+        }
+
+    }
+
+
+
+    onHeightChanged: forceLayout();
+//    implicitHeight: getImplicitHeight();
+//    function getImplicitHeight(){
+//        let w=0;
+//        for(var i=0; i<tableView.rows; i++){
+//            if(tableView.isRowLoaded(i))
+//                w+=tableView.implicitRowHeight()(i)
+//        }
+//        if(tableView.rowSpacing>0){
+//            w+=(columns*tableView.rowSpacing)
+//        }
+//        if(horizontalHeaderView.visible)
+//            w+=horizontalHeaderView.implicitHeight
+
+
+//        return Math.max(w,tableView.rows*defaultImplicitRowHeight); //this is not right
+//    }
 
     onHiddenColumnsChanged: {
         forceLayout();
@@ -45,7 +71,6 @@ TableView{
 
 
     function hideColumn(column){
-
         if(isColumnHidden(column))
             return
 
@@ -64,25 +89,25 @@ TableView{
 
     }
 
-    reuseItems: false
-    Timer{
-        id: forceLayoutTimer
-        interval: 25
-        onTriggered: tableView.forceLayout();
-    }
-
-    implicitWidth: {
-        var implicit=0;
-        for(const key in implicitColumnSizes){
-//            console.log("key: "  + key)
-//            console.log("keyValue: "  + implicitColumnSizes[key])
-
-            if(!isColumnHidden(parseInt(key))){
-                implicit+=implicitColumnSizes[key];
-            }
+    function getImplicitWidth() {
+        let w=0;
+        for(var i=0; i<tableView.columns; i++){
+            if(tableView.isColumnLoaded(i))
+                w+=tableView.implicitColumnWidth(i)
         }
-        return implicit;
+        if(tableView.columnSpacing>0){
+            w+=(columns*tableView.columnSpacing)
+        }
+        return w
     }
+
+    reuseItems: false
+//    Timer{
+//        id: forceLayoutTimer
+//        interval: 100
+//        //onTriggered: tableView.implicitHeight=tableView.getImplicitHeight();
+//    }
+
 
     function isColumnHidden(column){
         for(let i=0; i<tableView.hiddenColumns.length; i++){
@@ -94,22 +119,19 @@ TableView{
         return false
     }
 
-    function widthProvider(column){
-        if(isColumnHidden(column))
-            return 0
-        var max = tableView.implicitColumnSizes[column]
+     function widthProvider(column){
+         if(isColumnHidden(column))
+             return 0
 
-        if(max<=0 || max===NaN)
-            return -1 //will use implicit width when returning -1
-
-        var availableSpaceTotal=tableView.width-tableView.implicitWidth;
-
-        if(availableSpaceTotal>0){
-            var columnSpace=parseInt(availableSpaceTotal/(tableView.columns-tableView.hiddenColumns.length));
-            return max+columnSpace
+        if(isColumnLoaded(column)){
+            return Math.max(tableView.implicitColumnWidth(column),tableView.width/(tableView.columns-tableView.hiddenColumns.length))
         }
-        return max
+
+        else{
+            return -1
+        }
     }
+
 
 
     property HorizontalHeaderView horizontalHeaderView: HorizontalHeaderView{
@@ -128,6 +150,7 @@ TableView{
     }
 
     onRowsChanged:{
+        //implicitHeight=getImplicitHeight();
         if(selectedRow>=rows){
             selectedRow=-1;
         }
@@ -167,10 +190,5 @@ TableView{
             }
         }
     } //end MouseArea
-
-    delegate: CTableViewDelegate{}
-    onWidthChanged: forceLayout();
-    onHeightChanged: forceLayout();
-
 }
-//}
+

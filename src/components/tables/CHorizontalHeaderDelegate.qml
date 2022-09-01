@@ -5,7 +5,8 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick;import QtQuick.Controls.Basic;
+import QtQuick;
+import QtQuick.Controls.Basic;
 import QtQuick.Controls
 ItemDelegate {
 //    implicitWidth: 100
@@ -34,17 +35,4 @@ ItemDelegate {
 
         //work on drag !
     }
-
-
-    onTextChanged: evaluationSize();
-    function evaluationSize(){
-        if(implicitWidth>TableView.view.syncView.implicitColumnSizes[column] || TableView.view.syncView.implicitColumnSizes[column]===undefined){
-            TableView.view.syncView.implicitColumnSizes[column]=implicitWidth
-            TableView.view.syncView.implicitColumnSizesChanged();
-        }
-    }
-
-    Component.onCompleted: evaluationSize()
-
-
 }

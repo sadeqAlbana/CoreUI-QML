@@ -23,47 +23,42 @@ TableView{
     property int selectedRow: -1
     property int hoveredRow: -1
     property bool validRow: selectedRow>=0
+    property int __lastWidth: 0;
+    property HorizontalHeaderView horizontalHeaderView: HorizontalHeaderView{
+        reuseItems: false
+        id: horizontalHeader
+        syncView: tableView
+        implicitHeight: 60
+        parent: tableView
+        anchors.left: parent.left
+        height: 60
+        clip: tableView.clip
+        boundsBehavior: tableView.boundsBehavior
+        delegate: CHorizontalHeaderDelegate{}
+    }
     topMargin: horizontalHeaderView.visible? horizontalHeaderView.implicitHeight : 0
+    reuseItems: true
     Layout.fillWidth: true
     delegate: CTableViewDelegate{}
     boundsBehavior: Flickable.StopAtBounds
     clip: true
     columnWidthProvider: tableView.widthProvider;
     implicitWidth: getImplicitWidth();
-    //onImplicitHeightChanged: console.log("ih: " + implicitHeight)
-    onWidthChanged: {
-        forceLayout();
-    }
     Timer{
-        interval: 400
+        interval: 500
         running: true
         repeat: true
         onTriggered: {
+            if(__lastWidth==width)
+                return;
+
+            __lastWidth=width;
             tableView.implicitWidth=getImplicitWidth();
+            forceLayout();
+
         }
 
     }
-
-
-
-    onHeightChanged: forceLayout();
-//    implicitHeight: getImplicitHeight();
-//    function getImplicitHeight(){
-//        let w=0;
-//        for(var i=0; i<tableView.rows; i++){
-//            if(tableView.isRowLoaded(i))
-//                w+=tableView.implicitRowHeight()(i)
-//        }
-//        if(tableView.rowSpacing>0){
-//            w+=(columns*tableView.rowSpacing)
-//        }
-//        if(horizontalHeaderView.visible)
-//            w+=horizontalHeaderView.implicitHeight
-
-
-//        return Math.max(w,tableView.rows*defaultImplicitRowHeight); //this is not right
-//    }
-
     onHiddenColumnsChanged: {
         forceLayout();
         returnToBounds();
@@ -89,25 +84,24 @@ TableView{
 
     }
 
+    function implicitColumnAndHeaderWidth(column){
+        return Math.max(implicitColumnWidth(column),horizontalHeaderView.implicitColumnWidth(column))
+    }
+
     function getImplicitWidth() {
         let w=0;
+
         for(var i=0; i<tableView.columns; i++){
-            if(tableView.isColumnLoaded(i))
-                w+=tableView.implicitColumnWidth(i)
+            if(!isColumnHidden(i)){
+                if(tableView.isColumnLoaded(i))
+                    w+=tableView.implicitColumnWidth(i)
+            }
         }
         if(tableView.columnSpacing>0){
-            w+=(columns*tableView.columnSpacing)
+            w+=((tableView.columns-hiddenColumns.length)*tableView.columnSpacing)
         }
         return w
     }
-
-    reuseItems: false
-//    Timer{
-//        id: forceLayoutTimer
-//        interval: 100
-//        //onTriggered: tableView.implicitHeight=tableView.getImplicitHeight();
-//    }
-
 
     function isColumnHidden(column){
         for(let i=0; i<tableView.hiddenColumns.length; i++){
@@ -119,12 +113,14 @@ TableView{
         return false
     }
 
-     function widthProvider(column){
-         if(isColumnHidden(column))
-             return 0
+    function widthProvider(column){
+        if(isColumnHidden(column))
+            return 0
 
         if(isColumnLoaded(column)){
-            return Math.max(tableView.implicitColumnWidth(column),tableView.width/(tableView.columns-tableView.hiddenColumns.length))
+            return Math.max(tableView.implicitColumnAndHeaderWidth(column),
+
+                            parseInt(tableView.width/(tableView.columns-tableView.hiddenColumns.length),10))
         }
 
         else{
@@ -132,32 +128,11 @@ TableView{
         }
     }
 
-
-
-    property HorizontalHeaderView horizontalHeaderView: HorizontalHeaderView{
-        reuseItems: false
-        id: horizontalHeader
-        syncView: tableView
-        implicitHeight: 60
-        parent: tableView
-        anchors.left: parent.left
-        height: 60
-        clip: tableView.clip
-        boundsBehavior: tableView.boundsBehavior
-        //columnWidthProvider: tableView.widthProvider;
-        delegate: CHorizontalHeaderDelegate{}
-
-    }
-
     onRowsChanged:{
-        //implicitHeight=getImplicitHeight();
         if(selectedRow>=rows){
             selectedRow=-1;
         }
-        //contentY=topMargin*-1; //this is a temprary bug fix for items now showing after model reset/rows deletion
-
     }
-
 
     MouseArea {
         anchors.fill: parent
@@ -166,13 +141,13 @@ TableView{
 
         enabled: tableView.selectedRow>=0
         onClicked:(mouse)=> {
-            if (mouse.button === Qt.RightButton)
-                contextMenu.popup()
-        }
+                      if (mouse.button === Qt.RightButton)
+                      contextMenu.popup()
+                  }
         onPressAndHold:(mouse)=> {
-            if (mouse.source === Qt.MouseEventNotSynthesized)
-                contextMenu.popup()
-        }
+                           if (mouse.source === Qt.MouseEventNotSynthesized)
+                           contextMenu.popup()
+                       }
 
         Menu {
             id: contextMenu

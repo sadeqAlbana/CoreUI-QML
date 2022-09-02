@@ -235,7 +235,6 @@ Item {
                         text: "‹"
                         font.pointSize: 13
                         color: "#7f7f8a"
-                        smooth: true
 
                         states:
                             State{

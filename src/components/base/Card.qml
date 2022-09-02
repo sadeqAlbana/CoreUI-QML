@@ -23,7 +23,6 @@ Page{
         color : "#fff"
         border.color: control.border.color;
         radius: 4
-        smooth: true
         antialiasing: true
 
         layer.enabled: false

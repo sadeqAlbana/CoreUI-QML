@@ -44,21 +44,31 @@ TableView{
     clip: true
     columnWidthProvider: tableView.widthProvider;
     implicitWidth: getImplicitWidth();
+
+//    onWidthChanged: {
+//        //implicitWidth=getImplicitWidth();
+//        //forceLayout();
+//    }
+
     Timer{
+        id: timer
         interval: 500
         running: true
         repeat: true
         onTriggered: {
-            if(__lastWidth==width)
-                return;
+//            if(__lastWidth==width)
+//                return;
 
-            __lastWidth=width;
-            tableView.implicitWidth=getImplicitWidth();
-            forceLayout();
+//            __lastWidth=width;
 
+
+            implicitWidth=getImplicitWidth();
+            forceLayout()
         }
-
     }
+
+
+
     onHiddenColumnsChanged: {
         forceLayout();
         returnToBounds();

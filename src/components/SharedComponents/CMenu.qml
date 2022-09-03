@@ -19,8 +19,10 @@ Menu {
         NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; duration: 200 }
     }
 
+//    implicitWidth: implicitContentWidth
+
     background: Rectangle{
-        implicitWidth: 100
+        implicitWidth: 200
         border.color: "transparent"
         radius: 5
         layer.enabled: true

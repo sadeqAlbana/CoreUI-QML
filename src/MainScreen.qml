@@ -97,6 +97,7 @@ Item {
         closePolicy: Popup.NoAutoClose //this causes a problem in closing
         visible: true
 
+
         background: Rectangle{
             //color: "#29363d"
             color: "#3c4b64"

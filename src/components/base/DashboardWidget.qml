@@ -28,7 +28,7 @@ Rectangle{
     color: "#DD4141"
     layer.enabled: true
     layer.effect:  DropShadow{
-        radius: 5
+        radius: 8
         //samples: 40
         verticalOffset: 1
         spread: 0.1

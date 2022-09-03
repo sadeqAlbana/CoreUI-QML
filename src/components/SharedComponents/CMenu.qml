@@ -14,18 +14,24 @@ Menu {
     id: control
     modal: true
     dim: false
-    property list<Action> actions
     property string icon;
+    enter: Transition {
+        NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; duration: 200 }
+    }
 
     background: Rectangle{
-        implicitWidth: 300
-        border.color: "silver"
-        radius: 2
+        implicitWidth: 100
+        border.color: "transparent"
+        radius: 5
+        layer.enabled: true
+        layer.effect:  DropShadow{
+            radius: 16
+            verticalOffset: 2
+            spread: 0.1
+            color: "silver"
+            cached: true
+            transparentBorder: true
+        }
     }
-    Repeater{
-        model: control.actions.length
-        CMenuItem{ action: control.actions[index]}
-    }
-
 
 }

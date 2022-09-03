@@ -13,42 +13,45 @@ import QtQuick.Controls.impl as Impl
 import "qrc:/CoreUI/palettes"
 
 MenuBar {
-
     delegate: MenuBarItem {
         id: control
-        property color color : "#3399ff"
-
-        contentItem: Row{
-            spacing: 5
-            Impl.IconImage{
-                anchors.verticalCenter: parent.verticalCenter
-                name: control.menu.icon
-                sourceSize.width: parent.height*0.5
-                sourceSize.height: parent.height*0.5
-                fillMode: Image.PreserveAspectFit
-                color: control.palette.buttonText
-
-            }
-
-            Text {
-                text: control.text
-                font: control.font
-                anchors.verticalCenter: parent.verticalCenter
-                opacity: enabled ? 1.0 : 0.3
-                color: control.palette.buttonText
-                horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignVCenter
-                elide: Text.ElideRight
-            }
-        }
-
+        property int radius: 5
+        palette: BrandLight{}
+        icon.name: control.menu.icon
         background: Rectangle {
-            implicitWidth: 55
-            implicitHeight: 45
-            opacity: enabled ? 1 : 0.3
-            radius: 5
-            color: control.highlighted ? control.color : Qt.darker(control.color,1.1)
-        }
+            implicitWidth: 100
+            implicitHeight: 50
+            radius: control.radius
+
+            Behavior on color{
+                ColorAnimation {easing.type: Easing.InOutQuad; duration: 150  }
+
+            }
+
+            color: {
+                if(!control.enabled)
+                    return control.palette.button.lighter(1.3)
+
+                if(control.down && control.hovered){
+                    return control.palette.button.lighter(1.2)
+                }
+
+                if(control.down || control.checkable){
+                    return control.palette.button.darker(1.4)
+
+                }
+
+                if(control.visualFocus){
+                    return control.palette.button.darker(1.1)
+                }
+
+                if(control.hovered){
+                    return control.palette.button.darker(1.1)
+                }
+                return control.palette.button
+            }
+        }//background
+
     }
 
 

@@ -9,6 +9,8 @@ import QtQuick;
 import QtQuick.Controls.Basic;
 import QtQuick.Layouts
 import "qrc:/CoreUI/components/base"
+import "qrc:/CoreUI/components/SharedComponents"
+
 import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
 
@@ -24,6 +26,9 @@ TableView{
     property int hoveredRow: -1
     property bool validRow: selectedRow>=0
     property int __lastWidth: 0;
+
+
+
     property HorizontalHeaderView horizontalHeaderView: HorizontalHeaderView{
         reuseItems: false
         id: horizontalHeader
@@ -159,20 +164,12 @@ TableView{
                            contextMenu.popup()
                        }
 
-        Menu {
+        CActionsMenu {
             id: contextMenu
             modal: true
             dim: false
+            actions:tableView.actions
 
-            background: Rectangle{
-                implicitWidth: 300
-                border.color: "silver"
-                radius: 2
-            }
-            Repeater{
-                model: tableView.actions.length
-                CMenuItem{ action: tableView.actions[index]}
-            }
         }
     } //end MouseArea
 }

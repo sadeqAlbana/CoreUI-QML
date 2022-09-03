@@ -52,5 +52,6 @@
         <file>components/forms/CMonthGridButton.qml</file>
         <file>components/SharedComponents/CMenuItem.qml</file>
         <file>components/buttons/CCheckBox.qml</file>
+        <file>components/SharedComponents/CActionsMenu.qml</file>
     </qresource>
 </RCC>

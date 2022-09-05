@@ -8,18 +8,19 @@
 import QtQuick;
 import QtQuick.Controls.Basic;
 import QtQuick.Layouts
-import "qrc:/CoreUI/components/base"
-import "qrc:/CoreUI/components/SharedComponents"
-
 import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
-
+import "qrc:/CoreUI/components/base"
+import "qrc:/CoreUI/components/SharedComponents"
 //https://github.com/qt/qtdeclarative/blob/5.15.2/src/quick/items/qquicktableview.cpp
 //qreal QQuickTableViewPrivate::cellWidth(const QPoint& cell)
 //qreal QQuickTableViewPrivate::sizeHintForColumn(int column)
 //these methods are use to calculate columns width
 TableView{
     id: tableView
+
+    LayoutMirroring.childrenInherit: true
+
     property list<Action> actions
     property var hiddenColumns: []
     property int selectedRow: -1

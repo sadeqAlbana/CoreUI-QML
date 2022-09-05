@@ -19,6 +19,7 @@ Page{
     property CBorder border: CBorder{
         color: accentColor;
     }
+    LayoutMirroring.childrenInherit: true
 
     background: Rectangle{
         color : control.palette.window

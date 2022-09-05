@@ -14,4 +14,5 @@ Label{
     text: "Card Label"
     verticalAlignment: Text.AlignVCenter
     leftPadding: 25
+    rightPadding: 25
 }

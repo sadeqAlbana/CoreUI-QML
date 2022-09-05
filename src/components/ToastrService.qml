@@ -5,7 +5,7 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 
-import QtQuick 2.12
+import QtQuick
 import Qt5Compat.GraphicalEffects
 import QtQuick.Layouts
 import QtQuick.Controls
@@ -17,7 +17,9 @@ Popup{
 
     clip: true;
     parent: Overlay.overlay
-    x: parent.width-listView.width-10
+    x: (Qt.application.layoutDirection === Qt.RightToLeft) ? 10
+         :parent.width-listView.width-10
+
     y: 70
     closePolicy: Popup.NoAutoClose
     margins: 0
@@ -30,13 +32,12 @@ Popup{
     Component.onCompleted: open();
 
     ListView{
-
         id: listView
         visible: count>0
         spacing: 5
         width: toastrService.width
         interactive: false
-
+        LayoutMirroring.childrenInherit: true
 
 
         property int delegateHeight: 100

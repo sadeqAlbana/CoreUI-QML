@@ -43,6 +43,10 @@ CTextField {
         y:parent.height
         width: 400
         height: 400
+        modal: false
+        closePolicy: Popup.CloseOnPressOutside | Popup.CloseOnPressOutsideParent |
+                     Popup.CloseOnReleaseOutside | Popup.CloseOnReleaseOutsideParent |
+                     Popup.CloseOnEscape
 
         palette.window: "#fff"
 

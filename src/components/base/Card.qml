@@ -14,13 +14,14 @@ import "qrc:/CoreUI/components/SharedComponents"
 
 Page{
     id: control
+    palette.window: "#fff"
     property color accentColor: "#d8dbe0"
     property CBorder border: CBorder{
         color: accentColor;
     }
 
     background: Rectangle{
-        color : "#fff"
+        color : control.palette.window
         border.color: control.border.color;
         radius: 4
         antialiasing: true
@@ -37,8 +38,7 @@ Page{
     } //end background
 
     header: CardLabel{
-        //visible: control.title !=""
-        visible: false
+        visible: control.title !=""
         text: control.title
         font.pixelSize: 22
         bottomPadding: 20

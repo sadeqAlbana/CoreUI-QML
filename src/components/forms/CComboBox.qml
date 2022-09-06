@@ -14,8 +14,10 @@ import "qrc:/CoreUI/components/SharedComponents"
 ComboBox{
     id:control
     palette.buttonText: "#3c4b64"
-
+    palette.window: "#fff"
+    flat: true
     property string leftIcon
+    palette.highlight: "#8AD4EE"
     property CBorder border: CBorder{
         color: "#d8dbe0";
         radius: 4
@@ -24,12 +26,21 @@ ComboBox{
     background: RoundedRect{
         implicitHeight: 40
         implicitWidth: 200
-        color : "#fff"
-        border.color: "#d8dbe0";
+        color : control.palette.window
+        border.color: control.activeFocus? control.palette.highlight : control.border.color
         radius: control.border.radius
         topLeft: !leftDelegateContainer.visible
         bottomLeft: !leftDelegateContainer.visible
+        layer.enabled: control.activeFocus
+        layer.effect: Glow {
+            spread: 1
+            color: glowColor
+            transparentBorder: true
+            cached: true
+        }
     }
+
+
 
 
     leftInset: leftDelegateContainer.visible ? leftDelegateContainer.implicitWidth : 0

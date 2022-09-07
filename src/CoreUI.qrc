@@ -53,5 +53,6 @@
         <file>components/SharedComponents/CMenuItem.qml</file>
         <file>components/buttons/CCheckBox.qml</file>
         <file>components/SharedComponents/CActionsMenu.qml</file>
+        <file>components/SharedComponents/CIcon.qml</file>
     </qresource>
 </RCC>

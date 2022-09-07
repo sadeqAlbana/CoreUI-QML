@@ -9,14 +9,14 @@ import QtQuick;
 import QtQuick.Controls.Basic;
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls
-
 import "qrc:/CoreUI/components/SharedComponents"
 ComboBox{
     id:control
     palette.buttonText: "#3c4b64"
     palette.window: "#fff"
     flat: true
-    property string leftIcon
+    property CIcon icon:CIcon{color: "#5C6873"}
+
     palette.highlight: "#8AD4EE"
     property CBorder border: CBorder{
         color: "#d8dbe0";
@@ -29,8 +29,8 @@ ComboBox{
         color : control.palette.window
         border.color: control.activeFocus? control.palette.highlight : control.border.color
         radius: control.border.radius
-        topLeft: !leftDelegateContainer.visible
-        bottomLeft: !leftDelegateContainer.visible
+        topLeft: !sideDelegate.visible
+        bottomLeft: !sideDelegate.visible
         layer.enabled: control.activeFocus
         layer.effect: Glow {
             spread: 1
@@ -43,20 +43,18 @@ ComboBox{
 
 
 
-    leftInset: leftDelegateContainer.visible ? leftDelegateContainer.implicitWidth : 0
-    leftPadding:leftDelegateContainer.visible ? leftInset+padding : leftPadding
 
 
+        leftPadding: padding +
+                     (!control.mirrored || !indicator || !indicator.visible ? 0 : indicator.width + spacing) + leftInset
 
-    component Delegate :
-        ItemDelegate { //change to item delegate ?
-        visible: (icon.name!="")
-        icon.color: "#5C6873"
-        //padding: height/2
-        anchors.fill: parent;
-        implicitWidth: 50
-        implicitHeight: parent.height
-    }
+        leftInset: (control.mirrored || !sideDelegate || !sideDelegate.visible ? 0 : sideDelegate.width)
+            rightPadding: padding +
+                          (control.mirrored || !indicator || !indicator.visible ? 0 : indicator.width + spacing) +rightInset
+
+            rightInset: (!control.mirrored || !sideDelegate || !sideDelegate.visible ? 0 : sideDelegate.width)
+
+
 
     delegate: ItemDelegate {
         width: control.width
@@ -69,10 +67,6 @@ ComboBox{
         palette.highlight: "#0078D7"
         palette.light: "#0078D7"
         palette.midlight: "#0078D7"
-
-
-        //        palette.buttonText: "#000"
-        //        palette.highlightedText: "#000"
     }
 
     states: State{
@@ -81,60 +75,27 @@ ComboBox{
     }
 
     layer.enabled: false
-    //    layer.effect: Glow {
-    //        id: glow
-    //        //samples: 8
-    //        spread: 1
-    //        color: "#DCD9F9"
-    //        transparentBorder: true
-    //        source: control
-    //        cached: true
-    //    }
-    //    onActiveFocusChanged: {
-    //        state=activeFocus ? "active" : ""
-    //        layer.enabled=activeFocus ? true : false
-    //    }
-
-
-
-    RoundedRect{
-        id: leftDelegateContainer;
-        clip: true
-        visible: leftIcon!=""
-        topRight: false
-        bottomRight: false
-        radius: control.border.radius
-        anchors.top: control.top
-        anchors.bottom: control.bottom
-        anchors.left: control.left
-        anchors.bottomMargin: control.bottomInset
-        anchors.rightMargin: -1*(control.border.width)
-
-        anchors.right: background.left
-        //color: "red"
-        //implicitWidth: leftDelegateLoader.implicitWidth
-        implicitHeight: parent.height
-        implicitWidth: leftDelegate.implicitWidth
-        //implicitWidth: childrenRect.width
-
-        color: "#F0F3F5"
-        z: visible ? -2 : 0
-
-        border.color: control.border.color
-        border.width: control.border.width
-
-        Delegate{
-            id: leftDelegate
-            icon.name: control.leftIcon;
-            onClicked: control.entered(control.text)
-
+        property Item sideDelegate: ItemDelegate{
+            parent: control
+            visible: control.icon.name || control.icon.source!=""
+            icon.name: control.icon.name
+            icon.width: control.icon.width
+            icon.height: control.icon.height
+            icon.color: control.icon.color
+            x: !control.mirrored ? control.padding + control.border.width : control.width - width - control.padding - control.border.width
+            y: control.topPadding + (control.availableHeight - height) / 2
+            z: -2
+            implicitHeight: parent.height
+            background: RoundedRect{
+                clip: true
+                topRight: false
+                bottomRight: false
+                topLeft: true
+                bottomLeft: true
+                radius: control.border.radius
+                color: "#F0F3F5"
+                border.color: control.border.color
+                border.width: control.border.width
+            }
         }
-    }
-//    Connections{
-//        target: popup;
-
-//        function onOpened(){
-//            console.log("popup opened")
-//        }
-//    }
 }

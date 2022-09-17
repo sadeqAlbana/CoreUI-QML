@@ -41,18 +41,14 @@ ComboBox{
     }
 
 
+    leftPadding: padding +
+                 (!control.mirrored || !indicator || !indicator.visible ? 0 : indicator.width + spacing) + leftInset
 
+    leftInset: (control.mirrored || !sideDelegate || !sideDelegate.visible ? 0 : sideDelegate.width)
+    rightPadding: padding +
+                  (control.mirrored || !indicator || !indicator.visible ? 0 : indicator.width + spacing) +rightInset
 
-
-
-        leftPadding: padding +
-                     (!control.mirrored || !indicator || !indicator.visible ? 0 : indicator.width + spacing) + leftInset
-
-        leftInset: (control.mirrored || !sideDelegate || !sideDelegate.visible ? 0 : sideDelegate.width)
-            rightPadding: padding +
-                          (control.mirrored || !indicator || !indicator.visible ? 0 : indicator.width + spacing) +rightInset
-
-            rightInset: (!control.mirrored || !sideDelegate || !sideDelegate.visible ? 0 : sideDelegate.width)
+    rightInset: (!control.mirrored || !sideDelegate || !sideDelegate.visible ? 0 : sideDelegate.width)
 
 
 
@@ -75,27 +71,27 @@ ComboBox{
     }
 
     layer.enabled: false
-        property Item sideDelegate: ItemDelegate{
-            parent: control
-            visible: control.icon.name || control.icon.source!=""
-            icon.name: control.icon.name
-            icon.width: control.icon.width
-            icon.height: control.icon.height
-            icon.color: control.icon.color
-            x: !control.mirrored ? control.padding + control.border.width : control.width - width - control.padding - control.border.width
-            y: control.topPadding + (control.availableHeight - height) / 2
-            z: -2
-            implicitHeight: parent.height
-            background: RoundedRect{
-                clip: true
-                topRight: false
-                bottomRight: false
-                topLeft: true
-                bottomLeft: true
-                radius: control.border.radius
-                color: "#F0F3F5"
-                border.color: control.border.color
-                border.width: control.border.width
-            }
+    property Item sideDelegate: ItemDelegate{
+        parent: control
+        visible: control.icon.name || control.icon.source!=""
+        icon.name: control.icon.name
+        icon.width: control.icon.width
+        icon.height: control.icon.height
+        icon.color: control.icon.color
+        x: !control.mirrored ? control.padding + control.border.width : control.width - width - control.padding - control.border.width
+        y: control.topPadding + (control.availableHeight - height) / 2
+        z: -2
+        implicitHeight: parent.height
+        background: RoundedRect{
+            clip: true
+            topRight: false
+            bottomRight: false
+            topLeft: true
+            bottomLeft: true
+            radius: control.border.radius
+            color: "#F0F3F5"
+            border.color: control.border.color
+            border.width: control.border.width
         }
+    }
 }

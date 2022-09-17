@@ -12,7 +12,7 @@
         <file>components/forms/CTextInputGroup.qml</file>
         <file>components/forms/CComboBoxGroup.qml</file>
         <file>components/forms/CTextArea.qml</file>
-        <file>components/forms/CheckableComboBox.qml</file>
+        <file>components/forms/CCheckableComboBox.qml</file>
         <file>components/forms/CheckableListView.qml</file>
         <file>components/forms/CTextField.qml</file>
         <file>components/buttons/CButton.qml</file>
@@ -54,5 +54,6 @@
         <file>components/buttons/CCheckBox.qml</file>
         <file>components/SharedComponents/CActionsMenu.qml</file>
         <file>components/SharedComponents/CIcon.qml</file>
+        <file>components/forms/CheckableComboBox.qml</file>
     </qresource>
 </RCC>

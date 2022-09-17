@@ -9,16 +9,11 @@ import QtQuick;
 import QtQuick.Controls.Basic;
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls
-import QtQuick.Controls.impl
+import "qrc:/CoreUI/components/SharedComponents"
 CComboBox{
-    id:control
-
-
-
-    delegate: CheckDelegate{
+    id: control
+    delegate: CheckDelegate {
         width: control.width
-        //LayoutMirroring.enabled: !control.LayoutMirroring.enabled
-        //LayoutMirroring.childrenInherit: true
         text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : model[control.textRole]) : modelData
         font.weight: control.currentIndex === index ? Font.DemiBold : Font.Normal
         font.family: control.font.family
@@ -28,7 +23,47 @@ CComboBox{
         palette.highlight: "#0078D7"
         palette.light: "#0078D7"
         palette.midlight: "#0078D7"
-        display: IconLabel.TextOnly
-        leftPadding: contentItem.width-indicator.width
+
+        onCheckStateChanged: model.checkState=checkState
+    }
+
+
+    contentItem: Flow{
+        padding: 10
+        spacing: 10
+        Repeater{
+            model: control.model
+            delegate:
+                Label{
+                    text: model[control.textRole]
+                    visible: model.checkState?? false
+                    padding: 5
+                    background: Rectangle{
+                        color: "#F0F4F7"
+                        radius: 5
+                    }
+                    rightPadding: xBtn.width+padding
+
+                    AbstractButton{
+                        id: xBtn
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.right: parent.right
+                        padding: 5
+                        hoverEnabled: true
+                        background: Rectangle{color: "transparent"}
+                        onClicked: model.checkState=Qt.Unchecked
+                        contentItem: Label{
+                            horizontalAlignment: Text.AlignRight
+                            verticalAlignment: Text.AlignVCenter
+                            font.pixelSize: 20
+                            color: "black"
+                            text: "×"
+                            styleColor: "#000015"
+                            font.bold: true
+                            opacity: xBtn.hovered? 1: 0.75
+                        }
+                    }
+            }
+        }
     }
 }

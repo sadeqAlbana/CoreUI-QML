@@ -1,0 +1,17 @@
+set(qml_files
+    "CBorder.qml"
+    "CIcon.qml"
+    "HorizontalSpacer.qml"
+    "VerticalSpacer.qml"
+    "RoundedRect.qml"
+)
+
+qt_add_qml_module(coreuiimplplugin
+    URI CoreUI.Impl
+    VERSION 1.0
+    NO_PLUGIN_OPTIONAL
+    QML_FILES
+        ${qml_files}
+)
+
+#linking left?

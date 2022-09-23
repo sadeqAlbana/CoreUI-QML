@@ -8,6 +8,7 @@ set(qml_files
     "CMonthGrid.qml"
     "CTextArea.qml"
     "CTextField.qml"
+    "DateUtils.js"
 )
 
 qt_add_library(coreuiforms STATIC)

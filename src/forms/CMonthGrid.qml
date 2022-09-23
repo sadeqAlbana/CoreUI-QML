@@ -4,9 +4,7 @@ import QtQuick.Controls.Basic
 import QtQuick.Layouts
 import CoreUI.Palettes
 import CoreUI.Buttons
-import "DateUtils.js" as DateUtils
-
-
+import "DateUtils.js" as JS
 MonthGrid {
     id: control
     required property date date

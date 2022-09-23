@@ -8,7 +8,9 @@ add_subdirectory(base)
 add_subdirectory(buttons)
 add_subdirectory(forms)
 add_subdirectory(palettes)
-add_subdirectory(utils)
+add_subdirectory(notifications)
+add_subdirectory(menus)
+add_subdirectory(views)
 
 qt_add_library(coreui STATIC)
 qt_add_qml_module(coreui
@@ -23,4 +25,5 @@ qt_add_qml_module(coreui
 )
 
 target_link_libraries(coreui
-    PUBLIC coreuiimpl coreuibase coreuibuttons coreuiforms coreuipalettes coreuiutils)
+    PUBLIC coreuiimpl coreuibase coreuibuttons coreuiforms coreuipalettes
+coreuinotifications coreuimenus coreuiviews)

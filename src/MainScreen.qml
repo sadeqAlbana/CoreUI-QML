@@ -9,11 +9,18 @@ import QtQuick;
 import QtQuick.Controls.Basic;
 import QtQuick.Controls
 import QtQuick.Layouts
-import Qt5Compat.GraphicalEffects
+//import Qt5Compat.GraphicalEffects
 import QtQml.Models
 //import CoreUI.Base
-import CoreUI.Impl
 //import CoreUI.Notifications
 Item {
     id: rootItem
+
+//    RoundedRect{
+//        anchors.centerIn: parent
+//        color:"red"
+//        width: 100
+//        height: 100
+
+//    }
 }

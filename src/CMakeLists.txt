@@ -1,29 +1,26 @@
-cmake_minimum_required(VERSION 3.16)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Quick)
-
-qt_add_library(CoreUIQml STATIC)
-qt_add_qml_module(CoreUIQml
-    URI "CoreUI"
-    IMPORTS CoreUI.Impl
-    OPTIONAL_IMPORTS CoreUI.Base CoreUI.Palettes CoreUI.Notifications
-    VERSION 1.0
-    QML_FILES
-        MainScreen.qml
-
-)
+find_package(Qt6 6.2 COMPONENTS Quick REQUIRED)
 
 add_subdirectory(impl)
-#add_subdirectory(base)
-#add_subdirectory(notifications)
-#add_subdirectory(palettes)
+add_subdirectory(base)
+add_subdirectory(buttons)
+add_subdirectory(forms)
+add_subdirectory(palettes)
+add_subdirectory(utils)
 
+qt_add_library(coreui STATIC)
+qt_add_qml_module(coreui
+    URI "CoreUI"
+    VERSION 1.0
+    SOURCES
+        test.h test.cpp
+    IMPORTS
+        CoreUI.Impl
+    QML_FILES
+        MainScreen.qml
+)
 
-
-target_link_libraries(CoreUIQml
-    PRIVATE Qt6::Quick)
-
-install(TARGETS CoreUIQml
-    BUNDLE DESTINATION .
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+target_link_libraries(coreui
+    PUBLIC coreuiimpl coreuibase coreuibuttons coreuiforms coreuipalettes coreuiutils)

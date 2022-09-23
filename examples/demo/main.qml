@@ -2,7 +2,12 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtQuick.Dialogs
 import CoreUI
+import CoreUI.Impl
+import CoreUI.Base
+import CoreUI.Buttons
+import CoreUI.Forms
 ApplicationWindow {
     visible: true
     width: 640
@@ -20,4 +25,20 @@ ApplicationWindow {
             anchors.fill: parent;
         }
     }
+
+    RoundedRect{
+
+    }
+
+    Card{
+
+    }
+    CButton{
+
+    }
+
+    CComboBox{
+
+    }
+
 }

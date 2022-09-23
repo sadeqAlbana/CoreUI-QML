@@ -1,5 +1,4 @@
-import QtQml
-
+import QtQuick
 QtObject{
     property int width: 1;
     property int radius: 1

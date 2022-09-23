@@ -1,13 +1,18 @@
 cmake_minimum_required(VERSION 3.16)
 project(CoreUIQml VERSION 0.1 LANGUAGES CXX)
-
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS  Quick)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Quick Svg)
-
-set(CMAKE_AUTORCC ON)
-set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(QT_QML_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml)
+find_package(Qt6 6.2 COMPONENTS Qml Quick QmlImportScanner REQUIRED)
 
 add_subdirectory(src)
 add_subdirectory(examples)
+
+list(APPEND QML_DIRS "${CMAKE_CURRENT_BINARY_DIR}/qml")
+#list(APPEND QML_DIRS "C:/Users/sadeq/projects/Qt/coreuimig/CoreUIQml/src/impl")
+
+
+
+set(QML_IMPORT_PATH "${QML_DIRS}" CACHE STRING "Qt Creator 4.1 extra qml import paths")
+
+

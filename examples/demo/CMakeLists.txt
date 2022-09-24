@@ -20,8 +20,8 @@ qt_add_qml_module(appdemo
     QML_FILES main.qml
     pages/Dashboard.qml
     pages/Cards.qml
-    Pages/Buttons.qml
-    Pages/Forms.qml
+    pages/Buttons.qml
+    pages/Forms.qml
 )
 
 set_target_properties(appdemo PROPERTIES

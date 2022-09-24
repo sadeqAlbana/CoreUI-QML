@@ -10,6 +10,9 @@ add_subdirectory(examples)
 list(APPEND QML_DIRS "${CMAKE_CURRENT_BINARY_DIR}/qml")
 #list(APPEND QML_DIRS "C:/Users/sadeq/projects/Qt/coreuimig/CoreUIQml/src/impl")
 
+target_sources(coreuiplugin
+    PUBLIC
+        assets/assets.qrc)
 
 
 set(QML_IMPORT_PATH "${QML_DIRS}" CACHE STRING "Qt Creator 4.1 extra qml import paths")

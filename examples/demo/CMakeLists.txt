@@ -6,8 +6,7 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Qml Core Quick)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Quick)
+
 
 qt_add_executable(appdemo
     main.cpp
@@ -36,4 +35,4 @@ target_compile_definitions(appdemo
     PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
 target_link_libraries(appdemo
-    PRIVATE Qt6::Quick coreuiplugin)
+    PRIVATE Qt6::Quick Qt6::Gui Qt6::Charts coreuiplugin)

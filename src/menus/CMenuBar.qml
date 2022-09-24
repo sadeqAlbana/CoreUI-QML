@@ -10,7 +10,7 @@ import QtQuick.Controls.Basic;
 import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls.impl as Impl
-import "qrc:/CoreUI/palettes"
+import CoreUI.Palettes
 
 MenuBar {
     delegate: MenuBarItem {

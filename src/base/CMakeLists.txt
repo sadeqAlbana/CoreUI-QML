@@ -11,3 +11,5 @@ qt_add_qml_module(coreuibase
     QML_FILES
         ${qml_files}
 )
+
+target_link_libraries(coreuibase PRIVATE Qt6::Charts)

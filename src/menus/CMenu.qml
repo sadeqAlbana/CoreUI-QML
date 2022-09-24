@@ -14,6 +14,9 @@ Menu {
     id: control
     modal: true
     dim: false
+    property int radius: 5
+    topPadding: control.radius;
+    bottomPadding: control.radius
     property string icon;
     enter: Transition {
         NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; duration: 200 }
@@ -24,7 +27,7 @@ Menu {
     background: Rectangle{
         implicitWidth: 200
         border.color: "transparent"
-        radius: 5
+        radius: control.radius
         layer.enabled: true
         layer.effect:  DropShadow{
             radius: 16

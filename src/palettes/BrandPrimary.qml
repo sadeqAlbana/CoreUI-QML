@@ -9,5 +9,5 @@ import QtQuick.Controls;
 
 Palette{
     button: "#321fdb"
-    buttonText: "#ffffffde"
+    buttonText: "#ffffff"
 }

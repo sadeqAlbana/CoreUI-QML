@@ -1,7 +1,6 @@
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.2 COMPONENTS Quick REQUIRED)
 
 add_subdirectory(impl)
 add_subdirectory(base)
@@ -11,6 +10,7 @@ add_subdirectory(palettes)
 add_subdirectory(notifications)
 add_subdirectory(menus)
 add_subdirectory(views)
+add_subdirectory(charts)
 
 qt_add_library(coreui STATIC)
 qt_add_qml_module(coreui
@@ -19,13 +19,13 @@ qt_add_qml_module(coreui
     SOURCES
         test.h test.cpp
     IMPORTS
-        CoreUI.Impl
+        CoreUI.Impl QtCharts
     QML_FILES
         MainScreen.qml
         nav.js
-    RESOURCES "../assets/assets.qrc"
 )
 
+target_link_libraries(coreui PRIVATE Qt6::Gui Qt6::Widgets Qt6::Quick Qt6::Charts Qt6::Core5Compat)
 target_link_libraries(coreui
     PUBLIC coreuiimpl coreuibase coreuibuttons coreuiforms coreuipalettes
-coreuinotifications coreuimenus coreuiviews)
+coreuinotifications coreuimenus coreuiviews coreuicharts)

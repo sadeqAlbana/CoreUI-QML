@@ -1,7 +1,11 @@
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
-import "qrc:/CoreUI/components/base"
-import QtQuick.Controls 2.15
+import QtQuick
+import QtQuick.Layouts
+import CoreUI.Base
+import QtQuick.Controls
+import CoreUI.Forms
+import CoreUI.Buttons
+import Qt5Compat.GraphicalEffects
+import QtQuick.Dialogs
 ScrollView{
     id: scrollView
     clip: true

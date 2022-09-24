@@ -1,12 +1,14 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QDebug>
+#include <QIcon>
 #include <QtQml/qqmlextensionplugin.h>
 Q_IMPORT_QML_PLUGIN(CoreUIPlugin)
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+    QIcon::setThemeName("CoreUI");
 
     QQmlApplicationEngine engine;
     qDebug()<<engine.importPathList();

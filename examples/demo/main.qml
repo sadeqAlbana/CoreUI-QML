@@ -26,19 +26,4 @@ ApplicationWindow {
         }
     }
 
-    RoundedRect{
-
-    }
-
-    Card{
-
-    }
-    CButton{
-
-    }
-
-    CComboBox{
-
-    }
-
 }

@@ -22,6 +22,8 @@ qt_add_qml_module(coreui
         CoreUI.Impl
     QML_FILES
         MainScreen.qml
+        nav.js
+    RESOURCES "../assets/assets.qrc"
 )
 
 target_link_libraries(coreui

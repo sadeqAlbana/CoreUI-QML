@@ -18,6 +18,10 @@ qt_add_qml_module(appdemo
     VERSION 1.0
     IMPORTS MyModule
     QML_FILES main.qml
+    pages/Dashboard.qml
+    pages/Cards.qml
+    Pages/Buttons.qml
+    Pages/Forms.qml
 )
 
 set_target_properties(appdemo PROPERTIES

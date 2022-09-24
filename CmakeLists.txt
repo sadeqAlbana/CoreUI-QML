@@ -7,7 +7,6 @@ find_package(Qt6 6.2 COMPONENTS Qml Quick QmlImportScanner REQUIRED)
 
 add_subdirectory(src)
 add_subdirectory(examples)
-
 list(APPEND QML_DIRS "${CMAKE_CURRENT_BINARY_DIR}/qml")
 #list(APPEND QML_DIRS "C:/Users/sadeq/projects/Qt/coreuimig/CoreUIQml/src/impl")
 

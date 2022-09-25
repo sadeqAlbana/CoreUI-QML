@@ -198,6 +198,8 @@ Page {
                 } //widget
 
                 DashboardWidget {
+                    layer.enabled: true
+
                     title: qsTr("Conversion Rate")
                     value: "2.49%"
                     text: "(84.7%)"
@@ -205,74 +207,51 @@ Page {
                         buttonText: "#fff"
                     }
 
-//                    Rectangle {
-//                        clip: false
-//                        color: "red"
-//                        radius: 10
-//                        implicitWidth: c.implicitWidth
-//                        implicitHeight: c.implicitHeight
-//                        Layout.fillHeight: true
-//                        Layout.fillWidth: true
-                        DemoChartView {
-                            id:c
-                            //anchors.fill: parent
-                            backgroundRoundness: 0
-                            backgroundColor: "green"
-                            z:-1
-                            AreaSeries {
-                                color: "#FAC043"
-                                borderColor: "#fffffff0"
-                                axisX: DemoValueAxis {
-                                    max: 120
-                                }
-                                axisY: DemoValueAxis {
-                                    min: -48
-                                    max: 90
-                                }
-                                upperSeries: LineSeries {
-
-                                    XYPoint {
-                                        x: 0
-                                        y: 78
-                                    }
-                                    XYPoint {
-                                        x: 20
-                                        y: 81
-                                    }
-                                    XYPoint {
-                                        x: 40
-                                        y: 80
-                                    }
-                                    XYPoint {
-                                        x: 60
-                                        y: 45
-                                    }
-                                    XYPoint {
-                                        x: 80
-                                        y: 34
-                                    }
-                                    XYPoint {
-                                        x: 100
-                                        y: 12
-                                    }
-                                    XYPoint {
-                                        x: 120
-                                        y: 40
-                                    }
-                                    //spline.setMarkerSize(5) //waiting for marker size !
-                                }
-                            } //series
-
-                            Rectangle{
-                                color: "red"
-                                width: 25
-                                height: 50
-                                radius: 10
-                                anchors.left: parent.left
-                                anchors.bottom: parent.bottom
+                    DemoChartView {
+                        AreaSeries {
+                            color: "#FAC043"
+                            borderColor: "#fffffff0"
+                            axisX: DemoValueAxis {
+                                max: 120
                             }
-                        } //chartView
-                    //}//rect
+                            axisY: DemoValueAxis {
+                                min: -48
+                                max: 90
+                            }
+                            upperSeries: LineSeries {
+
+                                XYPoint {
+                                    x: 0
+                                    y: 78
+                                }
+                                XYPoint {
+                                    x: 20
+                                    y: 81
+                                }
+                                XYPoint {
+                                    x: 40
+                                    y: 80
+                                }
+                                XYPoint {
+                                    x: 60
+                                    y: 45
+                                }
+                                XYPoint {
+                                    x: 80
+                                    y: 34
+                                }
+                                XYPoint {
+                                    x: 100
+                                    y: 12
+                                }
+                                XYPoint {
+                                    x: 120
+                                    y: 40
+                                }
+                                //spline.setMarkerSize(5) //waiting for marker size !
+                            }
+                        } //series
+                    } //chartView
                 } //widget
 
                 DashboardWidget {

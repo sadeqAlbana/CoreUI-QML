@@ -112,4 +112,17 @@ Page {
 
         }
     }
+
+    layer.effect: OpacityMask {
+        maskSource: Item {
+            width: control.width
+            height: control.height
+            Rectangle {
+                anchors.centerIn: parent
+                width: control.width
+                height: control.height
+                radius: 10
+            }
+        }
+    }
 }

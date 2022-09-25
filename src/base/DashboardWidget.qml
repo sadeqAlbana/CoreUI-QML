@@ -121,7 +121,7 @@ Page {
                 anchors.centerIn: parent
                 width: control.width
                 height: control.height
-                radius: 10
+                radius: control.radius
             }
         }
     }

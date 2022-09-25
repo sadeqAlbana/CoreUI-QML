@@ -10,6 +10,7 @@ Q_IMPORT_QML_PLUGIN(CoreUIPlugin)
 
 int main(int argc, char *argv[])
 {
+
     QApplication app(argc, argv);
     QIcon::setThemeName("CoreUI");
 

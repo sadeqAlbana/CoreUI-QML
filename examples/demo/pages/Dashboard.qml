@@ -7,6 +7,8 @@ import Qt.labs.qmlmodels
 import QtCharts
 import CoreUI.Base
 import CoreUI.Palettes
+import Demo
+
 Page {
     title: qsTr("Dashboard")
     background: Rectangle {
@@ -93,33 +95,214 @@ Page {
 
                 DashboardWidget {
                     title: qsTr("Users")
-                    value: "26K";
-                    text:" (-12.4%)"
-                    palette: BrandPrimary{}
-
-                }
+                    value: "26K"
+                    text: " (-12.4%)"
+                    palette: BrandPrimary {}
+                    DemoChartView {
+                        SplineSeries {
+                            XYPoint {
+                                x: 0
+                                y: 65
+                            }
+                            XYPoint {
+                                x: 20
+                                y: 59
+                            }
+                            XYPoint {
+                                x: 40
+                                y: 84
+                            }
+                            XYPoint {
+                                x: 60
+                                y: 84
+                            }
+                            XYPoint {
+                                x: 80
+                                y: 51
+                            }
+                            XYPoint {
+                                x: 100
+                                y: 55
+                            }
+                            XYPoint {
+                                x: 120
+                                y: 40
+                            }
+                            pointsVisible: true
+                            color: "#fff"
+                            opacity: 0.5
+                            //spline.setMarkerSize(5) //waiting for marker size !
+                            axisX: DemoValueAxis {
+                                min: -10
+                                max: 130
+                            }
+                            axisY: DemoValueAxis {
+                                min: -10
+                                max: 95
+                            }
+                        } //series
+                    } //chartView
+                } //widget
 
                 DashboardWidget {
                     title: qsTr("Income")
-                    value: "$6.200";
+                    value: "$6.200"
                     text: "(40.9%)"
-                    palette: BrandInfo{buttonText: "#fff"}
-
-                }
+                    palette: BrandInfo {
+                        buttonText: "#fff"
+                    }
+                    DemoChartView {
+                        SplineSeries {
+                            XYPoint {
+                                x: 0
+                                y: 1
+                            }
+                            XYPoint {
+                                x: 20
+                                y: 18
+                            }
+                            XYPoint {
+                                x: 40
+                                y: 9
+                            }
+                            XYPoint {
+                                x: 60
+                                y: 17
+                            }
+                            XYPoint {
+                                x: 80
+                                y: 34
+                            }
+                            XYPoint {
+                                x: 100
+                                y: 22
+                            }
+                            XYPoint {
+                                x: 120
+                                y: 11
+                            }
+                            pointsVisible: true
+                            color: "#fff"
+                            opacity: 0.5
+                            //spline.setMarkerSize(5) //waiting for marker size !
+                            axisX: DemoValueAxis {
+                                min: -10
+                                max: 130
+                            }
+                            axisY: DemoValueAxis {
+                                min: -40
+                                max: 40
+                            }
+                        } //series
+                    } //chartView
+                } //widget
 
                 DashboardWidget {
                     title: qsTr("Conversion Rate")
-                    value: "2.49%";
+                    value: "2.49%"
                     text: "(84.7%)"
-                    palette: BrandWarning{buttonText: "#fff"}
-                }
+                    palette: BrandWarning {
+                        buttonText: "#fff"
+                    }
+
+//                    Rectangle {
+//                        clip: false
+//                        color: "red"
+//                        radius: 10
+//                        implicitWidth: c.implicitWidth
+//                        implicitHeight: c.implicitHeight
+//                        Layout.fillHeight: true
+//                        Layout.fillWidth: true
+                        DemoChartView {
+                            id:c
+                            //anchors.fill: parent
+                            backgroundRoundness: 0
+                            backgroundColor: "green"
+                            z:-1
+                            AreaSeries {
+                                color: "#FAC043"
+                                borderColor: "#fffffff0"
+                                axisX: DemoValueAxis {
+                                    max: 120
+                                }
+                                axisY: DemoValueAxis {
+                                    min: -48
+                                    max: 90
+                                }
+                                upperSeries: LineSeries {
+
+                                    XYPoint {
+                                        x: 0
+                                        y: 78
+                                    }
+                                    XYPoint {
+                                        x: 20
+                                        y: 81
+                                    }
+                                    XYPoint {
+                                        x: 40
+                                        y: 80
+                                    }
+                                    XYPoint {
+                                        x: 60
+                                        y: 45
+                                    }
+                                    XYPoint {
+                                        x: 80
+                                        y: 34
+                                    }
+                                    XYPoint {
+                                        x: 100
+                                        y: 12
+                                    }
+                                    XYPoint {
+                                        x: 120
+                                        y: 40
+                                    }
+                                    //spline.setMarkerSize(5) //waiting for marker size !
+                                }
+                            } //series
+
+                            Rectangle{
+                                color: "red"
+                                width: 25
+                                height: 50
+                                radius: 10
+                                anchors.left: parent.left
+                                anchors.bottom: parent.bottom
+                            }
+                        } //chartView
+                    //}//rect
+                } //widget
 
                 DashboardWidget {
                     title: qsTr("Sessions")
-                    value: "44K";
+                    value: "44K"
                     text: "(-23.6%)"
-                    palette: BrandDanger{buttonText: "#fff"}
-                }
+                    palette: BrandDanger {
+                        buttonText: "#fff"
+                    }
+                    DemoChartView {
+                        BarSeries {
+                            BarSet {
+                                color: "#EA7575"
+                                borderColor: "transparent"
+                                values: [78, 81, 80, 45, 34, 12, 40, 85, 65, 23, 12, 98, 34, 84, 67, 82]
+                            }
+
+                            opacity: 0.5
+                            //spline.setMarkerSize(5) //waiting for marker size !
+                            axisX: DemoValueAxis {
+                                min: -2
+                                max: 17
+                            }
+                            axisY: DemoValueAxis {
+                                min: -40
+                                max: 100
+                            }
+                        } //series
+                    } //chartView
+                } //widget
             } //gridLayout end
 
             ChartView {
@@ -149,9 +332,5 @@ Page {
                 margins.bottom: 5
             }
         } //columnLayout End
-
-        Component.onCompleted: {
-
-        } //ScrollView End
     } //flickable
 }

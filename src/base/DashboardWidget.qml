@@ -17,141 +17,99 @@ import CoreUI.Impl
 import QtCharts
 import CoreUI.Charts
 
-Pane {
+Page {
     id: control
     clip: true
-    padding: 10
-    Layout.preferredWidth: 290
-    Layout.preferredHeight: 187
-    property string text: "(-12.4%)"
-    property string value: "26K"
-    property string title: "Users"
+    Layout.minimumWidth: implicitWidth
+    Layout.fillWidth: true
+    padding: 0
+    property string text
+    property string value
     property int radius: 10
+    default property alias content: layout.data
+    property list<Action> actions: [
+        Action {
+            text: qsTr("Action")
+        },
+        Action {
+            text: qsTr("Another action")
+        },
+        Action {
+            text: qsTr("Something else here")
+        }
+    ]
     background: Rectangle {
         color: control.palette.button
         radius: control.radius
     }
 
-    contentItem: GridLayout {
-        columns: 4
-        Label {
-            text: control.value
-            color: "#FFF"
-            font.weight: Font.DemiBold
-            font.pixelSize: 24
-        }
-        Label {
-            color: "#FFF"
-            text: control.text
-            font.weight: Font.Medium
-            font.pixelSize: 14
-        }
-        HorizontalSpacer {}
-        CMenuBar {
-            CActionsMenu {
-                actions: [
-                    Action {
-                        text: qsTr("Action")
-                    },
-                    Action {
-                        text: qsTr("Another action")
-                    },
-                    Action {
-                        text: qsTr("Something else here")
-                    }
-                ]
+    header: ToolBar {
+        leftPadding: 15
+        rightPadding: 15
+        topPadding: 15
+        palette.base: "transparent"
+        palette.window: "transparent"
+        palette.button: "transparent"
+        RowLayout {
+            anchors.fill: parent
+            Label {
+                text: control.value
+                color: "#FFF"
+                font.weight: Font.DemiBold
+                font.pixelSize: 24
             }
-            delegate: MenuBarItem {
-                display: AbstractButton.IconOnly
-                icon.name: "cil-options"
-                palette.mid: "transparent"
-                palette.highlight: "transparent"
-                icon.width: 16
-                icon.height: 16
-                smooth: true
-                antialiasing: true
-            }
-        }
+            Label {
+                color: "#FFF"
+                text: control.text
+                font.weight: Font.Medium
+                font.pixelSize: 14
 
+            }
+            //       Label {
+            //           color: "#FFF"
+            //           text: control.title
+            //           font.weight: Font.Medium
+            //           font.pixelSize: 16
+            //       }
+            HorizontalSpacer {}
+            CMenuBar {
+                palette.base: "transparent"
+                palette.window: "transparent"
+                palette.button: "transparent"
+
+                CActionsMenu {
+                    actions: control.actions
+                }
+                delegate: MenuBarItem {
+                    display: AbstractButton.IconOnly
+                    palette.button: "transparent"
+                    icon.name: "cil-options"
+                    palette.mid: "transparent"
+                    palette.highlight: "transparent"
+                    icon.width: 16
+                    icon.height: 16
+                    smooth: true
+                    antialiasing: true
+                }
+            }
+        }
+    }
+
+    ColumnLayout {
+        anchors.fill: parent
+        anchors.margins: 0
+
+        id: layout
         Label {
             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
             text: control.title
-            Layout.columnSpan: 4
-            Layout.row: 1
             font.pixelSize: 16
             font.weight: Font.Medium
-            color: "#fff"
-        }
+            palette.windowText: "#fff"
+            leftPadding: 15
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
 
-        ChartView {
-            id: chartView
-            Layout.alignment: Qt.AlignCenter
-            Layout.columnSpan: 4
-            implicitWidth: 200
-            implicitHeight: 100
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            Layout.row: 2
-            backgroundColor: "transparent"
-            legend.visible: false
-            animationOptions: ChartView.AllAnimations
-            smooth: true
-            antialiasing: true
-            ValueAxis {
-                id: x
-                min: 0
-                max: 60
-                tickCount: 7
-                gridVisible: false
-                labelsVisible: false
-                lineVisible: false
-            }
-            ValueAxis {
-                id: y
-                min: 0
-                max: 50
-                tickCount: 7
-                gridVisible: false
-                labelsVisible: false
-                lineVisible: false
-            }
-            SplineSeries {
-                id: spline
-                XYPoint {
-                    x: 0
-                    y: 32.5
-                }
-                XYPoint {
-                    x: 10
-                    y: 29.5
-                }
-                XYPoint {
-                    x: 20
-                    y: 42
-                }
-                XYPoint {
-                    x: 30
-                    y: 42
-                }
-                XYPoint {
-                    x: 40
-                    y: 25.5
-                }
-                XYPoint {
-                    x: 50
-                    y: 27.5
-                }
-                XYPoint {
-                    x: 60
-                    y: 20
-                }
-                axisX: x
-                axisY: y
-                pointsVisible: true
-                color: "#fff"
-                opacity: 0.5
-                //spline.setMarkerSize(5) //waiting for marker size !
-            }
         }
-    } //content item
+    }
 }

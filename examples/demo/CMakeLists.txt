@@ -15,12 +15,13 @@ qt_add_executable(appdemo
 qt_add_qml_module(appdemo
     URI "Demo"
     VERSION 1.0
-    IMPORTS MyModule
     QML_FILES main.qml
     pages/Dashboard.qml
     pages/Cards.qml
     pages/Buttons.qml
     pages/Forms.qml
+    components/DemoChartView.qml
+    components/DemoValueAxis.qml
 )
 
 set_target_properties(appdemo PROPERTIES

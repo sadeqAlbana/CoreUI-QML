@@ -11,23 +11,29 @@ import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
 import QtQuick.Templates as T
 import QtQuick.Controls.impl
-
+import CoreUI.Impl
 T.RoundButton {
     id: control
-    property color borderColor : "transparent"
-    property int   borderWidth : 0;
-    //property int radius: 4
+    property CBorder border:CBorder{
+        width: 0
+        color: "transparent"
+    }
+
     property int  shadowRadius: control.enabled? (control.down? 20 : (control.hovered? 16 : 4)) : 0
 
-
+    radius: 4
+    padding: 6
+    horizontalPadding: padding + 2
+    spacing: 6
+    clip: true
+    palette.shadow: "silver"
+    hoverEnabled: true
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
                             implicitContentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
                              implicitContentHeight + topPadding + bottomPadding)
 
-    padding: 6
-    horizontalPadding: padding + 2
-    spacing: 6
+
 
 
 //    icon.width: 24
@@ -40,14 +46,6 @@ T.RoundButton {
 
 
 
-    radius: 4
-
-
-    clip: true
-    palette.shadow: "silver"
-
-
-    hoverEnabled: true
 
 
     transitions: Transition {

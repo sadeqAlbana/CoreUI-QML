@@ -30,6 +30,7 @@ Rectangle{
         fontSizeMode: Text.Fit
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
+        font.weight: Font.Bold
         minimumPointSize: 1
         color: "white"
         text: "badge"

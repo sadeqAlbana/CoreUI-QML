@@ -45,7 +45,7 @@ Page {
 
     header: ToolBar {
         leftPadding: 15
-        rightPadding: 15
+        rightPadding: 0
         topPadding: 15
         palette.base: "transparent"
         palette.window: "transparent"
@@ -73,6 +73,7 @@ Page {
             //       }
             HorizontalSpacer {}
             CMenuBar {
+                Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
                 palette.base: "transparent"
                 palette.window: "transparent"
                 palette.button: "transparent"
@@ -104,7 +105,7 @@ Page {
             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
             text: control.title
             font.pixelSize: 16
-            font.weight: Font.Medium
+            font.weight: Font.DemiBold
             palette.windowText: "#fff"
             leftPadding: 15
             horizontalAlignment: Text.AlignHCenter
@@ -113,16 +114,8 @@ Page {
         }
     }
 
-    layer.effect: OpacityMask {
-        maskSource: Item {
-            width: control.width
-            height: control.height
-            Rectangle {
-                anchors.centerIn: parent
-                width: control.width
-                height: control.height
-                radius: control.radius
-            }
-        }
+    layer.effect: RoundingMask{
+        item: control
+        radius: control.radius
     }
 }

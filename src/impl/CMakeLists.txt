@@ -4,6 +4,7 @@ set(qml_files
     "HorizontalSpacer.qml"
     "VerticalSpacer.qml"
     "RoundedRect.qml"
+    "RoundingMask.qml"
 )
 
 qt_add_library(coreuiimpl STATIC)

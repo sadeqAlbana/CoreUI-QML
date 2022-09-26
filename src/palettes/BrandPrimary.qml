@@ -10,4 +10,9 @@ import QtQuick.Controls;
 Palette{
     button: "#321fdb"
     buttonText: "#ffffff"
+    active.highlight: "#321fdb"
+    inactive.highlight: "#D8DBE0"
+    active.windowText: "#fff"
+    inactive.windowText: "#4f5d73"
+    disabled.windowText: "#D8DBE0"
 }

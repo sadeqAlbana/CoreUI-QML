@@ -55,7 +55,7 @@ FormGroup {
                 }
             }
 
-            CTextInput{
+            CTextField{
                 id:input
                 Layout.fillWidth: true
                 z:2

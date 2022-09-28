@@ -6,7 +6,9 @@ set(QT_QML_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml)
 find_package(Qt6 COMPONENTS Qml Core5Compat Gui Widgets Charts Quick QmlImportScanner REQUIRED)
 
 add_subdirectory(src)
+if(COREUI_BUILD_EXAMPLES)
 add_subdirectory(examples)
+endif()
 list(APPEND QML_DIRS "${CMAKE_CURRENT_BINARY_DIR}/qml")
 #list(APPEND QML_DIRS "C:/Users/sadeq/projects/Qt/coreuimig/CoreUIQml/src/impl")
 

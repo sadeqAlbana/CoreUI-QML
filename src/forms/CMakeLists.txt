@@ -8,6 +8,7 @@ set(qml_files
     "CMonthGrid.qml"
     "CTextArea.qml"
     "CTextField.qml"
+    "CMonthGridButton.qml"
     "DateUtils.js"
 )
 

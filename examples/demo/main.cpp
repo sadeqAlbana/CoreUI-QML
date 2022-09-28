@@ -5,6 +5,8 @@
 #include <QtQml/qqmlextensionplugin.h>
 #include <QFile>
 #include <QDir>
+#include <QFont>
+#include <QFontDatabase>
 
 Q_IMPORT_QML_PLUGIN(CoreUIPlugin)
 
@@ -13,6 +15,24 @@ int main(int argc, char *argv[])
 
     QApplication app(argc, argv);
     QIcon::setThemeName("CoreUI");
+    QFont font=QApplication::font();
+    //font.setFamily("Segoe UI");
+    font.setFamilies({
+                     "Segoe UI"
+                     "Helvetica Neue",
+                     "Noto Sans",
+                     "Liberation Sans",
+                     "Arial",
+                     "sans-serif",
+                     "Apple Color Emoji",
+                     "Segoe UI Emoji",
+                     "Segoe UI Symbol",
+                     "Noto Color Emoji"});
+    font.setWeight(QFont::Weight::Normal);
+    font.setPixelSize(16);
+    QApplication::setFont(font);
+//    qDebug()<<QFontDatabase::families();
+    qDebug()<<QApplication::font();
 
     QQmlApplicationEngine engine;
     engine.addImportPath(QStringLiteral(":/"));

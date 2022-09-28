@@ -539,6 +539,8 @@ Item {
             }
         }
         //stack.replace(listModel.get(listView.currentIndex).path)
+        //listView.currentIndex=listModel.indexOf("activities");
+        listView.currentIndex=2
     }
 
     Component.onCompleted: populateNavBar();

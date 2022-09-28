@@ -8,8 +8,8 @@
 import QtQuick;
 import QtQuick.Controls.Basic;
 import QtQuick.Controls
-
+import CoreUI
 CButtonOutline {
     //id: control
-    borderWidth: 0
+    CoreUI.borderWidth: 0
 }

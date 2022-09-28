@@ -5,6 +5,7 @@ set(qml_files
     "VerticalSpacer.qml"
     "RoundedRect.qml"
     "RoundingMask.qml"
+    "ButtonBackground.qml"
 )
 
 qt_add_library(coreuiimpl STATIC)

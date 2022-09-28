@@ -14,7 +14,8 @@ ApplicationWindow {
     height: 480
     title: qsTr("CoreUI")
     visibility: Window.Maximized
-
+    minimumWidth: rootLoader.implicitWidth
+    minimumHeight: rootLoader.implicitHeight
     id: rootItem
 
     Loader{

@@ -39,7 +39,7 @@ Page {
         }
     ]
     background: Rectangle {
-        color: control.palette.button
+        color: control.palette.inactive.button
         radius: control.radius
     }
 

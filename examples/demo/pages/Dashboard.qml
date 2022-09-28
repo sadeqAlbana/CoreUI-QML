@@ -328,7 +328,7 @@ Page {
 
                         Repeater {
                             model: [qsTr("Day"), qsTr("Month"), qsTr("Year")]
-                            CButton {
+                            CButtonOutline {
                                 radius: 0
                                 flat: true
                                 layer.enabled: false

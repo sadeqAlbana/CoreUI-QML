@@ -9,6 +9,7 @@ import QtQuick;
 import QtQuick.Controls.Basic;
 import QtQuick.Controls
 Label{
-    verticalAlignment: Qt.AlignBottom
+    verticalAlignment: Text.AlignVCenter
+    horizontalAlignment: Text.AlignHCenter
     color: "#3c4b64"
 }

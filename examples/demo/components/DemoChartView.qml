@@ -11,7 +11,7 @@ ChartView {
     Layout.fillHeight: true
     Layout.fillWidth: true
     Layout.row: 2
-    backgroundColor: control.palette.button
+    backgroundColor: control.palette.inactive.button
     legend.visible: false
     animationOptions: ChartView.AllAnimations
     smooth: true

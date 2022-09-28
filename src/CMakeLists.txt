@@ -12,12 +12,14 @@ add_subdirectory(menus)
 add_subdirectory(views)
 add_subdirectory(charts)
 
+
+add_custom_target(coreui_other_assets SOURCES style.css)
 qt_add_library(coreui STATIC)
 qt_add_qml_module(coreui
     URI "CoreUI"
     VERSION 1.0
     SOURCES
-        test.h test.cpp
+        coreui.h coreui.cpp
     IMPORTS
         CoreUI.Impl QtCharts
     QML_FILES

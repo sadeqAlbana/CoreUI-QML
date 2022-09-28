@@ -6,48 +6,26 @@
  */
 
 import QtQuick;
-import QtQuick.Controls.Basic;
-import QtQuick.Controls
+import CoreUI.Impl
+import CoreUI
+import QtQuick.Controls.impl as Impl
 import Qt5Compat.GraphicalEffects
 
-Button {
+CButton {
     id: control
+    CoreUI.borderWidth: 1
 
-    property int   radius: 4;
-    property CBorder border: CBorder{
-        color: "white";
-    }
-
-    implicitHeight: 35
-    implicitWidth: 120
-    hoverEnabled: true
-    onPressed: forceActiveFocus();
-    layer.enabled: false
-
-    transitions: Transition {
-        reversible: true
-        from: "*"
-        to: "hovered,activeHovered"
-        ColorAnimation {easing.type: Easing.InOutQuad; duration: 150  }
-    }
-
-    background: Rectangle{
-        color: control.border.color
-        radius: control.radius
+    background: ButtonBackground{
+        color: control.down || control.visualFocus || control.focus || control.hovered?  control.palette.active.button  : "transparent"
         border.color: control.palette.button
-        border.width: control.border.width
+        radius: control.radius
+        control: control
+
+        shadowRadius: 4
+        layer.enabled: false
     }
 
-    layer.effect: Glow {
-        id: glow
-        //samples: 8
-        spread: 1
-        color: lighterColor(1.5)
-        transparentBorder: true
-        source: control
-        cached: true
-    }
-    contentItem: IconLabel {
+    contentItem: Impl.IconLabel {
         spacing: control.spacing
         mirrored: control.mirrored
         display: control.display
@@ -55,40 +33,10 @@ Button {
         icon: control.icon
         text: control.text
         font: control.font
-        color: control.checked || control.highlighted ? control.palette.brightText :
-               control.flat && !control.down ? (control.visualFocus ? control.palette.highlight : control.palette.windowText) : control.palette.buttonText
-    }//contentItem
+//        color: control.enabled?
+//                   control.down || control.checked? control.palette.active.buttonText :control.palette.inactive.buttonText : control.palette.disabled.buttonText
 
-    states: [
-        State{
-            name: "activeHovered"
-            when:  hovered && activeFocus
-            extend: "hovered"
-            PropertyChanges {target: control.layer; enabled: true}
+        color: control.down || control.visualFocus || control.focus || control.hovered? control.palette.active.buttonText : control.palette.active.button
 
-
-        },
-
-        State{
-            name: "active"
-            when: activeFocus || focus
-            PropertyChanges {target: control.layer; enabled: true}
-
-        },
-        State{
-            name: "hovered"
-            when: hovered
-            PropertyChanges {target: control.border; color: control.color}
-            PropertyChanges {target: content; color: control.palette.buttonText}
-        },
-        State{
-            name: "disabled"
-            when: !enabled
-            PropertyChanges {target: control; opacity: 0.65;}
-        }
-    ]
-
-    function lighterColor(factor){
-        return Qt.lighter(control.color,factor);
     }
 }

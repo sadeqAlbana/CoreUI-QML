@@ -2,8 +2,8 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Basic
 import QtQuick.Layouts
-import "qrc:/CoreUI/palettes"
-import "qrc:/CoreUI/components/buttons"
+import CoreUI.Palettes
+import CoreUI.Buttons
 import QtQuick.Templates as T
 
 Button {

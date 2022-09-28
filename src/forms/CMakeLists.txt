@@ -10,6 +10,12 @@ set(qml_files
     "CTextField.qml"
     "CMonthGridButton.qml"
     "DateUtils.js"
+    "CCheckableComboBoxGroup.qml"
+    "CComboBoxGroup.qml"
+    "CTextFieldGroup.qml"
+    "CTextInputGroup.qml"
+    "FormGroup.qml"
+
 )
 
 qt_add_library(coreuiforms STATIC)

@@ -17,6 +17,11 @@ target_sources(coreuiplugin
         assets/assets.qrc)
 
 
-set(QML_IMPORT_PATH "${QML_DIRS}" CACHE STRING "Qt Creator 4.1 extra qml import paths")
+    list(APPEND QML_DIRS "${CMAKE_CURRENT_BINARY_DIR}/src")
+    list(REMOVE_DUPLICATES QML_DIRS)
+#    set(QML_IMPORT_PATH ${QML_IMPORT_PATH}
+#        CACHE STRING "Qt Creator 4.1 extra qml import paths"
+#        FORCE
+#    )
 
 

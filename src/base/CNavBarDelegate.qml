@@ -5,13 +5,11 @@ import QtQuick.Controls.impl as Impl
 import CoreUI.Notifications
 import CoreUI.Buttons
 import CoreUI.Impl
-CButton {
+CItemDelegate {
     id: control
     clip: true
-    radius: 0
     property bool expanded: model.expanded ? model.expanded : false
     property bool hidden: model.parentId ? model.hidden : false
-    alignment: Qt.AlignLeft | Qt.AlignVCenter
 //    property bool hasChildren: model.childItems.length
     width: ListView.view.width
     height: 49
@@ -21,6 +19,8 @@ CButton {
     icon.width: 19
     icon.height: 19
     icon.cache: true
+    icon.color: control.highlighted ? control.palette.highlightedText : control.palette.text
+
 //    icon.color: control.highlighted ? control.palette.highlightedText : control.palette.text
     icon.name: model.image?? ""
     display: AbstractButton.TextBesideIcon
@@ -178,11 +178,16 @@ CButton {
 //        }
 //    ]
 
-//    background: ButtonBackground {
-//        opacity: enabled ? 1 : 0.3
-//        layer.enabled: false
+    background: Rectangle {
+        opacity: enabled ? 1 : 0.3
+        layer.enabled: false
+        color: control.hovered ? control.palette.highlight :
+                                 control.highlighted? control.palette.base : control.palette.window
+        Behavior on color{
+            ColorAnimation {easing.type: Easing.InOutQuad; duration: 300}
+        }
 
-//    }
+    }
 
     onClicked: {
         if (listView.currentIndex !== index && !model.childCount) {

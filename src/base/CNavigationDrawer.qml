@@ -10,16 +10,17 @@ import CoreUI.Buttons
 Drawer {
     id: drawer
     property var model;
+    property string icon: "cib-coreui"
     width: 256
     height: rootItem.height
     dim: rootItem.drawerAboveContent
     closePolicy: Popup.NoAutoClose //this causes a problem in closing
     visible: true
     palette: CNavDrawerPalette{}
-    modal: rootItem.drawerAboveContent
+    modal: rootItem.drawerAboveContent //should be changed to CoreUI.DrawerAboveContent
     edge: (Qt.application.layoutDirection === Qt.RightToLeft ? Qt.RightEdge : Qt.LeftEdge)
     Overlay.modal: Rectangle {
-        color: rootItem.drawerAboveContent ? "#C0000000" : "transparent"
+        color: rootItem.drawerAboveContent ? "#C0000000" : "transparent" //should be changed to CoreUI.DrawerAboveContent
     }
 
     ListView {
@@ -37,9 +38,10 @@ Drawer {
             radius: 0
             width: parent.width
             height: toolBar.height
-
-            icon.height: 72
-            icon.name: "cib-coreui"
+            checkable: false
+            icon.height: height-topPadding-bottomPadding
+            icon.name: drawer.icon
+            icon.color: palette.brightText
             background.layer.enabled: false
             display: AbstractButton.IconOnly
         }
@@ -53,6 +55,7 @@ Drawer {
             height: toolBar.height
             down: hovered
             background.layer.enabled: false
+            alignment: Qt.AlignRight
 
         }
 

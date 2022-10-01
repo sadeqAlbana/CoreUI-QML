@@ -73,15 +73,20 @@ public:
         return new CoreUI(object);
     }
 
+    bool mobileLayout() const;
+    void setMobileLayout(bool newMobileLayout);
+
 signals:
     void borderWidthChanged();
+
+    void mobileLayoutChanged();
 
 private:
     int m_borderWidth=0;
     Theme m_there=ThemeLight;
 
-
     Q_PROPERTY(int borderWidth READ borderWidth WRITE setBorderWidth NOTIFY borderWidthChanged)
+    Q_PROPERTY(bool mobileLayout READ mobileLayout NOTIFY mobileLayoutChanged)
 };
 
 #endif // COREUI_H

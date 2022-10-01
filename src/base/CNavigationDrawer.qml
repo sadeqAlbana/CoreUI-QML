@@ -66,7 +66,6 @@ Drawer {
             height: 52
             horizontalAlignment: Text.AlignLeft
             leftPadding: 13
-            color: palette.brightText
             text: section
             font.bold: true
             font.pixelSize: 10

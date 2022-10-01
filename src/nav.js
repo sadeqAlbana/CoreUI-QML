@@ -20,9 +20,12 @@ function navBar(){
 
                     "childItems":[
                         {"title": qsTr("Buttons"),
+                        "path":"qrc:/Demo/pages/Buttons.qml"},
+                        {"title": qsTr("Round Buttons"),
                         "path":"qrc:/Demo/pages/Buttons.qml"}
                     ]
-                }
+                },
+
 
             ];
 }

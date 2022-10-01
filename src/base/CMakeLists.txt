@@ -2,6 +2,12 @@ set(qml_files
     "Card.qml"
     "CardLabel.qml"
     "DashboardWidget.qml"
+    "CApplicationWindow.qml"
+    "CToolBar.qml"
+    "CLabel.qml"
+    "CNavigationDrawer.qml"
+    "CNavBarDelegate.qml"
+    "CItemDelegate.qml"
 )
 
 qt_add_library(coreuibase STATIC)

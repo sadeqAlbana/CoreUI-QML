@@ -11,7 +11,7 @@ class CoreUI : public QObject
     QML_ELEMENT
 
 public:
-    enum  Theme{
+    enum Theme{
         ThemeLight,
         ThemeDark
     };
@@ -62,10 +62,6 @@ public:
         HighlightBg = 0xfff3cd
 
     };
-
-
-
-
 
     Q_INVOKABLE explicit CoreUI(QObject *parent = nullptr);
     int borderWidth() const;

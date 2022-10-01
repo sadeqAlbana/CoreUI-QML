@@ -8,23 +8,11 @@ import CoreUI.Impl
 import CoreUI.Base
 import CoreUI.Buttons
 import CoreUI.Forms
-ApplicationWindow {
-    visible: true
-    width: 640
-    height: 480
-    title: qsTr("CoreUI")
-    visibility: Window.Maximized
-    minimumWidth: rootLoader.implicitWidth
-    minimumHeight: rootLoader.implicitHeight
-    id: rootItem
+CApplicationWindow {
 
-    Loader{
-        id: rootLoader
+
+    rootLoader.sourceComponent: MainScreen{
         anchors.fill: parent;
-
-        sourceComponent: MainScreen{
-            anchors.fill: parent;
-        }
     }
 
 }

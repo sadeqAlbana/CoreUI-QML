@@ -7,6 +7,8 @@ set(qml_files
     "BrandSecondary.qml"
     "BrandSuccess.qml"
     "BrandWarning.qml"
+    "CPalette.qml"
+    "CNavDrawerPalette.qml"
 )
 qt_add_library(coreuipalettes STATIC)
 qt_add_qml_module(coreuipalettes

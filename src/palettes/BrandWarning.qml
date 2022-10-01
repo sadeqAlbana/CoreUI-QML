@@ -1,6 +1,6 @@
 import QtQuick
 
-Palette {
+CPalette {
     active.button: "#c78e11"
     inactive.button: "#f9b115"
     buttonText: "#f22c384a"

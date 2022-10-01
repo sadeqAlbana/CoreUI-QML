@@ -11,7 +11,7 @@ import QtQuick.Controls
 
 Label{
     id: control
-    color: "#3c4b64"
+    color: control.palette.text
     text: "Card Label"
     verticalAlignment: Text.AlignVCenter
     leftPadding: 25

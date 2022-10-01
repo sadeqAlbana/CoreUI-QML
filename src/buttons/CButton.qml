@@ -16,6 +16,7 @@ T.RoundButton {
     id: control
 
     property int shadowRadius: control.enabled ? (control.down ? 16 : (control.hovered ? 8 : 2)) : 0
+    property int alignment: Qt.AlignCenter
     radius: 6
     padding: 6
     horizontalPadding: padding + 6
@@ -28,10 +29,8 @@ T.RoundButton {
 
     icon.width: control.height * 0.5
     icon.height: control.height * 0.5
-    icon.color: control.checked
-                || control.highlighted ? control.palette.brightText : control.flat
-                                         && !control.down ? (control.visualFocus ? control.palette.highlight : control.palette.windowText) : control.palette.buttonText
-
+    icon.color: control.enabled?
+               control.down || control.checked? control.palette.active.buttonText :control.palette.inactive.buttonText : control.palette.disabled.buttonText
     opacity: control.enabled? 1: 0.65
     transitions: Transition {
         reversible: true
@@ -47,7 +46,7 @@ T.RoundButton {
         spacing: control.spacing
         mirrored: control.mirrored
         display: control.display
-
+        alignment: control.alignment
         icon: control.icon
         text: control.text
         font: control.font
@@ -59,6 +58,12 @@ T.RoundButton {
 
     background: ButtonBackground {
         control: control
+        radius: control.radius
+
+    }
+    HoverHandler {
+        acceptedDevices: PointerDevice.Mouse
+        cursorShape: Qt.PointingHandCursor
     }
 
     onClicked: forceActiveFocus();

@@ -3,11 +3,10 @@ import QtQuick.Templates
 import CoreUI
 import Qt5Compat.GraphicalEffects
 Rectangle {
-    required property RoundButton control;
+    required property Button control;
     property int shadowRadius: 2
         implicitWidth: 60
         implicitHeight: 35
-        radius: control.radius
 
         Behavior on color{
             ColorAnimation {easing.type: Easing.InOutQuad; duration: 150}
@@ -17,7 +16,8 @@ Rectangle {
 
         visible: !control.flat || control.down || control.checked || control.highlighted || control.hovered
         color: control.enabled?
-                   control.hovered || control.down || control.visualFocus || control.focus? control.palette.active.button : control.palette.inactive.button : control.palette.active.button
+                   (control.hovered || control.down || control.visualFocus || control.focus)? control.palette.active.button : control.palette.inactive.button :
+        control.palette.disabled.button
 
         layer.enabled: control.enabled
         layer.effect: DropShadow {

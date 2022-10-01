@@ -8,7 +8,6 @@
 import QtQuick;
 import QtQuick.Controls.Basic;
 import Qt5Compat.GraphicalEffects
-import QtQuick.Controls
 import CoreUI.Impl
 ComboBox{
     id:control

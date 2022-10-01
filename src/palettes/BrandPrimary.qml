@@ -7,7 +7,8 @@
 import QtQuick;
 import QtQuick.Controls;
 
-Palette{
+CPalette{
+    id: pal
     inactive.button: "#321fdb"
     active.button: "#5b4ce2"
 
@@ -36,4 +37,8 @@ Palette{
     //border hover    #4735df
     //border active   #4735df
     //border disabled #321fdb
+
+//    function test(){
+//        return Qt.lighter("#ff00ff",1.5)
+//    }
 }

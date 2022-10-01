@@ -13,17 +13,16 @@ import QtQuick.Controls
 import CoreUI.Impl
 Page{
     id: control
-    palette.window: "#fff"
-    property color accentColor: "#d8dbe0"
     property CBorder border: CBorder{
-        color: accentColor;
+        color: control.palette.shadow;
+        radius: 4
     }
     LayoutMirroring.childrenInherit: true
 
     background: Rectangle{
-        color : control.palette.window
+        color : control.palette.base
         border.color: control.border.color;
-        radius: 4
+        radius: control.border.radius
         antialiasing: true
 
         layer.enabled: false
@@ -31,7 +30,7 @@ Page{
             radius: 3
             verticalOffset: 1
             spread: 0.1
-            color: "silver"
+            color: control.palette.shadow
             cached: true
             transparentBorder: true
         }
@@ -56,7 +55,7 @@ Page{
         anchors.top: header? header.bottom : undefined
         parent: control
         implicitHeight: 1
-        color: "#d8dbe0"
+        color: control.palette.shadow
     }
 
     property Item footerLine :Rectangle{
@@ -68,7 +67,7 @@ Page{
         anchors.bottom: footer? footer.top : undefined
         implicitHeight: 1
         parent: control
-        color: "#d8dbe0"
+        color: control.palette.shadow
     }
 
 }

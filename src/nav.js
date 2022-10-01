@@ -15,6 +15,7 @@ function navBar(){
 
                 {
                     "title": qsTr("Buttons"),
+                    "image": "cil-cursor",
                     "category":"COMPONENTS",
 
                     "childItems":[

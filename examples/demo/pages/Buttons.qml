@@ -9,29 +9,49 @@ import QtQuick.Dialogs
 import CoreUI.Impl
 import QtQuick.Controls.Basic
 import CoreUI.Palettes
+
 Page {
-    id: page;
-    title: qsTr("Dashboard")
-    background: Rectangle{color:"transparent";}
+    id: page
+    title: qsTr("Buttons")
+    background: Rectangle {
+        color: "transparent"
+    }
     padding: 15
-    function createPalette(pal,parent){
-        return Qt.createComponent("qrc:///CoreUI/Palettes/"+pal+".qml").createObject(parent)
+    function createPalette(pal, parent) {
+        return Qt.createComponent(
+                    "qrc:///CoreUI/Palettes/" + pal + ".qml").createObject(
+                    parent)
     }
 
-    property var buttons: [{"text":qsTr("Primary"), "palette":"BrandPrimary"},
-        {"text":qsTr("Secondary"), "palette":"BrandSecondary"},
-        {"text":qsTr("Success"), "palette":"BrandSuccess"},
-            {"text":qsTr("Danger"), "palette":"BrandDanger"},
-            {"text":qsTr("Warning"), "palette":"BrandWarning"},
-            {"text":qsTr("Info"), "palette":"BrandInfo"},
-            {"text":qsTr("Light"), "palette":"BrandLight"},
-            {"text":qsTr("Dark"), "palette":"BrandDark"}
-        ]
-
+    property var buttons: [{
+            "text": qsTr("Primary"),
+            "palette": "BrandPrimary"
+        }, {
+            "text": qsTr("Secondary"),
+            "palette": "BrandSecondary"
+        }, {
+            "text": qsTr("Success"),
+            "palette": "BrandSuccess"
+        }, {
+            "text": qsTr("Danger"),
+            "palette": "BrandDanger"
+        }, {
+            "text": qsTr("Warning"),
+            "palette": "BrandWarning"
+        }, {
+            "text": qsTr("Info"),
+            "palette": "BrandInfo"
+        }, {
+            "text": qsTr("Light"),
+            "palette": "BrandLight"
+        }, {
+            "text": qsTr("Dark"),
+            "palette": "BrandDark"
+        }]
 
     Flickable {
-        id: flickable;
-        anchors.fill: parent;
+        id: flickable
+        anchors.fill: parent
         implicitWidth: grildLayout.implicitWidth
         contentHeight: grildLayout.implicitHeight
 
@@ -51,50 +71,62 @@ Page {
                 Layout.alignment: Qt.AlignTop
                 padding: 25
 
-                GridLayout {
+                ColumnLayout {
                     anchors.fill: parent
-                    columns: 9
-                    rowSpacing: 25
-                    columnSpacing: 5
 
                     CLabel {
-                        text: "Normal"
+                        horizontalAlignment: Text.AlignLeft
+                        wrapMode: Text.WordWrap
+                        text: qsTr("CoreUI includes a bunch of predefined Bootstrap buttons, each serving its own semantic purpose. CoreUI also offers some unique buttons styles.\nButtons show what action will happen when the user clicks or touches it. Bootstrap buttons are used to initialize operations, both in the background or foreground of an experience.")
+                        Layout.fillWidth: true
                     }
 
-                    Repeater{
-                        model: page.buttons
-                        delegate: CButton{
-                            text: modelData.text
-                            palette: page.createPalette(modelData.palette,this)
+                    GridLayout {
+                        columns: 9
+                        rowSpacing: 25
+                        columnSpacing: 5
+
+                        CLabel {
+                            text: "Normal"
+                        }
+
+                        Repeater {
+                            model: page.buttons
+                            delegate: CButton {
+                                text: modelData.text
+                                palette: page.createPalette(modelData.palette,
+                                                            this)
+                            }
+                        }
+
+                        CLabel {
+                            text: "Active State"
+                        }
+
+                        Repeater {
+                            model: page.buttons
+                            delegate: CButton {
+                                text: modelData.text
+                                down: true
+                                palette: page.createPalette(modelData.palette,
+                                                            this)
+                            }
+                        }
+
+                        CLabel {
+                            text: "Disabled"
+                        }
+
+                        Repeater {
+                            model: page.buttons
+                            delegate: CButton {
+                                text: modelData.text
+                                enabled: false
+                                palette: page.createPalette(modelData.palette,
+                                                            this)
+                            }
                         }
                     }
-
-                    CLabel {
-                        text: "Active State"
-                    }
-
-                    Repeater{
-                        model: page.buttons
-                        delegate: CButton{
-                            text: modelData.text
-                            down: true
-                            palette: page.createPalette(modelData.palette,this)
-                        }
-                    }
-
-                    CLabel {
-                        text: "Disabled"
-                    }
-
-                    Repeater{
-                        model: page.buttons
-                        delegate: CButton{
-                            text: modelData.text
-                            enabled: false
-                            palette: page.createPalette(modelData.palette,this)
-                        }
-                    }
-
                 }
             } //card end
 
@@ -115,11 +147,11 @@ Page {
                         text: "Normal"
                     }
 
-                    Repeater{
+                    Repeater {
                         model: page.buttons
-                        delegate: CButtonOutline{
+                        delegate: CButtonOutline {
                             text: modelData.text
-                            palette: page.createPalette(modelData.palette,this)
+                            palette: page.createPalette(modelData.palette, this)
                         }
                     }
 
@@ -127,12 +159,12 @@ Page {
                         text: "Active State"
                     }
 
-                    Repeater{
+                    Repeater {
                         model: page.buttons
-                        delegate: CButtonOutline{
+                        delegate: CButtonOutline {
                             text: modelData.text
                             down: true
-                            palette: page.createPalette(modelData.palette,this)
+                            palette: page.createPalette(modelData.palette, this)
                         }
                     }
 
@@ -140,15 +172,14 @@ Page {
                         text: "Disabled"
                     }
 
-                    Repeater{
+                    Repeater {
                         model: page.buttons
-                        delegate: CButtonOutline{
+                        delegate: CButtonOutline {
                             text: modelData.text
                             enabled: false
-                            palette: page.createPalette(modelData.palette,this)
+                            palette: page.createPalette(modelData.palette, this)
                         }
                     }
-
                 }
             } //card end
 
@@ -169,11 +200,11 @@ Page {
                         text: "Normal"
                     }
 
-                    Repeater{
+                    Repeater {
                         model: page.buttons
-                        delegate: CGhostButton{
+                        delegate: CGhostButton {
                             text: modelData.text
-                            palette: page.createPalette(modelData.palette,this)
+                            palette: page.createPalette(modelData.palette, this)
                         }
                     }
 
@@ -181,12 +212,12 @@ Page {
                         text: "Active State"
                     }
 
-                    Repeater{
+                    Repeater {
                         model: page.buttons
-                        delegate: CGhostButton{
+                        delegate: CGhostButton {
                             text: modelData.text
                             down: true
-                            palette: page.createPalette(modelData.palette,this)
+                            palette: page.createPalette(modelData.palette, this)
                         }
                     }
 
@@ -194,15 +225,14 @@ Page {
                         text: "Disabled"
                     }
 
-                    Repeater{
+                    Repeater {
                         model: page.buttons
-                        delegate: CGhostButton{
+                        delegate: CGhostButton {
                             text: modelData.text
                             enabled: false
-                            palette: page.createPalette(modelData.palette,this)
+                            palette: page.createPalette(modelData.palette, this)
                         }
                     }
-
                 }
             } //card end
 
@@ -223,11 +253,11 @@ Page {
                         text: "Normal"
                     }
 
-                    Repeater{
+                    Repeater {
                         model: page.buttons
-                        delegate: CPillButton{
+                        delegate: CPillButton {
                             text: modelData.text
-                            palette: page.createPalette(modelData.palette,this)
+                            palette: page.createPalette(modelData.palette, this)
                         }
                     }
 
@@ -235,12 +265,12 @@ Page {
                         text: "Active State"
                     }
 
-                    Repeater{
+                    Repeater {
                         model: page.buttons
-                        delegate: CPillButton{
+                        delegate: CPillButton {
                             text: modelData.text
                             down: true
-                            palette: page.createPalette(modelData.palette,this)
+                            palette: page.createPalette(modelData.palette, this)
                         }
                     }
 
@@ -248,15 +278,14 @@ Page {
                         text: "Disabled"
                     }
 
-                    Repeater{
+                    Repeater {
                         model: page.buttons
-                        delegate: CPillButton{
+                        delegate: CPillButton {
                             text: modelData.text
                             enabled: false
-                            palette: page.createPalette(modelData.palette,this)
+                            palette: page.createPalette(modelData.palette, this)
                         }
                     }
-
                 }
             } //card end
         }

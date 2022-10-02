@@ -35,7 +35,7 @@ Drawer {
         property real delegateHeight: 0
         onCountChanged: {
             if(count>=3)
-                listView.currentIndex=2
+                listView.currentIndex=1
         }
 
         header: CButton{

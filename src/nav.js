@@ -12,6 +12,13 @@ function navBar(){
                         "text": "NEW"
                     }
                 },
+                {
+                    "title": qsTr("Colors"),
+                    "image": "cil-drop",
+                    "category":"THEME",
+                    "path":"qrc:/Demo/pages/Colors.qml",
+
+                },
 
                 {
                     "title": qsTr("Buttons"),
@@ -20,7 +27,8 @@ function navBar(){
 
                     "childItems":[
                         {"title": qsTr("Buttons"),
-                        "path":"qrc:/Demo/pages/Buttons.qml"}
+                        "path":"qrc:/Demo/pages/Buttons.qml"
+                        }
                     ]
                 },
 

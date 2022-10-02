@@ -20,6 +20,7 @@ qt_add_qml_module(appdemo
     pages/Cards.qml
     pages/Buttons.qml
     pages/Forms.qml
+    pages/Colors.qml
     components/DemoChartView.qml
     components/DemoValueAxis.qml
 )

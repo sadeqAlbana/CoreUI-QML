@@ -18,12 +18,12 @@ CItemDelegate {
     checkable: true
     autoExclusive: true
 
-    leftPadding: 13 + (icon.name || icon.source? 0 : icon.width)
+    leftPadding: 13 + (icon.name.length || icon.source.length? 0 : icon.width+control.spacing)
     icon.width: 19
     icon.height: 19
     icon.cache: true
     icon.color: control.highlighted ? control.palette.highlightedText : control.palette.text
-    icon.name: model.image?? ""
+    icon.name: model.image?? null
     display: AbstractButton.TextBesideIcon
     text: model.title
 

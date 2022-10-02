@@ -4,6 +4,7 @@ set(qml_files
     "CCheckBox.qml"
     "CGhostButton.qml"
     "CPillButton.qml"
+    "SquareButton.qml"
 )
 
 qt_add_library(coreuibuttons STATIC)

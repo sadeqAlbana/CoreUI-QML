@@ -10,6 +10,6 @@ import QtQuick.Controls.Basic;
 import QtQuick.Controls
 import CoreUI
 CButtonOutline {
-    //id: control
-    CoreUI.borderWidth: 0
+    id: control
+    CoreUI.borderWidth: control.enabled? 0 : 1
 }

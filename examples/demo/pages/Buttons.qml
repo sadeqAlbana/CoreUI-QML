@@ -153,7 +153,7 @@ Page {
             } //card end
 
             Card {
-                title: "GhostButtons"
+                title: qsTr("Ghost Buttons")
                 header.visible: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
@@ -207,192 +207,56 @@ Page {
             } //card end
 
             Card {
-                title: "Pill Buttons"
+                title: qsTr("Pill Buttons")
+                header.visible: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
-                Layout.leftMargin: 10
-                Layout.rightMargin: 10
                 padding: 25
+
                 GridLayout {
-                    columns: 9
-                    rowSpacing: 30
-                    columnSpacing: 45
                     anchors.fill: parent
+                    columns: 9
+                    rowSpacing: 25
+                    columnSpacing: 5
 
-                    Label {
-                        Layout.leftMargin: 10
-                        Layout.rightMargin: 10
-                        //color: "#3c4b64"
+                    CLabel {
                         text: "Normal"
-                        //bottomPadding: 25
                     }
 
-                    CPillButton {
-                        text: "Primary"
-                        //color: "#321fdb"
-                        //text//color: "#ffffff"
-                        radius: height
+                    Repeater{
+                        model: page.buttons
+                        delegate: CPillButton{
+                            text: modelData.text
+                            palette: page.createPalette(modelData.palette,this)
+                        }
                     }
 
-                    CPillButton {
-                        text: "Secondary"
-                        //color: "#ced2d8"
-                        //text//color: "#4F5D73"
-                    }
-
-                    CPillButton {
-                        text: "Success"
-                        //color: "#2eb85c"
-                        //text//color: "#ffffff"
-                    }
-
-                    CPillButton {
-                        text: "Warning"
-                        //color: "#f9b115"
-                        //text//color: "#4f5d73"
-                    }
-
-                    CPillButton {
-                        text: "Danger"
-                        //color: "#e55353"
-                        //text//color: "#ffffff"
-                    }
-
-                    CPillButton {
-                        text: "Info"
-                        //color: "#39f"
-                        //text//color: "#ffffff"
-                    }
-
-                    CPillButton {
-                        text: "Light"
-                        //color: "#ebedef"
-                        //text//color: "#4f5d73"
-                    }
-
-                    CPillButton {
-                        text: "Dark"
-                        //color: "#636f83"
-                        //text//color: "#ffffff"
-                    }
-
-                    Label {
-                        Layout.leftMargin: 10
-                        Layout.rightMargin: 10
-                        //color: "#3c4b64"
+                    CLabel {
                         text: "Active State"
                     }
 
-                    CPillButton {
-                        text: "Primary"
-                        //color: "#321fdb"
-                        //text//color: "#ffffff"
+                    Repeater{
+                        model: page.buttons
+                        delegate: CPillButton{
+                            text: modelData.text
+                            down: true
+                            palette: page.createPalette(modelData.palette,this)
+                        }
                     }
 
-                    CPillButton {
-                        text: "Secondary"
-                        //color: "#ced2d8"
-                        //text//color: "#4F5D73"
-                    }
-
-                    CPillButton {
-                        text: "Success"
-                        //color: "#2eb85c"
-                        //text//color: "#ffffff"
-                    }
-
-                    CPillButton {
-                        text: "Warning"
-                        //color: "#f9b115"
-                        //text//color: "#4f5d73"
-                    }
-
-                    CPillButton {
-                        text: "Danger"
-                        //color: "#e55353"
-                        //text//color: "#ffffff"
-                    }
-
-                    CPillButton {
-                        text: "Info"
-                        //color: "#39f"
-                        //text//color: "#ffffff"
-                    }
-
-                    CPillButton {
-                        text: "Light"
-                        //color: "#ebedef"
-                        //text//color: "#4f5d73"
-                    }
-
-                    CPillButton {
-                        text: "Dark"
-                        //color: "#636f83"
-                        //text//color: "#ffffff"
-                    }
-
-                    Label {
-                        Layout.leftMargin: 10
-                        Layout.rightMargin: 10
-                        //color: "#3c4b64"
+                    CLabel {
                         text: "Disabled"
                     }
 
-                    CPillButton {
-                        text: "Primary"
-                        //color: "#321fdb"
-                        //text//color: "#ffffff"
-                        enabled: false
+                    Repeater{
+                        model: page.buttons
+                        delegate: CPillButton{
+                            text: modelData.text
+                            enabled: false
+                            palette: page.createPalette(modelData.palette,this)
+                        }
                     }
 
-                    CPillButton {
-                        text: "Secondary"
-                        //color: "#ced2d8"
-                        //text//color: "#4F5D73"
-                        enabled: false
-                    }
-
-                    CPillButton {
-                        text: "Success"
-                        //color: "#2eb85c"
-                        //text//color: "#ffffff"
-                        enabled: false
-                    }
-
-                    CPillButton {
-                        text: "Warning"
-                        //color: "#f9b115"
-                        //text//color: "#4f5d73"
-                        enabled: false
-                    }
-
-                    CPillButton {
-                        text: "Danger"
-                        //color: "#e55353"
-                        //text//color: "#ffffff"
-                        enabled: false
-                    }
-
-                    CPillButton {
-                        text: "Info"
-                        //color: "#39f"
-                        //text//color: "#ffffff"
-                        enabled: false
-                    }
-
-                    CPillButton {
-                        text: "Light"
-                        //color: "#ebedef"
-                        //text//color: "#4f5d73"
-                        enabled: false
-                    }
-
-                    CPillButton {
-                        text: "Dark"
-                        //color: "#636f83"
-                        //text//color: "#ffffff"
-                        enabled: false
-                    }
                 }
             } //card end
         }

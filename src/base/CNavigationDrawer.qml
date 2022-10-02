@@ -9,7 +9,7 @@ import CoreUI.Palettes
 import CoreUI.Buttons
 Drawer {
     id: drawer
-    property var model;
+    property var navModel;
     property string icon: "cib-coreui"
     width: 256
     height: rootItem.height
@@ -31,7 +31,7 @@ Drawer {
         section.criteria: ViewSection.FullString
         headerPositioning: ListView.OverlayHeader
         footerPositioning: ListView.OverlayFooter
-        model: drawer.model
+        model: drawer.navModel
         property real delegateHeight: 0
 
         header: CButton{
@@ -75,7 +75,7 @@ Drawer {
         }
 
         onCurrentIndexChanged: {
-            var item = listModel.get(listView.currentIndex)
+            var item = listView.model.get(listView.currentIndex)
             if (item !== undefined)
                 if (item.path !== null)
                     stack.replace(item.path)

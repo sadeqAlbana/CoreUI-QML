@@ -35,7 +35,7 @@ Item {
     CNavigationDrawer{
         id: drawer
 
-        model: ListModel {
+        navModel: ListModel {
             id: listModel
             dynamicRoles: false
 

@@ -8,9 +8,16 @@ import CoreUI.Impl
 CItemDelegate {
     id: control
     clip: true
-    readonly property bool expanded: model.expanded
-    readonly property bool hidden: !control.isRoot ? model.hidden : false
-    readonly property bool isRoot: !model.parentId
+    property bool expanded: false
+    required property int childCount
+    required property string title;
+    required property int parentId
+    required property string category
+    property bool hidden: parentId
+    readonly property bool isRoot: !control.parentId
+    required property var badge;
+    required property string image;
+    required property int index;
     height: hidden? 0 : 49
     width: ListView.view.width
     hoverEnabled: true
@@ -23,15 +30,15 @@ CItemDelegate {
     icon.height: 19
     icon.cache: true
     icon.color: control.highlighted ? control.palette.highlightedText : control.palette.text
-    icon.name: model.image?? null
+    icon.name: control.image?? null
     display: AbstractButton.TextBesideIcon
-    text: model.title
+    text: control.title
 
 
 
         property Item arrow: CLabel {
             parent: control
-            visible: model.childItems ? true : false
+            visible: control.childCount
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             anchors.rightMargin: 13
@@ -56,16 +63,16 @@ CItemDelegate {
             }
         }
 
-        property Item badge: Badge {
+        property Item badgeDelegate: Badge {
             parent: control
-            visible: model.badge ? true : false
+            visible: control.badge ? true : false
             anchors.right: parent.right
             anchors.rightMargin: 13 + (arrow.visible? arrow.width : 0)
             anchors.verticalCenter: parent.verticalCenter
             width: parent.width / 8
             height: parent.height / 3
-            text: model.badge ? model.badge.text : ""
-            state: model.badge ? model.badge.variant : ""
+            text: control.badge ? control.badge.text : ""
+            state: control.badge ? control.badge.variant : ""
         }
 
 
@@ -94,26 +101,26 @@ CItemDelegate {
     }
 
     onClicked: {
-        if (listView.currentIndex !== index && !model.childCount) {
-            listView.currentIndex = index
+        if (listView.currentIndex !== control.index && !control.childCount) {
+            listView.currentIndex = control.index
             //shrink other items;
         }
-        if (model.childCount) {
-            model.expanded = !model.expanded
+        if (control.childCount) {
+            control.expanded = !control.expanded
         }
 
         //shrink other items;
-        for (var i = 0; i < listModel.count; i++) {
+        for (var i = 0; i < ListView.view.count; i++) {
 
-            if (i !== index && i !== model.parentId) {
-                listModel.get(i).expanded = false
+            if (i !== control.index && i !== control.parentId) {
+                ListView.view.itemAtIndex(i).expanded = false
             }
         }
     }
 
     onExpandedChanged: {
-        for (var i = 0; i < model.childCount; i++) {
-            listModel.get(index + 1 + i).hidden = !expanded
+        for (var i = 0; i < control.childCount; i++) {
+            ListView.view.itemAtIndex(control.index + 1 + i).hidden = !expanded
         }
     }
 

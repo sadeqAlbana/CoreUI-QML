@@ -161,7 +161,7 @@ Item {
 
             if(item.childItems){
                 item.childCount=item.childItems.length;
-                item.expanded=false;
+                item.parentId=0;
                 listModel.append(item);
                 for(var j=0; j<item.childItems.length; j++){
                     var child=item.childItems[j];
@@ -170,6 +170,7 @@ Item {
                     child.parentId=item.id
                     child.hidden=true;
                     child.category=item.category;
+                    child.childCount=0
                     listModel.append(child);
                 }
             }else{

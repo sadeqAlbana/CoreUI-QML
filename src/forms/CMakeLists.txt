@@ -4,7 +4,6 @@ set(qml_files
     "CDateInput.qml"
     "CheckableComboBox.qml"
     "CheckableListView.qml"
-    "CLabel.qml"
     "CMonthGrid.qml"
     "CTextArea.qml"
     "CTextField.qml"

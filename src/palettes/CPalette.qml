@@ -7,4 +7,5 @@ Palette {
     text: "#f22c384a"
     alternateBase: "#F2F2F3"
     shadow: "#d8dbe0"
+    disabled.text: "#612c384a"
 }

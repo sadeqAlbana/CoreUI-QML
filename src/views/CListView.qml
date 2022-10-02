@@ -7,20 +7,19 @@
 
 import QtQuick;
 import QtQuick.Controls.Basic;
-import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
 import QtQuick.Layouts
-
+import CoreUI.Menus
 ListView {
-    id: listView
+    id: control
     clip: true
     property list<Action> actions;
     property string title;
-    headerPositioning: ListView.OverlayHeader
+    headerPositioning: control.OverlayHeader
 
     header: CListViewHeaderDelegate{
-        title: listView.title;
-        width: ListView.view.width;
+        title: control.title;
+        width: control.view.width;
 
     }
 
@@ -30,7 +29,7 @@ ListView {
         acceptedButtons: Qt.RightButton
 
 
-        enabled: listView.currentIndex>=0
+        enabled: control.currentIndex>=0
         onClicked: {
             if (mouse.button === Qt.RightButton)
                 contextMenu.popup()
@@ -48,12 +47,12 @@ ListView {
 
             background: Rectangle{
                 implicitWidth: 300
-                border.color: "silver"
+                border.color: control.palette.shadow
                 radius: 2
             }
             Repeater{
-                model: listView.actions.length
-                CMenuItem{ action: listView.actions[index]}
+                model: control.actions.length
+                CMenuItem{ action: control.actions[index]}
             }
         }
     } //end MouseArea
@@ -66,12 +65,12 @@ ListView {
 
 //    Rectangle {
 //        id: scrollbar
-//        anchors.right: listView.right
-//        y: listView.visibleArea.yPosition * listView.height
+//        anchors.right: control.right
+//        y: control.visibleArea.yPosition * control.height
 //        width: 10
-//        height: listView.visibleArea.heightRatio * listView.height
+//        height: control.visibleArea.heightRatio * control.height
 //        color: "#0078D7"
 //        radius: width
-//        visible: listView.childrenRect.height > listView.height
+//        visible: control.childrenRect.height > control.height
 //    }
 }

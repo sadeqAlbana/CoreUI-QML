@@ -20,6 +20,6 @@ Rectangle {
         font.bold: true
     }
 
-    color: "white"
-    border.color: "#D8DBE0"
+    color: control.palette.base
+    border.color: control.palette.windowText
 }

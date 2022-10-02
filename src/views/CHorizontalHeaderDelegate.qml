@@ -10,6 +10,7 @@ import QtQuick.Controls.Basic;
 import QtQuick.Controls
 ItemDelegate {
 //    implicitWidth: 100
+    id: control
     clip: true
     implicitHeight: 60
     text: model.display
@@ -17,8 +18,8 @@ ItemDelegate {
     font.bold: true
     display: AbstractButton.TextUnderIcon //simple trick to center the text in IconLabel without having to use a custom contentItem
     background: Rectangle{
-    color: "white"
-    border.color: "#D8DBE0"
+    color: control.palette.base
+    border.color: control.palette.windowText
     }
 
     MouseArea{

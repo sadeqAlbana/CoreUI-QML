@@ -177,8 +177,6 @@ Item {
                 listModel.append(item);
             }
         }
-        //stack.replace(listModel.get(listView.currentIndex).path)
-        //listView.currentIndex=listModel.indexOf("activities");
         //listView.currentIndex=2
     }
 

@@ -19,7 +19,7 @@ ItemDelegate {
     display: AbstractButton.TextUnderIcon //simple trick to center the text in IconLabel without having to use a custom contentItem
     background: Rectangle{
     color: control.palette.base
-    border.color: control.palette.windowText
+    border.color: control.palette.shadow
     }
 
     MouseArea{

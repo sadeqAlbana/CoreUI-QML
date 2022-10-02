@@ -19,7 +19,7 @@ CPalette{
     active.windowText: "#fff"
     inactive.windowText: "#4f5d73"
     disabled.windowText: "#D8DBE0"
-    shadow: "#24464b64" //inverted
+ //   shadow: "#24464b64" //inverted
 
     //buttontext normal  deffffff
     //buttontext hovered deffffff

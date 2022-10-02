@@ -5,7 +5,7 @@ CPalette {
     button: "#ebedef"
     buttonText: "#f22c384a"
     highlight: "#ebedef"
-    shadow: "#24464b64"
+   // shadow: "#24464b64"
 
 }
 

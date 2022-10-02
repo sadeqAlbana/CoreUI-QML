@@ -32,6 +32,7 @@ Item {
     LayoutMirroring.onEnabledChanged: populateNavBar();
 
 
+
     CNavigationDrawer{
         id: drawer
 

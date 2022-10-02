@@ -57,5 +57,5 @@ ItemDelegate {
 
 
 
-    background: Rectangle{color: control.backgroundColor; border.color: palette.shadow}
+    background: Rectangle{color: control.backgroundColor; border.color: control.palette.shadow}
 }

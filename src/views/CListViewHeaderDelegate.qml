@@ -21,5 +21,5 @@ Rectangle {
     }
 
     color: control.palette.base
-    border.color: control.palette.windowText
+    border.color: control.palette.shadow
 }

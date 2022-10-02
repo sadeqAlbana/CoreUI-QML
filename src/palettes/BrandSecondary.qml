@@ -6,7 +6,7 @@ CPalette {
 
     buttonText: "#000015"
 
-    shadow: "#24464b64"
+    //shadow: "#24464b64"
 
 }
 //.btn-secondary {

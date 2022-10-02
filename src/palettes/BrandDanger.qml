@@ -4,7 +4,7 @@ CPalette {
     button: "#ea7575"
     inactive.button: "#e55353"
     buttonText: "#000015"
-    shadow: "#24464b64"
+  //  shadow: "#24464b64"
 
 }
 

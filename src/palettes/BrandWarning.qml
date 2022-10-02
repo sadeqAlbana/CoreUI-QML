@@ -4,7 +4,7 @@ CPalette {
     active.button: "#c78e11"
     inactive.button: "#f9b115"
     buttonText: "#f22c384a"
-    shadow: "#24464b64"
+    //shadow: "#24464b64"
 
 }
 // //.btn-warning {

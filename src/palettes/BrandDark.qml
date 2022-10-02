@@ -1,7 +1,7 @@
 import QtQuick
 
 CPalette {
-    active.button: "#727d8f"
+    button: "#727d8f"
     inactive.button: "#4f5d73"
     buttonText: "#deffffff"
     shadow: "#24464b64"

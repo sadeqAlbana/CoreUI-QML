@@ -33,6 +33,10 @@ Drawer {
         footerPositioning: ListView.OverlayFooter
         model: drawer.navModel
         property real delegateHeight: 0
+        onCountChanged: {
+            if(count>=3)
+                listView.currentIndex=2
+        }
 
         header: CButton{
             radius: 0

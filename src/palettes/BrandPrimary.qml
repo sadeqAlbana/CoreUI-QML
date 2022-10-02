@@ -9,7 +9,7 @@ import QtQuick.Controls;
 
 CPalette{
     id: pal
-    inactive.button: "#321fdb"
+    button: "#321fdb" //same for all states
     active.button: "#5b4ce2"
 
     buttonText: "#deffffff" //final
@@ -20,7 +20,6 @@ CPalette{
     inactive.windowText: "#4f5d73"
     disabled.windowText: "#D8DBE0"
     shadow: "#24464b64" //inverted
-
 
     //buttontext normal  deffffff
     //buttontext hovered deffffff

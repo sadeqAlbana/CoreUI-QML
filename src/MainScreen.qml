@@ -177,7 +177,6 @@ Item {
                 listModel.append(item);
             }
         }
-        //listView.currentIndex=2
     }
 
     Component.onCompleted: populateNavBar();

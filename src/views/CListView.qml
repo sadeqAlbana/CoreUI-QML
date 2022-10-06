@@ -28,7 +28,6 @@ ListView {
         anchors.fill: parent
         acceptedButtons: Qt.RightButton
 
-
         enabled: control.currentIndex>=0
         onClicked: {
             if (mouse.button === Qt.RightButton)

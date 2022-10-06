@@ -19,6 +19,13 @@ function navBar(){
                     "path":"qrc:/Demo/pages/Colors.qml",
 
                 },
+                {
+                    "title": qsTr("Typography"),
+                    "image": "cil-pen",
+                    "category":"THEME",
+                    "path":"qrc:/Demo/pages/Typography.qml",
+
+                },
 
                 {
                     "title": qsTr("Buttons"),

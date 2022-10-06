@@ -17,6 +17,8 @@ Page {
         color: "transparent"
     }
     padding: 15
+    leftPadding: width/8
+    rightPadding: width/8
     function createPalette(pal, parent) {
         return Qt.createComponent(
                     "qrc:///CoreUI/Palettes/" + pal + ".qml").createObject(
@@ -44,10 +46,12 @@ Page {
         }, {
             "text": qsTr("Brand Light Color"),
             "palette": "BrandLight"
-        }, {
+        },
+        {
             "text": qsTr("Brand Dark Color"),
             "palette": "BrandDark"
-        }]
+        }
+    ]
 
     Flickable {
         id: flickable
@@ -66,14 +70,14 @@ Page {
 
             DynamicGridLayout {
                 anchors.fill: parent
-                columnSpacing: 60
+                columnSpacing: 15
                 rowSpacing: 25
-
                 Repeater {
                     model: page.buttons
 
                     delegate: Column {
                         spacing: 10
+                        Layout.alignment: Qt.AlignCenter
                         Rectangle {
                             implicitWidth: 131
                             implicitHeight: implicitWidth

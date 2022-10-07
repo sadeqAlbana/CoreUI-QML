@@ -9,7 +9,7 @@ import QtQuick.Dialogs
 import CoreUI.Impl
 import QtQuick.Controls.Basic
 import CoreUI.Palettes
-
+import CoreUI.Views
 Page {
     id: page
     title: qsTr("Buttons")
@@ -81,53 +81,57 @@ Page {
                         Layout.fillWidth: true
                     }
 
-                    GridLayout {
-                        columns: 9
-                        rowSpacing: 25
-                        columnSpacing: 5
+                    CTabView{
+                        Layout.fillWidth: true
 
-                        CLabel {
-                            text: "Normal"
-                        }
+                        GridLayout {
+                            columns: 9
+                            rowSpacing: 25
+                            columnSpacing: 5
 
-                        Repeater {
-                            model: page.buttons
-                            delegate: CButton {
-                                text: modelData.text
-                                palette: page.createPalette(modelData.palette,
-                                                            this)
+                            CLabel {
+                                text: "Normal"
                             }
-                        }
 
-                        CLabel {
-                            text: "Active State"
-                        }
-
-                        Repeater {
-                            model: page.buttons
-                            delegate: CButton {
-                                text: modelData.text
-                                down: true
-                                palette: page.createPalette(modelData.palette,
-                                                            this)
+                            Repeater {
+                                model: page.buttons
+                                delegate: CButton {
+                                    text: modelData.text
+                                    palette: page.createPalette(modelData.palette,
+                                                                this)
+                                }
                             }
-                        }
 
-                        CLabel {
-                            text: "Disabled"
-                        }
+                            CLabel {
+                                text: "Active State"
+                            }
 
-                        Repeater {
-                            model: page.buttons
-                            delegate: CButton {
-                                text: modelData.text
-                                enabled: false
-                                palette: page.createPalette(modelData.palette,
-                                                            this)
+                            Repeater {
+                                model: page.buttons
+                                delegate: CButton {
+                                    text: modelData.text
+                                    down: true
+                                    palette: page.createPalette(modelData.palette,
+                                                                this)
+                                }
+                            }
+
+                            CLabel {
+                                text: "Disabled"
+                            }
+
+                            Repeater {
+                                model: page.buttons
+                                delegate: CButton {
+                                    text: modelData.text
+                                    enabled: false
+                                    palette: page.createPalette(modelData.palette,
+                                                                this)
+                                }
                             }
                         }
                     }
-                }
+                    }
             } //card end
 
             Card {

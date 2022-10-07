@@ -8,6 +8,7 @@ set(qml_files
     "CNavigationDrawer.qml"
     "CNavBarDelegate.qml"
     "CItemDelegate.qml"
+    "CPage.qml"
 )
 
 qt_add_library(coreuibase STATIC)

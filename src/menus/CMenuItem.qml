@@ -5,6 +5,8 @@ import CoreUI.Palettes
 MenuItem {
     id: control
     palette: BrandPrimary{}
+    icon.color: control.disabled? control.palette.disabled.windowText :
+                                  control.down? control.palette.active.windowText : control.palette.inactive.windowText
     contentItem: IconLabel {
         readonly property real arrowPadding: control.subMenu && control.arrow ? control.arrow.width + control.spacing : 0
         readonly property real indicatorPadding: control.checkable && control.indicator ? control.indicator.width + control.spacing : 0

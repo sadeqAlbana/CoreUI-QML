@@ -33,7 +33,6 @@ TableView{
 
     property HorizontalHeaderView horizontalHeaderView: HorizontalHeaderView{
         reuseItems: false
-        id: horizontalHeader
         syncView: tableView
         implicitHeight: 60
         parent: tableView

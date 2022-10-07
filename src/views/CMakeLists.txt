@@ -5,6 +5,8 @@ set(qml_files
     "CListViewHeaderDelegate.qml"
     "CTableView.qml"
     "CTableViewDelegate.qml"
+    "CBasicTableView.qml"
+    "CTabView.qml"
 )
 qt_add_library(coreuiviews STATIC)
 qt_add_qml_module(coreuiviews

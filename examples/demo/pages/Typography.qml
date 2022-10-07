@@ -41,15 +41,16 @@ Page {
                 }
 
                 CTableView{
+                    id: tableView
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                     implicitHeight: contentHeight*4
                     model: TableModel{
-                        TableModelColumn { display: "heading" }
+                        TableModelColumn { display: "heading"; edit: "Test" }
                         TableModelColumn { display: "example" }
                         rows:[
-                        {heading:"<h1></h1>",example:"<h1>h1. Bootstrap heading</h1>"},
-                        {heading:"<h2></h2>",example:"<h2>h2. Bootstrap heading</h2>"},
+                            {heading:"<h1></h1>",example:"<h1>h1. Bootstrap heading</h1>"},
+                            {heading:"<h2></h2>",example:"<h2>h2. Bootstrap heading</h2>"},
                             {heading:"<h3></h3>",example:"<h3>h3. Bootstrap heading</h3>"},
                             {heading:"<h4></h4>",example:"<h4>h4. Bootstrap heading</h4>"},
                             {heading:"<h5></h5>",example:"<h5>h5. Bootstrap heading</h5>"},
@@ -58,7 +59,38 @@ Page {
                         ]
                     }
 
+                    rowHeightProvider: function(){return 65}
 
+                    horizontalHeaderView: HorizontalHeaderView{
+                        reuseItems: false
+                        syncView: tableView
+                        implicitHeight: 60
+                        parent: tableView
+                        anchors.left: parent.left
+                        z:100
+                        height: 60
+                        clip: tableView.clip
+                        boundsBehavior: tableView.boundsBehavior
+
+                        delegate: Text{
+                            text: model.edit
+                            color: "red"
+                        }
+                    }
+
+                    delegate: CLabel{
+                        text: display?? " "
+                        textFormat: column===0? Text.PlainText : Text.RichText
+                        horizontalAlignment: Text.AlignLeft
+
+                        Rectangle{
+
+                            width: parent.width
+                            color: palette.shadow
+                            height: 1
+                            anchors.bottom: parent.bottom
+                        }
+                    }
                 }
             }
 

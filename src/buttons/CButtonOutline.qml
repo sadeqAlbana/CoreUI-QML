@@ -16,7 +16,7 @@ CButton {
     CoreUI.borderWidth: 1
 
     background: ButtonBackground{
-        color: control.down || control.visualFocus || control.focus || control.hovered?  control.palette.active.button  : "transparent"
+        color: control.enabled && (control.down || control.visualFocus || control.focus || control.hovered)?  control.palette.active.button  : "transparent"
         border.color: control.palette.button
         radius: control.radius
         control: control
@@ -36,7 +36,7 @@ CButton {
 //        color: control.enabled?
 //                   control.down || control.checked? control.palette.active.buttonText :control.palette.inactive.buttonText : control.palette.disabled.buttonText
 
-        color: control.down || control.visualFocus || control.focus || control.hovered? control.palette.active.buttonText : control.palette.active.button
+        color: control.enabled && (control.down || control.visualFocus || control.focus || control.hovered)? control.palette.active.buttonText : control.palette.active.button
 
     }
 }

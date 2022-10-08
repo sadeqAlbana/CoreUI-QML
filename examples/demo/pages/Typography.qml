@@ -73,7 +73,7 @@ Page {
                         boundsBehavior: tableView.boundsBehavior
 
                         delegate: Text{
-                            text: model.edit
+                            //text: model.edit
                             color: "red"
                         }
                     }

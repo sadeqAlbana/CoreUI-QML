@@ -9,6 +9,7 @@ set(qml_files
     "CNavBarDelegate.qml"
     "CItemDelegate.qml"
     "CPage.qml"
+    "CTabBar.qml"
 )
 
 qt_add_library(coreuibase STATIC)

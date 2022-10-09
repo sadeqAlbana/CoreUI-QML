@@ -10,7 +10,9 @@ Page {
     header: CTabBar{
 
         CTabButton{
-            text: qsTr("Test");
+            text: qsTr("Preview");
+            icon.name: "cil-media-play"
+
             width: implicitWidth
 
         }

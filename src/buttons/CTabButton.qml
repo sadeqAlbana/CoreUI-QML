@@ -3,12 +3,22 @@ import QtQuick.Controls.Basic
 import CoreUI
 import CoreUI.Impl
 import CoreUI.Palettes
+import Qt5Compat.GraphicalEffects
+import QmlRoundedRectangle
+
+//https://stackoverflow.com/questions/50644627/qml-rounded-rectangle-with-border
 TabButton {
     id: control
     property int radius: 6
-    background: Rectangle{
+    background: RoundedRectangle{
         radius: control.radius
         color: "transparent"
-        border.color: control.down? control.palette.shadow: "transparent"
+        borderColor: control.down || control.hovered ? control.palette.shadow: "transparent"
+        radiusBL: 0
+        radiusBR: 0
     }
+
+
+
+
 }

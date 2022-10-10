@@ -1,5 +1,6 @@
 import QtQuick
-import QtQuick.Controls.Basic
+import QtQuick.Controls.impl
+import QtQuick.Templates as T
 import CoreUI
 import CoreUI.Impl
 import CoreUI.Palettes
@@ -7,20 +8,51 @@ import Qt5Compat.GraphicalEffects
 import QmlRoundedRectangle
 
 //https://stackoverflow.com/questions/50644627/qml-rounded-rectangle-with-border
-TabButton {
+T.TabButton {
     id: control
-    property int radius: 6
+
+    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
+                            implicitContentWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
+                             implicitContentHeight + topPadding + bottomPadding)
+
+    padding: 9
+    leftPadding: 12
+    rightPadding: 12
+    spacing: 6
+
+    icon.width: 18
+    icon.height: 18
+    icon.color: control.down? "#768192" : control.palette.link
+    property int radius : 6
+
+    contentItem: IconLabel {
+        spacing: control.spacing
+        mirrored: control.mirrored
+        display: control.display
+
+        icon: control.icon
+        text: control.text
+        font: control.font
+        color: control.down? "#768192" : control.palette.link
+    }
     background: RoundedRectangle{
         radius: control.radius
         color: "#00ffffff"
-        borderColor: control.down || control.hovered ? control.palette.shadow: "#00ffffff"
+        borderColor: control.palette.shadow
+        visible: control.down || control.hovered
         radiusBL: 0
         radiusBR: 0
         borderWidth: 1
-
+        Rectangle{
+            color: control.palette.base
+            height: 2
+            anchors.bottom: parent.bottom
+            width: control.width-2
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
     }
-
-
-
-
+    onClicked:{
+        down=true
+    }
 }

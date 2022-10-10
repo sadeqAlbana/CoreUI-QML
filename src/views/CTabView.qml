@@ -8,7 +8,8 @@ Page {
     default property alias content: stack.children
     padding: 20
     header: CTabBar{
-
+        spacing: 0
+        id: tabBar
         CTabButton{
             text: qsTr("Preview");
             icon.name: "cil-media-play"
@@ -16,10 +17,17 @@ Page {
             width: implicitWidth
 
         }
+
+        CTabButton{
+            text: qsTr("Code");
+            icon.name: "cil-code"
+            width: implicitWidth
+        }
     }
 
     StackLayout{
         id: stack
         anchors.fill: parent;
+        currentIndex: tabBar.currentIndex
     }
 }

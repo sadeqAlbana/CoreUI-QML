@@ -77,7 +77,8 @@ Page {
                     CLabel {
                         horizontalAlignment: Text.AlignLeft
                         wrapMode: Text.WordWrap
-                        text: qsTr("CoreUI includes a bunch of predefined Bootstrap buttons, each serving its own semantic purpose. CoreUI also offers some unique buttons styles.\nButtons show what action will happen when the user clicks or touches it. Bootstrap buttons are used to initialize operations, both in the background or foreground of an experience.")
+                        font.pixelSize: 14
+                        text: qsTr("CoreUI includes a bunch of predefined Bootstrap buttons, each serving its own semantic purpose. CoreUI also offers some unique buttons styles.\n\nButtons show what action will happen when the user clicks or touches it. Bootstrap buttons are used to initialize operations, both in the background or foreground of an experience.\n")
                         Layout.fillWidth: true
                     }
 
@@ -85,12 +86,13 @@ Page {
                         Layout.fillWidth: true
 
                         GridLayout {
-                            columns: 9
+                            columns: 10
                             rowSpacing: 25
                             columnSpacing: 5
 
                             CLabel {
                                 text: "Normal"
+                                Layout.rightMargin: 150
                             }
 
                             Repeater {
@@ -100,6 +102,10 @@ Page {
                                     palette: page.createPalette(modelData.palette,
                                                                 this)
                                 }
+                            }
+
+                            CLabel{
+                                text: "<a href='https://google.com'> link</a>"
                             }
 
                             CLabel {
@@ -115,6 +121,9 @@ Page {
                                                                 this)
                                 }
                             }
+                            CLabel{
+                                text: "<a href='https://google.com'> link</a>"
+                            }
 
                             CLabel {
                                 text: "Disabled"
@@ -128,6 +137,10 @@ Page {
                                     palette: page.createPalette(modelData.palette,
                                                                 this)
                                 }
+                            }
+                            CLabel{
+                                text: "<a href='https://google.com'> link</a>"
+                                enabled: false
                             }
                         }
                     }
@@ -149,6 +162,8 @@ Page {
 
                     CLabel {
                         text: "Normal"
+                        Layout.rightMargin: 150
+
                     }
 
                     Repeater {
@@ -202,6 +217,8 @@ Page {
 
                     CLabel {
                         text: "Normal"
+                        Layout.rightMargin: 150
+
                     }
 
                     Repeater {

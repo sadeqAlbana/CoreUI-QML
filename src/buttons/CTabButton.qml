@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls.impl
 import QtQuick.Templates as T
+import QtQuick.Controls
 import CoreUI
 import CoreUI.Impl
 import CoreUI.Palettes
@@ -23,7 +24,7 @@ T.TabButton {
 
     icon.width: 18
     icon.height: 18
-    icon.color: control.down? "#768192" : control.palette.link
+    icon.color: control.checked? "#768192" : control.palette.link
     property int radius : 6
 
     contentItem: IconLabel {
@@ -34,13 +35,13 @@ T.TabButton {
         icon: control.icon
         text: control.text
         font: control.font
-        color: control.down? "#768192" : control.palette.link
+        color: control.checked? "#768192" : control.palette.link
     }
     background: RoundedRectangle{
         radius: control.radius
         color: "#00ffffff"
         borderColor: control.palette.shadow
-        visible: control.down || control.hovered
+        visible: control.checked || control.hovered
         radiusBL: 0
         radiusBR: 0
         borderWidth: 1
@@ -51,8 +52,5 @@ T.TabButton {
             width: control.width-2
             anchors.horizontalCenter: parent.horizontalCenter
         }
-    }
-    onClicked:{
-        down=true
     }
 }

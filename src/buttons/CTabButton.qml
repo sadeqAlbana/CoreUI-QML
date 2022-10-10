@@ -12,10 +12,12 @@ TabButton {
     property int radius: 6
     background: RoundedRectangle{
         radius: control.radius
-        color: "transparent"
-        borderColor: control.down || control.hovered ? control.palette.shadow: "transparent"
+        color: "#00ffffff"
+        borderColor: control.down || control.hovered ? control.palette.shadow: "#00ffffff"
         radiusBL: 0
         radiusBR: 0
+        borderWidth: 1
+
     }
 
 

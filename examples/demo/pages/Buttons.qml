@@ -52,7 +52,7 @@ Page {
     Flickable {
         id: flickable
         anchors.fill: parent
-        implicitWidth: grildLayout.implicitWidth
+        //implicitWidth: grildLayout.implicitWidth
         contentHeight: grildLayout.implicitHeight
 
         GridLayout {

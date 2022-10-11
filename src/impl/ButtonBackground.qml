@@ -5,6 +5,7 @@ import Qt5Compat.GraphicalEffects
 Rectangle {
     required property Button control;
     property int shadowRadius: 2
+    property bool dropShadow: true
         implicitWidth: 60
         implicitHeight: 35
 
@@ -19,7 +20,7 @@ Rectangle {
                    (control.hovered || control.down || control.visualFocus || control.focus)? control.palette.active.button : control.palette.inactive.button :
         control.palette.disabled.button
 
-        layer.enabled: control.enabled
+        layer.enabled: control.enabled && dropShadow
         layer.effect: DropShadow {
             radius: shadowRadius
             verticalOffset: 1

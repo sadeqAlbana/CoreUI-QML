@@ -106,6 +106,8 @@ Page {
 
                             CLabel{
                                 text: "<a href='https://google.com'> link</a>"
+                                leftPadding: 10
+                                rightPadding: 10
                             }
 
                             CLabel {
@@ -123,6 +125,8 @@ Page {
                             }
                             CLabel{
                                 text: "<a href='https://google.com'> link</a>"
+                                leftPadding: 10
+                                rightPadding: 10
                             }
 
                             CLabel {
@@ -140,7 +144,10 @@ Page {
                             }
                             CLabel{
                                 text: "<a href='https://google.com'> link</a>"
+                                leftPadding: 10
+                                rightPadding: 10
                                 enabled: false
+
                             }
                         }
                     }

@@ -46,7 +46,7 @@ Drawer {
             icon.height: height-topPadding-bottomPadding
             icon.name: drawer.icon
             icon.color: palette.brightText
-            background.layer.enabled: false
+            dropShadow: false
             display: AbstractButton.IconOnly
         }
 
@@ -58,7 +58,7 @@ Drawer {
             width: parent.width
             height: toolBar.height
             down: hovered
-            background.layer.enabled: false
+            dropShadow: false
             alignment: Qt.AlignRight
 
         }

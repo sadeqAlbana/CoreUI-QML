@@ -64,7 +64,7 @@ Item {
                 Layout.leftMargin: 20
                 text: qsTr("☰")
                 display: AbstractButton.TextOnly
-                background.visible: false
+                background:Item{}
                 onClicked: drawer.opened ? drawer.close() : drawer.open();
             }
 

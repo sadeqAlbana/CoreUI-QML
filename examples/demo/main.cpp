@@ -31,8 +31,6 @@ int main(int argc, char *argv[])
     font.setWeight(QFont::Weight::Normal);
     font.setPixelSize(16);
     QApplication::setFont(font);
-//    qDebug()<<QFontDatabase::families();
-    qDebug()<<QApplication::font();
 
     QQmlApplicationEngine engine;
     engine.addImportPath(QStringLiteral(":/"));

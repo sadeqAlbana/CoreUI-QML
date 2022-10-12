@@ -21,13 +21,14 @@ void CoreUI::setBorderWidth(int newBorderWidth)
     emit borderWidthChanged();
 }
 
-QColor CoreUI::color(const QColor &color)
-{
-    return QColor();
-}
 
 bool CoreUI::mobileLayout() const
 {
     return false;
+}
+
+QColor CoreUI::color(const Color clr)
+{
+    return QColor(clr);
 }
 

@@ -1,5 +1,5 @@
 import QtQuick
-
-Item {
+import QtQuick.Controls.Basic
+Page {
 
 }

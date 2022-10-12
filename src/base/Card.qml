@@ -12,7 +12,7 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import CoreUI.Impl
 import QmlRoundedRectangle
-
+import CoreUI
 Page{
     id: control
     property CBorder border: CBorder{
@@ -50,7 +50,7 @@ Page{
             border.color: control.palette.shadow
             bottomLeft: false
             bottomRight: false
-            color: control.palette.window
+            color: CoreUI.color(CoreUI.CardHeader)
             border.width: control.border.width
         }
     }

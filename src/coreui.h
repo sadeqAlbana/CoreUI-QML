@@ -59,15 +59,17 @@ public:
         LinkColor = 0x321fdb,
         LinkHovercolor = 0x2819af,
         CodeColor = 0xd63384,
-        HighlightBg = 0xfff3cd
+        HighlightBg = 0xfff3cd,
+        Tab = 0xF9FAFA,
+        CardHeader = 0x0000000 //set it to #00001508
 
     };
+    Q_ENUM(Color)
 
     Q_INVOKABLE explicit CoreUI(QObject *parent = nullptr);
     int borderWidth() const;
     void setBorderWidth(int newBorderWidth);
 
-    Q_INVOKABLE QColor color(const QColor &color);
     static CoreUI *qmlAttachedProperties(QObject *object)
     {
         return new CoreUI(object);
@@ -75,6 +77,9 @@ public:
 
     bool mobileLayout() const;
     void setMobileLayout(bool newMobileLayout);
+
+    Q_INVOKABLE QColor color(const CoreUI::Color clr);
+
 
 signals:
     void borderWidthChanged();

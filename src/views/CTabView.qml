@@ -3,9 +3,11 @@ import QtQuick.Controls.Basic
 import QtQuick.Layouts
 import CoreUI.Buttons
 import CoreUI.Base
-Page {
+import CoreUI
+CPage {
     id: control
     default property alias content: stack.children
+    palette.window: CoreUI.color(CoreUI.Tab)
     padding: 20
     header: CTabBar{
         spacing: 0

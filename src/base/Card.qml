@@ -17,7 +17,7 @@ Page{
     id: control
     property CBorder border: CBorder{
         color: control.palette.shadow;
-        radius: 4
+        radius: 5
     }
     LayoutMirroring.childrenInherit: true
 
@@ -45,40 +45,13 @@ Page{
         bottomPadding: 12
         topPadding: 16
 
-        background: RoundedRectangle{
-            radiusBL: 0
-            radiusBR: 0
+        background: RoundedRect{
             radius: control.border.radius
-            borderColor: control.palette.shadow
+            border.color: control.palette.shadow
+            bottomLeft: false
+            bottomRight: false
             color: control.palette.window
-            borderWidth: 1
-
+            border.width: control.border.width
         }
-
     }
-
-//    property Item headerLine: Rectangle{
-//        visible: header? header.visible : false
-//        anchors.left: parent? parent.left : undefined
-//        anchors.right: parent? parent.right : undefined
-//        anchors.leftMargin: control.border.width
-//        anchors.rightMargin: control.border.width
-//        anchors.top: header? header.bottom : undefined
-//        parent: control
-//        implicitHeight: 1
-//        color: control.palette.shadow
-//    }
-
-    property Item footerLine :Rectangle{
-        visible: footer? footer.visible : false
-        anchors.left: parent? parent.left : undefined
-        anchors.right: parent? parent.right : undefined
-        anchors.leftMargin: control.border.width
-        anchors.rightMargin: control.border.width
-        anchors.bottom: footer? footer.top : undefined
-        implicitHeight: 1
-        parent: control
-        color: control.palette.shadow
-    }
-
 }

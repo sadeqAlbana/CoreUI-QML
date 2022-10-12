@@ -9,4 +9,5 @@ Palette {
     shadow: "#d8dbe0"
     disabled.text: "#612c384a"
     link: "#2819AF"
+    linkVisited: "#2C384A"
 }

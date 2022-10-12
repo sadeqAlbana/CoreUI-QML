@@ -33,15 +33,7 @@ T.RoundButton {
     icon.color: control.enabled?
                control.down || control.checked? control.palette.active.buttonText :control.palette.inactive.buttonText : control.palette.disabled.buttonText
     opacity: control.enabled? 1: 0.65
-    transitions: Transition {
-        reversible: true
-        from: "*"
-        to: "hovered"
-        ColorAnimation {
-            easing.type: Easing.InOutQuad
-            duration: 150
-        }
-    }
+
 
     contentItem: Impl.IconLabel {
         spacing: control.spacing
@@ -63,10 +55,5 @@ T.RoundButton {
         dropShadow: control.dropShadow
 
     }
-    HoverHandler {
-        acceptedDevices: PointerDevice.Mouse
-        cursorShape: Qt.PointingHandCursor
-    }
 
-    onClicked: forceActiveFocus();
 }

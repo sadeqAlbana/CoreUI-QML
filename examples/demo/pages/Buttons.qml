@@ -104,8 +104,8 @@ Page {
                                 }
                             }
 
-                            CLabel{
-                                text: "<a href='https://google.com'> link</a>"
+                            CLinkButton{
+                                text: "<a href='https://google.com'> Link</a>"
                                 leftPadding: 10
                                 rightPadding: 10
                             }
@@ -123,10 +123,11 @@ Page {
                                                                 this)
                                 }
                             }
-                            CLabel{
-                                text: "<a href='https://google.com'> link</a>"
+                            CLinkButton{
+                                text: "<a href='https://google.com'> Link</a>"
                                 leftPadding: 10
                                 rightPadding: 10
+                                visited: true
                             }
 
                             CLabel {
@@ -142,12 +143,12 @@ Page {
                                                                 this)
                                 }
                             }
-                            CLabel{
-                                text: "<a href='https://google.com'> link</a>"
+                            CLinkButton{
+                                text: "<a href='https://google.com'> Link</a>"
                                 leftPadding: 10
                                 rightPadding: 10
+                                visited: true
                                 enabled: false
-
                             }
                         }
                     }
@@ -155,58 +156,106 @@ Page {
             } //card end
 
             Card {
-                title: "Outline Buttons"
+                title: "<b>Buttons</b> with icons"
                 header.visible: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
                 padding: 25
 
-                GridLayout {
+                ColumnLayout {
                     anchors.fill: parent
-                    columns: 9
-                    rowSpacing: 25
-                    columnSpacing: 5
 
                     CLabel {
-                        text: "Normal"
-                        Layout.rightMargin: 150
-
+                        horizontalAlignment: Text.AlignLeft
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: 14
+                        text: qsTr("You can combine button with our <a href='https://coreui.io/icons'>CoreUI Icons.</a><br>")
+                        Layout.fillWidth: true
                     }
 
-                    Repeater {
-                        model: page.buttons
-                        delegate: CButtonOutline {
-                            text: modelData.text
-                            palette: page.createPalette(modelData.palette, this)
+                    CTabView{
+                        Layout.fillWidth: true
+
+                        GridLayout {
+                            columns: 10
+                            rowSpacing: 25
+                            columnSpacing: 5
+
+                            CLabel {
+                                text: "Normal"
+                                Layout.rightMargin: 150
+                            }
+
+                            Repeater {
+                                model: page.buttons
+                                delegate: CButton {
+                                    text: modelData.text
+                                    icon.name: "cil-contrast"
+
+                                    palette: page.createPalette(modelData.palette,
+                                                                this)
+
+                                }
+                            }
+
+                            CLinkButton{
+                                text: "<a href='https://google.com'> Link</a>"
+                                leftPadding: 10
+                                rightPadding: 10
+                                icon.name: "cil-contrast"
+                            }
+
+                            CLabel {
+                                text: "Active State"
+                            }
+
+                            Repeater {
+                                model: page.buttons
+                                delegate: CButton {
+                                    text: modelData.text
+                                    icon.name: "cil-contrast"
+
+                                    down: true
+                                    palette: page.createPalette(modelData.palette,
+                                                                this)
+                                }
+                            }
+                            CLinkButton{
+                                text: "<a href='https://google.com'> Link</a>"
+                                icon.name: "cil-contrast"
+
+                                leftPadding: 10
+                                rightPadding: 10
+                                visited: true
+                            }
+
+                            CLabel {
+                                text: "Disabled"
+                            }
+
+                            Repeater {
+                                model: page.buttons
+                                delegate: CButton {
+                                    text: modelData.text
+                                    icon.name: "cil-contrast"
+
+                                    enabled: false
+                                    palette: page.createPalette(modelData.palette,
+                                                                this)
+                                }
+                            }
+                            CLinkButton{
+                                text: "<a href='https://google.com'> Link</a>"
+                                icon.name: "cil-contrast"
+
+                                leftPadding: 10
+                                rightPadding: 10
+                                visited: true
+                                enabled: false
+                            }
                         }
                     }
-
-                    CLabel {
-                        text: "Active State"
                     }
-
-                    Repeater {
-                        model: page.buttons
-                        delegate: CButtonOutline {
-                            text: modelData.text
-                            down: true
-                            palette: page.createPalette(modelData.palette, this)
-                        }
-                    }
-
-                    CLabel {
-                        text: "Disabled"
-                    }
-
-                    Repeater {
-                        model: page.buttons
-                        delegate: CButtonOutline {
-                            text: modelData.text
-                            enabled: false
-                            palette: page.createPalette(modelData.palette, this)
-                        }
-                    }
-                }
             } //card end
 
             Card {

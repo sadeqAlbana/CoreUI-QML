@@ -6,6 +6,7 @@ set(qml_files
     "CPillButton.qml"
     "SquareButton.qml"
     "CTabButton.qml"
+    "CLinkButton.qml"
 )
 
 qt_add_library(coreuibuttons STATIC)

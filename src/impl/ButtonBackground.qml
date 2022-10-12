@@ -3,8 +3,9 @@ import QtQuick.Templates
 import CoreUI
 import Qt5Compat.GraphicalEffects
 Rectangle {
+    id: rect
     required property Button control;
-    property int shadowRadius: 2
+    property int glowRadius: 4
     property bool glow: true
         implicitWidth: 60
         implicitHeight: 35
@@ -24,13 +25,15 @@ Rectangle {
         RectangularGlow {
             visible: control.enabled && control.activeFocus && glow
             anchors.fill: parent
-            glowRadius: 4
+            glowRadius: rect.glowRadius;
             spread: 1
             color: control.palette.button
             opacity: 0.5
             z:-1
             cached: true
-            cornerRadius: shadowRadius*4
+            cornerRadius: rect.radius+1
+            smooth: true
+            antialiasing: true
         }
         border.color: control.palette.highlight
         border.width:  control.CoreUI.borderWidth

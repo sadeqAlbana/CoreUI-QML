@@ -21,7 +21,7 @@ CButton {
         radius: control.radius
         control: control
 
-        shadowRadius: 4
+        glowRadius: 4
         layer.enabled: false
     }
 

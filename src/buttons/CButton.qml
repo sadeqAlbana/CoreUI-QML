@@ -17,7 +17,7 @@ T.RoundButton {
 
     property int shadowRadius: control.enabled ? (control.down ? 16 : (control.hovered ? 8 : 2)) : 0
     property int alignment: Qt.AlignCenter
-    property bool dropShadow: true
+    property bool glow: true
     radius: 6
     padding: 6
     horizontalPadding: padding + 6
@@ -52,7 +52,7 @@ T.RoundButton {
     background: ButtonBackground {
         control: control
         radius: control.radius
-        dropShadow: control.dropShadow
+        glow: control.glow
 
     }
 

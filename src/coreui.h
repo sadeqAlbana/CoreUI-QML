@@ -61,7 +61,7 @@ public:
         CodeColor = 0xd63384,
         HighlightBg = 0xfff3cd,
         Tab = 0xF9FAFA,
-        CardHeader = 0x0000000 //set it to #00001508
+        CardHeader = 0xF7F7F7 //set it to #00001508
 
     };
     Q_ENUM(Color)

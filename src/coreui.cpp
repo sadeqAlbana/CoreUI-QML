@@ -29,6 +29,6 @@ bool CoreUI::mobileLayout() const
 
 QColor CoreUI::color(const Color clr)
 {
-    return QColor(clr);
+    return ((clr >> 24) | 0)? QColor::fromRgba(clr) : QColor(clr);
 }
 

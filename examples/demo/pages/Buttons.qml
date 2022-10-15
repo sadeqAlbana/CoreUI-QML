@@ -65,7 +65,7 @@ Page {
             columns: 1
 
             Card {
-                title: "Buttons"
+                title: "<b>Buttons</b>"
                 header.visible: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
@@ -105,9 +105,12 @@ Page {
                             }
 
                             CLinkButton{
-                                text: "<a href='https://google.com'> Link</a>"
+                                text: qsTr("Link")
+                                link: "https://google.com"
+
                                 leftPadding: 10
                                 rightPadding: 10
+                                visited: true
                             }
 
                             CLabel {
@@ -199,10 +202,13 @@ Page {
                             }
 
                             CLinkButton{
-                                text: "<a href='https://google.com'> Link</a>"
+                                text: qsTr("Link")
+                                link: "https://google.com"
+                                icon.name: "cil-contrast"
+
                                 leftPadding: 10
                                 rightPadding: 10
-                                icon.name: "cil-contrast"
+                                visited: true
                             }
 
                             CLabel {
@@ -221,7 +227,8 @@ Page {
                                 }
                             }
                             CLinkButton{
-                                text: "<a href='https://google.com'> Link</a>"
+                                text: qsTr("Link")
+                                link: "https://google.com"
                                 icon.name: "cil-contrast"
 
                                 leftPadding: 10
@@ -259,111 +266,200 @@ Page {
             } //card end
 
             Card {
-                title: qsTr("Ghost Buttons")
+                title: "<b>Buttons</b> tags"
                 header.visible: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
                 padding: 25
 
-                GridLayout {
+                ColumnLayout {
                     anchors.fill: parent
-                    columns: 9
-                    rowSpacing: 25
-                    columnSpacing: 5
 
                     CLabel {
-                        text: "Normal"
-                        Layout.rightMargin: 150
-
-                    }
-
-                    Repeater {
-                        model: page.buttons
-                        delegate: CGhostButton {
-                            text: modelData.text
-                            palette: page.createPalette(modelData.palette, this)
-                        }
+                        horizontalAlignment: Text.AlignLeft
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: 14
+                        text: qsTr("The .btn classes are designed for <button> , <a> or <input> elements (though some browsers may apply a slightly different rendering).<br><br>")
+                        Layout.fillWidth: true
                     }
 
                     CLabel {
-                        text: "Active State"
+                        horizontalAlignment: Text.AlignLeft
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: 14
+                        text: qsTr('If you’re using .btn classes on <a> elements that are used to trigger functionality ex. collapsing content, these links should be given a role="button" to adequately communicate their meaning to assistive technologies such as screen readers.<br>')
+                        Layout.fillWidth: true
                     }
 
-                    Repeater {
-                        model: page.buttons
-                        delegate: CGhostButton {
-                            text: modelData.text
-                            down: true
-                            palette: page.createPalette(modelData.palette, this)
+                    CTabView{
+                        Layout.fillWidth: true
+
+                        RowLayout{
+
+                            Repeater {
+                                model: [qsTr('Link'),qsTr("Button"),qsTr("Input"),qsTr("Submit"),qsTr("Reset")]
+                                delegate: CButton {
+                                    text: modelData
+                                    palette: BrandPrimary{}
+                                }
+                            }
                         }
                     }
-
-                    CLabel {
-                        text: "Disabled"
                     }
-
-                    Repeater {
-                        model: page.buttons
-                        delegate: CGhostButton {
-                            text: modelData.text
-                            enabled: false
-                            palette: page.createPalette(modelData.palette, this)
-                        }
-                    }
-                }
             } //card end
 
             Card {
-                title: qsTr("Pill Buttons")
+                title: "<b>Buttons</b> outline"
                 header.visible: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
                 padding: 25
 
-                GridLayout {
+                ColumnLayout {
                     anchors.fill: parent
-                    columns: 9
-                    rowSpacing: 25
-                    columnSpacing: 5
 
                     CLabel {
-                        text: "Normal"
+                        horizontalAlignment: Text.AlignLeft
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: 14
+                        text: qsTr("If you need a button, but without the strong background colors. Replace the default modifier classes with the .btn-outline-* ones to remove all background colors on any element with .btn class.<br>")
+                        Layout.fillWidth: true
                     }
 
-                    Repeater {
-                        model: page.buttons
-                        delegate: CPillButton {
-                            text: modelData.text
-                            palette: page.createPalette(modelData.palette, this)
+                    CTabView{
+                        Layout.fillWidth: true
+
+                        GridLayout {
+                            columns: 9
+                            rowSpacing: 25
+                            columnSpacing: 5
+
+                            CLabel {
+                                text: "Normal"
+                                Layout.rightMargin: 150
+                            }
+
+                            Repeater {
+                                model: page.buttons
+                                delegate: CButtonOutline {
+                                    text: modelData.text
+                                    palette: page.createPalette(modelData.palette,
+                                                                this)
+
+                                }
+                            }
+
+
+
+                            CLabel {
+                                text: "Active State"
+                            }
+
+                            Repeater {
+                                model: page.buttons
+                                delegate: CButtonOutline {
+                                    text: modelData.text
+                                    down: true
+                                    palette: page.createPalette(modelData.palette,
+                                                                this)
+                                }
+                            }
+
+                            CLabel {
+                                text: "Disabled"
+                            }
+
+                            Repeater {
+                                model: page.buttons
+                                delegate: CButtonOutline {
+                                    text: modelData.text
+
+                                    enabled: false
+                                    palette: page.createPalette(modelData.palette,
+                                                                this)
+                                }
+                            }
+
                         }
                     }
+                    }
+            } //card end
+
+            Card {
+                title: "<b>Buttons</b> ghost"
+                header.visible: true
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignTop
+                padding: 25
+
+                ColumnLayout {
+                    anchors.fill: parent
 
                     CLabel {
-                        text: "Active State"
+                        horizontalAlignment: Text.AlignLeft
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: 14
+                        text: qsTr("Use .btn-ghost-* class for ghost buttons.<br>")
+                        Layout.fillWidth: true
                     }
 
-                    Repeater {
-                        model: page.buttons
-                        delegate: CPillButton {
-                            text: modelData.text
-                            down: true
-                            palette: page.createPalette(modelData.palette, this)
+                    CTabView{
+                        Layout.fillWidth: true
+
+                        GridLayout {
+                            columns: 9
+                            rowSpacing: 25
+                            columnSpacing: 5
+
+                            CLabel {
+                                text: "Normal"
+                                Layout.rightMargin: 150
+                            }
+
+                            Repeater {
+                                model: page.buttons
+                                delegate: CGhostButton {
+                                    text: modelData.text
+                                    palette: page.createPalette(modelData.palette,
+                                                                this)
+
+                                }
+                            }
+
+
+
+                            CLabel {
+                                text: "Active State"
+                            }
+
+                            Repeater {
+                                model: page.buttons
+                                delegate: CGhostButton {
+                                    text: modelData.text
+                                    down: true
+                                    palette: page.createPalette(modelData.palette,
+                                                                this)
+                                }
+                            }
+
+                            CLabel {
+                                text: "Disabled"
+                            }
+
+                            Repeater {
+                                model: page.buttons
+                                delegate: CGhostButton {
+                                    text: modelData.text
+
+                                    enabled: false
+                                    palette: page.createPalette(modelData.palette,
+                                                                this)
+                                }
+                            }
+
                         }
                     }
-
-                    CLabel {
-                        text: "Disabled"
                     }
-
-                    Repeater {
-                        model: page.buttons
-                        delegate: CPillButton {
-                            text: modelData.text
-                            enabled: false
-                            palette: page.createPalette(modelData.palette, this)
-                        }
-                    }
-                }
             } //card end
         }
     }

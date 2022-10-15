@@ -11,6 +11,7 @@ T.AbstractButton {
                              implicitContentHeight + topPadding + bottomPadding)
     spacing: 6
     property bool visited: false
+    property url link;
     icon.width: control.height * 0.5
     icon.height: control.height * 0.5
     icon.color: control.visited? control.palette.linkVisited : control.palette.link
@@ -21,9 +22,8 @@ T.AbstractButton {
         mirrored: control.mirrored
         display: control.display
         icon: control.icon
-        text: control.text
         font: control.font
-
+        text: "<a  href='"+control.link+"'>"+control.text+" </a>"
         color: control.visited? control.palette.linkVisited : control.palette.link
 
     } //contentItem

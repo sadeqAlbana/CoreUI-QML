@@ -45,12 +45,14 @@ T.TabButton {
         radiusBL: 0
         radiusBR: 0
         borderWidth: 1
-        Rectangle{
-            color: control.palette.base
-            height: 2
-            anchors.bottom: parent.bottom
-            width: control.width-2
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
+    }
+    Rectangle{
+        color: control.palette.base
+        height: 2
+        anchors.bottom: parent.bottom
+        width: control.width-2
+        visible: control.checked || control.hovered
+
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 }

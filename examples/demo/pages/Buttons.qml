@@ -567,6 +567,193 @@ Page {
                     }//CTabView
                 }//ColumnLayout
             } //Card buttons pill
-        }
+
+            Card {
+                title: "<b>Buttons</b> disabled state"
+                header.visible: true
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignTop
+                padding: 25
+
+                ColumnLayout {
+                    anchors.fill: parent
+                    spacing: 20
+                    CLabel {
+                        horizontalAlignment: Text.AlignLeft
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: 14
+                        text: qsTr("Add the disabled boolean attribute to any <button> element to make buttons look inactive. Disabled button has pointer-events: none applied to, disabling hover and active states from triggering.")
+                        Layout.fillWidth: true
+                    }
+
+                    CTabView {
+                        Layout.fillWidth: true
+                        RowLayout {
+
+                            CButton{
+                                palette: BrandPrimary{}
+                                font.pixelSize: 20
+                                enabled: false
+                                text: qsTr("Primary Button")
+                            }
+
+                            CButton{
+                                palette: BrandSecondary{}
+                                font.pixelSize: 20
+                                enabled: false
+                                text: qsTr("Button")
+                            }
+                        }//RowLayout
+                    }//CTabView
+
+                    CLabel {
+                        horizontalAlignment: Text.AlignLeft
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: 14
+                        text: qsTr("Disabled buttons using the &lt;a&gt; element act a little different:")
+                        Layout.fillWidth: true
+                    }
+
+                    CLabel {
+                        horizontalAlignment: Text.AlignLeft
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: 14
+                        text: qsTr('&lt;a&gt;s don’t support the disabled attribute, so you have to add .disabled class to make buttons look inactive. The disabled bootstrap button must have the aria-disabled="true" attribute to show the state of the element to assistive technologies.')
+                        Layout.fillWidth: true
+                    }
+
+                    CTabView {
+                        Layout.fillWidth: true
+                        RowLayout {
+
+                            CButton{
+                                palette: BrandPrimary{}
+                                font.pixelSize: 20
+                                enabled: false
+                                text: qsTr("Primary Link")
+                            }
+
+                            CButton{
+                                palette: BrandSecondary{}
+                                font.pixelSize: 20
+                                enabled: false
+                                text: qsTr("Link")
+                            }
+                        }//RowLayout
+                    }//CTabView
+                }
+            } //buttons disabled state
+
+            Card {
+                title: "<b>Buttons</b> block"
+                header.visible: true
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignTop
+                padding: 25
+
+                ColumnLayout {
+                    anchors.fill: parent
+                    spacing: 20
+
+                    CLabel {
+                        horizontalAlignment: Text.AlignLeft
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: 14
+                        text: qsTr("Create buttons that span the full width of a parent—by using utilities.")
+                        Layout.fillWidth: true
+                    }
+
+                    CTabView {
+                        Layout.fillWidth: true
+                        ColumnLayout {
+                            Repeater {
+                                model: 2
+                                delegate: CButton {
+                                    text: qsTr("Button")
+                                    font.pixelSize: 20
+                                    palette: BrandPrimary{}
+                                    Layout.fillWidth: true
+                                } //delegate
+                            } //repeater
+                        } //rowlayout
+                    } //tabview
+
+
+                    CLabel {
+                        horizontalAlignment: Text.AlignLeft
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: 14
+                        text: qsTr("Here we create a responsive variation, starting with vertically stacked buttons until the md breakpoint, where .d-md-block replaces the .d-grid class, thus nullifying the gap-2 utility. Resize your browser to see them change.")
+                        Layout.fillWidth: true
+                    }
+
+                    CTabView {
+                        Layout.fillWidth: true
+                        RowLayout {
+                            Repeater {
+                                model: 2
+                                delegate: CButton {
+                                    text: qsTr("Button")
+                                    font.pixelSize: 20
+                                    palette: BrandPrimary{}
+                                } //delegate
+                            } //repeater
+                        } //rowlayout
+                    } //CTabView
+
+                    CLabel {
+                        horizontalAlignment: Text.AlignLeft
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: 14
+                        text: qsTr("You can adjust the width of your block buttons with grid column width classes. For example, for a half-width “block button”, use .col-6. Center it horizontally with .mx-auto, too.")
+                        Layout.fillWidth: true
+                    }
+
+                    CTabView {
+                        Layout.fillWidth: true
+                        ColumnLayout {
+
+                            HorizontalSpacer{}
+                            Repeater {
+                                model: 2
+                                delegate: CButton {
+                                    text: qsTr("Button")
+                                    font.pixelSize: 20
+                                    palette: BrandPrimary{}
+                                    Layout.preferredWidth: 600
+                                    Layout.alignment: Qt.AlignCenter
+                                } //delegate
+                            } //repeater
+                        } //rowlayout
+                    } //CTabView
+
+                    CLabel {
+                        horizontalAlignment: Text.AlignLeft
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: 14
+                        text: qsTr("Additional utilities can be used to adjust the alignment of buttons when horizontal. Here we’ve taken our previous responsive example and added some flex utilities and a margin utility on the button to right align the buttons when they’re no longer stacked.")
+                        Layout.fillWidth: true
+                    }
+
+                    CTabView {
+                        Layout.fillWidth: true
+                        RowLayout {
+                            spacing: 20
+                            HorizontalSpacer{}
+                            Repeater {
+                                model: 2
+                                delegate: CButton {
+                                    text: qsTr("Button")
+                                    font.pixelSize: 20
+                                    palette: BrandPrimary{}
+                                    Layout.alignment: Qt.AlignCenter | Qt.AlignRight
+                                } //delegate
+                            } //repeater
+                        } //rowlayout
+                    } //CTabView
+
+                } //ColumnLayout
+            } //buttons sizes card
+        } //GridLayout end
     }
 }

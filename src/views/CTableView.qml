@@ -170,7 +170,6 @@ TableView{
             modal: true
             dim: false
             actions:tableView.actions
-
         }
     } //end MouseArea
 }

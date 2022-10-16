@@ -6,6 +6,16 @@ TabBar {
     bottomPadding: 0
     background: Rectangle{
         color: control.palette.base
+
+        Rectangle{
+            color: control.palette.shadow
+            anchors{
+                left:parent.left
+                right:parent.right
+                bottom: parent.bottom
+            }
+            height: 1
+        }
     }
 
 //    Rectangle{

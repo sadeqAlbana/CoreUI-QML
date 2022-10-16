@@ -15,7 +15,6 @@ CPage {
         CTabButton{
             text: qsTr("Preview");
             icon.name: "cil-media-play"
-
             width: implicitWidth
 
         }

@@ -46,8 +46,10 @@ Page {
                     Layout.fillWidth: true
                     implicitHeight: contentHeight*4
                     model: TableModel{
-                        TableModelColumn { display: "heading"; edit: "Test" }
-                        TableModelColumn { display: "example" }
+                       Component.onCompleted: console.log(headerData(0,Qt.Horizontal,Qt.DisplayRole))
+                        TableModelColumn { display: "heading"; edit: "test"; decoration: "a" }
+                        TableModelColumn { display: "example"; edit: "ee"; decoration: "aaa" }
+
                         rows:[
                             {heading:"<h1></h1>",example:"<h1>h1. Bootstrap heading</h1>"},
                             {heading:"<h2></h2>",example:"<h2>h2. Bootstrap heading</h2>"},
@@ -61,22 +63,23 @@ Page {
 
                     rowHeightProvider: function(){return 65}
 
-                    horizontalHeaderView: HorizontalHeaderView{
-                        reuseItems: false
-                        syncView: tableView
-                        implicitHeight: 60
-                        parent: tableView
-                        anchors.left: parent.left
-                        z:100
-                        height: 60
-                        clip: tableView.clip
-                        boundsBehavior: tableView.boundsBehavior
+//                    horizontalHeaderView: HorizontalHeaderView{
+//                        reuseItems: false
+//                        syncView: tableView
+//                        implicitHeight: 60
+//                        parent: tableView
+//                        anchors.left: parent.left
+//                        z:100
+//                        height: 60
+//                        clip: tableView.clip
+//                        boundsBehavior: tableView.boundsBehavior
 
-                        delegate: Text{
-                            //text: model.edit
-                            color: "red"
-                        }
-                    }
+////                        delegate: Text{
+////                            text:
+////                            Component.onCompleted: console.log(model.whatsThis)
+////                            color: "red"
+////                        }
+//                    }
 
                     delegate: CLabel{
                         text: display?? " "

@@ -1,3 +1,6 @@
 [submodule "libs/QmlRoundedRectangle"]
 	path = libs/QmlRoundedRectangle
 	url = http://git.lan:9080/sadeq/QmlRoundedRectangle.git
+[submodule "libs/json-model"]
+	path = libs/json-model
+	url = http://git.lan:9080/sadeq/json-model.git

@@ -19,7 +19,7 @@ T.RoundButton {
     property int alignment: Qt.AlignCenter
     property bool glow: true
     radius: 6
-    padding: 6
+    padding: control.font.pixelSize/2
     horizontalPadding: padding + 6
     spacing: 6
     hoverEnabled: true

@@ -10,6 +10,7 @@ import CoreUI.Impl
 import QtQuick.Controls.Basic
 import CoreUI.Palettes
 import CoreUI.Views
+
 Page {
     id: page
     title: qsTr("Buttons")
@@ -82,7 +83,7 @@ Page {
                         Layout.fillWidth: true
                     }
 
-                    CTabView{
+                    CTabView {
                         Layout.fillWidth: true
 
                         GridLayout {
@@ -99,12 +100,12 @@ Page {
                                 model: page.buttons
                                 delegate: CButton {
                                     text: modelData.text
-                                    palette: page.createPalette(modelData.palette,
-                                                                this)
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
                                 }
                             }
 
-                            CLinkButton{
+                            CLinkButton {
                                 text: qsTr("Link")
                                 link: "https://google.com"
 
@@ -122,11 +123,11 @@ Page {
                                 delegate: CButton {
                                     text: modelData.text
                                     down: true
-                                    palette: page.createPalette(modelData.palette,
-                                                                this)
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
                                 }
                             }
-                            CLinkButton{
+                            CLinkButton {
                                 text: "<a href='https://google.com'> Link</a>"
                                 leftPadding: 10
                                 rightPadding: 10
@@ -142,11 +143,11 @@ Page {
                                 delegate: CButton {
                                     text: modelData.text
                                     enabled: false
-                                    palette: page.createPalette(modelData.palette,
-                                                                this)
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
                                 }
                             }
-                            CLinkButton{
+                            CLinkButton {
                                 text: "<a href='https://google.com'> Link</a>"
                                 leftPadding: 10
                                 rightPadding: 10
@@ -155,7 +156,7 @@ Page {
                             }
                         }
                     }
-                    }
+                }
             } //card end
 
             Card {
@@ -176,7 +177,7 @@ Page {
                         Layout.fillWidth: true
                     }
 
-                    CTabView{
+                    CTabView {
                         Layout.fillWidth: true
 
                         GridLayout {
@@ -195,13 +196,12 @@ Page {
                                     text: modelData.text
                                     icon.name: "cil-contrast"
 
-                                    palette: page.createPalette(modelData.palette,
-                                                                this)
-
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
                                 }
                             }
 
-                            CLinkButton{
+                            CLinkButton {
                                 text: qsTr("Link")
                                 link: "https://google.com"
                                 icon.name: "cil-contrast"
@@ -222,11 +222,11 @@ Page {
                                     icon.name: "cil-contrast"
 
                                     down: true
-                                    palette: page.createPalette(modelData.palette,
-                                                                this)
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
                                 }
                             }
-                            CLinkButton{
+                            CLinkButton {
                                 text: qsTr("Link")
                                 link: "https://google.com"
                                 icon.name: "cil-contrast"
@@ -247,11 +247,11 @@ Page {
                                     icon.name: "cil-contrast"
 
                                     enabled: false
-                                    palette: page.createPalette(modelData.palette,
-                                                                this)
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
                                 }
                             }
-                            CLinkButton{
+                            CLinkButton {
                                 text: "<a href='https://google.com'> Link</a>"
                                 icon.name: "cil-contrast"
 
@@ -262,7 +262,7 @@ Page {
                             }
                         }
                     }
-                    }
+                }
             } //card end
 
             Card {
@@ -291,22 +291,23 @@ Page {
                         Layout.fillWidth: true
                     }
 
-                    CTabView{
+                    CTabView {
                         Layout.fillWidth: true
 
-                        RowLayout{
+                        RowLayout {
 
                             Repeater {
-                                model: [qsTr('Link'),qsTr("Button"),qsTr("Input"),qsTr("Submit"),qsTr("Reset")]
+                                model: [qsTr('Link'), qsTr("Button"), qsTr(
+                                        "Input"), qsTr("Submit"), qsTr("Reset")]
                                 delegate: CButton {
                                     text: modelData
-                                    palette: BrandPrimary{}
+                                    palette: BrandPrimary {}
                                 }
                             }
                         }
                     }
-                    }
-            } //card end
+                }
+            } //buttons tags card
 
             Card {
                 title: "<b>Buttons</b> outline"
@@ -326,7 +327,7 @@ Page {
                         Layout.fillWidth: true
                     }
 
-                    CTabView{
+                    CTabView {
                         Layout.fillWidth: true
 
                         GridLayout {
@@ -343,13 +344,10 @@ Page {
                                 model: page.buttons
                                 delegate: CButtonOutline {
                                     text: modelData.text
-                                    palette: page.createPalette(modelData.palette,
-                                                                this)
-
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
                                 }
                             }
-
-
 
                             CLabel {
                                 text: "Active State"
@@ -360,8 +358,8 @@ Page {
                                 delegate: CButtonOutline {
                                     text: modelData.text
                                     down: true
-                                    palette: page.createPalette(modelData.palette,
-                                                                this)
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
                                 }
                             }
 
@@ -375,14 +373,13 @@ Page {
                                     text: modelData.text
 
                                     enabled: false
-                                    palette: page.createPalette(modelData.palette,
-                                                                this)
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
                                 }
                             }
-
                         }
                     }
-                    }
+                }
             } //card end
 
             Card {
@@ -403,7 +400,7 @@ Page {
                         Layout.fillWidth: true
                     }
 
-                    CTabView{
+                    CTabView {
                         Layout.fillWidth: true
 
                         GridLayout {
@@ -420,13 +417,10 @@ Page {
                                 model: page.buttons
                                 delegate: CGhostButton {
                                     text: modelData.text
-                                    palette: page.createPalette(modelData.palette,
-                                                                this)
-
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
                                 }
                             }
-
-
 
                             CLabel {
                                 text: "Active State"
@@ -437,8 +431,8 @@ Page {
                                 delegate: CGhostButton {
                                     text: modelData.text
                                     down: true
-                                    palette: page.createPalette(modelData.palette,
-                                                                this)
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
                                 }
                             }
 
@@ -452,15 +446,127 @@ Page {
                                     text: modelData.text
 
                                     enabled: false
-                                    palette: page.createPalette(modelData.palette,
-                                                                this)
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
                                 }
                             }
-
                         }
                     }
-                    }
+                }
             } //card end
+
+            Card {
+                title: "<b>Buttons</b> sizes"
+                header.visible: true
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignTop
+                padding: 25
+
+                ColumnLayout {
+                    anchors.fill: parent
+                    spacing: 20
+
+                    CLabel {
+                        horizontalAlignment: Text.AlignLeft
+                        wrapMode: Text.WordWrap
+                        font.pixelSize: 14
+                        text: qsTr("Larger or smaller buttons? Add .btn-lg or .btn-sm for additional sizes.")
+                        Layout.fillWidth: true
+                    }
+
+                    CTabView {
+                        Layout.fillWidth: true
+                        RowLayout {
+                            Repeater {
+                                model: [{
+                                        "palette": "BrandPrimary"
+                                    }, {
+                                        "palette": "BrandSecondary"
+                                    }]
+                                delegate: CButton {
+                                    text: qsTr("Large Button")
+                                    font.pixelSize: 20
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
+                                } //delegate
+                            } //repeater
+                        } //rowlayout
+                    } //tabview
+
+                    CTabView {
+                        Layout.fillWidth: true
+                        RowLayout {
+                            Repeater {
+                                model: [{
+                                        "palette": "BrandPrimary"
+                                    }, {
+                                        "palette": "BrandSecondary"
+                                    }]
+                                delegate: CButton {
+                                    text: qsTr("Small Button")
+                                    font.pixelSize: 12
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
+                                } //delegate
+                            } //repeater
+                        } //rowlayout
+                    } //tabview
+                } //ColumnLayout
+            } //buttons sizes card
+
+            Card {
+                title: "<b>Buttons</b> pill"
+                header.visible: true
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignTop
+                padding: 25
+
+                ColumnLayout {
+                    anchors.fill: parent
+
+                    CTabView {
+                        Layout.fillWidth: true
+                        RowLayout {
+                            spacing: 5
+                            Repeater {
+                                model: page.buttons
+                                delegate: CPillButton {
+                                    text: modelData.text
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
+                                }//CPillButton
+                            }//Repeater
+                        }//RowLayout
+                    }//CTabView
+                }//ColumnLayout
+            } //Card buttons pill
+
+            Card {
+                title: "<b>Buttons</b> square"
+                header.visible: true
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignTop
+                padding: 25
+
+                ColumnLayout {
+                    anchors.fill: parent
+
+                    CTabView {
+                        Layout.fillWidth: true
+                        RowLayout {
+                            spacing: 5
+                            Repeater {
+                                model: page.buttons
+                                delegate: SquareButton {
+                                    text: modelData.text
+                                    palette: page.createPalette(
+                                                 modelData.palette, this)
+                                }//CPillButton
+                            }//Repeater
+                        }//RowLayout
+                    }//CTabView
+                }//ColumnLayout
+            } //Card buttons pill
         }
     }
 }

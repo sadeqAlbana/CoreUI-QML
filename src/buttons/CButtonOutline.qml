@@ -20,7 +20,7 @@ CButton {
         border.color: control.palette.button
         radius: control.radius
         control: control
-
+        glow: control.glow
         glowRadius: 4
         layer.enabled: false
     }

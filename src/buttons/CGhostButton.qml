@@ -12,4 +12,5 @@ import CoreUI
 CButtonOutline {
     id: control
     CoreUI.borderWidth: control.enabled? 0 : 1
+    glow: false
 }

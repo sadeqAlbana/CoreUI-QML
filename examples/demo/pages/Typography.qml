@@ -11,6 +11,7 @@ import QtQuick.Controls.Basic
 import CoreUI.Palettes
 import CoreUI.Views
 import Qt.labs.qmlmodels
+import JsonModels
 Page {
     id: page
     title: qsTr("Typography")
@@ -45,18 +46,17 @@ Page {
                     Layout.fillHeight: true
                     Layout.fillWidth: true
                     implicitHeight: contentHeight*4
-                    model: TableModel{
-                       Component.onCompleted: console.log(headerData(0,Qt.Horizontal,Qt.DisplayRole))
-                        TableModelColumn { display: "heading"; edit: "test"; decoration: "a" }
-                        TableModelColumn { display: "example"; edit: "ee"; decoration: "aaa" }
+                    model: JsonModel{
+                        JsonModelColumn { key: "heading";  displayName: "Heading"}
+                        JsonModelColumn { key: "example";  displayName: "Example"}
 
-                        rows:[
-                            {heading:"<h1></h1>",example:"<h1>h1. Bootstrap heading</h1>"},
-                            {heading:"<h2></h2>",example:"<h2>h2. Bootstrap heading</h2>"},
-                            {heading:"<h3></h3>",example:"<h3>h3. Bootstrap heading</h3>"},
-                            {heading:"<h4></h4>",example:"<h4>h4. Bootstrap heading</h4>"},
-                            {heading:"<h5></h5>",example:"<h5>h5. Bootstrap heading</h5>"},
-                            {heading:"<h6></h6>",example:"<h6>h6. Bootstrap heading</h6>"},
+                        records:[
+                            {heading:"<code style='color: #D63384'>&lt;h1&gt;&lt;/h1&gt;</code>",example:"<h1>h1. Bootstrap heading</h1>"},
+                            {heading:"<code style='color: #D63384'>&lt;h2&gt;&lt;/h2&gt;</code>",example:"<h2>h2. Bootstrap heading</h2>"},
+                            {heading:"<code style='color: #D63384'>&lt;h3&gt;&lt;/h3&gt;</code>",example:"<h3>h3. Bootstrap heading</h3>"},
+                            {heading:"<code style='color: #D63384'>&lt;h4&gt;&lt;/h4&gt;</code>",example:"<h4>h4. Bootstrap heading</h4>"},
+                            {heading:"<code style='color: #D63384'>&lt;h5&gt;&lt;/h5&gt;</code>",example:"<h5>h5. Bootstrap heading</h5>"},
+                            {heading:"<code style='color: #D63384'>&lt;h6&gt;&lt;/h6&gt;</code>",example:"<h6>h6. Bootstrap heading</h6>"},
 
                         ]
                     }
@@ -74,20 +74,16 @@ Page {
 //                        clip: tableView.clip
 //                        boundsBehavior: tableView.boundsBehavior
 
-////                        delegate: Text{
-////                            text:
-////                            Component.onCompleted: console.log(model.whatsThis)
-////                            color: "red"
-////                        }
+//                        delegate: Text{
+//                            text: display
+//                        }
 //                    }
 
                     delegate: CLabel{
                         text: display?? " "
-                        textFormat: column===0? Text.PlainText : Text.RichText
                         horizontalAlignment: Text.AlignLeft
-
+                        textFormat: Text.RichText
                         Rectangle{
-
                             width: parent.width
                             color: palette.shadow
                             height: 1

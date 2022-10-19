@@ -45,7 +45,7 @@ Page {
                     id: tableView
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    implicitHeight: contentHeight*4
+                    implicitHeight: contentHeight
                     model: JsonModel{
                         JsonModelColumn { key: "heading";  displayName: "Heading"}
                         JsonModelColumn { key: "example";  displayName: "Example"}
@@ -63,21 +63,19 @@ Page {
 
                     rowHeightProvider: function(){return 65}
 
-//                    horizontalHeaderView: HorizontalHeaderView{
-//                        reuseItems: false
-//                        syncView: tableView
-//                        implicitHeight: 60
-//                        parent: tableView
-//                        anchors.left: parent.left
-//                        z:100
-//                        height: 60
-//                        clip: tableView.clip
-//                        boundsBehavior: tableView.boundsBehavior
 
-//                        delegate: Text{
-//                            text: display
-//                        }
-//                    }
+
+                    headerDelegate: Text{
+                        text: display
+                        Rectangle{
+                            width: parent.width
+                            color: palette.shadow
+                            height: 1
+                            anchors.bottom: parent.bottom
+                        }
+                    }
+
+
 
                     delegate: CLabel{
                         text: display?? " "

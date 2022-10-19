@@ -28,10 +28,11 @@ TableView{
     property int hoveredRow: -1
     property bool validRow: selectedRow>=0
     property int __lastWidth: 0;
+    property alias headerDelegate: horizontalHeaderView.delegate
 
 
-
-    property HorizontalHeaderView horizontalHeaderView: HorizontalHeaderView{
+    HorizontalHeaderView{
+        id: horizontalHeaderView
         reuseItems: false
         syncView: tableView
         implicitHeight: 60

@@ -47,8 +47,8 @@ Page {
                     Layout.fillWidth: true
                     implicitHeight: contentHeight
                     model: JsonModel{
-                        JsonModelColumn { key: "heading";  displayName: "Heading"}
-                        JsonModelColumn { key: "example";  displayName: "Example"}
+                        JsonModelColumn { key: "heading";  displayName: "<b>Heading</b>"}
+                        JsonModelColumn { key: "example";  displayName: "<b>Example</b>"}
 
                         records:[
                             {heading:"<code style='color: #D63384'>&lt;h1&gt;&lt;/h1&gt;</code>",example:"<h1>h1. Bootstrap heading</h1>"},
@@ -65,13 +65,16 @@ Page {
 
 
 
-                    headerDelegate: Text{
-                        text: display
+                    headerDelegate: CLabel{
+                        text: display?? " "
+                        horizontalAlignment: Text.AlignLeft
+                        textFormat: Text.RichText
                         Rectangle{
                             width: parent.width
                             color: palette.shadow
                             height: 1
                             anchors.bottom: parent.bottom
+
                         }
                     }
 

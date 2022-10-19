@@ -42,6 +42,8 @@ TableView{
         clip: tableView.clip
         boundsBehavior: tableView.boundsBehavior
         delegate: CHorizontalHeaderDelegate{}
+        rowHeightProvider: function(){return 60}
+
     }
     topMargin: horizontalHeaderView.visible? horizontalHeaderView.implicitHeight : 0
     reuseItems: true

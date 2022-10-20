@@ -22,6 +22,8 @@ Item {
     id: rootItem
     implicitWidth: stack.implicitWidth
     implicitHeight: stack.implicitHeight
+    property var navBar: NavJS.navBar();
+    property var permissionProvider: null
     //    property bool drawerAboveContent : ApplicationWindow.window.mobileLayout
     property bool drawerAboveContent : false
     onDrawerAboveContentChanged: {
@@ -130,16 +132,16 @@ Item {
 
         y: toolBar.height+ padding
         height: rootItem.height-toolBar.height-padding*2
-        implicitWidth:currentItem.implicitWidth+40
-        implicitHeight: currentItem.implicitHeight+40
+        implicitWidth: currentItem? currentItem.implicitWidth+40 : 100
+        implicitHeight: currentItem? currentItem.implicitHeight+40 : 100
         padding: rootItem.drawerAboveContent? 0 : 15
-        initialItem: Page{
-            Rectangle{
-                implicitHeight: 500
-                implicitWidth: 500
-                anchors.fill: parent
-            }
-        }
+//        initialItem: Page{
+//            Rectangle{
+//                implicitHeight: 500
+//                implicitWidth: 500
+//                anchors.fill: parent
+//            }
+//        }
 
         clip:true
         replaceEnter: Transition {
@@ -157,8 +159,14 @@ Item {
         listModel.clear();
         for(var i=0; i<listItems.length; i++){
             var item=listItems[i];
-
             item.id=listModel.count;
+            if(!item.hasOwnProperty('badge')){
+                item['badge']={};
+            }
+
+
+            if(permissionProvider && item.hasOwnProperty('permission') && !permissionProvider(item.permission) && item.permission.length)
+                continue;
 
             if(item.childItems){
                 item.childCount=item.childItems.length;
@@ -166,12 +174,18 @@ Item {
                 listModel.append(item);
                 for(var j=0; j<item.childItems.length; j++){
                     var child=item.childItems[j];
-
+                    if(permissionProvider && child.hasOwnProperty('permission') && !permissionProvider(child.permission) && child.permission.length)
+                        continue;
                     child.id=listModel.count
                     child.parentId=item.id
                     child.hidden=true;
                     child.category=item.category;
                     child.childCount=0
+                    if(!child.hasOwnProperty('badge')){
+                        child['badge']={};
+                    }
+
+
                     listModel.append(child);
                 }
             }else{
@@ -182,7 +196,7 @@ Item {
 
     Component.onCompleted: populateNavBar();
     function populateNavBar() {
-        var listItems = NavJS.navBar();
+        var listItems = rootItem.navBar;
         parseNavbar(listItems);
     }
 }

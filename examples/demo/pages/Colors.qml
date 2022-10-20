@@ -27,29 +27,45 @@ Page {
 
     property var buttons: [{
             "text": qsTr("Brand Primary Color"),
-            "palette": "BrandPrimary"
+            "palette": "BrandPrimary",
+            "hex": "#321fdb",
+            "rgb": "rgb(50, 31, 219)"
         }, {
             "text": qsTr("Brand Secondary Color"),
-            "palette": "BrandSecondary"
+            "palette": "BrandSecondary",
+            "hex": "#9da5b1",
+            "rgb": "rgb(157, 165, 177)"
         }, {
             "text": qsTr("Brand Success Color"),
-            "palette": "BrandSuccess"
+            "palette": "BrandSuccess",
+            "hex": "#2eb85c",
+            "rgb": "rgb(46, 184, 92)"
         }, {
             "text": qsTr("Brand Danger Color"),
-            "palette": "BrandDanger"
+            "palette": "BrandDanger",
+            "hex": "#e55353",
+            "rgb": "rgb(229, 83, 83)"
         }, {
             "text": qsTr("Brand Warning Color"),
-            "palette": "BrandWarning"
+            "palette": "BrandWarning",
+            "hex": "#f9b115",
+            "rgb": "rgb(249, 177, 21)"
         }, {
             "text": qsTr("Brand Info Color"),
-            "palette": "BrandInfo"
+            "palette": "BrandInfo",
+            "hex": "#3399ff",
+            "rgb": "rgb(51, 153, 255)"
         }, {
             "text": qsTr("Brand Light Color"),
-            "palette": "BrandLight"
+            "palette": "BrandLight",
+            "hex": "#ebedef",
+            "rgb": "rgb(235, 237, 239)"
         },
         {
             "text": qsTr("Brand Dark Color"),
-            "palette": "BrandDark"
+            "palette": "BrandDark",
+            "hex": "#4f5d73",
+            "rgb": "rgb(79, 93, 115)"
         }
     ]
 
@@ -100,7 +116,7 @@ Page {
                                 enabled: false
                             }
                             CLabel{
-                                text: "#321fdb"
+                                text: modelData.hex
                             }
 
                             CLabel{
@@ -108,7 +124,7 @@ Page {
                                 enabled: false
                             }
                             CLabel{
-                                text: "rgb(50, 31, 219)"
+                                text: modelData.rgb
                             }
                         }
                     }

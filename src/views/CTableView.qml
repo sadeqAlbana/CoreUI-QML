@@ -28,10 +28,11 @@ TableView{
     property int hoveredRow: -1
     property bool validRow: selectedRow>=0
     property int __lastWidth: 0;
+    property alias headerDelegate: horizontalHeaderView.delegate
 
 
-
-    property HorizontalHeaderView horizontalHeaderView: HorizontalHeaderView{
+    HorizontalHeaderView{
+        id: horizontalHeaderView
         reuseItems: false
         syncView: tableView
         implicitHeight: 60
@@ -41,6 +42,8 @@ TableView{
         clip: tableView.clip
         boundsBehavior: tableView.boundsBehavior
         delegate: CHorizontalHeaderDelegate{}
+        rowHeightProvider: function(){return 60}
+
     }
     topMargin: horizontalHeaderView.visible? horizontalHeaderView.implicitHeight : 0
     reuseItems: true
@@ -170,7 +173,6 @@ TableView{
             modal: true
             dim: false
             actions:tableView.actions
-
         }
     } //end MouseArea
 }

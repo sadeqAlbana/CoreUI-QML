@@ -9,7 +9,6 @@ OpacityMask {
         width: item.width
         height: item.height
         Rectangle {
-            anchors.centerIn: parent
             width: item.width
             height: item.height
             radius: control.radius;

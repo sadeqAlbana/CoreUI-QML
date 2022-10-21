@@ -24,6 +24,7 @@ Item {
     implicitHeight: stack.implicitHeight
     property var navBar: NavJS.navBar();
     property var permissionProvider: null
+    property url icon;
     //    property bool drawerAboveContent : ApplicationWindow.window.mobileLayout
     property bool drawerAboveContent : false
     onDrawerAboveContentChanged: {

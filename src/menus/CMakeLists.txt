@@ -3,6 +3,7 @@ set(qml_files
     "CMenu.qml"
     "CMenuBar.qml"
     "CMenuItem.qml"
+    "CMenuBarItem.qml"
 )
 qt_add_library(coreuimenus STATIC)
 qt_add_qml_module(coreuimenus

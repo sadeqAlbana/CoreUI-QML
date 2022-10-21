@@ -21,23 +21,25 @@ TableView{
     id: tableView
 
     LayoutMirroring.childrenInherit: true
-
+    property bool headerVisible: true
     property list<Action> actions
     property var hiddenColumns: []
     property int selectedRow: -1
     property int hoveredRow: -1
     property bool validRow: selectedRow>=0
-    property int __lastWidth: 0;
+    property int __lastImplicitWidth: 0;
     property alias headerDelegate: horizontalHeaderView.delegate
 
 
     HorizontalHeaderView{
         id: horizontalHeaderView
+        visible: headerVisible
         reuseItems: false
         syncView: tableView
         implicitHeight: 60
         parent: tableView
         anchors.left: parent.left
+        anchors.right: parent.right
         height: 60
         clip: tableView.clip
         boundsBehavior: tableView.boundsBehavior
@@ -71,8 +73,12 @@ TableView{
 //            __lastWidth=width;
 
 
+            __lastImplicitWidth=implicitWidth
             implicitWidth=getImplicitWidth();
-            forceLayout()
+
+            //if(__lastImplicitWidth!=implicitWidth){
+                forceLayout()
+            //}
         }
     }
 
@@ -113,7 +119,7 @@ TableView{
         for(var i=0; i<tableView.columns; i++){
             if(!isColumnHidden(i)){
                 if(tableView.isColumnLoaded(i))
-                    w+=tableView.implicitColumnWidth(i)
+                    w+=tableView.implicitColumnAndHeaderWidth(i)
             }
         }
         if(tableView.columnSpacing>0){
@@ -137,6 +143,7 @@ TableView{
             return 0
 
         if(isColumnLoaded(column)){
+            //take header width into account as well
             return Math.max(tableView.implicitColumnAndHeaderWidth(column),
 
                             parseInt(tableView.width/(tableView.columns-tableView.hiddenColumns.length),10))

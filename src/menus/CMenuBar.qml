@@ -6,54 +6,45 @@
  */
 
 import QtQuick;
-import QtQuick.Controls.Basic;
-import QtQuick.Controls
-import Qt5Compat.GraphicalEffects
 import QtQuick.Controls.impl as Impl
 import CoreUI.Palettes
+import CoreUI.Impl
+import QtQuick.Templates as T
+import Qt5Compat.GraphicalEffects
 
-MenuBar {
-    delegate: MenuBarItem {
-        id: control
-        property int radius: 5
-        palette: BrandLight{}
-        icon.name: control.menu.icon
-        background: Rectangle {
-            implicitWidth: 100
-            implicitHeight: 50
-            radius: control.radius
+T.MenuBar {
+    id: control
+    implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
+                            contentWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
+                             contentHeight + topPadding + bottomPadding)
 
-            Behavior on color{
-                ColorAnimation {easing.type: Easing.InOutQuad; duration: 150  }
+    delegate: CMenuBarItem{}
+    property int radius: 5
 
-            }
-
-            color: {
-                if(!control.enabled)
-                    return control.palette.button.lighter(1.3)
-
-                if(control.down && control.hovered){
-                    return control.palette.button.lighter(1.2)
-                }
-
-                if(control.down || control.checkable){
-                    return control.palette.button.darker(1.4)
-
-                }
-
-                if(control.visualFocus){
-                    return control.palette.button.darker(1.1)
-                }
-
-                if(control.hovered){
-                    return control.palette.button.darker(1.1)
-                }
-                return control.palette.button
-            }
-        }//background
-
-
+    contentItem: Row {
+        spacing: control.spacing
+        Repeater {
+            model: control.contentModel
+        }
     }
+
+
+    layer.enabled: true
+    layer.effect: RoundingMask{
+        item: control
+        source: control
+        radius: control.radius
+    }
+
+
+
+    background: Rectangle {
+        implicitHeight: 40
+        color: "transparent"
+        clip: true
+    }
+
 
 
 } //end menu bar

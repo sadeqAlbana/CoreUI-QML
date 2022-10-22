@@ -24,7 +24,9 @@ Item {
     implicitHeight: stack.implicitHeight
     property var navBar: NavJS.navBar();
     property var permissionProvider: null
-    property url icon;
+    property url icon: "qrc:/icons/CoreUI/brand/cib-coreui.svg"
+    property int iconWidth: 48
+    property int iconHeight: 48
     //    property bool drawerAboveContent : ApplicationWindow.window.mobileLayout
     property bool drawerAboveContent : false
     onDrawerAboveContentChanged: {
@@ -38,7 +40,9 @@ Item {
 
     CNavigationDrawer{
         id: drawer
-
+        icon: rootItem.icon
+        iconWidth: rootItem.iconWidth
+        iconHeight: rootItem.iconHeight
         navModel: ListModel {
             id: listModel
             dynamicRoles: false

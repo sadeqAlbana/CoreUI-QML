@@ -7,10 +7,14 @@ import QtQuick.Dialogs
 import QtQuick.Layouts
 import CoreUI.Palettes
 import CoreUI.Buttons
+
 Drawer {
     id: drawer
     property var navModel;
-    property string icon: "cib-coreui"
+    property url icon;
+    property int iconWidth: 24
+    property int iconHeight: 24
+
     width: 256
     height: rootItem.height
     dim: rootItem.drawerAboveContent
@@ -36,13 +40,14 @@ Drawer {
 
 
         header: CButton{
+            id: control
             radius: 0
             width: parent.width
             height: toolBar.height
             checkable: false
-            icon.height: height-topPadding-bottomPadding
-            icon.name: drawer.icon
-            icon.color: palette.brightText
+            icon.source: drawer.icon
+            icon.height: drawer.iconHeight
+            icon.width: drawer.iconWidth;
             glow: false
             display: AbstractButton.IconOnly
         }

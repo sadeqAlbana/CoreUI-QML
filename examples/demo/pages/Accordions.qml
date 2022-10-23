@@ -21,7 +21,7 @@ Page {
     Flickable {
         id: flickable
         anchors.fill: parent
-        implicitWidth: laayout.implicitWidth
+        implicitWidth: layout.implicitWidth
         contentHeight: layout.implicitHeight
 
         ColumnLayout{

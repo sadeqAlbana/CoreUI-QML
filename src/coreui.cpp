@@ -5,7 +5,7 @@
 CoreUI::CoreUI(QObject *parent)
     : QObject{parent}
 {
-
+    m_primary=0x321fdb;
 }
 
 int CoreUI::borderWidth() const
@@ -30,5 +30,23 @@ bool CoreUI::mobileLayout() const
 QColor CoreUI::color(const Color clr)
 {
     return ((clr >> 24) | 0)? QColor::fromRgba(clr) : QColor(clr);
+}
+
+const QColor &CoreUI::primary() const
+{
+    return m_primary;
+}
+
+void CoreUI::setPrimary(const QColor &newPrimary)
+{
+    if (m_primary == newPrimary)
+        return;
+    m_primary = newPrimary;
+    emit primaryChanged();
+}
+
+void CoreUI::resetPrimary()
+{
+    setPrimary({}); // TODO: Adapt to use your actual default value
 }
 

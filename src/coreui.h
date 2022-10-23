@@ -18,6 +18,8 @@ public:
 
     //create shade enum?
 
+
+    //you must change these to properties !
     enum Color{
         Blue = 0x0d6efd,
         Indigo  = 0x6610f2,
@@ -81,17 +83,25 @@ public:
     Q_INVOKABLE QColor color(const CoreUI::Color clr);
 
 
+    const QColor &primary() const;
+    void setPrimary(const QColor &newPrimary);
+    void resetPrimary();
+
 signals:
     void borderWidthChanged();
 
     void mobileLayoutChanged();
 
+    void primaryChanged();
+
 private:
     int m_borderWidth=0;
     Theme m_there=ThemeLight;
 
+    QColor m_primary;
     Q_PROPERTY(int borderWidth READ borderWidth WRITE setBorderWidth NOTIFY borderWidthChanged)
     Q_PROPERTY(bool mobileLayout READ mobileLayout NOTIFY mobileLayoutChanged)
+    Q_PROPERTY(QColor primary READ primary WRITE setPrimary RESET resetPrimary NOTIFY primaryChanged)
 };
 
 #endif // COREUI_H

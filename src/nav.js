@@ -28,6 +28,18 @@ function navBar(){
                 },
 
                 {
+                    "title": qsTr("Base"),
+                    "image": "cil-puzzle",
+                    "category":"COMPONENTS",
+
+                    "childItems":[
+                        {"title": qsTr("Accordion"),
+                        "path":"qrc:/Demo/pages/Accordion.qml"
+                        }
+                    ]
+                },
+
+                {
                     "title": qsTr("Buttons"),
                     "image": "cil-cursor",
                     "category":"COMPONENTS",

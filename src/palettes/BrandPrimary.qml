@@ -9,7 +9,7 @@ import CoreUI
 
 CPalette{
     id: pal
-    button: CoreUI.primary //same for all states
+    button: "#321fdb" //same for all states
     active.button: "#5b4ce2"
 
     buttonText: "#deffffff" //final

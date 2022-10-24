@@ -73,7 +73,7 @@ Page {
                        Layout.fillWidth: true
 
                        Accordion{
-
+                           Layout.fillWidth: true
                        }
                    }
                }

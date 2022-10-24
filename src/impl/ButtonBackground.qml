@@ -35,7 +35,5 @@ Rectangle {
             smooth: true
             antialiasing: true
         }
-        border.color: control.palette.highlight
-        border.width:  control.CoreUI.borderWidth
 
     }//background

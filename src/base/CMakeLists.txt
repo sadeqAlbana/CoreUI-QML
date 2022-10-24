@@ -12,6 +12,7 @@ set(qml_files
     "CTabBar.qml"
     "CLink.qml"
     "Accordion.qml"
+    "AccordionDelegate.qml"
 )
 
 qt_add_library(coreuibase STATIC)

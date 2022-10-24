@@ -95,7 +95,7 @@ signals:
     void primaryChanged();
 
 private:
-    int m_borderWidth=0;
+    int m_borderWidth=1;
     Theme m_there=ThemeLight;
 
     QColor m_primary;

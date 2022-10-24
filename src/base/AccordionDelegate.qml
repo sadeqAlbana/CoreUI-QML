@@ -14,9 +14,9 @@ CItemDelegate {
     onClicked: {expanded=(!expanded); ListView.view.currentIndex=index;}
 
 
-    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset ,
-                             implicitContentHeight + topPadding + bottomPadding + control.expanded? 150 : 0,
-                             implicitIndicatorHeight + topPadding + bottomPadding)
+//    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset ,
+//                             implicitContentHeight + topPadding + bottomPadding + control.expanded? 150 : 0,
+//                             implicitIndicatorHeight + topPadding + bottomPadding)
 
     z: control.highlighted? 1 : 0
     property Item arrow: CLabel {

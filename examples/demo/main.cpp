@@ -12,7 +12,14 @@ Q_IMPORT_QML_PLUGIN(CoreUIPlugin)
 
 int main(int argc, char *argv[])
 {
+    //#ifndef Q_OS_ANDROID
+        qputenv("QT_FONT_DPI","96");
+    //#endif
 
+
+    //#ifndef Q_OS_ANDROID
+        QApplication::setAttribute(Qt::AA_Use96Dpi);
+    //#endif
     QApplication app(argc, argv);
     QIcon::setThemeName("CoreUI");
     QFont font=QApplication::font();

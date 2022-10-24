@@ -24,6 +24,7 @@ T.Control {
 
     contentItem: ListView{
         model: control.model
+        reuseItems: false
         implicitHeight: contentHeight
         spacing: 0
         delegate: AccordionDelegate{

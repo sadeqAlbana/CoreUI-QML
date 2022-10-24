@@ -67,22 +67,7 @@ CItemDelegate {
         border.width:  CoreUI.borderWidth
     }
 
-    property CPage page: CPage{
-        visible: control.expanded
-        parent: control
-        anchors.left: parent.left
-//        anchors.right: parent.right
-        anchors.bottom: parent.bottom
 
-        implicitWidth: 150
-        implicitHeight: 150
-        Rectangle{
-            implicitWidth: 150
-            implicitHeight: 150
-            color: "red"
-
-        }
-    }
 
     Behavior on height{
         PropertyAnimation {

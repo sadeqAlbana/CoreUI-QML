@@ -73,7 +73,7 @@ Page {
                        Layout.fillWidth: true
 
                        Accordion{
-                           Layout.fillWidth: true
+                           Layout.fillHeight: false
                            model: ["Accordion Item #1","Accordion Item #2", "Accordion Item #3"]
 
                        }
@@ -92,9 +92,12 @@ Page {
                    CLabel{
                        text: qsTr("Add <code style='color: #D63384'>.accordion-flush</code> to remove the default <code style='color: #D63384'>background-color</code>, some borders, and some rounded corners to render accordions edge-to-edge with their parent container.")
                        textFormat: Text.RichText
+                       horizontalAlignment: Text.AlignLeft
+                       wrapMode: Text.WrapAnywhere
+                       Layout.fillWidth: true
                    }
 
-                   CTabView{
+                   ColumnLayout{
                        Layout.fillWidth: true
 
                        Accordion{

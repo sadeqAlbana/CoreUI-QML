@@ -95,9 +95,6 @@ CItemDelegate {
         PropertyAnimation {
             duration: 75
         }
-//        SequentialAnimation {
-
-//        }
     }
 
     onClicked: {

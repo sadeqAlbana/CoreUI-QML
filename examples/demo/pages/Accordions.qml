@@ -74,10 +74,38 @@ Page {
 
                        Accordion{
                            Layout.fillWidth: true
+                           model: ["Accordion Item #1","Accordion Item #2", "Accordion Item #3"]
+
                        }
                    }
                }
-           }
+           }//card
+
+           Card{
+               header.visible: true
+               title: qsTr("<b>Accordion</b> Flush")
+               Layout.fillWidth: true
+               padding: 25
+
+               ColumnLayout{
+                   anchors.fill: parent;
+                   CLabel{
+                       text: qsTr("Add <code style='color: #D63384'>.accordion-flush</code> to remove the default <code style='color: #D63384'>background-color</code>, some borders, and some rounded corners to render accordions edge-to-edge with their parent container.")
+                       textFormat: Text.RichText
+                   }
+
+                   CTabView{
+                       Layout.fillWidth: true
+
+                       Accordion{
+                           Layout.fillWidth: true
+                           model: ["Accordion Item #1","Accordion Item #2", "Accordion Item #3"]
+
+                       }
+                   }
+               }
+           }//card
+
 
         }
     }

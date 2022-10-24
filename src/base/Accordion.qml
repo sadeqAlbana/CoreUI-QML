@@ -9,7 +9,7 @@ T.Control {
     implicitWidth: Math.max(background.implicitWidth + leftInset + rightInset,
                             contentItem.implicitWidth + leftPadding + rightPadding)
     property int radius: 5
-
+    property var model;
 
 
 
@@ -23,13 +23,11 @@ T.Control {
     }
 
     contentItem: ListView{
+        model: control.model
         implicitHeight: contentHeight
-        model: ["Accordion Item #1","Accordion Item #2", "Accordion Item #3"]
         spacing: 0
         delegate: AccordionDelegate{
             text: modelData
-            //z: 2
-
         }
     }
 }

@@ -7,11 +7,16 @@ import CoreUI
 CItemDelegate {
 
     id: control
-    property bool expanded: control.highlighted
+    property bool expanded: false
+//    height: implicitHeight
     width: ListView.view? ListView.view.width: 100
-    //palette: BrandPrimary{}
-    highlighted: ListView.isCurrentItem
-    onClicked: {ListView.view.currentIndex=index;}
+    highlighted: ListView.view.currentIndex===index
+    onClicked: {expanded=(!expanded); ListView.view.currentIndex=index;}
+
+
+    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset ,
+                             implicitContentHeight + topPadding + bottomPadding + control.expanded? 150 : 0,
+                             implicitIndicatorHeight + topPadding + bottomPadding)
 
     z: control.highlighted? 1 : 0
     property Item arrow: CLabel {
@@ -45,12 +50,6 @@ CItemDelegate {
 
 
     background:Rectangle{
-//        Rectangle{
-//            color: control.palette.shadow
-//            width: control.width
-//            height: 1
-//            anchors.bottom: parent.bottom
-//        }
         RectangularGlow {
             visible: control.highlighted || control.down || control.activeFocus
             anchors.fill: parent
@@ -63,11 +62,31 @@ CItemDelegate {
             smooth: true
             antialiasing: true
         }
+        color: control.palette.base
         border.color: control.palette.shadow
         border.width:  CoreUI.borderWidth
     }
 
+    property CPage page: CPage{
+        visible: control.expanded
+        parent: control
+        anchors.left: parent.left
+//        anchors.right: parent.right
+        anchors.bottom: parent.bottom
 
+        implicitWidth: 150
+        implicitHeight: 150
+        Rectangle{
+            implicitWidth: 150
+            implicitHeight: 150
+            color: "red"
 
+        }
+    }
 
+    Behavior on height{
+        PropertyAnimation {
+            duration: 75
+        }
+    }
 }

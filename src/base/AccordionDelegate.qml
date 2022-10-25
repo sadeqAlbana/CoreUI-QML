@@ -47,7 +47,7 @@ CItemDelegate {
 
 
     contentItem: AccordionContentItem{
-        anchors.fill: parent
+        expanded: control.expanded
     }
 
 

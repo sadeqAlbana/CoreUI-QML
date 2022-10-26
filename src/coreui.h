@@ -63,7 +63,9 @@ public:
         CodeColor = 0xd63384,
         HighlightBg = 0xfff3cd,
         Tab = 0xF9FAFA,
-        CardHeader = 0xF7F7F7 //set it to #00001508
+        CardHeader = 0xF7F7F7, //set it to #00001508,
+        AccordionFocusBorder=0x998fed,
+        AccordionActive=0xebe9fb
 
     };
     Q_ENUM(Color)
@@ -87,6 +89,12 @@ public:
     void setPrimary(const QColor &newPrimary);
     void resetPrimary();
 
+    const QColor &accordionBorderFocus() const;
+    void setAccordionBorderFocus(const QColor &newAccordionBorderFocus);
+
+    const QColor &accordionActive() const;
+    void setAccordionActive(const QColor &newAccordionActive);
+
 signals:
     void borderWidthChanged();
 
@@ -94,14 +102,22 @@ signals:
 
     void primaryChanged();
 
+    void accordionBorderFocusChanged();
+
+    void accordionActiveChanged();
+
 private:
     int m_borderWidth=1;
     Theme m_there=ThemeLight;
 
     QColor m_primary;
+    QColor m_accordionBorderFocus;
+    QColor m_accordionActive;
     Q_PROPERTY(int borderWidth READ borderWidth WRITE setBorderWidth NOTIFY borderWidthChanged)
     Q_PROPERTY(bool mobileLayout READ mobileLayout NOTIFY mobileLayoutChanged)
     Q_PROPERTY(QColor primary READ primary WRITE setPrimary RESET resetPrimary NOTIFY primaryChanged)
+    Q_PROPERTY(QColor accordionBorderFocus READ accordionBorderFocus WRITE setAccordionBorderFocus NOTIFY accordionBorderFocusChanged)
+    Q_PROPERTY(QColor accordionActive READ accordionActive WRITE setAccordionActive NOTIFY accordionActiveChanged)
 };
 
 #endif // COREUI_H

@@ -4,30 +4,42 @@ import CoreUI.Buttons
 import CoreUI.Palettes
 import Qt5Compat.GraphicalEffects
 import CoreUI
+import QtQuick.Controls.impl as Impl
 CItemDelegate {
-
     id: control
     property bool expanded: false
 //    height: implicitHeight
     width: ListView.view? ListView.view.width: 100
     highlighted: ListView.view.currentIndex===index
-    onClicked: {expanded=(!expanded); ListView.view.currentIndex=index;}
-
+    onClicked: {expanded=(!expanded); ListView.view.currentIndex=index; control.forceActiveFocus();}
+    padding: 25
+    palette: BrandPrimary
+    {
+    }
 
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset ,
-                             implicitContentHeight + topPadding + bottomPadding,
+                             implicitContentHeight + topPadding + bottomPadding + (control.expanded? page.implicitHeight : 0),
                              implicitIndicatorHeight + topPadding + bottomPadding)
 
+    bottomInset: control.expanded? page.implicitHeight : 0
+
     z: control.highlighted? 1 : 0
-    property Item arrow: CLabel {
+
+    property Item arrow: Impl.IconImage {
         parent: control
         visible: true
         anchors.right: parent.right
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.rightMargin: 26
-        text: "‹"
-        font.pointSize: 26
-        rotation: control.expanded ? -90 : 90
+        anchors.rightMargin: 25
+        anchors.verticalCenter: contentItem.verticalCenter
+
+
+        name: "cil-accordion-arrow"
+        sourceSize.width: 32
+        sourceSize.height: 32
+        fillMode: Image.PreserveAspectFit
+        color: control.expanded? control.palette.inactive.button : control.palette.text
+        rotation: control.expanded ? 180 : 0
+        z: 100
 
         Behavior on color {
             ColorAnimation {
@@ -44,36 +56,63 @@ CItemDelegate {
     }
 
 
+    contentItem: Text {
+        text: control.text
+        color: control.expanded? control.palette.inactive.button : control.palette.text
+
+        verticalAlignment: Text.AlignVCenter
+        Rectangle{
+            anchors.fill: parent
+            color: "green"
+            opacity: 0.4
+        }
+    }
 
 
-    contentItem: AccordionContentItem{
-        expanded: control.expanded
+
+    property Item page: Card{
+        visible: control.expanded
+        padding: 25
+        parent: control
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        border.radius: 0
+        z: -1
+
+        CLabel{
+            anchors.fill: parent
+            text: qsTr("This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the.accordion-body, though the transition does limit overflow.")
+            wrapMode: Text.WordWrap
+            horizontalAlignment: Text.AlignLeft
+        }
     }
 
 
     background:Rectangle{
         RectangularGlow {
-            visible: control.highlighted || control.down || control.activeFocus
+            visible: control.activeFocus
             anchors.fill: parent
             glowRadius: 4;
             spread: 1
-            color: control.palette.highlight
-            opacity: 0.5
+            color: control.palette.button
             cached: true
             cornerRadius: 0
             smooth: true
             antialiasing: true
+            z:-1
+            opacity: 0.25
         }
-        color: control.palette.base
+        color: control.expanded? CoreUI.accordionActive : control.palette.base
         border.color: control.palette.shadow
         border.width:  CoreUI.borderWidth
     }
 
 
-
-    Behavior on height{
+    Behavior on implicitHeight{
         PropertyAnimation {
             duration: 75
         }
     }
+
 }

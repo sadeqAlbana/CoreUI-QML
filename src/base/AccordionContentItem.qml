@@ -6,16 +6,15 @@ Item{
         implicitHeight: header.implicitHeight + (control.expanded? content.implicitHeight : 0)
         implicitWidth: Math.max(header.implicitWidth, control.expanded? content.implicitWidth : 0)
 
-        Rectangle{
+        Text{
             id: header
-            implicitHeight: 50
-            implicitWidth: 200
-            width: 200
-            height: 50
-            color: "green"
+//            implicitHeight: 50
+//            implicitWidth: 200
+
             anchors.left: parent.left
             anchors.right: parent.right;
             anchors.top: parent.top
+            text: "test"
         }
 
 

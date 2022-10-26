@@ -16,6 +16,7 @@ CItemDelegate {
     palette: BrandPrimary
     {
     }
+    clip:true
 
 
     bottomInset: control.expanded? page.implicitHeight : 0
@@ -64,7 +65,7 @@ CItemDelegate {
 
 
     property Item page: Card{
-        visible: control.expanded
+        clip: true
         padding: 25
         parent: control
         anchors.left: parent.left
@@ -78,6 +79,12 @@ CItemDelegate {
             text: qsTr("This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the.accordion-body, though the transition does limit overflow.")
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignLeft
+        }
+
+        Behavior on height{
+            PropertyAnimation {
+                duration: 500
+            }
         }
     }
 
@@ -102,9 +109,15 @@ CItemDelegate {
     }
 
 
-    Behavior on implicitHeight{
+//    Behavior on implicitHeight{
+//        PropertyAnimation {
+//            duration: 500
+//        }
+//    }
+
+    Behavior on bottomInset{
         PropertyAnimation {
-            duration: 75
+            duration: 500
         }
     }
 

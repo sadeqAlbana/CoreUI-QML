@@ -17,11 +17,9 @@ CItemDelegate {
     {
     }
 
-    implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset ,
-                             implicitContentHeight + topPadding + bottomPadding + (control.expanded? page.implicitHeight : 0),
-                             implicitIndicatorHeight + topPadding + bottomPadding)
 
     bottomInset: control.expanded? page.implicitHeight : 0
+    bottomPadding: control.expanded? page.implicitHeight + padding : padding
 
     z: control.highlighted? 1 : 0
 
@@ -59,13 +57,8 @@ CItemDelegate {
     contentItem: Text {
         text: control.text
         color: control.expanded? control.palette.inactive.button : control.palette.text
-
         verticalAlignment: Text.AlignVCenter
-        Rectangle{
-            anchors.fill: parent
-            color: "green"
-            opacity: 0.4
-        }
+
     }
 
 

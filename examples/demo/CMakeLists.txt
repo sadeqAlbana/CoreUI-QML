@@ -23,6 +23,7 @@ qt_add_qml_module(appdemo
     pages/Colors.qml
     pages/Typography.qml
     pages/Accordions.qml
+    pages/Breadcrumb.qml
     components/DemoChartView.qml
     components/DemoValueAxis.qml
 )

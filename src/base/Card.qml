@@ -20,7 +20,7 @@ Page{
         radius: 5
     }
     LayoutMirroring.childrenInherit: true
-
+    padding: 20
     background: Rectangle{
         color : control.palette.base
         border.color: control.border.color;

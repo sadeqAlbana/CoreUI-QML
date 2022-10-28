@@ -35,6 +35,9 @@ function navBar(){
                     "childItems":[
                         {"title": qsTr("Accordion"),
                         "path":"qrc:/Demo/pages/Accordions.qml"
+                        },
+                        {"title": qsTr("Breadcrumb"),
+                        "path":"qrc:/Demo/pages/Breadcrumb.qml"
                         }
                     ]
                 },

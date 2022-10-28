@@ -70,7 +70,7 @@ CItemDelegate {
         parent: control
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.bottom: parent.bottom
+        y: control.height-height
         border.radius: 0
         z: -1
 
@@ -81,11 +81,13 @@ CItemDelegate {
             horizontalAlignment: Text.AlignLeft
         }
 
-        Behavior on height{
+        Behavior on y{
             PropertyAnimation {
                 duration: 500
             }
+
         }
+//       height: control.expanded? implicitHeight : 0
     }
 
 
@@ -109,16 +111,17 @@ CItemDelegate {
     }
 
 
+//    Behavior on bottomPadding{
+//        PropertyAnimation {
+//            duration: 500
+//        }
+
+//    }
+
 //    Behavior on implicitHeight{
 //        PropertyAnimation {
 //            duration: 500
 //        }
 //    }
-
-    Behavior on bottomInset{
-        PropertyAnimation {
-            duration: 500
-        }
-    }
 
 }

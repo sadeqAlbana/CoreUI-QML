@@ -97,7 +97,7 @@ Page {
                        Layout.fillWidth: true
                    }
 
-                   ColumnLayout{
+                   CTabView{
                        Layout.fillWidth: true
 
                        Accordion{

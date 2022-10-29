@@ -37,7 +37,7 @@ function navBar(){
                         "path":"qrc:/Demo/pages/Accordions.qml"
                         },
                         {"title": qsTr("Breadcrumb"),
-                        "path":"qrc:/Demo/pages/Breadcrumb.qml"
+                        "path":"qrc:/Demo/pages/BreadcrumbPage.qml"
                         }
                     ]
                 },

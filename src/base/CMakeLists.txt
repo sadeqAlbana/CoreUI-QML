@@ -14,6 +14,7 @@ set(qml_files
     "Accordion.qml"
     "AccordionDelegate.qml"
     "AccordionContentItem.qml"
+    "Breadcrumb.qml"
 )
 
 qt_add_library(coreuibase STATIC)

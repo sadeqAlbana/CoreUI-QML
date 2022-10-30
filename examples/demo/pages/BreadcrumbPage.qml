@@ -37,9 +37,17 @@ Page {
                    anchors.fill: parent
                CLabel{
                   text: qsTr("CoreUI Breadcrumb has been created as an extension of Bootstrap Breadcrumb. Breadcrumb is delivered with some new features, variants, and unique design that matches CoreUI Design System requirements.")
+                  Layout.fillWidth: true
+                  wrapMode: Text.WordWrap
+                  horizontalAlignment: Text.AlignLeft
                }
                CLabel{
-                   text: qsTr("For more information please visit our official documentation.")
+                   text: qsTr("For more information please visit our official <a href='https://coreui.io/docs/components/breadcrumb'>documentation</a>.")
+                   textFormat: Text.RichText
+
+                   Layout.fillWidth: true
+                   wrapMode: Text.WordWrap
+                   horizontalAlignment: Text.AlignLeft
                }
                }
            }//card
@@ -50,11 +58,14 @@ Page {
                Layout.fillWidth: true
                ColumnLayout{
                    anchors.fill: parent
+                   spacing: 25
                    CLabel{
-                      text: qsTr("The breadcrumb navigation provides links back to each previous page the user navigated through and shows the current location in a website or an application. You don’t have to add separators, because they automatically added in CSS through ::before and content.")
+                      text: qsTr("The breadcrumb navigation provides links back to each previous page the user navigated through and shows the current location in a website or an application. You don’t have to add separators, because they automatically added in CSS through <a href='https://developer.mozilla.org/en-US/docs/Web/CSS/::before'>::before</a> and <a href='https://developer.mozilla.org/en-US/docs/Web/CSS/content'>content</a>.")
+                      textFormat: Text.RichText
                       Layout.fillWidth: true
                       wrapMode: Text.WordWrap
                       horizontalAlignment: Text.AlignLeft
+
                    }
 
                    CTabView{

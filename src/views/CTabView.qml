@@ -6,7 +6,7 @@ import CoreUI.Base
 import CoreUI
 CPage {
     id: control
-    default property alias content: stack.children
+    default property alias content: stack.data
     palette.window: CoreUI.color(CoreUI.Tab)
     padding: 20
     header: CTabBar{
@@ -29,6 +29,6 @@ CPage {
     StackLayout{
         id: stack
         anchors.fill: parent;
-        currentIndex: tabBar.currentIndex
+        Component.onCompleted: currentIndex= Qt.binding(function(){return tabBar.currentIndex})
     }
 }

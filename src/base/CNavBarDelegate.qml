@@ -47,7 +47,7 @@ CItemDelegate {
             color: control.hovered ? control.palette.highlightedText: control.palette.text
 
             font.bold: control.hovered
-            rotation: control.expanded ? -90 : 0
+            rotation: control.expanded ? -90 : 90
 
             Behavior on color {
                 ColorAnimation {
@@ -95,9 +95,6 @@ CItemDelegate {
         PropertyAnimation {
             duration: 75
         }
-//        SequentialAnimation {
-
-//        }
     }
 
     onClicked: {

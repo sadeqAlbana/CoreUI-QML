@@ -5,7 +5,7 @@
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
 import QtQuick;
-import QtQuick.Controls;
+import CoreUI
 
 CPalette{
     id: pal

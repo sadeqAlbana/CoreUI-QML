@@ -14,7 +14,7 @@ Drawer {
     property url icon;
     property int iconWidth: 24
     property int iconHeight: 24
-
+    property alias currentIndex: listView.currentIndex
     width: 256
     height: rootItem.height
     dim: rootItem.drawerAboveContent
@@ -37,6 +37,7 @@ Drawer {
         footerPositioning: ListView.OverlayFooter
         model: drawer.navModel
         property real delegateHeight: 0
+
 
 
         header: CButton{

@@ -37,4 +37,9 @@ T.ItemDelegate {
         color: Color.blend(control.down ? control.palette.midlight : control.palette.light,
                                           control.palette.highlight, control.visualFocus ? 0.15 : 0.0)
     }
+
+    HoverHandler {
+        acceptedDevices: PointerDevice.Mouse
+        cursorShape: Qt.PointingHandCursor
+    }
 }

@@ -13,6 +13,7 @@ CApplicationWindow {
 
     rootLoader.sourceComponent: MainScreen{
         anchors.fill: parent;
+        initialIndex: 5
     }
 
 }

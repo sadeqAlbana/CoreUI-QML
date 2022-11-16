@@ -1,5 +1,5 @@
 import QtQuick
-
+import CoreUI
 Palette {
     window: "#ebedef"
     windowText: "#f22c384a"

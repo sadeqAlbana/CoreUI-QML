@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls.Basic
 import CoreUI.Palettes
+import QtQuick.Window
 ApplicationWindow {
     id: window
     visible: true
@@ -8,7 +9,7 @@ ApplicationWindow {
     height: 480
     title: qsTr("CoreUI")
     visibility: Window.Maximized
-    minimumWidth: rootLoader.implicitWidth
+    minimumWidth: Math.min(rootLoader.implicitWidth,Screen.width)
     minimumHeight: rootLoader.implicitHeight
     LayoutMirroring.enabled: (Qt.application.layoutDirection === Qt.RightToLeft ? true : false)
     LayoutMirroring.childrenInherit: true

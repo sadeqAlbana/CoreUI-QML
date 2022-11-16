@@ -28,6 +28,21 @@ function navBar(){
                 },
 
                 {
+                    "title": qsTr("Base"),
+                    "image": "cil-puzzle",
+                    "category":"COMPONENTS",
+
+                    "childItems":[
+                        {"title": qsTr("Accordion"),
+                        "path":"qrc:/Demo/pages/Accordions.qml"
+                        },
+                        {"title": qsTr("Breadcrumb"),
+                        "path":"qrc:/Demo/pages/BreadcrumbPage.qml"
+                        }
+                    ]
+                },
+
+                {
                     "title": qsTr("Buttons"),
                     "image": "cil-cursor",
                     "category":"COMPONENTS",

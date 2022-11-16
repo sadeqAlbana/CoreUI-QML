@@ -24,9 +24,10 @@ Item {
     implicitHeight: stack.implicitHeight
     property var navBar: NavJS.navBar();
     property var permissionProvider: null
-    property url icon: "qrc:/icons/CoreUI/brand/cib-coreui.svg"
-    property int iconWidth: 48
-    property int iconHeight: 48
+    property url icon: "qrc:/icons/CoreUI/brand/cib-coreui-cropped.svg"
+    property int iconWidth: 90
+    property int iconHeight: 33
+    property int initialIndex: 0;
     //    property bool drawerAboveContent : ApplicationWindow.window.mobileLayout
     property bool drawerAboveContent : false
     onDrawerAboveContentChanged: {
@@ -56,6 +57,13 @@ Item {
                 return -1
             }
         }
+
+        Component.onCompleted: {
+            if(initialIndex>0){
+                drawer.currentIndex=initialIndex
+            }
+        }
+
     }
 
     CToolBar{

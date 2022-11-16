@@ -102,7 +102,7 @@ Item {
                     id:menu
                     parent: ctrl
                     y:parent.height
-                    actions: [Action{text: qsTr("Logout"); icon.name: "cil-account-logout"; onTriggered: AuthManager.logout();}]
+                    actions: [CAction{text: qsTr("Logout"); icon.name: "cil-account-logout"; onTriggered: AuthManager.logout();}]
                 }
 
                 layer.effect: OpacityMask {

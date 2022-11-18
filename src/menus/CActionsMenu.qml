@@ -9,7 +9,13 @@ CMenu {
         model: actions.length
         CMenuItem {
             action: actions[index]
-            visible: (control.permissionProvider && actions[index].permission)?
+            Component.onCompleted: {
+                console.log(((control.permissionProvider!==null) && (actions[index].permission.length>0)))
+            }
+            visible: (control.permissionProvider!==null) && (actions[index].permission.length>0)?
+                         control.permissionProvider(actions[index].permission) :
+                         true
+            enabled: (control.permissionProvider!==null) && (actions[index].permission.length>0)?
                          control.permissionProvider(actions[index].permission) :
                          true
         }

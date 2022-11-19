@@ -46,6 +46,7 @@ Drawer {
             width: parent.width
             height: toolBar.height
             checkable: false
+            icon.color: palette.brightText
             icon.source: drawer.icon
             icon.height: drawer.iconHeight
             icon.width: drawer.iconWidth;

@@ -29,7 +29,7 @@ TableView{
     property bool validRow: selectedRow>=0
     property int __lastImplicitWidth: 0;
     property alias headerDelegate: horizontalHeaderView.delegate
-    property var permissionProvider: null
+    property var permissionProvider: undefined
 
 
     HorizontalHeaderView{

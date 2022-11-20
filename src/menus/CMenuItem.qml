@@ -5,8 +5,8 @@ import CoreUI.Palettes
 MenuItem {
     id: control
     palette: BrandPrimary{}
-    icon.color: control.disabled? control.palette.disabled.windowText :
-                                  control.down? control.palette.active.windowText : control.palette.inactive.windowText
+    icon.color: control.enabled?  control.down? control.palette.active.windowText : control.palette.inactive.windowText :
+    control.palette.disabled.windowText
 
     contentItem: Impl.IconLabel {
         readonly property real arrowPadding: control.subMenu && control.arrow ? control.arrow.width + control.spacing : 0
@@ -21,8 +21,8 @@ MenuItem {
         icon: control.icon
         text: control.text
         font: control.font
-        color: control.disabled? control.palette.disabled.windowText :
-                   control.down? control.palette.active.windowText : control.palette.inactive.windowText
+        color: control.enabled?  control.down? control.palette.active.windowText : control.palette.inactive.windowText :
+        control.palette.disabled.windowText
     }
     background: Rectangle {
         implicitWidth: 250

@@ -49,6 +49,7 @@ CTextField {
 
         palette.window: "#fff"
 
+        onActiveFocusChanged: if(!activeFocus) popup.close();
 
         GridLayout {
             id: layout
@@ -120,7 +121,7 @@ CTextField {
 
 
                 onClicked: (date)=> {
-                    control.date=date
+                    control.date=date;
                 }
             }
 

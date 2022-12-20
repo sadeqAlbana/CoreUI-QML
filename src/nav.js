@@ -54,6 +54,18 @@ function navBar(){
                     ]
                 },
 
+                {
+                    "title": qsTr("Forms"),
+                    "image": "cil-notes",
+                    "category":"COMPONENTS",
+
+                    "childItems":[
+                        {"title": qsTr("Form Control"),
+                        "path":"qrc:/Demo/pages/forms/FormControl.qml"
+                        }
+                    ]
+                },
+
 
             ];
 }

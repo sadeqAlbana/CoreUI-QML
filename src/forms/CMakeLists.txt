@@ -14,6 +14,7 @@ set(qml_files
     "CTextFieldGroup.qml"
     "CTextInputGroup.qml"
     "FormGroup.qml"
+    "CForm.qml"
 
 )
 

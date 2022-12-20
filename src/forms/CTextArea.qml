@@ -21,42 +21,36 @@ TextArea {
         color: "#d8dbe0";
         radius: 4
     }
-    background: RoundedRect{
-        color : "#fff"
+    background: Rectangle{
+        //border.width: 3
+        implicitHeight: 40
+        implicitWidth: 200
+        color : control.palette.base
         border.color: control.border.color
         radius: control.border.radius
-    }
-    layer.effect: Glow {
-        //samples: 8
-        spread: 1
-        color: glowColor
-        transparentBorder: true
-        cached: true
-    }
+        layer.effect: Glow {
+            //samples: 8
+            spread: 1
+            color: glowColor
+            transparentBorder: true
+            cached: true
+        }
+
+
+    }//background
+
 
     states: [
-        State{
-            name: "rejected and active"
-            when:  !acceptableInput && activeFocus
-            PropertyChanges {target: control.border; color: "red";}
-            PropertyChanges {target: layer; enabled: true;}
-            PropertyChanges {target: control; glowColor: "#F2A8A8";}
-        },
-        State{
-            name: "rejected"
-            when: !acceptableInput
-            PropertyChanges {target: control.border; color: "red";}
-        },
         State{
             name: "active"
             when: activeFocus
             PropertyChanges {target: control.border; color: "#8AD4EE";}
-            PropertyChanges {target: layer; enabled: true;}
+            PropertyChanges {target: background.layer; enabled: true;}
         },
         State{
             name: "disabled"
             when: !enabled
-            PropertyChanges {target: control; color: "#E4E7EA";}
+            PropertyChanges {target: control.palette; base: "#E4E7EA";}
         }
     ]
 }

@@ -13,7 +13,7 @@ CApplicationWindow {
 
     rootLoader.sourceComponent: MainScreen{
         anchors.fill: parent;
-        initialIndex: 5
+        initialIndex: 9
     }
 
 }

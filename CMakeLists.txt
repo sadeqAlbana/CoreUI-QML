@@ -12,7 +12,7 @@ add_subdirectory(libs/QmlRoundedRectangle)
 if(COREUI_BUILD_EXAMPLES)
 add_subdirectory(examples)
 endif()
-list(APPEND QML_DIRS "${CMAKE_CURRENT_BINARY_DIR}/qml")
+list(APPEND QML_DIRS "${CMAKE_CURRENT_BINARY_DIR}/qml" )
 
 #list(APPEND QML_DIRS "C:/Users/sadeq/projects/Qt/coreuimig/CoreUIQml/src/impl")
 
@@ -23,9 +23,9 @@ target_sources(coreuiplugin
 
     list(APPEND QML_DIRS "${CMAKE_CURRENT_BINARY_DIR}/src")
     list(REMOVE_DUPLICATES QML_DIRS)
-#    set(QML_IMPORT_PATH ${QML_IMPORT_PATH}
-#        CACHE STRING "Qt Creator 4.1 extra qml import paths"
-#        FORCE
-#    )
+    set(QML_IMPORT_PATH ${QML_DIRS}
+        CACHE STRING "Qt Creator 4.1 extra qml import paths"
+        FORCE
+    )
 
 

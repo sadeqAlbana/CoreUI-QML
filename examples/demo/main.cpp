@@ -13,7 +13,7 @@ Q_IMPORT_QML_PLUGIN(CoreUIPlugin)
 int main(int argc, char *argv[])
 {
     //#ifndef Q_OS_ANDROID
-        qputenv("QT_FONT_DPI","96");
+       // qputenv("QT_FONT_DPI","96");
     //#endif
 
 

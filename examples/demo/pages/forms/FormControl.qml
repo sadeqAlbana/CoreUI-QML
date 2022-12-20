@@ -184,10 +184,53 @@ Page {
                             columnSpacing: 100
                             rowSpacing: 25
                             CLabel{text: qsTr("Email Address");}
-                            CLabel{objectName: "email"; text: "name@example.com";Layout.fillWidth: true; horizontalAlignment: Text.AlignLeft}
+                            CLabel{objectName: "email"; text: "email@example.com";Layout.fillWidth: true; horizontalAlignment: Text.AlignLeft}
 
                             CLabel{text: qsTr("Password");}
                             CTextField{objectName: "password"; Layout.fillWidth: true; echoMode: TextInput.Password}
+                        }//GridLayout
+                    } //CTabView
+
+                    CTabView {
+                        Layout.fillWidth: true
+
+                        GridLayout {
+                            columns: 2
+                            columnSpacing: 100
+                            rowSpacing: 25
+                            CLabel{text: "email@example.com"}
+                            CTextField{objectName: "password";  echoMode: TextInput.Password; text: "1234"}
+
+                            CButton{
+                                palette: BrandPrimary{}
+                                text: qsTr("Confirm identity")
+
+                            }
+                        }//GridLayout
+                    } //CTabView
+
+                }//ColumnLayout
+            } //Card
+
+            Card {
+                title: qsTr("<b>Form Control</b> File input")
+                header.visible: true
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignTop
+                padding: 25
+
+                ColumnLayout {
+                    anchors.fill: parent
+                    spacing: 20
+
+                    CTabView {
+                        Layout.fillWidth: true
+
+                        GridLayout {
+                            columns: 1
+
+                            CTextField{objectName: "input2"; placeholderText: qsTr("Readonly input here..."); readOnly: true;    Layout.fillWidth: true; }
+
                         }//GridLayout
                     } //CTabView
                 }//ColumnLayout

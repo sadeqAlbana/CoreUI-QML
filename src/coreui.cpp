@@ -6,8 +6,11 @@ CoreUI::CoreUI(QObject *parent)
     : QObject{parent}
 {
     m_primary=QRgb(CoreUI::Primary);
+    m_danger=QRgb(CoreUI::Danger);
+
     m_accordionBorderFocus=QRgb(CoreUI::AccordionFocusBorder);
     m_accordionActive=QRgb(CoreUI::AccordionActive);
+    m_boxShadow = color(CoreUI::BoxShadow);
 
 }
 
@@ -77,5 +80,44 @@ void CoreUI::setAccordionActive(const QColor &newAccordionActive)
         return;
     m_accordionActive = newAccordionActive;
     emit accordionActiveChanged();
+}
+
+QColor CoreUI::boxShadow() const
+{
+    return m_boxShadow;
+}
+
+void CoreUI::setBoxShadow(const QColor &newBoxShadow)
+{
+    if (m_boxShadow == newBoxShadow)
+        return;
+    m_boxShadow = newBoxShadow;
+    emit boxShadowChanged();
+}
+
+int CoreUI::borderRadius() const
+{
+    return m_borderRadius;
+}
+
+void CoreUI::setBorderRadius(int newBorderRadius)
+{
+    if (m_borderRadius == newBorderRadius)
+        return;
+    m_borderRadius = newBorderRadius;
+    emit borderRadiusChanged();
+}
+
+QColor CoreUI::danger() const
+{
+    return m_danger;
+}
+
+void CoreUI::setDanger(const QColor &newDanger)
+{
+    if (m_danger == newDanger)
+        return;
+    m_danger = newDanger;
+    emit dangerChanged();
 }
 

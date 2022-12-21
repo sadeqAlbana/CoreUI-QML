@@ -65,7 +65,8 @@ public:
         Tab = 0xF9FAFA,
         CardHeader = 0xF7F7F7, //set it to #00001508,
         AccordionFocusBorder=0x998fed,
-        AccordionActive=0xebe9fb
+        AccordionActive=0xebe9fb,
+        BoxShadow = 0x40321fdb
 
     };
     Q_ENUM(Color)
@@ -95,6 +96,15 @@ public:
     const QColor &accordionActive() const;
     void setAccordionActive(const QColor &newAccordionActive);
 
+    QColor boxShadow() const;
+    void setBoxShadow(const QColor &newBoxShadow);
+
+    int borderRadius() const;
+    void setBorderRadius(int newBorderRadius);
+
+    QColor danger() const;
+    void setDanger(const QColor &newDanger);
+
 signals:
     void borderWidthChanged();
 
@@ -106,18 +116,33 @@ signals:
 
     void accordionActiveChanged();
 
+    void boxShadowChanged();
+
+    void borderRadiusChanged();
+
+    void dangerChanged();
+
 private:
     int m_borderWidth=1;
+    int m_borderRadius=6;
+
     Theme m_there=ThemeLight;
 
     QColor m_primary;
+    QColor m_danger;
+
     QColor m_accordionBorderFocus;
     QColor m_accordionActive;
+    QColor m_boxShadow;
+
     Q_PROPERTY(int borderWidth READ borderWidth WRITE setBorderWidth NOTIFY borderWidthChanged)
     Q_PROPERTY(bool mobileLayout READ mobileLayout NOTIFY mobileLayoutChanged)
     Q_PROPERTY(QColor primary READ primary WRITE setPrimary RESET resetPrimary NOTIFY primaryChanged)
     Q_PROPERTY(QColor accordionBorderFocus READ accordionBorderFocus WRITE setAccordionBorderFocus NOTIFY accordionBorderFocusChanged)
     Q_PROPERTY(QColor accordionActive READ accordionActive WRITE setAccordionActive NOTIFY accordionActiveChanged)
+    Q_PROPERTY(QColor boxShadow READ boxShadow WRITE setBoxShadow NOTIFY boxShadowChanged)
+    Q_PROPERTY(int borderRadius READ borderRadius WRITE setBorderRadius NOTIFY borderRadiusChanged)
+    Q_PROPERTY(QColor danger READ danger WRITE setDanger NOTIFY dangerChanged)
 };
 
 #endif // COREUI_H

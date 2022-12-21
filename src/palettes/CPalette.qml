@@ -10,4 +10,5 @@ Palette {
     disabled.text: "#612c384a"
     link: "#2819AF"
     linkVisited: "#2C384A"
+    disabled.base: "#d8dbe0"
 }

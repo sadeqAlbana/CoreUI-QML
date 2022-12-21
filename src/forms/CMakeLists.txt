@@ -15,6 +15,8 @@ set(qml_files
     "CTextInputGroup.qml"
     "FormGroup.qml"
     "CForm.qml"
+    "FileInput.qml"
+    "StyledTextField.qml"
 
 )
 

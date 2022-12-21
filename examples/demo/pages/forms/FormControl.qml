@@ -271,6 +271,9 @@ Page {
 
                             CLabel{text: qsTr("Color picker");}
 
+                            ColorPicker{
+
+                            }
 
 
                         }//GridLayout

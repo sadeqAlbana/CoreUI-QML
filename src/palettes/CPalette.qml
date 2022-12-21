@@ -6,7 +6,7 @@ Palette {
     base: "#fff"
     text: "#f22c384a"
     alternateBase: "#F2F2F3"
-    shadow: "#d8dbe0"
+    shadow: "#b1b7c1"
     disabled.text: "#612c384a"
     link: "#2819AF"
     linkVisited: "#2C384A"

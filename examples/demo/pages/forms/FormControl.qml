@@ -228,8 +228,50 @@ Page {
 
                         GridLayout {
                             columns: 1
+                            rowSpacing: 10
 
-                            CTextField{objectName: "input2"; placeholderText: qsTr("Readonly input here..."); readOnly: true;    Layout.fillWidth: true; }
+                            CLabel{text: qsTr("Default file input example");}
+                            FileInput{objectName: "file";      Layout.fillWidth: true; }
+
+                            CLabel{text: qsTr("Multiple files input example");}
+                            FileInput{objectName: "multiple";  Layout.fillWidth: true; }
+
+                            CLabel{text: qsTr("Disabled file input example");}
+                            FileInput{objectName: "disabled";  Layout.fillWidth: true; enabled: false;}
+
+                            CLabel{text: qsTr("Small file input example");}
+                            FileInput{objectName: "small";     Layout.fillWidth: true; implicitHeight: 30;}
+
+                            CLabel{text: qsTr("Large file input example");}
+                            FileInput{objectName: "large";     Layout.fillWidth: true; implicitHeight: 50;}
+
+
+                        }//GridLayout
+                    } //CTabView
+                }//ColumnLayout
+            } //Card
+
+            Card {
+                title: qsTr("<b>Form Control</b> Color")
+                header.visible: true
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignTop
+                padding: 25
+
+                ColumnLayout {
+                    anchors.fill: parent
+                    spacing: 20
+
+                    CTabView {
+                        Layout.fillWidth: true
+
+                        GridLayout {
+                            columns: 1
+                            rowSpacing: 10
+
+                            CLabel{text: qsTr("Color picker");}
+
+
 
                         }//GridLayout
                     } //CTabView

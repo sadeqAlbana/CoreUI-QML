@@ -12,13 +12,20 @@ import Qt5Compat.GraphicalEffects
 import CoreUI.Impl
 import QtQuick.Controls.impl as Impl
 import QtQuick.Layouts
+import CoreUI.Base
 
-CTextField {
+StyledTextField {
 
     id: control
 
-    readOnly: true
+    leftDelegate: CLabel{
+        text: qsTr("Browse...")
+        leftPadding: 10
+        rightPadding: 10
+    }
 
+    readOnly: true
+    placeholderText: qsTr("No Files Selected.");
 
     HoverHandler {
         id: mouse

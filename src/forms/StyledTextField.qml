@@ -1,80 +1,65 @@
+
+
 /*
  * Copyright (C) 2022 Sadeq Albana
  *
  * Licensed under the GNU Lesser General Public License v3.0 :
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
-
-import QtQuick;
-import QtQuick.Controls.Basic;
+import QtQuick
+import QtQuick.Controls.Basic
 import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
 import CoreUI.Impl
 import QtQuick.Controls.impl as Impl
 import QtQuick.Layouts
+import CoreUI.Base
+import CoreUI
 CTextField {
-    id:control
-    selectByMouse: true
-//    palette.base: "#fff"
-    property color glowColor : "#DCD9F9"
-    property string leftIcon
-    property string rightIcon
-
-
-
-    property CBorder border: CBorder{
-        color: "#d8dbe0";
-        radius: 4
-    }
+    id: control
 
     property Component leftDelegate: null
     property Component rightDelegate: null
     readonly property Item leftDelegateItem: null
     readonly property Item rightDelegateItem: null
+    property string helpBlock;
 
-    property alias helpBlock: helpBlockLoader.sourceComponent
-    signal entered(var text)
-    onAccepted: entered(control.text)
+
+
+
 
     bottomInset: helpBlockLoader.visible ? helpBlockLoader.implicitHeight : 0
-    bottomPadding:bottomInset+padding
+    bottomPadding: bottomInset + padding
 
     leftInset: leftDelegateContainer.visible ? leftDelegateContainer.implicitWidth : 0
-    leftPadding:leftDelegateContainer.visible ? leftInset+padding : leftPadding
+    leftPadding: leftDelegateContainer.visible ? leftInset + padding : leftPadding
 
     rightInset: rightDelegateContainer.visible ? rightDelegateContainer.implicitWidth : 0
-    rightPadding:rightDelegateContainer.visible ? rightInset+padding : rightPadding
+    rightPadding: rightDelegateContainer.visible ? rightInset + padding : rightPadding
 
-
-
-
-    component Delegate :
-        ItemDelegate { //change to item delegate ?
-        visible: (icon.name!="")
+    component Delegate: ItemDelegate {
+        //change to item delegate ?
+        visible: (icon.name !== "")
         //padding: height/2
-        anchors.fill: parent;
+        anchors.fill: parent
         implicitHeight: 50
         implicitWidth: implicitHeight
         icon.color: "#5C6873"
     }
 
-
-
-    component HelpBlockDelegate:    Label{
+    component HelpBlockDelegate: CLabel {
         topPadding: 5
         font.pixelSize: 14
         font.italic: true
     }
 
-
-
-    background: RoundedRect{
+    background: RoundedRect {
         //border.width: 3
         implicitHeight: 40
         implicitWidth: 200
-        color : control.palette.base
-        border.color: control.border.color
-        radius: control.border.radius
+        color: control.palette.base
+        border.color: control.palette.shadow
+        radius: CoreUI.borderRadius
         topLeft: !leftDelegateContainer.visible
         bottomLeft: !leftDelegateContainer.visible
 
@@ -87,113 +72,77 @@ CTextField {
             transparentBorder: true
             cached: true
         }
+    } //background
 
-
-    }//background
-
-    RoundedRect{
-        id: leftDelegateContainer;
+    RoundedRect {
+        id: leftDelegateContainer
         clip: true
-        //visible: leftDelegate.icon.name!=""
         topRight: false
         bottomRight: false
-        radius: control.border.radius
-
-        anchors{
+        radius: CoreUI.borderRadius
+        visible: true
+        anchors {
             top: control.top
             bottom: control.bottom
             left: control.left
             right: control.background.left
             bottomMargin: control.bottomInset
-            rightMargin: -1*(control.border.width)
+            rightMargin: -1 * (CoreUI.borderWidth)
         }
-
-
-        //color: "red"
         implicitWidth: leftDelegateLoader.implicitWidth
-        implicitHeight: parent.height
-        color: "#F0F3F5"
+        implicitHeight: leftDelegateLoader.implicitHeight
+        color: control.palette.disabled.base
         z: visible ? -2 : 0
 
-        border.color: control.border.color
-        border.width: control.border.width
+        border.color: control.palette.shadow
+        border.width: CoreUI.borderWidth
 
-
-        Loader{
+        Loader {
             id: leftDelegateLoader
-            sourceComponent: leftDelegate;
+            anchors.fill: parent
+            visible: sourceComponent !== undefined
+            sourceComponent: leftDelegate
+
         }
 
-//        Delegate{
-//            id: leftDelegate
-//            icon.name: control.leftIcon;
-//            onClicked: control.entered(control.text)
 
-//        }
     }
 
-    RoundedRect{
-        id: rightDelegateContainer;
+    RoundedRect {
+        id: rightDelegateContainer
         clip: true
-        visible: rightDelegate.icon.name!=""
         topLeft: false
         bottomLeft: false
-        radius: control.border.radius
-        anchors.top: control.top
-        anchors.bottom: control.bottom
-        anchors.right: control.right
-        anchors.bottomMargin: control.bottomInset
-        anchors.leftMargin: -1*(control.border.width)
-        anchors.left: background.right
+        radius: CoreUI.borderRadius
+        anchors{
+            top: control.top
+            bottom: control.bottom
+            right: control.right
+            bottomMargin: control.bottomInset
+            leftMargin: -1 * (CoreUI.borderWidth)
+            left: background.right
+        }
+
         implicitHeight: parent.height
-        implicitWidth: rightDelegate.implicitWidth
-        color: "#F0F3F5"
+        implicitWidth: rightDelegateLoader.implicitWidth
+        color: control.palette.disabled.base
         z: visible ? -2 : 0
 
-        border.color: control.border.color
-        border.width: control.border.width
+        border.color: control.palette.shadow
+        border.width:CoreUI.borderWidth
 
-        //children[0]:rightDelegate
-
-        Delegate{
-            id: rightDelegate
-            icon.name: control.rightIcon
-            onClicked: control.entered(control.text)
+        Loader {
+            id: rightDelegateLoader
+            visible: sourceComponent !== undefined
+            anchors.fill: parent;
+            sourceComponent: rightDelegate
         }
     }
 
-
-
-    states: [
-        State{
-            name: "rejected and active"
-            when:  !acceptableInput && activeFocus
-            PropertyChanges {target: control.border; color: "red";}
-            PropertyChanges {target: background.layer; enabled: true;}
-            PropertyChanges {target: control; glowColor: "#F2A8A8";}
-        },
-        State{
-            name: "rejected"
-            when: !acceptableInput
-            PropertyChanges {target: control.border; color: "red";}
-        },
-        State{
-            name: "active"
-            when: activeFocus
-            PropertyChanges {target: control.border; color: "#8AD4EE";}
-            PropertyChanges {target: background.layer; enabled: true;}
-        },
-        State{
-            name: "disabled"
-            when: !enabled
-            PropertyChanges {target: control.palette; base: "#E4E7EA";}
-        }
-    ]
-
-    Loader{
+    Loader {
         id: helpBlockLoader
-        visible: sourceComponent!==undefined
-        anchors.bottom: control.bottom;
+        visible: sourceComponent !== undefined
+        anchors.bottom: control.bottom
         anchors.left: control.left
         anchors.right: control.right
     }

@@ -17,6 +17,7 @@ set(qml_files
     "CForm.qml"
     "FileInput.qml"
     "StyledTextField.qml"
+    "ColorPicker.qml"
 
 )
 

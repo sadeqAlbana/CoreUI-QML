@@ -281,6 +281,63 @@ Page {
                 }//ColumnLayout
             } //Card
 
+            Card {
+                title: qsTr("<b>Form Control</b> Datalists")
+                header.visible: true
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignTop
+                padding: 25
+
+                ColumnLayout {
+                    anchors.fill: parent
+                    spacing: 20
+
+                    CTabView {
+                        Layout.fillWidth: true
+
+                        GridLayout {
+                            columns: 1
+                            rowSpacing: 10
+
+                            CLabel{
+                                textFormat: Text.RichText
+                                text: qsTr("Datalists allow you to create a group of <code style='color: #D63384'>&lt;option&gt;</code>s that can be accessed (and autocompleted) from within an <code style='color: #D63384'>&lt;input&gt;</code>. These are similar to <code style='color: #D63384'>&lt;select&gt;</code> elements, but come with more menu styling limitations and differences. While most browsers and operating systems include some support for <code style='color: #D63384'>&lt;datalist&gt;</code> elements, their styling is inconsistent at best.");
+                                wrapMode: Text.WordWrap
+                                Layout.fillWidth: true
+                                horizontalAlignment: Text.AlignLeft
+
+                            }
+
+                            CLabel{
+                                textFormat: Text.RichText
+                                text: qsTr("Learn more about <a href='https://caniuse.com/datalist'>support for datalist elements</a>.");
+                                wrapMode: Text.WordWrap
+                                Layout.fillWidth: true
+                                horizontalAlignment: Text.AlignLeft
+                            }
+
+
+                            CTabView {
+                                Layout.fillWidth: true
+
+                                GridLayout {
+                                    columns: 1
+                                    rowSpacing: 10
+
+                                    CLabel{text: qsTr("Datalist example");}
+
+                                    CTextField{placeholderText: qsTr("Type to search..."); Layout.fillWidth: true;}
+
+
+                                }//GridLayout
+                            } //CTabView
+
+
+                        }//GridLayout
+                    } //CTabView
+                }//ColumnLayout
+            } //Card
+
         }//ColumnLayout
     }
 }

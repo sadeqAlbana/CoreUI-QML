@@ -234,7 +234,7 @@ Page {
                             FileInput{objectName: "file";      Layout.fillWidth: true; }
 
                             CLabel{text: qsTr("Multiple files input example");}
-                            FileInput{objectName: "multiple";  Layout.fillWidth: true; }
+                            FileInput{objectName: "multiple";  Layout.fillWidth: true; dialog.fileMode: FileDialog.OpenFiles}
 
                             CLabel{text: qsTr("Disabled file input example");}
                             FileInput{objectName: "disabled";  Layout.fillWidth: true; enabled: false;}

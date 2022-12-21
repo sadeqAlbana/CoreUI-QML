@@ -13,10 +13,36 @@ import CoreUI.Impl
 import QtQuick.Controls.impl as Impl
 import QtQuick.Layouts
 import CoreUI.Base
-
+import QtQuick.Dialogs
 StyledTextField {
-
     id: control
+    property alias dialog: dlg
+    function openDialog(){
+        dlg.open();
+    }
+
+    FileDialog{
+        id: dlg
+
+        onAccepted: {
+            switch(fileMode){
+            case FileDialog.OpenFile: control.text=selectedFile; break;
+            case FileDialog.OpenFiles: {
+            let files=""
+
+                for(let i=0; i<selectedFiles.length; i++){
+                    files=files+selectedFiles[i]+","
+                }
+
+                files.slice(0,-1)
+
+                control.text=files;
+
+            } break;
+            default: break;
+            }
+        }
+    }
 
     leftDelegate: CLabel{
         text: qsTr("Browse...")
@@ -27,9 +53,10 @@ StyledTextField {
     readOnly: true
     placeholderText: qsTr("No Files Selected.");
 
-    HoverHandler {
+    MouseArea {
         id: mouse
-        acceptedDevices: PointerDevice.Mouse
+        anchors.fill: parent
         cursorShape: Qt.PointingHandCursor
+        onClicked: control.openDialog();
     }
 }

@@ -27,7 +27,9 @@ T.ItemDelegate {
         icon: control.icon
         text: control.text
         font: control.font
-        color: control.highlighted ? control.palette.highlightedText : control.palette.text
+        //color: control.highlighted ? control.palette.highlightedText : control.palette.text
+        color: control.palette.text
+
     }
 
     background: Rectangle {
@@ -38,8 +40,9 @@ T.ItemDelegate {
                                           control.palette.highlight, control.visualFocus ? 0.15 : 0.0)
     }
 
-    HoverHandler {
-        acceptedDevices: PointerDevice.Mouse
-        cursorShape: Qt.PointingHandCursor
-    }
+//    HoverHandler {
+//        acceptedDevices: PointerDevice.Mouse
+//        cursorShape: Qt.PointingHandCursor
+
+//    }
 }

@@ -62,6 +62,16 @@ function navBar(){
                     "childItems":[
                         {"title": qsTr("Form Control"),
                         "path":"qrc:/Demo/pages/forms/FormControl.qml"
+                        },
+                        {"title": qsTr("Select"),
+                        "path":"qrc:/Demo/pages/forms/SelectPage.qml"
+                        },
+                        {"title": qsTr("Multi Select"),
+                        "path":"qrc:/Demo/pages/forms/SelectPage.qml",
+                            "badge": {
+                                "variant": "danger",
+                                "text": "PRO"
+                            }
                         }
                     ]
                 },

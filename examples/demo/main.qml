@@ -9,11 +9,9 @@ import CoreUI.Base
 import CoreUI.Buttons
 import CoreUI.Forms
 CApplicationWindow {
-
-
     rootLoader.sourceComponent: MainScreen{
         anchors.fill: parent;
-        initialIndex: 9
+        initialIndex: 10
     }
 
 }

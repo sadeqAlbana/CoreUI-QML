@@ -8,7 +8,7 @@ CPalette {
     active.buttonText: "#fff"
     text: "#afb5c0"
     highlightedText: "#fff"
-    highlight: "#321fdb"
+    highlight: "#46546c"
     base: "#46546c"
     inactive.base: "#46546c"
 }

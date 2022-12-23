@@ -51,13 +51,14 @@ CComboBox {
     Control {
         id: leftDelegateContainer
         clip: true
-        leftPadding: 10
-        rightPadding: 10
+        padding: 10
         background: RoundedRect{
             topRight: false
             bottomRight: false
             radius: CoreUI.borderRadius
             color: control.palette.disabled.base
+            border.color: control.palette.shadow
+            border.width: CoreUI.borderWidth
 
         }
 
@@ -70,22 +71,16 @@ CComboBox {
             bottomMargin: control.bottomInset
             rightMargin: -1 * (CoreUI.borderWidth)
         }
-        //implicitWidth: leftDelegateLoader.implicitWidth
-        //implicitHeight: leftDelegateLoader.implicitHeight
+
         z: visible ? -2 : 0
 
-        border.color: control.palette.shadow
-        border.width: CoreUI.borderWidth
 
-        Loader {
-            id: leftDelegateLoader
+
+        contentItem: Loader {
             anchors.fill: parent
             visible: sourceComponent !== undefined
             sourceComponent: leftDelegate
-
         }
-
-
     }
 
     Control {

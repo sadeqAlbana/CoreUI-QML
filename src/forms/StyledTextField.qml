@@ -78,7 +78,7 @@ CTextField {
 
         }
 
-        visible: true
+        visible: contentItem.implicitWidth
         anchors {
             top: control.top
             bottom: control.bottom
@@ -93,37 +93,42 @@ CTextField {
 
 
         contentItem: Loader {
-            anchors.fill: parent
             visible: sourceComponent !== undefined
             sourceComponent: leftDelegate
         }
     }
 
-    RoundedRect {
+    Control {
         id: rightDelegateContainer
         clip: true
-        topLeft: false
-        bottomLeft: false
-        radius: CoreUI.borderRadius
+        padding: 10
+        background: RoundedRect{
+            topLeft: false
+            bottomLeft: false
+            radius: CoreUI.borderRadius
+            border.color: control.palette.shadow
+            border.width: CoreUI.borderWidth
+            color: control.palette.disabled.base
+
+        }
+
         anchors {
             top: control.top
             bottom: control.bottom
+            left: control.background.right
             right: control.right
             bottomMargin: control.bottomInset
             leftMargin: -1 * (CoreUI.borderWidth)
-            left: background.right
         }
 
+
+
+
         implicitHeight: parent.height
-        implicitWidth: rightDelegateLoader.implicitWidth
-        color: control.palette.disabled.base
         z: visible ? -2 : 0
 
-        border.color: control.palette.shadow
-        border.width: CoreUI.borderWidth
-
-        Loader {
-            id: rightDelegateLoader
+        visible: contentItem.implicitWidth
+        contentItem: Loader {
             visible: sourceComponent !== undefined
             anchors.fill: parent
             sourceComponent: rightDelegate

@@ -1,11 +1,3 @@
-
-
-/*
- * Copyright (C) 2022 Sadeq Albana
- *
- * Licensed under the GNU Lesser General Public License v3.0 :
- * https://www.gnu.org/licenses/lgpl-3.0.html
- */
 import QtQuick
 import QtQuick.Controls.Basic
 import QtQuick.Controls
@@ -16,35 +8,27 @@ import QtQuick.Layouts
 import CoreUI.Base
 import CoreUI
 
-CTextField {
+CComboBox {
     id: control
 
     property Component leftDelegate: null
     property Component rightDelegate: null
     readonly property Item leftDelegateItem: null
     readonly property Item rightDelegateItem: null
-    property HelpBlock helpBlock: HelpBlock {}
 
-    bottomInset: helpBlockLabel.visible ? helpBlockLabel.implicitHeight : 0
-    bottomPadding: bottomInset + padding
 
-    leftInset: leftDelegateContainer.visible ? leftDelegateContainer.implicitWidth : 0
-    leftPadding: leftDelegateContainer.visible ? leftInset + padding : leftPadding
+    leftPadding: padding +
+                 (!control.mirrored || !indicator || !indicator.visible ? 0 : indicator.width + spacing) + leftInset
 
-    rightInset: rightDelegateContainer.visible ? rightDelegateContainer.implicitWidth : 0
-    rightPadding: rightDelegateContainer.visible ? rightInset + padding : rightPadding
+    leftInset: (control.mirrored || !leftDelegateContainer.visible ? 0 : leftDelegateContainer.implicitWidth)
+    rightPadding: padding +
+                  (control.mirrored || !indicator || !indicator.visible ? 0 : indicator.width + spacing) +rightInset
 
-    component Delegate: ItemDelegate {
-        //change to item delegate ?
-        visible: (icon.name !== "")
-        //padding: height/2
-        anchors.fill: parent
-        implicitHeight: 50
-        implicitWidth: implicitHeight
-        icon.color: "#5C6873"
-    }
+    rightInset: (control.mirrored || !rightDelegateContainer.visible ? 0 : rightDelegateContainer.implicitWidth)
+
 
     background: RoundedRect {
+        //border.width: 3
         implicitHeight: 40
         implicitWidth: 200
         color: control.palette.base
@@ -52,13 +36,13 @@ CTextField {
         radius: CoreUI.borderRadius
         topLeft: !leftDelegateContainer.visible
         bottomLeft: !leftDelegateContainer.visible
+
         topRight: !rightDelegateContainer.visible
         bottomRight: !rightDelegateContainer.visible
-        layer.enabled: control.activeFocus
-
         layer.effect: Glow {
+            //samples: 8
             spread: 1
-            color: CoreUI.boxShadow
+            color: glowColor
             transparentBorder: true
             cached: true
         }
@@ -67,14 +51,13 @@ CTextField {
     Control {
         id: leftDelegateContainer
         clip: true
-        padding: 10
+        leftPadding: 10
+        rightPadding: 10
         background: RoundedRect{
             topRight: false
             bottomRight: false
             radius: CoreUI.borderRadius
             color: control.palette.disabled.base
-            border.color: control.palette.shadow
-            border.width: CoreUI.borderWidth
 
         }
 
@@ -87,25 +70,29 @@ CTextField {
             bottomMargin: control.bottomInset
             rightMargin: -1 * (CoreUI.borderWidth)
         }
-
+        //implicitWidth: leftDelegateLoader.implicitWidth
+        //implicitHeight: leftDelegateLoader.implicitHeight
         z: visible ? -2 : 0
 
+        border.color: control.palette.shadow
+        border.width: CoreUI.borderWidth
 
-
-        contentItem: Loader {
+        Loader {
+            id: leftDelegateLoader
             anchors.fill: parent
             visible: sourceComponent !== undefined
             sourceComponent: leftDelegate
+
         }
+
+
     }
 
-    RoundedRect {
+    Control {
         id: rightDelegateContainer
         clip: true
-        topLeft: false
-        bottomLeft: false
-        radius: CoreUI.borderRadius
-        anchors {
+
+        anchors{
             top: control.top
             bottom: control.bottom
             right: control.right
@@ -114,32 +101,29 @@ CTextField {
             left: background.right
         }
 
+
+        background: RoundedRect{
+            topLeft: false
+            bottomLeft: false
+            radius: CoreUI.borderRadius
+            border.color: control.palette.shadow
+            border.width:CoreUI.borderWidth
+            color: control.palette.disabled.base
+
+        }
+
         implicitHeight: parent.height
         implicitWidth: rightDelegateLoader.implicitWidth
-        color: control.palette.disabled.base
         z: visible ? -2 : 0
 
-        border.color: control.palette.shadow
-        border.width: CoreUI.borderWidth
 
-        Loader {
+
+        contentItem: Loader {
             id: rightDelegateLoader
             visible: sourceComponent !== undefined
-            anchors.fill: parent
+            anchors.fill: parent;
             sourceComponent: rightDelegate
         }
     }
 
-    CLabel {
-        id: helpBlockLabel
-        anchors.bottom: control.bottom
-        anchors.left: control.left
-        anchors.right: control.right
-        visible: text.length
-        topPadding: 5
-        font.pixelSize: 14
-        font.italic: true
-        text: helpBlock.text
-        color: helpBlock.color
-    }
 }

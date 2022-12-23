@@ -6,15 +6,13 @@
  */
 
 import QtQuick;
-import QtQuick.Controls.Basic;
 import QtQuick.Controls
+import QtQuick.Controls.Basic;
 import Qt5Compat.GraphicalEffects
 import CoreUI.Impl as CImpl;
 import QtQuick.Controls.impl as Impl
-import QtQuick.Layouts
-import CoreUI.Base
-import QtQuick.Dialogs
-StyledTextField {
+
+StyledComboBox {
     id: control
 
     property CImpl.CIcon leftIcon: CImpl.CIcon{}
@@ -25,10 +23,8 @@ StyledTextField {
         source: leftIcon.source;
         width: leftIcon.width
         height: leftIcon.height
-        sourceSize.width: leftIcon.width
-        sourceSize.height: leftIcon.height
         cache: leftIcon.cache;
-        smooth: true
+
     }
 
     rightDelegate: Impl.IconImage{
@@ -36,11 +32,7 @@ StyledTextField {
         source: rightIcon.source;
         width: rightIcon.width
         height: rightIcon.height
-        sourceSize.width: leftIcon.width
-        sourceSize.height: leftIcon.height
         cache: rightIcon.cache;
-        smooth: true
-
 
     }
 

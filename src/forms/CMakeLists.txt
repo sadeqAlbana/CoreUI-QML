@@ -19,6 +19,8 @@ set(qml_files
     "StyledTextField.qml"
     "ColorPicker.qml"
     "CIconTextField.qml"
+    "StyledComboBox.qml"
+    "IconComboBox.qml"
 
 )
 

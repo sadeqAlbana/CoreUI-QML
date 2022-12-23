@@ -7,6 +7,7 @@ set(qml_files
     "RoundingMask.qml"
     "ButtonBackground.qml"
     "DynamicGridLayout.qml"
+    "HelpBlock.qml"
 )
 
 qt_add_library(coreuiimpl STATIC)

@@ -20,7 +20,6 @@ TextField {
     onAccepted: entered(control.text)
 
     background: RoundedRect{
-        //border.width: 3
         implicitHeight: 40
         implicitWidth: 200
         color : control.enabled? control.palette.base : control.palette.disabled.base

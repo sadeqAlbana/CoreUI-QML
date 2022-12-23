@@ -18,6 +18,7 @@ set(qml_files
     "FileInput.qml"
     "StyledTextField.qml"
     "ColorPicker.qml"
+    "CIconTextField.qml"
 
 )
 

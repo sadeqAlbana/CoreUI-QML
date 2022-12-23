@@ -6,4 +6,5 @@ QtObject {
     property int width: 24
     property int height :24
     property color color;
+    property bool cache: true
 }

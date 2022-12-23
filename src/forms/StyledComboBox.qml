@@ -62,7 +62,7 @@ CComboBox {
 
         }
 
-        visible: true
+        visible: contentItem.implicitWidth
         anchors {
             top: control.top
             bottom: control.bottom
@@ -77,7 +77,6 @@ CComboBox {
 
 
         contentItem: Loader {
-            anchors.fill: parent
             visible: sourceComponent !== undefined
             sourceComponent: leftDelegate
         }
@@ -86,14 +85,14 @@ CComboBox {
     Control {
         id: rightDelegateContainer
         clip: true
-
+        padding: 10
         anchors{
             top: control.top
             bottom: control.bottom
             right: control.right
             bottomMargin: control.bottomInset
             leftMargin: -1 * (CoreUI.borderWidth)
-            left: background.right
+            left: control.background.right
         }
 
 
@@ -107,16 +106,13 @@ CComboBox {
 
         }
 
-        implicitHeight: parent.height
-        implicitWidth: rightDelegateLoader.implicitWidth
+
         z: visible ? -2 : 0
 
 
 
         contentItem: Loader {
-            id: rightDelegateLoader
             visible: sourceComponent !== undefined
-            anchors.fill: parent;
             sourceComponent: rightDelegate
         }
     }

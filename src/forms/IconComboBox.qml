@@ -16,24 +16,18 @@ StyledComboBox {
     id: control
 
     property CImpl.CIcon leftIcon: CImpl.CIcon{}
-    property CImpl.CIcon rightIcon: CImpl.CIcon{}
 
     leftDelegate: Impl.IconImage{
         name: leftIcon.name;
         source: leftIcon.source;
         width: leftIcon.width
         height: leftIcon.height
+        sourceSize.width: leftIcon.width
+        sourceSize.height: leftIcon.height
         cache: leftIcon.cache;
 
     }
 
-    rightDelegate: Impl.IconImage{
-        name: rightIcon.name;
-        source: rightIcon.source;
-        width: rightIcon.width
-        height: rightIcon.height
-        cache: rightIcon.cache;
 
-    }
 
 }

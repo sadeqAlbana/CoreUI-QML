@@ -32,6 +32,7 @@ T.ComboBox {
                              || !indicator.visible ? 0 : indicator.width + spacing)
 
     palette: CPalette {}
+    flat: true
     background: Rectangle {
         implicitHeight: 40
         implicitWidth: 200
@@ -45,6 +46,8 @@ T.ComboBox {
             transparentBorder: true
             cached: true
         }
+
+
     }
 
     delegate: CItemDelegate {
@@ -62,6 +65,8 @@ T.ComboBox {
             visible: highlighted
             color: control.palette.alternateBase
         }
+
+
     }
 
     indicator: ColorImage {

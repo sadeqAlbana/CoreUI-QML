@@ -9,7 +9,7 @@ import QtQuick;
 import QtQuick.Controls.Basic;
 import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
-import CoreUI.Impl as CImpl;
+import CoreUI.Impl
 import QtQuick.Controls.impl as Impl
 import QtQuick.Layouts
 import CoreUI.Base
@@ -17,8 +17,8 @@ import QtQuick.Dialogs
 StyledTextField {
     id: control
 
-    property CImpl.CIcon leftIcon: CImpl.CIcon{}
-    property CImpl.CIcon rightIcon: CImpl.CIcon{}
+    property CIcon leftIcon: CIcon{}
+    property CIcon rightIcon: CIcon{}
 
     leftDelegate: Impl.IconImage{
         name: leftIcon.name;

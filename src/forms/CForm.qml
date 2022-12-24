@@ -3,8 +3,11 @@ import QtQuick.Controls
 
 QtObject {
     id: form
-
     required property list<Item> items;
+    property var initialValues:({});
+
+
+
     function data(){ //returns form data
         let formData={}
         for(var i=0;i<items.length; i++){

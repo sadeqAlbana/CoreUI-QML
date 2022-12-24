@@ -4,8 +4,9 @@ import QtQuick.Controls.Basic
 import QtQuick.Layouts
 import CoreUI.Palettes
 import CoreUI.Buttons
+import CoreUI.Forms
 import "DateUtils.js" as JS
-CTextField {
+CIconTextField {
     id: control
 
     function clearDate(){
@@ -29,7 +30,7 @@ CTextField {
     }
 
     inputMethodHints: Qt.ImhDate
-    rightIcon: "cil-calendar"
+    rightIcon.name: "cil-calendar"
     validator: RegularExpressionValidator{
         //for non excact match ^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$
         regularExpression: /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/

@@ -32,8 +32,8 @@ CComboBox {
         implicitWidth: 200
         topLeft: !leftDelegateContainer.visible
         bottomLeft: !leftDelegateContainer.visible
-        topRight: !control.indicator.visible
-        bottomRight: !control.indicator.visible
+        topRight: true
+        bottomRight: true
 
         color: control.palette.base
         border.color: control.palette.shadow

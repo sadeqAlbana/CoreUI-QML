@@ -15,16 +15,13 @@ import QmlRoundedRectangle
 import CoreUI
 Page{
     id: control
-    property CBorder border: CBorder{
-        color: control.palette.shadow;
-        radius: 5
-    }
+
     LayoutMirroring.childrenInherit: true
     padding: 20
     background: Rectangle{
         color : control.palette.base
-        border.color: control.border.color;
-        radius: control.border.radius
+        border.color: control.palette.shadow
+        radius: CoreUI.borderRadius
         antialiasing: true
 
         layer.enabled: false
@@ -46,12 +43,12 @@ Page{
         topPadding: 16
 
         background: RoundedRect{
-            radius: control.border.radius
+            radius: CoreUI.borderRadius
             border.color: control.palette.shadow
             bottomLeft: false
             bottomRight: false
-            color: CoreUI.color(CoreUI.CardHeader)
-            border.width: control.border.width
+            color: control.palette.base
+            border.width: CoreUI.borderWidth
         }
     }
 }

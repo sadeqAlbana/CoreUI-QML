@@ -4,9 +4,49 @@ import QtQuick.Controls
 QtObject {
     id: form
     required property list<Item> items;
-    property var initialValues:({});
+    property var initialValues: null
+
+    Component.onCompleted: setInitialValues();
 
 
+
+    function setInitialValues(){
+        if(initialValues==null)
+            return;
+
+        for(var i=0;i<items.length; i++){
+            let item=items[i];
+            let key=item.objectName
+
+            if(initialValues.hasOwnProperty(key)){
+                 let data=initialValues[key];
+                if(item instanceof TextInput || item instanceof TextEdit){
+                    item.text=data
+                }
+                else if(item instanceof ComboBox){
+                    item.currentValue=data;
+                }
+
+                else if(item instanceof SpinBox){
+                    item.value=data;
+                }
+
+                else if(item instanceof Slider ){
+                    item.value=data;
+                }
+
+                else if(item instanceof Switch || item instanceof SwitchDelegate){
+                    item.position=data? 1 : 0
+                }
+                else if(item instanceof Dial ){
+                    item.value=data;
+                }
+
+
+
+            }
+        }
+    }
 
     function data(){ //returns form data
         let formData={}

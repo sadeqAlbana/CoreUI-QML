@@ -29,33 +29,14 @@ ItemDelegate {
         }
     }
 
-    states:[
-        State{
-            name: "hovered_and_highlighted"
-            when: highlighted && isCurrentItem
-            extend: "highlighted"
-            PropertyChanges {target: control; palette.buttonText: "black"}
-        },
 
-        State{
-            name: "highlighted"
-            when: highlighted
-            PropertyChanges {target: control; palette.base: "#0078D7"}
-            PropertyChanges {target: control; palette.alternateBase: "#0078D7"}
+    background: Rectangle{
 
-            PropertyChanges {target: control; palette.buttonText: "white"}
-        },
-        State{
-            name: "hovered"
-            when: isCurrentItem
-            PropertyChanges {target: control; backgroundColor: Qt.darker("#F2F2F3",1.3)}
-            PropertyChanges {target: control; palette.buttonText: "white"}
-        }
-    ]
-
-
-
-
-
-    background: Rectangle{color: control.backgroundColor; border.color: control.palette.shadow}
+        color: control.highlighted? control.palette.active.highlight :
+                                      control.isCurrentItem? //hovered?
+                                      control.palette.dark
+        : model.row%2==0?
+                               palette.base : palette.alternateBase
+        border.color: control.palette.shadow
+    }
 }

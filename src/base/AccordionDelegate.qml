@@ -71,7 +71,6 @@ CItemDelegate {
         anchors.left: parent.left
         anchors.right: parent.right
         y: control.height-height
-        border.radius: 0
         z: -1
 
         CLabel{

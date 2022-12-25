@@ -1,11 +1,12 @@
 import QtQuick;
-import QtQuick.Controls.Basic;
 import QtQuick.Controls
+import QtQuick.Controls.Basic;
+import Qt.labs.platform
+import QtQuick.Dialogs
 import Qt5Compat.GraphicalEffects
 import CoreUI.Impl
 import CoreUI
 import CoreUI.Buttons
-import QtQuick.Dialogs
 import CoreUI.Palettes
 CButton {
     id: control

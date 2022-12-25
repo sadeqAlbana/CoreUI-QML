@@ -1,13 +1,13 @@
 import QtQuick
-import QtQuick.Layouts
-import CoreUI.Base
 import QtQuick.Controls
+import QtQuick.Controls.Basic
+import QtQuick.Layouts
+import QtQuick.Dialogs
+import CoreUI.Base
 import CoreUI.Forms
 import CoreUI.Buttons
 import Qt5Compat.GraphicalEffects
-import QtQuick.Dialogs
 import CoreUI.Impl
-import QtQuick.Controls.Basic
 import CoreUI.Palettes
 import CoreUI.Views
 import Qt.labs.qmlmodels
@@ -46,7 +46,7 @@ Page {
                         GridLayout {
                             columns: 1
                             CForm{
-                                items: parent.children
+                                items: parent?.children;
                             }
 
                             CLabel{text: qsTr("Email Address");}

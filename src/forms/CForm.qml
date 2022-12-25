@@ -5,9 +5,19 @@ QtObject {
     id: form
     required property list<Item> items;
     property var initialValues: null
-
+    property string method: "POST";
+    property string url;
+    required property var applyHandler;
     Component.onCompleted: setInitialValues();
 
+    function apply(){
+        if(form.url){
+            form.applyHandler(url,method,data())
+        }
+        else{
+            form.applyHandler(data())
+        }
+    }
 
 
     function setInitialValues(){
@@ -18,8 +28,13 @@ QtObject {
             let item=items[i];
             let key=item.objectName
 
+            let data=null
+
             if(initialValues.hasOwnProperty(key)){
-                 let data=initialValues[key];
+                data=initialValues[key];
+            }
+
+
                 if(item instanceof TextInput || item instanceof TextEdit){
                     item.text=data
                 }
@@ -44,7 +59,7 @@ QtObject {
 
 
 
-            }
+
         }
     }
 

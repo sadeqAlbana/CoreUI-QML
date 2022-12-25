@@ -38,7 +38,11 @@ function navBar(){
                         },
                         {"title": qsTr("Breadcrumb"),
                         "path":"qrc:/Demo/pages/BreadcrumbPage.qml"
+                        },
+                        {"title": qsTr("Cards"),
+                        "path":"qrc:/Demo/pages/CardsPage.qml"
                         }
+
                     ]
                 },
 

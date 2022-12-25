@@ -47,6 +47,7 @@ Page {
                             columns: 1
                             CForm{
                                 items: parent?.children;
+                                applyHandler: function(data){}
                             }
 
                             CLabel{text: qsTr("Email Address");}

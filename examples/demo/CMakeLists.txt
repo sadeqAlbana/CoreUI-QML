@@ -27,6 +27,7 @@ qt_add_qml_module(appdemo
     pages/forms/FormControl.qml
     pages/forms/SelectPage.qml
     pages/forms/MultiSelectPage.qml
+    pages/CardsPage.qml
     components/DemoChartView.qml
     components/DemoValueAxis.qml
 )

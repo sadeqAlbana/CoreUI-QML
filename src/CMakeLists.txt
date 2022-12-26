@@ -12,6 +12,9 @@ add_subdirectory(menus)
 add_subdirectory(views)
 add_subdirectory(charts)
 
+set_source_files_properties(Router.qml PROPERTIES
+    QT_QML_SINGLETON_TYPE TRUE
+)
 
 add_custom_target(coreui_other_assets SOURCES style.css)
 qt_add_library(coreui STATIC)
@@ -25,8 +28,11 @@ qt_add_qml_module(coreui
         CoreUI.Impl QtCharts
     QML_FILES
         MainScreen.qml
+        Router.qml
         nav.js
 )
+
+
 
 target_link_libraries(coreui PRIVATE Qt6::Gui Qt6::Widgets Qt6::Quick Qt6::Charts Qt6::Core5Compat libQmlRoundedRectangleplugin)
 target_link_libraries(coreui

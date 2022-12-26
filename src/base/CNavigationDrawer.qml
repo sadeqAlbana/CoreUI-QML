@@ -7,7 +7,7 @@ import QtQuick.Dialogs
 import QtQuick.Layouts
 import CoreUI.Palettes
 import CoreUI.Buttons
-
+import CoreUI
 Drawer {
     id: drawer
     property var navModel;
@@ -86,7 +86,7 @@ Drawer {
             var item = listView.model.get(listView.currentIndex)
             if (item !== undefined)
                 if (item.path !== null)
-                    stack.replace(item.path)
+                    Router.navigate(item.path,null,true)
         }
 
     }//listView

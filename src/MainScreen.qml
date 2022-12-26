@@ -1,14 +1,15 @@
+
+
 /*
  * Copyright (C) 2022 Sadeq Albana
  *
  * Licensed under the GNU Lesser General Public License v3.0 :
  * https://www.gnu.org/licenses/lgpl-3.0.html
  */
-
-import QtQuick;
+import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
-import QtQuick.Controls.Basic;
+import QtQuick.Controls.Basic
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 import QtQml.Models
@@ -17,29 +18,28 @@ import CoreUI.Base
 import CoreUI.Impl
 import CoreUI.Menus
 import QtQuick.Controls.impl as Impl
-import "nav.js" as NavJS;
+import "nav.js" as NavJS
+
 Item {
     id: rootItem
     implicitWidth: stack.implicitWidth
     implicitHeight: stack.implicitHeight
-    property var navBar: NavJS.navBar();
+    property var navBar: NavJS.navBar()
     property var permissionProvider: null
     property url icon: "qrc:/icons/CoreUI/brand/cib-coreui-cropped.svg"
     property int iconWidth: 90
     property int iconHeight: 33
-    property int initialIndex: 0;
+    property int initialIndex: 0
     //    property bool drawerAboveContent : ApplicationWindow.window.mobileLayout
-    property bool drawerAboveContent : false
+    property bool drawerAboveContent: false
     onDrawerAboveContentChanged: {
-        if(!drawerAboveContent && drawer.opened)
-            drawer.close();
+        if (!drawerAboveContent && drawer.opened)
+            drawer.close()
     }
 
-    LayoutMirroring.onEnabledChanged: populateNavBar();
+    LayoutMirroring.onEnabledChanged: populateNavBar()
 
-
-
-    CNavigationDrawer{
+    CNavigationDrawer {
         id: drawer
         icon: rootItem.icon
         iconWidth: rootItem.iconWidth
@@ -59,37 +59,34 @@ Item {
         }
 
         Component.onCompleted: {
-            if(initialIndex>0){
-                drawer.currentIndex=initialIndex
+            if (initialIndex > 0) {
+                drawer.currentIndex = initialIndex
             }
         }
-
     }
 
-    CToolBar{
-        id: toolBar;
-        width: drawerAboveContent? rootItem.width :
-                                   drawer.opened ? rootItem.width-drawer.width : rootItem.width
+    CToolBar {
+        id: toolBar
+        width: drawerAboveContent ? rootItem.width : drawer.opened ? rootItem.width
+                                                                     - drawer.width : rootItem.width
         anchors.left: rootItem.left
-        anchors.leftMargin: drawerAboveContent? 0 : drawer.opened ? drawer.width  : 0
+        anchors.leftMargin: drawerAboveContent ? 0 : drawer.opened ? drawer.width : 0
         height: 65
+        layer.enabled: false
+        leftPadding: 20
+        rightPadding: 20
         RowLayout {
             anchors.fill: parent
             ToolButton {
-                Layout.leftMargin: 20
-                text: qsTr("☰")
-                display: AbstractButton.TextOnly
-                background:Item{}
-                onClicked: drawer.opened ? drawer.close() : drawer.open();
+                icon.name: "cil-menu"
+                display: AbstractButton.IconOnly
+                background: Item {}
+                onClicked: drawer.opened ? drawer.close() : drawer.open()
             }
 
-            CLabel {
-                text: stack.currentItem? stack.currentItem.title : ""
-                font.weight: Font.DemiBold
-                Layout.fillWidth: true
-            }
+            HorizontalSpacer{}
 
-            ToolButton{
+            ToolButton {
                 id: ctrl
                 display: AbstractButton.IconOnly
                 property bool rounded: true
@@ -103,14 +100,20 @@ Item {
                 padding: 0
 
                 onClicked: {
-                    menu.open();
+                    menu.open()
                 }
 
-                CActionsMenu{
-                    id:menu
+                CActionsMenu {
+                    id: menu
                     parent: ctrl
-                    y:parent.height
-                    actions: [CAction{text: qsTr("Logout"); icon.name: "cil-account-logout"; onTriggered: AuthManager.logout();}]
+                    y: parent.height
+                    actions: [
+                        CAction {
+                            text: qsTr("Logout")
+                            icon.name: "cil-account-logout"
+                            onTriggered: AuthManager.logout()
+                        }
+                    ]
                 }
 
                 layer.effect: OpacityMask {
@@ -119,97 +122,150 @@ Item {
                         height: ctrl.height
                         Rectangle {
                             anchors.centerIn: parent
-                            width: ctrl.adapt ? ctrl.width : Math.min(ctrl.width, ctrl.height)
+                            width: ctrl.adapt ? ctrl.width : Math.min(
+                                                    ctrl.width, ctrl.height)
                             height: ctrl.adapt ? ctrl.height : width
                             radius: Math.max(ctrl.width, ctrl.height)
                         }
                     }
                 }
             }
+        } //layout
+    } //toolbar
 
-        }//layout
-    }//toolbar
+    CToolBar {
+        id: breadCrumbToolBar
+        y: toolBar.height-1
+        width: drawerAboveContent ? rootItem.width : drawer.opened ? rootItem.width
+                                                                     - drawer.width : rootItem.width
+        anchors.left: rootItem.left
+        anchors.leftMargin: drawerAboveContent ? 0 : drawer.opened ? drawer.width : 0
+        height: 60
+        leftPadding: 20
+        Breadcrumb {
+            id: breadCrumb
+            anchors.fill: parent
+            Component.onCompleted: model=Router.paths
 
-
+            Connections{
+                target: Router
+                function onPathsChanged(){
+                breadCrumb.model=Router.paths;
+                }
+            }
+        }
+    }
 
     //content here
-    StackView{
+    StackView {
         id: stack
-        background: Rectangle{color: "transparent"}
+        background: Rectangle {
+            color: "transparent"
+        }
         LayoutMirroring.childrenInherit: true
-        width: drawerAboveContent? rootItem.width-padding*2  :
-                                   drawer.opened ? rootItem.width-drawer.width-padding*2 : rootItem.width-padding*2
-        x: drawerAboveContent? 0 : drawer.opened ? drawer.width+padding  : padding
+        width: drawerAboveContent ? rootItem.width - padding
+                                    * 2 : drawer.opened ? rootItem.width - drawer.width - padding
+                                                          * 2 : rootItem.width - padding * 2
+        x: drawerAboveContent ? 0 : drawer.opened ? drawer.width + padding : padding
         anchors.left: parent.left
-        anchors.leftMargin: drawerAboveContent? 0 : drawer.opened ? drawer.width+padding  : padding
+        anchors.leftMargin: drawerAboveContent ? 0 : drawer.opened ? drawer.width
+                                                                     + padding : padding
 
-        y: toolBar.height+ padding
-        height: rootItem.height-toolBar.height-padding*2
-        implicitWidth: currentItem? currentItem.implicitWidth+40 : 100
-        implicitHeight: currentItem? currentItem.implicitHeight+40 : 100
-        padding: rootItem.drawerAboveContent? 0 : 15
-//        initialItem: Page{
-//            Rectangle{
-//                implicitHeight: 500
-//                implicitWidth: 500
-//                anchors.fill: parent
-//            }
-//        }
+        y: toolBar.height + breadCrumbToolBar.height + padding
+        height: rootItem.height - toolBar.height - breadCrumbToolBar.height - padding * 2
+        implicitWidth: currentItem ? currentItem.implicitWidth + 40 : 100
+        implicitHeight: currentItem ? currentItem.implicitHeight + 40 : 100
+        padding: rootItem.drawerAboveContent ? 0 : 15
 
-        clip:true
+        //        initialItem: Page{
+        //            Rectangle{
+        //                implicitHeight: 500
+        //                implicitWidth: 500
+        //                anchors.fill: parent
+        //            }
+        //        }
+
+
+
+        Connections {
+            target: Router
+
+            function onNavigateRequested(path, params, root) {
+                if (root) {
+                    stack.replace(null, path, params)
+                    Router.paths = []
+                    Router.paths.push(stack.currentItem.title ?? "Unknown")
+                    Router.pathsChanged();
+                } else {
+                    stack.push(path, params)
+                    Router.paths.push(stack.currentItem.title ?? "Unknown")
+                    Router.pathsChanged();
+
+                }
+            }
+        }
+
+        clip: true
         replaceEnter: Transition {
-            NumberAnimation { property: "opacity"; from: 0.0; to: 1.0 }
+            NumberAnimation {
+                property: "opacity"
+                from: 0.0
+                to: 1.0
+            }
         }
         replaceExit: Transition {
-            NumberAnimation { property: "opacity"; from: 1.0; to: 0.0 }
+            NumberAnimation {
+                property: "opacity"
+                from: 1.0
+                to: 0.0
+            }
         }
-
-
     }
 
-
-    function parseNavbar(listItems){
-        listModel.clear();
-        for(var i=0; i<listItems.length; i++){
-            var item=listItems[i];
-            item.id=listModel.count;
-            if(!item.hasOwnProperty('badge')){
-                item['badge']={};
+    function parseNavbar(listItems) {
+        listModel.clear()
+        for (var i = 0; i < listItems.length; i++) {
+            var item = listItems[i]
+            item.id = listModel.count
+            if (!item.hasOwnProperty('badge')) {
+                item['badge'] = {}
             }
 
+            if (permissionProvider && item.hasOwnProperty('permission')
+                    && !permissionProvider(item.permission)
+                    && item.permission.length)
+                continue
 
-            if(permissionProvider && item.hasOwnProperty('permission') && !permissionProvider(item.permission) && item.permission.length)
-                continue;
-
-            if(item.childItems){
-                item.childCount=item.childItems.length;
-                item.parentId=0;
-                listModel.append(item);
-                for(var j=0; j<item.childItems.length; j++){
-                    var child=item.childItems[j];
-                    if(permissionProvider && child.hasOwnProperty('permission') && !permissionProvider(child.permission) && child.permission.length)
-                        continue;
-                    child.id=listModel.count
-                    child.parentId=item.id
-                    child.hidden=true;
-                    child.category=item.category;
-                    child.childCount=0
-                    if(!child.hasOwnProperty('badge')){
-                        child['badge']={};
+            if (item.childItems) {
+                item.childCount = item.childItems.length
+                item.parentId = 0
+                listModel.append(item)
+                for (var j = 0; j < item.childItems.length; j++) {
+                    var child = item.childItems[j]
+                    if (permissionProvider && child.hasOwnProperty('permission')
+                            && !permissionProvider(child.permission)
+                            && child.permission.length)
+                        continue
+                    child.id = listModel.count
+                    child.parentId = item.id
+                    child.hidden = true
+                    child.category = item.category
+                    child.childCount = 0
+                    if (!child.hasOwnProperty('badge')) {
+                        child['badge'] = {}
                     }
 
-
-                    listModel.append(child);
+                    listModel.append(child)
                 }
-            }else{
-                listModel.append(item);
+            } else {
+                listModel.append(item)
             }
         }
     }
 
-    Component.onCompleted: populateNavBar();
+    Component.onCompleted: populateNavBar()
     function populateNavBar() {
-        var listItems = rootItem.navBar;
-        parseNavbar(listItems);
+        var listItems = rootItem.navBar
+        parseNavbar(listItems)
     }
 }

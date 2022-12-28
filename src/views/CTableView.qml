@@ -31,6 +31,7 @@ TableView{
     property alias headerDelegate: horizontalHeaderView.delegate
     property var permissionProvider: undefined
 
+    ScrollBar.vertical: ScrollBar { }
 
     HorizontalHeaderView{
         id: horizontalHeaderView

@@ -19,7 +19,7 @@ TextField {
     signal entered(var text)
     onAccepted: entered(control.text)
 
-    background: RoundedRect{
+    background: Rectangle{
         implicitHeight: 40
         implicitWidth: 200
         color : control.enabled? control.palette.base : control.palette.disabled.base
@@ -31,7 +31,6 @@ TextField {
             color: CoreUI.boxShadow
             transparentBorder: true
             cached: true
-            samples: radius+1
         }
     }//background
 }

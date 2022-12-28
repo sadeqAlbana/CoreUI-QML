@@ -61,7 +61,6 @@ CTextField {
             color: CoreUI.boxShadow
             transparentBorder: true
             cached: true
-            samples: radius+1
 
         }
     } //background

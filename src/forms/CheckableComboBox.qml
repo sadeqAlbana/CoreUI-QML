@@ -23,7 +23,6 @@ ComboBox{
 
     layer.enabled: false
     layer.effect: Glow {
-        //samples: 8
         spread: 1
         color: "#DCD9F9"
         transparentBorder: true

@@ -13,7 +13,7 @@ import QtQuick.Controls
 import CoreUI.Impl
 import QmlRoundedRectangle
 import CoreUI
-Page{
+CPage{
     id: control
 
     LayoutMirroring.childrenInherit: true

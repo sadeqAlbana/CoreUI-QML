@@ -22,8 +22,8 @@ import "nav.js" as NavJS
 
 Item {
     id: rootItem
-    implicitWidth: stack.implicitWidth
-    implicitHeight: stack.implicitHeight
+    implicitWidth: mainFlickable.implicitWidth
+    implicitHeight: mainFlickable.implicitHeight
     property var navBar: NavJS.navBar()
     property var permissionProvider: null
     property url icon: "qrc:/icons/CoreUI/brand/cib-coreui-cropped.svg"
@@ -84,7 +84,7 @@ Item {
                 onClicked: drawer.opened ? drawer.close() : drawer.open()
             }
 
-            HorizontalSpacer{}
+            HorizontalSpacer {}
 
             ToolButton {
                 id: ctrl
@@ -135,7 +135,7 @@ Item {
 
     CToolBar {
         id: breadCrumbToolBar
-        y: toolBar.height-1
+        y: toolBar.height - 1
         width: drawerAboveContent ? rootItem.width : drawer.opened ? rootItem.width
                                                                      - drawer.width : rootItem.width
         anchors.left: rootItem.left
@@ -145,82 +145,97 @@ Item {
         Breadcrumb {
             id: breadCrumb
             anchors.fill: parent
-            Component.onCompleted: model=Router.paths
+            Component.onCompleted: model = Router.paths
 
-            Connections{
+            Connections {
                 target: Router
-                function onPathsChanged(){
-                breadCrumb.model=Router.paths;
+                function onPathsChanged() {
+                    breadCrumb.model = Router.paths
                 }
             }
         }
     }
 
     //content here
-    StackView {
-        id: stack
-        background: Rectangle {
-            color: "transparent"
-        }
-        LayoutMirroring.childrenInherit: true
-        width: drawerAboveContent ? rootItem.width - padding
-                                    * 2 : drawer.opened ? rootItem.width - drawer.width - padding
-                                                          * 2 : rootItem.width - padding * 2
-        x: drawerAboveContent ? 0 : drawer.opened ? drawer.width + padding : padding
-        anchors.left: parent.left
-        anchors.leftMargin: drawerAboveContent ? 0 : drawer.opened ? drawer.width
-                                                                     + padding : padding
+    Flickable {
+        id: mainFlickable
+//        implicitWidth: stack.implicitWidth
 
-        y: toolBar.height + breadCrumbToolBar.height + padding
-        height: rootItem.height - toolBar.height - breadCrumbToolBar.height - padding * 2
-        implicitWidth: currentItem ? currentItem.implicitWidth + 40 : 100
-        implicitHeight: currentItem ? currentItem.implicitHeight + 40 : 100
-        padding: rootItem.drawerAboveContent ? 0 : 15
+        contentHeight: stack.implicitHeight
+        clip: true
+        width: drawerAboveContent ? rootItem.width -40 : drawer.opened ? rootItem.width - drawer.width -40  : rootItem.width -40
+         height: rootItem.height - toolBar.height - breadCrumbToolBar.height - (20 * 2)
 
-        //        initialItem: Page{
-        //            Rectangle{
-        //                implicitHeight: 500
-        //                implicitWidth: 500
-        //                anchors.fill: parent
-        //            }
-        //        }
+        x: drawerAboveContent ? 20 : drawer.opened ? drawer.width + 20 : 20
+
+        y: toolBar.height + breadCrumbToolBar.height + 20
+
+        StackView {
+            id: stack
+            background: Rectangle {
+                color: "transparent"
+            }
+            LayoutMirroring.childrenInherit: true
+            anchors.fill: parent
+            clip:true
+            implicitWidth: currentItem ? currentItem.implicitWidth  : 100
+//            implicitHeight: currentItem ? currentItem.implicitHeight : 100
+
+            implicitHeight: currentItem ? currentItem.implicitHeight> mainFlickable.height?
+                                              currentItem.implicitHeight : mainFlickable.height : 100
+
+//            implicitHeight: contentHeight > Window.window.height? contentHeight : Window.window.height
 
 
+            Connections {
+                target: Router
 
-        Connections {
-            target: Router
-
-            function onNavigateRequested(path, params, root) {
-                if (root) {
-                    stack.replace(null, path, params)
-                    Router.paths = []
-                    Router.paths.push(stack.currentItem.title ?? "Unknown")
-                    Router.pathsChanged();
-                } else {
-                    stack.push(path, params)
-                    Router.paths.push(stack.currentItem.title ?? "Unknown")
-                    Router.pathsChanged();
-
+                function onNavigateRequested(path, params, root) {
+                    if (root) {
+                        stack.replace(null, path, params)
+                        Router.paths = []
+                        Router.paths.push(stack.currentItem.title ?? "Unknown")
+                        Router.pathsChanged()
+                    } else {
+                        stack.push(path, params)
+                        Router.paths.push(stack.currentItem.title ?? "Unknown")
+                        Router.pathsChanged()
+                    }
                 }
             }
+
+            replaceEnter: Transition {
+                NumberAnimation {
+                    property: "opacity"
+                    from: 0.0
+                    to: 1.0
+                }
+            }
+            replaceExit: Transition {
+                NumberAnimation {
+                    property: "opacity"
+                    from: 1.0
+                    to: 0.0
+                }
+            }
+
+
         }
 
-        clip: true
-        replaceEnter: Transition {
-            NumberAnimation {
-                property: "opacity"
-                from: 0.0
-                to: 1.0
-            }
-        }
-        replaceExit: Transition {
-            NumberAnimation {
-                property: "opacity"
-                from: 1.0
-                to: 0.0
-            }
-        }
-    }
+
+//        ScrollBar.vertical: ScrollBar {
+//            width: 40
+//            anchors.left: parent.right // adjust the anchor as suggested by derM
+//            policy: ScrollBar.AlwaysOn
+//        }
+
+
+        ScrollBar.vertical: ScrollBar { }
+
+    }//flickable
+
+
+
 
     function parseNavbar(listItems) {
         listModel.clear()

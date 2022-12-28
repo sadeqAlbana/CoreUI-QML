@@ -58,7 +58,7 @@ T.Menu {
             radius: 16
             verticalOffset: 2
             spread: 0
-            samples: 33
+            samples: radius*2+1
             color: "silver"
             cached: true
             transparentBorder: true

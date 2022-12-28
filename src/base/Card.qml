@@ -28,7 +28,8 @@ Page{
         layer.effect:  DropShadow{
             radius: 3
             verticalOffset: 1
-            spread: 0.1
+            spread: 0
+            samples: 7
             color: control.palette.shadow
             cached: true
             transparentBorder: true

@@ -57,7 +57,8 @@ T.Menu {
         layer.effect:  DropShadow{
             radius: 16
             verticalOffset: 2
-            spread: 0.1
+            spread: 0
+            samples: 33
             color: "silver"
             cached: true
             transparentBorder: true

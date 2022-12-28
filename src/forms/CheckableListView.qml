@@ -50,6 +50,8 @@ Control{ //use Container instead ?
         color: glowColor
         transparentBorder: true
         cached: true
+        samples: radius+1
+
     }
 
     states: [

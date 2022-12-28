@@ -29,6 +29,8 @@ ComboBox{
         transparentBorder: true
         source: control
         cached: true
+        samples: radius+1
+
     }
     onActiveFocusChanged: {
         layer.enabled=activeFocus ? true : false

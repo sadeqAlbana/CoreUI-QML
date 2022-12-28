@@ -105,6 +105,10 @@ public:
     QColor danger() const;
     void setDanger(const QColor &newDanger);
 
+    const QUrl &userIcon() const;
+    void setUserIcon(const QUrl &newUserIcon);
+    void resetUserIcon();
+
 signals:
     void borderWidthChanged();
 
@@ -122,6 +126,8 @@ signals:
 
     void dangerChanged();
 
+    void userIconChanged();
+
 private:
     int m_borderWidth=1;
     int m_borderRadius=6;
@@ -134,6 +140,7 @@ private:
     QColor m_accordionBorderFocus;
     QColor m_accordionActive;
     QColor m_boxShadow;
+    QUrl m_userIcon;
 
     Q_PROPERTY(int borderWidth READ borderWidth WRITE setBorderWidth NOTIFY borderWidthChanged)
     Q_PROPERTY(bool mobileLayout READ mobileLayout NOTIFY mobileLayoutChanged)
@@ -143,6 +150,7 @@ private:
     Q_PROPERTY(QColor boxShadow READ boxShadow WRITE setBoxShadow NOTIFY boxShadowChanged)
     Q_PROPERTY(int borderRadius READ borderRadius WRITE setBorderRadius NOTIFY borderRadiusChanged)
     Q_PROPERTY(QColor danger READ danger WRITE setDanger NOTIFY dangerChanged)
+    Q_PROPERTY(QUrl userIcon READ userIcon WRITE setUserIcon RESET resetUserIcon NOTIFY userIconChanged)
 };
 
 #endif // COREUI_H

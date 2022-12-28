@@ -17,6 +17,7 @@ import CoreUI.Notifications
 import CoreUI.Base
 import CoreUI.Impl
 import CoreUI.Menus
+import CoreUI
 import QtQuick.Controls.impl as Impl
 import "nav.js" as NavJS
 
@@ -97,7 +98,15 @@ Item {
                 Layout.alignment: Qt.AlignCenter
                 layer.enabled: rounded
                 icon.color: "transparent"
+                icon.source: CoreUI.userIcon;
+
                 padding: 0
+//                Connections{
+//                    target: CoreUI
+//                    function onUserIconChanged(){
+//                        icon.source=CoreUI.userIcon;
+//                    }
+//                }
 
                 onClicked: {
                     menu.open()

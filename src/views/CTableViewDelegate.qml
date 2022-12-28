@@ -36,7 +36,8 @@ ItemDelegate {
                                       control.isCurrentItem? //hovered?
                                       control.palette.dark
         : model.row%2==0?
-                               palette.base : palette.alternateBase
+                               palette.alternateBase : palette.base
         border.color: control.palette.shadow
+        border.width: 0
     }
 }

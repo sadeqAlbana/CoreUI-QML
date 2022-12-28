@@ -121,3 +121,21 @@ void CoreUI::setDanger(const QColor &newDanger)
     emit dangerChanged();
 }
 
+const QUrl &CoreUI::userIcon() const
+{
+    return m_userIcon;
+}
+
+void CoreUI::setUserIcon(const QUrl &newUserIcon)
+{
+    if (m_userIcon == newUserIcon)
+        return;
+    m_userIcon = newUserIcon;
+    emit userIconChanged();
+}
+
+void CoreUI::resetUserIcon()
+{
+    setUserIcon({}); // TODO: Adapt to use your actual default value
+}
+

@@ -13,13 +13,22 @@ import Qt5Compat.GraphicalEffects
 import CoreUI.Base
 import CoreUI.Impl
 import CoreUI.Menus
+import CoreUI
 //https://github.com/qt/qtdeclarative/blob/5.15.2/src/quick/items/qquicktableview.cpp
 //qreal QQuickTableViewPrivate::cellWidth(const QPoint& cell)
 //qreal QQuickTableViewPrivate::sizeHintForColumn(int column)
 //these methods are use to calculate columns width
 TableView{
     id: tableView
+    Rectangle{
+//        z:0
+        parent: tableView
+        border.color: tableView.palette.shadow
+        anchors.fill: parent
+        color: "transparent"
+        radius: 2
 
+    }
     LayoutMirroring.childrenInherit: true
     property bool headerVisible: true
     property list<Action> actions
@@ -185,5 +194,7 @@ TableView{
             permissionProvider: tableView.permissionProvider
         }
     } //end MouseArea
+
+
 }
 

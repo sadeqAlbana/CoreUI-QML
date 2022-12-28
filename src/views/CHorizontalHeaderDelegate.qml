@@ -20,6 +20,13 @@ ItemDelegate {
     background: Rectangle{
     color: control.palette.base
     border.color: control.palette.shadow
+    border.width: 0
+    Rectangle{
+        width: parent.width
+        height: 1
+        anchors.bottom: parent.bottom
+        color: control.palette.shadow
+    }
     }
 
     MouseArea{

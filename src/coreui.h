@@ -7,9 +7,8 @@
 class CoreUI : public QObject
 {
     Q_OBJECT
-    QML_ATTACHED(CoreUI)
     QML_ELEMENT
-
+QML_SINGLETON
 public:
     enum Theme{
         ThemeLight,
@@ -77,6 +76,7 @@ public:
 
     static CoreUI *qmlAttachedProperties(QObject *object)
     {
+        qDebug()<<"object name: " << object->objectName();
         return new CoreUI(object);
     }
 
@@ -108,6 +108,8 @@ public:
     const QUrl &userIcon() const;
     void setUserIcon(const QUrl &newUserIcon);
     void resetUserIcon();
+
+    Q_INVOKABLE void copyToClipBoard(const QVariant &data);
 
 signals:
     void borderWidthChanged();

@@ -8,6 +8,7 @@
 import QtQuick;
 import QtQuick.Controls.Basic;
 import QtQuick.Controls
+import CoreUI
 ItemDelegate {
     id: control
     clip: true
@@ -29,6 +30,8 @@ ItemDelegate {
         }
     }
 
+
+    onPressAndHold: CoreUI.copyToClipBoard(control.text)
 
     background: Rectangle{
 

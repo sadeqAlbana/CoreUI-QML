@@ -1,7 +1,8 @@
 #include "coreui.h"
+#include <QClipboard>
 #include <QQmlEngine>
 #include <QQmlContext>
-
+#include <QGuiApplication>
 CoreUI::CoreUI(QObject *parent)
     : QObject{parent}
 {
@@ -138,4 +139,13 @@ void CoreUI::resetUserIcon()
 {
     setUserIcon({}); // TODO: Adapt to use your actual default value
 }
+
+void CoreUI::copyToClipBoard(const QVariant &data)
+{
+    QClipboard *clipboard = QGuiApplication::clipboard();
+    if(data.typeId()==QMetaType::QString){
+        clipboard->setText(data.toString());
+    }
+}
+
 

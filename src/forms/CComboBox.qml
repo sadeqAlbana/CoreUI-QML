@@ -142,6 +142,17 @@ T.ComboBox {
             color: control.palette.base
             border.color: control.palette.base
             radius: CoreUI.borderRadius
+
+            layer.enabled: true
+            layer.effect:  DropShadow{
+                radius: 16
+                verticalOffset: 2
+                spread: 0
+                samples: radius*2+1
+                color: control.palette.shadow
+                cached: true
+                transparentBorder: true
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ project(CoreUIQml VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(QT_QML_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml)
-find_package(Qt6 COMPONENTS Qml Core5Compat Gui Widgets Charts Quick QmlImportScanner REQUIRED)
+find_package(Qt6 COMPONENTS Qml Core5Compat Gui Widgets Charts Quick REQUIRED)
 
 add_subdirectory(src)
 add_subdirectory(libs/json-model)

@@ -31,8 +31,7 @@ Item {
     property int iconWidth: 90
     property int iconHeight: 33
     property int initialIndex: 0
-    //    property bool drawerAboveContent : ApplicationWindow.window.mobileLayout
-    property bool drawerAboveContent: false
+        property bool drawerAboveContent : ApplicationWindow.window.mobileLayout
     onDrawerAboveContentChanged: {
         if (!drawerAboveContent && drawer.opened)
             drawer.close()
@@ -172,10 +171,10 @@ Item {
 
         contentHeight: stack.implicitHeight
         clip: true
-        width: drawerAboveContent ? rootItem.width -40 : drawer.opened ? rootItem.width - drawer.width -40  : rootItem.width -40
+        width: drawerAboveContent ? rootItem.width -10 : drawer.opened ? rootItem.width - drawer.width -40  : rootItem.width -40
          height: rootItem.height - toolBar.height - breadCrumbToolBar.height - (20 * 2)
 
-        x: drawerAboveContent ? 20 : drawer.opened ? drawer.width + 20 : 20
+        x: drawerAboveContent ? 5 : drawer.opened ? drawer.width + 20 : 20
 
         y: toolBar.height + breadCrumbToolBar.height + 20
 

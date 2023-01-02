@@ -93,6 +93,8 @@ Item {
                 property bool adapt: true
                 icon.width: 48
                 icon.height: 48
+                Layout.preferredHeight: 48
+                Layout.preferredWidth: 48
                 Layout.rightMargin: 10
                 Layout.alignment: Qt.AlignCenter
                 layer.enabled: rounded
@@ -154,6 +156,9 @@ Item {
             id: breadCrumb
             anchors.fill: parent
             Component.onCompleted: model = Router.paths
+            onClicked:(itemData) =>{
+                console.log(itemData)
+            }
 
             Connections {
                 target: Router
@@ -202,11 +207,11 @@ Item {
                     if (root) {
                         stack.replace(null, path, params)
                         Router.paths = []
-                        Router.paths.push(stack.currentItem.title ?? "Unknown")
+                        Router.paths.push({"label": stack.currentItem.title ?? "Unknown", "path": path})
                         Router.pathsChanged()
                     } else {
                         stack.push(path, params)
-                        Router.paths.push(stack.currentItem.title ?? "Unknown")
+                        Router.paths.push({"label": stack.currentItem.title ?? "Unknown", "path": path})
                         Router.pathsChanged()
                     }
                 }

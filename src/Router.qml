@@ -7,11 +7,9 @@ import QtQuick
 
 QtObject {
     id: router
-    property string path;
-    property var paths:['Home','Dashboard']
+    property var paths:[]
     signal navigateRequested(var path, var params, var root)
     function navigate(path,params, root){
-        router.path=path
         navigateRequested(path,params, root);
     }
 

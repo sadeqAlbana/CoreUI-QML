@@ -9,8 +9,14 @@ QtObject {
     id: router
     property var paths:[]
     signal navigateRequested(var path, var params, var root)
+    signal backRequested(var index)
+
     function navigate(path,params, root){
         navigateRequested(path,params, root);
+    }
+
+    function back(index=-1){
+        backRequested(index)
     }
 
 }

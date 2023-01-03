@@ -156,8 +156,10 @@ Item {
             id: breadCrumb
             anchors.fill: parent
             Component.onCompleted: model = Router.paths
-            onClicked:(itemData) =>{
-                console.log(itemData)
+            onClicked:(index) =>{
+                console.log(index);
+                          Router.back(index)
+
             }
 
             Connections {
@@ -214,6 +216,24 @@ Item {
                         Router.paths.push({"label": stack.currentItem.title ?? "Unknown", "path": path})
                         Router.pathsChanged()
                     }
+                }
+
+                function onBackRequested(index){
+                    if(index===-1){
+                        stack.pop();
+                        Router.paths.pop();
+                    }else{
+                        let item=stack.get(index)
+                        if(item){
+                            stack.pop(item)
+                            let itemsToDelete=Router.paths.length-index
+                            while(--itemsToDelete){
+                                Router.paths.pop();
+                            }
+
+                        }
+                    }
+                    Router.pathsChanged();
                 }
             }
 

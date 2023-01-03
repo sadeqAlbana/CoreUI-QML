@@ -14,13 +14,15 @@ ItemDelegate {
     clip: true
     implicitHeight: 60
     text: model.display
-
     font.bold: true
     display: AbstractButton.TextUnderIcon //simple trick to center the text in IconLabel without having to use a custom contentItem
     background: Rectangle{
     color: control.palette.base
     border.color: control.palette.shadow
     border.width: 0
+
+
+
     Rectangle{
         width: parent.width
         height: 1

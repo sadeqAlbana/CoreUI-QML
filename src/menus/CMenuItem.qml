@@ -71,4 +71,9 @@ T.MenuItem {
         color: control.down ? control.palette.active.highlight : control.palette.inactive.highlight
         visible: control.enabled && (control.down || control.hovered)
     }
+
+    HoverHandler {
+        acceptedDevices: PointerDevice.Mouse
+        cursorShape: control.enabled? Qt.PointingHandCursor : Qt.ArrowCursor
+    }
 }

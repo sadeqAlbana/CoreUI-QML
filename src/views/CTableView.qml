@@ -21,7 +21,6 @@ import CoreUI
 TableView{
     id: tableView
     Rectangle{
-//        z:0
         parent: tableView
         border.color: tableView.palette.shadow
         anchors.fill: parent

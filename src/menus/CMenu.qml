@@ -11,9 +11,6 @@ import Qt5Compat.GraphicalEffects
 import QtQuick.Templates as T
 T.Menu {
     id: control
-
-
-
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
                             contentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
@@ -21,9 +18,7 @@ T.Menu {
 
     margins: 0
     overlap: 1
-
     delegate: CMenuItem { }
-
 
     contentItem: ListView {
         implicitHeight: contentHeight

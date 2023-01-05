@@ -11,7 +11,7 @@ import CoreUI.Palettes
 import CoreUI.Impl
 import QtQuick.Templates as T
 import Qt5Compat.GraphicalEffects
-
+import CoreUI
 T.MenuBar {
     id: control
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
@@ -21,6 +21,7 @@ T.MenuBar {
 
     delegate: CMenuBarItem{}
     property int radius: 5
+
 
     contentItem: Row {
         spacing: control.spacing
@@ -40,11 +41,27 @@ T.MenuBar {
 
 
     background: Rectangle {
-        implicitHeight: 40
+        implicitHeight: 42
         color: "transparent"
         clip: true
+
+
     }
 
+
+//    Repeater{
+//        model: control.count
+//        parent: control
+//        Rectangle{
+//            width: 1
+//            height: control.height
+//            x: control.itemAt(index).x
+//            color: CoreUI.boxShadow
+//            visible: index!==0
+
+//        }
+
+//    }
 
 
 } //end menu bar

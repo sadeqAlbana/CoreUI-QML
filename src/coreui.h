@@ -8,7 +8,7 @@ class CoreUI : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
-QML_SINGLETON
+    QML_ATTACHED(CoreUI)
 public:
     enum Theme{
         ThemeLight,
@@ -76,7 +76,6 @@ public:
 
     static CoreUI *qmlAttachedProperties(QObject *object)
     {
-        qDebug()<<"object name: " << object->objectName();
         return new CoreUI(object);
     }
 

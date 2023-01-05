@@ -1587,5 +1587,6 @@
         <file>icons/CoreUI/free/cil-page.svg</file>
         <file>icons/CoreUI/free/cil-accordion-arrow.svg</file>
         <file>icons/CoreUI/free/cib-mail-ru.svg</file>
+        <file>icons/CoreUI/free/cis-triangle.svg</file>
     </qresource>
 </RCC>

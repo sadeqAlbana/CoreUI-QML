@@ -2,8 +2,12 @@ import QtQuick
 
 CPalette {
     active.button: "#bcbebf"
-    button: "#ebedef"
-    buttonText: "#f22c384a"
+    inactive.button: "#ebedef"
+    disabled.button: "#ebedef"
+    active.buttonText: "#f22c384a"
+    inactive.buttonText: "#f22c384a"
+    disabled.buttonText: "#f22c384a"
+
     highlight: "#ebedef"
    // shadow: "#24464b64"
 

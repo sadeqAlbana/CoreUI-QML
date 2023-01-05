@@ -18,7 +18,7 @@ T.RoundButton {
     property int shadowRadius: control.enabled ? (control.down ? 16 : (control.hovered ? 8 : 2)) : 0
     property int alignment: Qt.AlignCenter
     property bool glow: true
-    radius: 6
+    radius: CoreUI.borderRadius
     padding: control.font.pixelSize/2
     horizontalPadding: padding + 6
     spacing: 6

@@ -77,8 +77,13 @@ Item {
         rightPadding: 20
         RowLayout {
             anchors.fill: parent
+
+
             ToolButton {
                 icon.name: "cil-menu"
+                icon.width: 23
+                icon.height: 23
+
                 display: AbstractButton.IconOnly
                 background: Item {}
                 onClicked: drawer.opened ? drawer.close() : drawer.open()
@@ -152,6 +157,7 @@ Item {
         anchors.leftMargin: drawerAboveContent ? 0 : drawer.opened ? drawer.width : 0
         height: 60
         leftPadding: 20
+        rightPadding: 20
         Breadcrumb {
             id: breadCrumb
             anchors.fill: parent
@@ -181,7 +187,10 @@ Item {
         width: drawerAboveContent ? rootItem.width -10 : drawer.opened ? rootItem.width - drawer.width -40  : rootItem.width -40
          height: rootItem.height - toolBar.height - breadCrumbToolBar.height - (20 * 2)
 
-        x: drawerAboveContent ? 5 : drawer.opened ? drawer.width + 20 : 20
+        x: LayoutMirroring.enabled? drawerAboveContent? 5 : 20
+
+
+             :drawerAboveContent ? 5 : drawer.opened ? drawer.width + 20 : 20
 
         y: toolBar.height + breadCrumbToolBar.height + 20
 

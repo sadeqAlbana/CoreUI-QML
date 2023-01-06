@@ -9,6 +9,7 @@ import QtQuick;
 import QtQuick.Controls.Basic
 import Qt5Compat.GraphicalEffects
 import QtQuick.Templates as T
+import CoreUI
 T.Menu {
     id: control
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
@@ -19,7 +20,7 @@ T.Menu {
     margins: 0
     overlap: 1
     delegate: CMenuItem { }
-
+    x: control.mirrored? -1*width+parent.width : 0
     contentItem: ListView {
         implicitHeight: contentHeight
         implicitWidth: contentItem.childrenRect.width
@@ -36,9 +37,8 @@ T.Menu {
 
     modal: true
     dim: false
-    property int radius: 5
-    topPadding: control.radius;
-    bottomPadding: control.radius
+    topPadding: CoreUI.borderRadius
+    bottomPadding: CoreUI.borderRadius
     property string icon;
     enter: Transition {
         NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; duration: 200 }
@@ -47,7 +47,7 @@ T.Menu {
 
     background: Rectangle{
         border.color: "transparent"
-        radius: control.radius
+        radius: CoreUI.borderRadius
         layer.enabled: true
         layer.effect:  DropShadow{
             radius: 16

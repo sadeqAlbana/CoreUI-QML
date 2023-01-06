@@ -28,11 +28,19 @@ CTextField {
     bottomInset: helpBlockLabel.visible ? helpBlockLabel.implicitHeight : 0
     bottomPadding: bottomInset + padding
 
-    leftInset: leftDelegateContainer.visible ? leftDelegateContainer.implicitWidth : 0
-    leftPadding: leftDelegateContainer.visible ? leftInset + padding : leftPadding
 
-    rightInset: rightDelegateContainer.visible ? rightDelegateContainer.implicitWidth : 0
-    rightPadding: rightDelegateContainer.visible ? rightInset + padding : rightPadding
+
+
+    leftInset: LayoutMirroring.enabled? rightDelegateContainer.visible ? rightDelegateContainer.implicitWidth : 0
+                 : leftDelegateContainer.visible ? leftDelegateContainer.implicitWidth : 0
+    leftPadding: LayoutMirroring.enabled? rightDelegateContainer.visible ? leftInset + padding : leftPadding
+                   :leftDelegateContainer.visible ? leftInset + padding : leftPadding
+
+    rightInset: LayoutMirroring.enabled? leftDelegateContainer.visible ? leftDelegateContainer.implicitWidth : 0
+                  : rightDelegateContainer.visible ? rightDelegateContainer.implicitWidth : 0
+
+    rightPadding: LayoutMirroring.enabled? leftDelegateContainer.visible ? rightInset + padding : rightPadding
+                    : rightDelegateContainer.visible ? rightInset + padding : rightPadding
 
     component Delegate: ItemDelegate {
         //change to item delegate ?

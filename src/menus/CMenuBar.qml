@@ -48,21 +48,4 @@ T.MenuBar {
 
     }
 
-
-//    Repeater{
-//        model: control.count
-//        parent: control
-//        Rectangle{
-//            width: 1
-//            height: control.height
-//            x: control.itemAt(index).x
-//            color: CoreUI.boxShadow
-//            visible: index!==0
-
-//        }
-
-//    }
-
-
-
 } //end menu bar

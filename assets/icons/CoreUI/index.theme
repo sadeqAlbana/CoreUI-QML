@@ -5,13 +5,20 @@ Name=CoreUI
 Directories=brand,flag,free
 
 [brand]
-Size=32
+Size=512
 Type=Scalable
+MinSize=16
+MaxSize=1024
 
 [flag]
-Size=32
+Size=512
 Type=Scalable
+MinSize=16
+MaxSize=1024
+
 
 [free]
-Size=32
+Size=512
 Type=Scalable
+MinSize=16
+MaxSize=1024

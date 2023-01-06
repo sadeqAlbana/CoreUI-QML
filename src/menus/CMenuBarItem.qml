@@ -23,8 +23,9 @@ T.MenuBarItem {
     padding: 6
 
     rightPadding: padding + CoreUI.borderRadius
-    icon.width: 20
-    icon.height: 20
+    icon.width: 22
+    icon.height:22
+
     icon.color: control.palette.buttonText
     display: AbstractButton.IconOnly
     property int radius: CoreUI.borderRadius

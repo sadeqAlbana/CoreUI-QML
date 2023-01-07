@@ -46,7 +46,7 @@ Page {
                         GridLayout {
                             columns: 1
                             CForm{
-                                items: parent?.children;
+                                items: parent.children;
                                 applyHandler: function(data){}
                             }
 

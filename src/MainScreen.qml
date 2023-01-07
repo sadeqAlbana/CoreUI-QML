@@ -31,7 +31,7 @@ Item {
     property int iconWidth: 90
     property int iconHeight: 33
     property int initialIndex: 0
-        property bool drawerAboveContent : ApplicationWindow.window.mobileLayout
+    property bool drawerAboveContent : ApplicationWindow.window.mobileLayout
     onDrawerAboveContentChanged: {
         if (!drawerAboveContent && drawer.opened)
             drawer.close()

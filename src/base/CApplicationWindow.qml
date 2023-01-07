@@ -15,6 +15,7 @@ ApplicationWindow {
     LayoutMirroring.enabled: (Qt.application.layoutDirection === Qt.RightToLeft ? true : false)
     LayoutMirroring.childrenInherit: true
     palette: CPalette {}
+    property bool mobileLayout: height > width
     property alias rootLoader: loader
 
 

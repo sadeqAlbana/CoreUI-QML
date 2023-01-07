@@ -73,21 +73,21 @@ Page {
 
                        ColumnLayout{
                            Breadcrumb{
-                                model: ["Home"]
+                                model: [{"label": qsTr("Home")}]
                                 Layout.fillWidth: true
                            }
                            Breadcrumb{
-                                model: ["Home","Library"]
-                                Layout.fillWidth: true
-
-                           }
-                           Breadcrumb{
-                                model: ["Home","Library","Data"]
+                               model: [{"label": qsTr("Home")},{"label": qsTr("Library")}]
                                 Layout.fillWidth: true
 
                            }
                            Breadcrumb{
-                                model: ["Home","Library","Data","Bootstrap"]
+                               model: [{"label": qsTr("Home")},{"label": qsTr("Library")},{"label": qsTr("Data")}]
+                                Layout.fillWidth: true
+
+                           }
+                           Breadcrumb{
+                               model: [{"label": qsTr("Home")},{"label": qsTr("Library")},{"label": qsTr("Data")},{"label": qsTr("Bootstrap")}]
                                 Layout.fillWidth: true
 
                            }

@@ -156,11 +156,13 @@ TableView{
             //take header width into account as well
             return Math.max(tableView.implicitColumnAndHeaderWidth(column),
 
-                            parseInt(tableView.width/(tableView.columns-tableView.hiddenColumns.length),10))
+                            (parseInt(tableView.width/(tableView.columns-tableView.hiddenColumns.length),10)+1))
         }
 
         else{
-            return -1
+            return  parseInt(tableView.width/(tableView.columns-tableView.hiddenColumns.length),10)+1
+
+            //return -1
         }
     }
 

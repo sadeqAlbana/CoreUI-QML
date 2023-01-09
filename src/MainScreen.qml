@@ -25,6 +25,7 @@ Item {
     id: rootItem
     implicitWidth: mainFlickable.implicitWidth
     implicitHeight: mainFlickable.implicitHeight
+
     property var navBar: NavJS.navBar()
     property var permissionProvider: null
     property url icon: "qrc:/icons/CoreUI/brand/cib-coreui-cropped.svg"
@@ -162,11 +163,10 @@ Item {
             id: breadCrumb
             anchors.fill: parent
             Component.onCompleted: model = Router.paths
-            onClicked:(index) =>{
-                console.log(index);
-                          Router.back(index)
+            onClicked:(index)=> Router.back(index)
 
-            }
+
+
 
             Connections {
                 target: Router
@@ -180,8 +180,8 @@ Item {
     //content here
     Flickable {
         id: mainFlickable
-//        implicitWidth: stack.implicitWidth
-
+        implicitWidth: stack.implicitWidth
+        implicitHeight: stack.implicitHeight
         contentHeight: stack.implicitHeight
         clip: true
         width: drawerAboveContent ? rootItem.width -10 : drawer.opened ? rootItem.width - drawer.width -40  : rootItem.width -40

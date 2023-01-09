@@ -64,7 +64,8 @@ QtObject {
     }
 
     function data(){ //returns form data
-        let formData={}
+        let formData=initialValues?? {}
+
         for(var i=0;i<items.length; i++){
             let item=items[i]
             let key=item.objectName

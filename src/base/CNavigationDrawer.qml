@@ -27,6 +27,10 @@ Drawer {
         color: rootItem.drawerAboveContent ? "#C0000000" : "transparent" //should be changed to CoreUI.DrawerAboveContent
     }
 
+    background: Rectangle{
+        color: drawer.palette.window
+    }
+
     ListView {
         id: listView
         anchors.fill: parent

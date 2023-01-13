@@ -17,6 +17,7 @@ import CoreUI.Notifications
 import CoreUI.Base
 import CoreUI.Impl
 import CoreUI.Menus
+import CoreUI.Buttons
 import CoreUI
 import QtQuick.Controls.impl as Impl
 import "nav.js" as NavJS
@@ -80,11 +81,10 @@ Item {
             anchors.fill: parent
 
 
-            ToolButton {
+            CToolButton {
                 icon.name: "cil-menu"
                 icon.width: 23
                 icon.height: 23
-
                 display: AbstractButton.IconOnly
                 background: Item {}
                 onClicked: drawer.opened ? drawer.close() : drawer.open()
@@ -92,7 +92,7 @@ Item {
 
             HorizontalSpacer {}
 
-            ToolButton {
+            CToolButton {
                 id: ctrl
                 display: AbstractButton.IconOnly
                 property bool rounded: true

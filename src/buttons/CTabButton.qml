@@ -55,4 +55,9 @@ T.TabButton {
 
         anchors.horizontalCenter: parent.horizontalCenter
     }
+
+    HoverHandler {
+        acceptedDevices: PointerDevice.Mouse
+        cursorShape: control.enabled? Qt.PointingHandCursor : Qt.ArrowCursor
+    }
 }

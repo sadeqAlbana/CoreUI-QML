@@ -56,4 +56,9 @@ T.RoundButton {
 
     }
 
+    HoverHandler {
+        acceptedDevices: PointerDevice.Mouse
+        cursorShape: control.enabled? Qt.PointingHandCursor : Qt.ArrowCursor
+    }
+
 }

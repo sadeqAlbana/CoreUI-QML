@@ -3,6 +3,7 @@
 #include <QQmlEngine>
 #include <QQmlContext>
 #include <QGuiApplication>
+QUrl CoreUI::m_userIcon;
 CoreUI::CoreUI(QObject *parent)
     : QObject{parent}
 {

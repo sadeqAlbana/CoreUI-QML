@@ -141,7 +141,7 @@ private:
     QColor m_accordionBorderFocus;
     QColor m_accordionActive;
     QColor m_boxShadow;
-    QUrl m_userIcon;
+    static QUrl m_userIcon;
 
     Q_PROPERTY(int borderWidth READ borderWidth WRITE setBorderWidth NOTIFY borderWidthChanged)
     Q_PROPERTY(bool mobileLayout READ mobileLayout NOTIFY mobileLayoutChanged)

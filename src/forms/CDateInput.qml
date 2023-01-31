@@ -14,6 +14,11 @@ CIconTextField {
         control.clear();
     }
 
+    function setDate(newDate){
+        control.date=newDate
+        dateChanged();
+    }
+
     property date date: new Date()
     Component.onCompleted: text=""
     onDateChanged: {
@@ -70,7 +75,7 @@ CIconTextField {
                     display: AbstractButton.TextOnly
                     font.pixelSize: 35
                     implicitWidth: 50
-                    onClicked: control.date=control.date.addMonths(-1);
+                    onClicked: setDate(control.date.addMonths(-1));
 
 
                 }
@@ -93,7 +98,7 @@ CIconTextField {
                     Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
                     display: AbstractButton.TextOnly
                     implicitWidth: 50
-                    onClicked: control.date=control.date.addMonths(1);
+                    onClicked: setDate(control.date.addMonths(1));
 
 
 
@@ -113,7 +118,7 @@ CIconTextField {
                 id: grid
                 date: control.date
                 month: control.date.getMonth();
-                year: 2022
+                year: control.date.getFullYear();
                 locale: Qt.locale("en_US")
                 Layout.row: 2
                 Layout.fillWidth: true

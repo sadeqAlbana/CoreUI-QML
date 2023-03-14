@@ -16,10 +16,11 @@ ListView {
     property list<Action> actions;
     property string title;
     headerPositioning: control.OverlayHeader
-
+    implicitWidth: 250
+    implicitHeight: 400
     header: CListViewHeaderDelegate{
         title: control.title;
-        width: control.view.width;
+        width: control.width;
 
     }
 

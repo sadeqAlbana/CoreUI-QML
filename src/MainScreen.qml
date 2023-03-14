@@ -218,11 +218,11 @@ Item {
                     if (root) {
                         stack.replace(null, path, params)
                         Router.paths = []
-                        Router.paths.push({"label": stack.currentItem.title ?? "Unknown", "path": path})
+                        Router.paths.push({"label": stack.currentItem? stack.currentItem.title ?? "Unknown" : "Unknown", "path": path})
                         Router.pathsChanged()
                     } else {
                         stack.push(path, params)
-                        Router.paths.push({"label": stack.currentItem.title ?? "Unknown", "path": path})
+                        Router.paths.push({"label": stack.currentItem? stack.currentItem.title ?? "Unknown" : "Unknown", "path": path})
                         Router.pathsChanged()
                     }
                 }

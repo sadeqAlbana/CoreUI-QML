@@ -8,8 +8,9 @@
 import QtQuick;
 import QtQuick.Controls.Basic;
 import QtQuick.Controls
-
+import CoreUI
 ItemDelegate {
+    id: control
     property bool  isCurrentItem : ListView.view.hoveredRow===model.row
     property color backgroundColor:  model.row%2==0 ? "#F2F2F3" : "white";
     implicitWidth: 100
@@ -17,7 +18,7 @@ ItemDelegate {
 
     hoverEnabled: true
     highlighted: ListView.isCurrentItem;
-    onClicked: listView.currentIndex=model.row
+    onClicked: ListView.view.currentIndex=model.row
 
 
     states:[
@@ -49,7 +50,7 @@ ItemDelegate {
         text: model.name
         horizontalAlignment: TextEdit.AlignHCenter
         verticalAlignment: TextEdit.AlignVCenter
-        color: "#4F5D73"
+        color: control.palette.text
 
     }
 

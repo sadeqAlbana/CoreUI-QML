@@ -29,7 +29,7 @@ CButton {
 
     background: Rectangle{
         //border.width: 3
-        implicitHeight: 40
+        implicitHeight: 45
         implicitWidth: 200
         color : control.enabled? control.palette.base : control.palette.disabled.base
         border.color:  control.palette.shadow

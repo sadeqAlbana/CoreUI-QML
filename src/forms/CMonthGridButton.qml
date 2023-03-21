@@ -17,7 +17,7 @@ Button {
     flat: true
     background: Rectangle {
         implicitWidth: 100
-        implicitHeight: 40
+        implicitHeight: 45
         visible: !control.flat || control.down || control.checked || control.highlighted
         color: Color.blend(control.checked ? control.palette.dark :  control.highlighted? control.palette.mid:
                                              control.palette.button,

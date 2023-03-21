@@ -28,7 +28,7 @@ T.DialogButtonBox {
     }
 
     background: Rectangle {
-        implicitHeight: 40
+        implicitHeight: 45
         x: 1; y: 1
         width: parent.width - 2
         height: parent.height - 2

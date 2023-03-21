@@ -20,7 +20,7 @@ TextField {
     onAccepted: entered(control.text)
 
     background: Rectangle{
-        implicitHeight: 40
+        implicitHeight: 45
         implicitWidth: 200
         color : control.enabled? control.palette.base : control.palette.disabled.base
         border.color: control.acceptableInput? control.palette.shadow : CoreUI.danger

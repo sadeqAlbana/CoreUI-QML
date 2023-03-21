@@ -53,7 +53,7 @@ CTextField {
     }
 
     background: RoundedRect {
-        implicitHeight: 40
+        implicitHeight: 45
         implicitWidth: 200
         color: control.palette.base
         border.color: control.palette.shadow

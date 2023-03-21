@@ -28,7 +28,7 @@ CComboBox {
 
     background: RoundedRect {
         //border.width: 3
-        implicitHeight: 40
+        implicitHeight: 45
         implicitWidth: 200
         topLeft: !leftDelegateContainer.visible
         bottomLeft: !leftDelegateContainer.visible

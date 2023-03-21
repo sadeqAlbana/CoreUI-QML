@@ -12,7 +12,7 @@ import QtQuick.Controls
 ComboBox{
     id:control
     background: Rectangle{
-        implicitHeight: 40
+        implicitHeight: 45
         color : "#fff"
         border.color: control.visualFocus? "#8AD4EE" :"#d8dbe0";
         radius: 4

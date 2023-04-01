@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Templates as T
 
 QtObject {
     id: form
@@ -38,22 +39,22 @@ QtObject {
                 if(item instanceof TextInput || item instanceof TextEdit){
                     item.text=data
                 }
-                else if(item instanceof ComboBox){
+                else if(item instanceof T.ComboBox){
                     item.currentValue=data;
                 }
 
-                else if(item instanceof SpinBox){
+                else if(item instanceof T.SpinBox){
                     item.value=data;
                 }
 
-                else if(item instanceof Slider ){
+                else if(item instanceof T.Slider ){
                     item.value=data;
                 }
 
-                else if(item instanceof Switch || item instanceof SwitchDelegate){
+                else if(item instanceof T.Switch || item instanceof T.SwitchDelegate){
                     item.position=data? 1 : 0
                 }
-                else if(item instanceof Dial ){
+                else if(item instanceof T.Dial ){
                     item.value=data;
                 }
 
@@ -75,22 +76,22 @@ QtObject {
             if(item instanceof TextInput || item instanceof TextEdit){
                 data=item.text;
             }
-            else if(item instanceof ComboBox){
+            else if(item instanceof T.ComboBox){
                 data=item.currentValue;
             }
 
-            else if(item instanceof SpinBox){
+            else if(item instanceof T.SpinBox){
                 data=item.value;
             }
 
-            else if(item instanceof Slider ){
+            else if(item instanceof T.Slider ){
                 data=item.value;
             }
 
-            else if(item instanceof Switch || item instanceof SwitchDelegate){
+            else if(item instanceof T.Switch || item instanceof T.SwitchDelegate){
                 data=item.position===1;
             }
-            else if(item instanceof Dial ){
+            else if(item instanceof T.Dial ){
                 data=item.value;
             }
 

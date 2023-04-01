@@ -30,11 +30,11 @@ ListView {
         acceptedButtons: Qt.RightButton
 
         enabled: control.currentIndex>=0
-        onClicked: {
+        onClicked:(mouse)=> {
             if (mouse.button === Qt.RightButton)
                 contextMenu.popup()
         }
-        onPressAndHold: {
+        onPressAndHold:(mouse)=> {
             if (mouse.source === Qt.MouseEventNotSynthesized)
                 contextMenu.popup()
         }

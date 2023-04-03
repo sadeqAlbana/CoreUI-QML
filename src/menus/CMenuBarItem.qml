@@ -30,7 +30,7 @@ T.MenuBarItem {
     display: AbstractButton.IconOnly
     property int radius: CoreUI.borderRadius
     palette: BrandLight {}
-    icon.name: control.menu.icon
+    icon.name: control.menu.icon.name
     enabled: control.menu? control.menu.count : true
     contentItem: IconLabel {
 

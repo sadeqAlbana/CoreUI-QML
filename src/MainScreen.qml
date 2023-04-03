@@ -52,7 +52,7 @@ Item {
 
             function indexOf(title) {
                 for (var i = 0; i < listModel.count; i++) {
-                    var item = this.get(i)
+                    var item = listModel.get(i)
                     if (item.title === title)
                         return i
                 }

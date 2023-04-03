@@ -40,7 +40,7 @@ QtObject {
                     item.text=data
                 }
                 else if(item instanceof T.ComboBox){
-                    item.currentValue=data;
+                    item.currentIndex=item.indexOfValue(data);
                 }
 
                 else if(item instanceof T.SpinBox){

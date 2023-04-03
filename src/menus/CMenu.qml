@@ -39,7 +39,6 @@ T.Menu {
     dim: false
     topPadding: CoreUI.borderRadius
     bottomPadding: CoreUI.borderRadius
-    property string icon;
     enter: Transition {
         NumberAnimation { property: "opacity"; from: 0.0; to: 1.0; duration: 200 }
     }

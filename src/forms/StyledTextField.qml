@@ -24,23 +24,22 @@ CTextField {
     readonly property Item leftDelegateItem: null
     readonly property Item rightDelegateItem: null
     property HelpBlock helpBlock: HelpBlock {}
-
+    property bool passwordToggleMask: false;
     bottomInset: helpBlockLabel.visible ? helpBlockLabel.implicitHeight : 0
     bottomPadding: bottomInset + padding
-
-
+    readonly property int passwordMaskWidth: passwordToggle.visible? passwordToggle.width : 0
 
 
     leftInset: LayoutMirroring.enabled? rightDelegateContainer.visible ? rightDelegateContainer.implicitWidth : 0
                  : leftDelegateContainer.visible ? leftDelegateContainer.implicitWidth : 0
-    leftPadding: LayoutMirroring.enabled? rightDelegateContainer.visible ? leftInset + padding : leftPadding
+    leftPadding: LayoutMirroring.enabled? rightDelegateContainer.visible ? leftInset + padding + passwordMaskWidth : padding + passwordMaskWidth
                    :leftDelegateContainer.visible ? leftInset + padding : leftPadding
 
     rightInset: LayoutMirroring.enabled? leftDelegateContainer.visible ? leftDelegateContainer.implicitWidth : 0
                   : rightDelegateContainer.visible ? rightDelegateContainer.implicitWidth : 0
 
     rightPadding: LayoutMirroring.enabled? leftDelegateContainer.visible ? rightInset + padding : rightPadding
-                    : rightDelegateContainer.visible ? rightInset + padding : rightPadding
+                    : rightDelegateContainer.visible ? rightInset + padding + passwordMaskWidth : padding + passwordMaskWidth
 
     component Delegate: ItemDelegate {
         //change to item delegate ?
@@ -155,5 +154,22 @@ CTextField {
         font.italic: true
         text: helpBlock.text
         color: helpBlock.color
+    }
+
+    Button{
+        id: passwordToggle
+        visible: passwordToggleMask
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.right: control.mirrored? undefined: parent.right
+        anchors.left: control.mirrored? parent.left: undefined
+        background: Rectangle{color: "transparent"}
+        icon.name: control.echoMode==TextInput.Password? "cis-eye" : "cis-eye-slash"
+        icon.color: control.palette.text
+        checkable: true
+        checked: false
+        flat: true
+        onCheckedChanged: {
+            tf.echoMode= checked? TextInput.Normal : TextInput.Password
+        }
     }
 }

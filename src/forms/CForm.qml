@@ -20,6 +20,23 @@ QtObject {
         }
     }
 
+    function validate() : bool{
+
+        let valid=true;
+        for(var i=0;i<items.length; i++){
+            let item=items[i]
+
+            if(item instanceof TextInput || item instanceof TextEdit || item instanceof T.ComboBox){
+                if(!item.acceptableInput){
+                    valid=false;
+                }
+            }
+        }//foreach
+
+        return valid;
+
+    }
+
 
     function setInitialValues(){
         if(initialValues==null)
@@ -57,10 +74,6 @@ QtObject {
                 else if(item instanceof T.Dial ){
                     item.value=data;
                 }
-
-
-
-
         }
     }
 

@@ -83,7 +83,7 @@ public:
     void setMobileLayout(bool newMobileLayout);
 
     Q_INVOKABLE QColor color(const CoreUI::Color clr);
-
+    Q_INVOKABLE QColor rgba(const QColor &color, const int alpha);
 
     const QColor &primary() const;
     void setPrimary(const QColor &newPrimary);
@@ -110,6 +110,9 @@ public:
 
     Q_INVOKABLE void copyToClipBoard(const QVariant &data);
 
+    QColor success() const;
+    void setSuccess(const QColor &newSuccess);
+
 signals:
     void borderWidthChanged();
 
@@ -129,6 +132,8 @@ signals:
 
     void userIconChanged();
 
+    void successChanged();
+
 private:
     int m_borderWidth=1;
     int m_borderRadius=6;
@@ -137,6 +142,8 @@ private:
 
     QColor m_primary;
     QColor m_danger;
+    QColor m_success;
+
 
     QColor m_accordionBorderFocus;
     QColor m_accordionActive;
@@ -152,6 +159,7 @@ private:
     Q_PROPERTY(int borderRadius READ borderRadius WRITE setBorderRadius NOTIFY borderRadiusChanged)
     Q_PROPERTY(QColor danger READ danger WRITE setDanger NOTIFY dangerChanged)
     Q_PROPERTY(QUrl userIcon READ userIcon WRITE setUserIcon RESET resetUserIcon NOTIFY userIconChanged)
+    Q_PROPERTY(QColor success READ success WRITE setSuccess NOTIFY successChanged)
 };
 
 #endif // COREUI_H

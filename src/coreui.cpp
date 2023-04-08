@@ -8,6 +8,8 @@ CoreUI::CoreUI(QObject *parent)
     : QObject{parent}
 {
     m_primary=QRgb(CoreUI::Primary);
+    m_success=QRgb(CoreUI::Success);
+
     m_danger=QRgb(CoreUI::Danger);
 
     m_accordionBorderFocus=QRgb(CoreUI::AccordionFocusBorder);
@@ -39,6 +41,12 @@ QColor CoreUI::color(const Color clr)
 {
     return ((clr >> 24) | 0)? QColor::fromRgba(clr) : QColor(clr);
 }
+
+QColor CoreUI::rgba(const QColor &color, const int alpha)
+{
+    return QColor(color.red(),color.green(),color.blue(),alpha);
+}
+
 
 const QColor &CoreUI::primary() const
 {
@@ -147,6 +155,19 @@ void CoreUI::copyToClipBoard(const QVariant &data)
     if(data.typeId()==QMetaType::QString){
         clipboard->setText(data.toString());
     }
+}
+
+QColor CoreUI::success() const
+{
+    return m_success;
+}
+
+void CoreUI::setSuccess(const QColor &newSuccess)
+{
+    if (m_success == newSuccess)
+        return;
+    m_success = newSuccess;
+    emit successChanged();
 }
 
 

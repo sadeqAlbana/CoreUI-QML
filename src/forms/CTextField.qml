@@ -18,17 +18,25 @@ TextField {
     selectByMouse: true
     signal entered(var text)
     onAccepted: entered(control.text)
+    property bool __firstTimeFocus: false;
 
+    onActiveFocusChanged: {
+        if(!activeFocus && !__firstTimeFocus){
+            __firstTimeFocus=true
+        }
+    }
     background: Rectangle{
         implicitHeight: 45
         implicitWidth: 200
         color : control.enabled? control.palette.base : control.palette.disabled.base
-        border.color: control.acceptableInput? control.palette.shadow : CoreUI.danger
+        border.color: control.validator? control.acceptableInput? CoreUI.success : CoreUI.danger :
+                                                                        control.palette.shadow
         radius: CoreUI.borderRadius
         layer.enabled: control.activeFocus
         layer.effect: Glow {
             spread: 1
-            color: CoreUI.boxShadow
+            color: control.validator? control.acceptableInput? CoreUI.rgba(CoreUI.success,64) :
+                                                               CoreUI.rgba(CoreUI.danger,64) : CoreUI.boxShadow
             transparentBorder: true
             cached: true
         }

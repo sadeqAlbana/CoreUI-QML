@@ -23,7 +23,7 @@ CTextField {
     property Component rightDelegate: null
     readonly property Item leftDelegateItem: null
     readonly property Item rightDelegateItem: null
-    property HelpBlock helpBlock: HelpBlock {}
+    property HelpBlock helpBlock: HelpBlock {color: CoreUI.danger; visible: !control.acceptableInput && control.__firstTimeFocus}
     property bool passwordToggleMask: false;
     bottomInset: helpBlockLabel.visible ? helpBlockLabel.implicitHeight : 0
     bottomPadding: bottomInset + padding
@@ -54,8 +54,9 @@ CTextField {
     background: RoundedRect {
         implicitHeight: 45
         implicitWidth: 200
-        color: control.palette.base
-        border.color: control.palette.shadow
+        color : control.enabled? control.palette.base : control.palette.disabled.base
+        border.color: control.validator && __firstTimeFocus? control.acceptableInput && __firstTimeFocus? CoreUI.success : CoreUI.danger :
+                                                                        control.palette.shadow
         radius: CoreUI.borderRadius
         topLeft: !leftDelegateContainer.visible
         bottomLeft: !leftDelegateContainer.visible
@@ -65,12 +66,15 @@ CTextField {
 
         layer.effect: Glow {
             spread: 1
-            color: CoreUI.boxShadow
+            color: control.validator&& __firstTimeFocus? control.acceptableInput ? CoreUI.rgba(CoreUI.success,64) :
+                                                               CoreUI.rgba(CoreUI.danger,64) : CoreUI.boxShadow
             transparentBorder: true
             cached: true
 
         }
     } //background
+
+
 
     Control {
         id: leftDelegateContainer
@@ -148,7 +152,7 @@ CTextField {
         anchors.bottom: control.bottom
         anchors.left: control.left
         anchors.right: control.right
-        visible: text.length
+        visible: control.helpBlock.visible;
         topPadding: 5
         font.pixelSize: 14
         font.italic: true

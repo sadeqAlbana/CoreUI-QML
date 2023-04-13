@@ -10,19 +10,23 @@ import QtQuick.Controls.Basic;
 import Qt5Compat.GraphicalEffects
 import QtQuick.Layouts
 import CoreUI.Menus
+import CoreUI
 ListView {
     id: control
     clip: true
-    property list<Action> actions;
-    property string title;
-    headerPositioning: control.OverlayHeader
     implicitWidth: 250
     implicitHeight: 400
-    header: CListViewHeaderDelegate{
-        title: control.title;
-        width: control.width;
-
+    property list<Action> actions;
+    property string title;
+    property Item background: Rectangle{
+        parent: control
+        anchors.fill: parent
+        radius: CoreUI.borderRadius
+        z:-1
+        border.color: control.palette.shadow
     }
+
+    headerPositioning: ListView.OverlayHeader
 
 
     MouseArea {
@@ -63,14 +67,5 @@ ListView {
 
     }
 
-//    Rectangle {
-//        id: scrollbar
-//        anchors.right: control.right
-//        y: control.visibleArea.yPosition * control.height
-//        width: 10
-//        height: control.visibleArea.heightRatio * control.height
-//        color: "#0078D7"
-//        radius: width
-//        visible: control.childrenRect.height > control.height
-//    }
+    ScrollBar.vertical: ScrollBar{}
 }

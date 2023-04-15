@@ -19,19 +19,18 @@ CListView{
     clip: true
 
     component CListViewCheckDelegate: CheckDelegate{
-        onCheckedChanged: ListView.view.model.checked=checked
-        width: ListView.view.width;
+        width: ListView.view.width-(x*2)
+        x: CoreUI.borderWidth
 
-//        text: model.display
+
+        checkState: model.checkState
+        onCheckStateChanged: model.checkState=checkState
         highlighted: ListView.isCurrentItem;
         onClicked: {
-            control.forceActiveFocus();
+            ListView.view.forceActiveFocus();
             if (ListView.view.currentIndex !== index) {
                 ListView.view.currentIndex = index
             }
         }
-
     }
-
-
 }

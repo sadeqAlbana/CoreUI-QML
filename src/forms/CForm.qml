@@ -4,119 +4,109 @@ import QtQuick.Templates as T
 
 QtObject {
     id: form
-    required property list<Item> items;
+    required property list<Item> items
     property var initialValues: null
-    property string method: "POST";
-    property string url;
-    required property var applyHandler;
-    Component.onCompleted: setInitialValues();
+    property string method: "POST"
+    property string url
+    required property var applyHandler
+    Component.onCompleted: setInitialValues()
 
-    function apply(){
-        if(form.url){
-            form.applyHandler(url,method,data())
-        }
-        else{
+    function apply() {
+        if (form.url) {
+            form.applyHandler(url, method, data())
+        } else {
             form.applyHandler(data())
         }
     }
 
-    function validate() : bool{
+    function validate() {
 
-        let valid=true;
-        for(var i=0;i<items.length; i++){
-            let item=items[i]
+        let valid = true
+        for (var i = 0; i < items.length; i++) {
+            let item = items[i]
 
-            if(item instanceof TextInput || item instanceof TextEdit || item instanceof T.ComboBox){
-                if(!item.acceptableInput){
-                    valid=false;
+            if (item instanceof TextInput || item instanceof TextEdit
+                    || item instanceof T.ComboBox) {
+                if (!item.acceptableInput) {
+                    valid = false
                 }
             }
-        }//foreach
+        } //foreach
 
-        return valid;
-
+        return valid
     }
 
+    function setInitialValues() {
+        if (initialValues == null)
+            return
 
-    function setInitialValues(){
-        if(initialValues==null)
-            return;
+        for (var i = 0; i < items.length; i++) {
+            let item = items[i]
+            let key = item.objectName
 
-        for(var i=0;i<items.length; i++){
-            let item=items[i];
-            let key=item.objectName
+            let data = null
 
-            let data=null
-
-            if(initialValues.hasOwnProperty(key)){
-                data=initialValues[key];
+            if (initialValues.hasOwnProperty(key)) {
+                data = initialValues[key]
             }
 
+            if (item instanceof TextInput || item instanceof TextEdit) {
+                item.text = data
+            } else if (item instanceof T.ComboBox) {
+                item.currentIndex = item.indexOfValue(data)
+            } else if (item instanceof T.SpinBox) {
+                item.value = data
+            } else if (item instanceof T.Slider) {
+                item.value = data
+            } else if (item instanceof T.Switch
+                       || item instanceof T.SwitchDelegate) {
+                item.position = data ? 1 : 0
+            } else if (item instanceof T.Dial) {
+                item.value = data
+            } else if (item instanceof ListView) {
+                console.log("it's a listview")
+                if(item.model.hasOwnProperty('toJsonArray') &&  typeof  item.model.toJsonArray ===  'function'){
 
-                if(item instanceof TextInput || item instanceof TextEdit){
-                    item.text=data
-                }
-                else if(item instanceof T.ComboBox){
-                    item.currentIndex=item.indexOfValue(data);
+//                    let aclItems = aclGroupsModel.data(roleCB.currentIndex, "acl_items")
+//                    model.uncheckAll()
+//                    model.matchChecked(aclItems, "permission", "permission")
                 }
 
-                else if(item instanceof T.SpinBox){
-                    item.value=data;
-                }
-
-                else if(item instanceof T.Slider ){
-                    item.value=data;
-                }
-
-                else if(item instanceof T.Switch || item instanceof T.SwitchDelegate){
-                    item.position=data? 1 : 0
-                }
-                else if(item instanceof T.Dial ){
-                    item.value=data;
-                }
+                //TODO: get checked items
+            }
         }
     }
 
-    function data(){ //returns form data
-        let formData=initialValues?? {}
+    function data() {
+        //returns form data
+        let formData = initialValues ?? {}
 
-        for(var i=0;i<items.length; i++){
-            let item=items[i]
-            let key=item.objectName
+        for (var i = 0; i < items.length; i++) {
+            let item = items[i]
+            let key = item.objectName
 
-            let data=null
+            let data = null
 
-            if(item instanceof TextInput || item instanceof TextEdit){
-                data=item.text;
-            }
-            else if(item instanceof T.ComboBox){
-                data=item.currentValue;
-            }
-
-            else if(item instanceof T.SpinBox){
-                data=item.value;
-            }
-
-            else if(item instanceof T.Slider ){
-                data=item.value;
-            }
-
-            else if(item instanceof T.Switch || item instanceof T.SwitchDelegate){
-                data=item.position===1;
-            }
-            else if(item instanceof T.Dial ){
-                data=item.value;
+            if (item instanceof TextInput || item instanceof TextEdit) {
+                data = item.text
+            } else if (item instanceof T.ComboBox) {
+                data = item.currentValue
+            } else if (item instanceof T.SpinBox) {
+                data = item.value
+            } else if (item instanceof T.Slider) {
+                data = item.value
+            } else if (item instanceof T.Switch
+                       || item instanceof T.SwitchDelegate) {
+                data = item.position === 1
+            } else if (item instanceof T.Dial) {
+                data = item.value
             }
 
-            if(data!==null){
-                formData[key]=data;
+            if (data !== null) {
+                formData[key] = data
             }
-        }//foreach
+        } //foreach
 
-        return formData;
+        return formData
     }
-
-
 }
-
-

@@ -17,7 +17,7 @@ import CoreUI.Views
 CListView{
     id: control
     clip: true
-
+    property string matchKey;
     component CListViewCheckDelegate: CheckDelegate{
         width: ListView.view.width-(x*2)
         x: CoreUI.borderWidth

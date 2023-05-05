@@ -63,13 +63,19 @@ QtObject {
                 item.position = data ? 1 : 0
             } else if (item instanceof T.Dial) {
                 item.value = data
-            } else if (item instanceof ListView) {
-                console.log("it's a listview")
-                if(item.model.hasOwnProperty('toJsonArray') &&  typeof  item.model.toJsonArray ===  'function'){
+            } else if (item instanceof CheckableListView) {
 
-//                    let aclItems = aclGroupsModel.data(roleCB.currentIndex, "acl_items")
-//                    model.uncheckAll()
-//                    model.matchChecked(aclItems, "permission", "permission")
+                //TODO: rewrite the below piece
+                let itemModel= item.model
+                if(itemModel?.checkable &&  typeof  item.model.toJsonArray ===  'function'){
+                    itemModel.uncheckAll()
+                    itemModel.matchChecked(initialValues[key], item.matchKey, item.matchKey)
+                    if(itemModel.hasOwnProperty('onModelReset')){
+                        itemModel.onModelReset.connect(function(){
+                            itemModel.uncheckAll()
+                            itemModel.matchChecked(initialValues[key], item.matchKey, item.matchKey)
+                        })
+                    }
                 }
 
                 //TODO: get checked items
@@ -102,10 +108,21 @@ QtObject {
                 data = item.value
             }
 
+            else if (item instanceof CheckableListView) {
+                let itemModel=item.model;
+                if(itemModel?.checkable &&  typeof  item.model.toJsonArray ===  'function'){
+
+                    data = itemModel.toJsonArray(Qt.Checked)
+                }
+
+                }
+
+
             if (data !== null) {
                 formData[key] = data
             }
         } //foreach
+
 
         return formData
     }

@@ -11,7 +11,6 @@ import Qt5Compat.GraphicalEffects
 import QtQuick.Layouts
 import QtQuick.Controls
 import CoreUI.Impl
-import QmlRoundedRectangle
 import CoreUI
 CPage{
     id: control

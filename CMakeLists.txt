@@ -7,7 +7,7 @@ find_package(Qt6 COMPONENTS Qml Core5Compat Gui Widgets Charts Quick REQUIRED)
 
 add_subdirectory(src)
 add_subdirectory(libs/json-model)
-add_subdirectory(libs/QmlRoundedRectangle)
+#add_subdirectory(libs/QmlRoundedRectangle)
 
 if(COREUI_BUILD_EXAMPLES)
 add_subdirectory(examples)

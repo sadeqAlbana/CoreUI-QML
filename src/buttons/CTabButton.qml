@@ -6,7 +6,6 @@ import CoreUI
 import CoreUI.Impl
 import CoreUI.Palettes
 import Qt5Compat.GraphicalEffects
-import QmlRoundedRectangle
 
 //https://stackoverflow.com/questions/50644627/qml-rounded-rectangle-with-border
 T.TabButton {
@@ -37,14 +36,14 @@ T.TabButton {
         font: control.font
         color: control.checked? "#768192" : control.palette.link
     }
-    background: RoundedRectangle{
+    background: RoundedRect{
         radius: control.radius
         color: "#00ffffff"
-        borderColor: control.palette.shadow
+        border.color: control.palette.shadow
         visible: control.checked || control.hovered
-        radiusBL: 0
-        radiusBR: 0
-        borderWidth: 1
+        bottomLeft: false
+        bottomRight: false
+        border.width: 1
     }
     Rectangle{
         color: control.palette.base

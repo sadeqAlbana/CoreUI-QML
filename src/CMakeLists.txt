@@ -21,7 +21,6 @@ qt_add_library(coreui STATIC)
 qt_add_qml_module(coreui
     URI "CoreUI"
     VERSION 1.0
-    IMPORTS QmlRoundedRectangle
     SOURCES
         coreui.h coreui.cpp
     IMPORTS
@@ -34,7 +33,7 @@ qt_add_qml_module(coreui
 
 
 
-target_link_libraries(coreui PRIVATE Qt6::Gui Qt6::Widgets Qt6::Quick Qt6::Charts Qt6::Core5Compat libQmlRoundedRectangleplugin)
+target_link_libraries(coreui PRIVATE Qt6::Gui Qt6::Widgets Qt6::Quick Qt6::Charts Qt6::Core5Compat)
 target_link_libraries(coreui
     PUBLIC coreuiimpl coreuibase coreuibuttons coreuiforms coreuipalettes
 coreuinotifications coreuimenus coreuiviews coreuicharts jsonmodelplugin)

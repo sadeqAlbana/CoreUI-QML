@@ -6,7 +6,6 @@
  */
 
 import QtQuick;
-import QtQuick.Controls.Basic;
 
 Rectangle{
     id: mainRect
@@ -14,20 +13,22 @@ Rectangle{
     property bool topRight: true
     property bool bottomLeft: true
     property bool bottomRight: true
-    border.color: color
+    border.color: mainRect.color
     clip: true
+
+
 
     Rectangle{
         id: rect1
         width: mainRect.radius
         height: mainRect.radius
-        color: topLeft ?  'transparent' : mainRect.border.color
+        color: mainRect.topLeft ?  'transparent' : mainRect.border.color
         clip: true
         anchors.top: mainRect.top
         anchors.left: mainRect.left
         Rectangle{
             anchors.margins: mainRect.border.width
-            radius: topLeft ? mainRect.radius : 0
+            radius: mainRect.topLeft ? mainRect.radius : 0
             width: rect1.width + radius
             height: rect1.height + radius
             color: mainRect.color
@@ -41,13 +42,13 @@ Rectangle{
         id: rect2
         width: mainRect.radius
         height: mainRect.radius
-        color: topRight ?  'transparent' : mainRect.border.color
+        color: mainRect.topRight ?  'transparent' : mainRect.border.color
         clip: true
         anchors.top: mainRect.top
         anchors.right: mainRect.right
         Rectangle{
             anchors.margins: mainRect.border.width
-            radius: topRight ? mainRect.radius : 0
+            radius: mainRect.topRight ? mainRect.radius : 0
             width: rect2.width + radius
             height: rect2.height + radius
             color: mainRect.color
@@ -61,13 +62,13 @@ Rectangle{
         id: rect3
         width: mainRect.radius
         height: mainRect.radius
-        color: bottomLeft ?  'transparent' : mainRect.border.color
+        color: mainRect.bottomLeft ?  'transparent' : mainRect.border.color
         clip: true
         anchors.bottom: mainRect.bottom
         anchors.left: mainRect.left
         Rectangle{
             anchors.margins: mainRect.border.width
-            radius: bottomLeft ? mainRect.radius : 0
+            radius: mainRect.bottomLeft ? mainRect.radius : 0
             width: rect3.width + radius
             height: rect3.height + radius
             color: mainRect.color
@@ -81,13 +82,13 @@ Rectangle{
         id: rect4
         width: mainRect.radius
         height: mainRect.radius
-        color: bottomRight ?  'transparent' : mainRect.border.color
+        color: mainRect.bottomRight ?  'transparent' : mainRect.border.color
         clip: true
         anchors.bottom: mainRect.bottom
         anchors.right: mainRect.right
         Rectangle{
             anchors.margins: mainRect.border.width
-            radius: bottomRight ? mainRect.radius : 0
+            radius: mainRect.bottomRight ? mainRect.radius : 0
             width: rect4.width + radius
             height: rect4.height + radius
             color: mainRect.color

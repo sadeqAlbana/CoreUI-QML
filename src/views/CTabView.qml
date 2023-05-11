@@ -10,19 +10,19 @@ CPage {
     palette.window: CoreUI.color(CoreUI.Tab)
     padding: 20
     header: CTabBar{
-        spacing: 0
         id: tabBar
-        CTabButton{
-            text: qsTr("Preview");
-            icon.name: "cil-media-play"
-            width: implicitWidth
+        spacing: 0
 
-        }
+        Repeater{
 
-        CTabButton{
-            text: qsTr("Code");
-            icon.name: "cil-code"
-            width: implicitWidth
+            model: stack.children
+            delegate: CTabButton{
+                text: model.title?? "N.A"
+                icon.name: model.icon? model.icon.name?? "" : ""
+                width: implicitWidth
+
+            }
+
         }
     }
 
@@ -30,5 +30,7 @@ CPage {
         id: stack
         anchors.fill: parent;
         Component.onCompleted: currentIndex= Qt.binding(function(){return tabBar.currentIndex})
+
+
     }
 }

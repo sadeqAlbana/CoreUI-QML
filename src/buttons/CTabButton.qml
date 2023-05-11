@@ -38,7 +38,7 @@ T.TabButton {
     }
     background: RoundedRect{
         radius: control.radius
-        color: "#00ffffff"
+        color: control.palette.base
         border.color: control.palette.shadow
         visible: control.checked || control.hovered
         bottomLeft: false

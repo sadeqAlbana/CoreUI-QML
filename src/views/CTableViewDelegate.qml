@@ -15,7 +15,7 @@ Control {
     required property bool selected
     required property bool current
     property string text: model.display?? ""
-
+    hoverEnabled: true
     TableView.editDelegate: TextField {
         width: control.width
         height: control.height
@@ -44,8 +44,9 @@ Control {
                    control.palette.base
                }break;
                case TableView.SelectRows :{
+                   !control.hovered? //fix
                    control.TableView.view.currentRow===model.row?control.palette.active.highlight : control.TableView.view.alternatingRows? model.row%2==0? control.palette.alternateBase : control.palette.base :
-                   control.palette.base;
+                   control.palette.base : control.palette.shadow
                }break;
                case TableView.SelectColumns :{
                    control.TableView.view.currentColumn===model.column?control.palette.active.highlight : control.TableView.view.alternatingRows? model.row%2==0? control.palette.alternateBase : control.palette.base :

@@ -73,7 +73,8 @@ TableView{
     topMargin: horizontalHeaderView.visible? horizontalHeaderView.implicitHeight : 0
     reuseItems: true
     Layout.fillWidth: true
-    resizableColumns: true
+    resizableColumns: false //causes mouse scroll to stop working
+    resizableRows: false //causes mouse scroll to stop working
     delegate: CTableViewDelegate{}
     clip: true
     columnWidthProvider: tableView.widthProvider;

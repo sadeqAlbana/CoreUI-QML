@@ -6,9 +6,10 @@
  */
 
 import QtQuick;
+import QtQuick.Controls
+
 import QtQuick.Controls.Basic;
 import QtQuick.Layouts
-import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
 import CoreUI.Base
 import CoreUI.Impl
@@ -20,6 +21,20 @@ import CoreUI
 //these methods are use to calculate columns width
 TableView{
     id: tableView
+    interactive: true
+    boundsBehavior: Flickable.StopAtBounds
+    alternatingRows: true
+    pointerNavigationEnabled: true
+    keyNavigationEnabled:true
+    selectionBehavior: TableView.SelectRows
+    LayoutMirroring.childrenInherit: true
+    property bool headerVisible: true
+    property list<Action> actions
+    property var hiddenColumns: []
+//    property int __lastImplicitWidth: 0;
+    property alias headerDelegate: horizontalHeaderView.delegate
+    property var permissionProvider: undefined
+
     Rectangle{
         parent: tableView
         border.color: tableView.palette.shadow
@@ -28,16 +43,14 @@ TableView{
         radius: 2
 
     }
-    LayoutMirroring.childrenInherit: true
-    property bool headerVisible: true
-    property list<Action> actions
-    property var hiddenColumns: []
-    property int selectedRow: -1
-    property int hoveredRow: -1
-    property bool validRow: selectedRow>=0
-    property int __lastImplicitWidth: 0;
-    property alias headerDelegate: horizontalHeaderView.delegate
-    property var permissionProvider: undefined
+
+
+
+    selectionModel: ItemSelectionModel{
+
+
+    }
+
 
     ScrollBar.vertical: ScrollBar { }
 
@@ -60,39 +73,24 @@ TableView{
     topMargin: horizontalHeaderView.visible? horizontalHeaderView.implicitHeight : 0
     reuseItems: true
     Layout.fillWidth: true
+    resizableColumns: true
     delegate: CTableViewDelegate{}
-    boundsBehavior: Flickable.StopAtBounds
     clip: true
     columnWidthProvider: tableView.widthProvider;
-    implicitWidth: getImplicitWidth();
+    implicitWidth: {
+        let w=0;
 
-//    onWidthChanged: {
-//        //implicitWidth=getImplicitWidth();
-//        //forceLayout();
-//    }
-
-    Timer{
-        id: timer
-        interval: 500
-        running: true
-        repeat: true
-        onTriggered: {
-//            if(__lastWidth==width)
-//                return;
-
-//            __lastWidth=width;
-
-
-            __lastImplicitWidth=implicitWidth
-            implicitWidth=getImplicitWidth();
-
-            //if(__lastImplicitWidth!=implicitWidth){
-                forceLayout()
-            //}
+        for(var i=0; i<tableView.columns; i++){
+            if(!isColumnHidden(i)){
+                if(tableView.isColumnLoaded(i))
+                    w+=Math.max(tableView.implicitColumnWidth(i),horizontalHeaderView.implicitColumnWidth(i))
+            }
         }
+        if(tableView.columnSpacing>0){
+            w+=((tableView.columns-hiddenColumns.length)*tableView.columnSpacing)
+        }
+        return w
     }
-
-
 
     onHiddenColumnsChanged: {
         forceLayout();
@@ -123,20 +121,9 @@ TableView{
         return Math.max(implicitColumnWidth(column),horizontalHeaderView.implicitColumnWidth(column))
     }
 
-    function getImplicitWidth() {
-        let w=0;
+//    function getImplicitWidth() {
 
-        for(var i=0; i<tableView.columns; i++){
-            if(!isColumnHidden(i)){
-                if(tableView.isColumnLoaded(i))
-                    w+=tableView.implicitColumnAndHeaderWidth(i)
-            }
-        }
-        if(tableView.columnSpacing>0){
-            w+=((tableView.columns-hiddenColumns.length)*tableView.columnSpacing)
-        }
-        return w
-    }
+//    }
 
     function isColumnHidden(column){
         for(let i=0; i<tableView.hiddenColumns.length; i++){
@@ -166,36 +153,57 @@ TableView{
         }
     }
 
-    onRowsChanged:{
-        if(selectedRow>=rows){
-            selectedRow=-1;
-        }
-    }
 
     MouseArea {
         anchors.fill: parent
-        acceptedButtons: Qt.AllButtons
+        parent: tableView
+        acceptedButtons: Qt.RightButton
+        enabled: tableView.currentRow>=0
+        propagateComposedEvents: true
 
-
-        enabled: tableView.selectedRow>=0
         onClicked:(mouse)=> {
-                      if (mouse.button === Qt.RightButton)
-                      contextMenu.popup()
+                      if (mouse.button === Qt.RightButton){
+                          contextMenu.popup();
+                      }
+                      mouse.accepted=false;
                   }
         onPressAndHold:(mouse)=> {
-                           if (mouse.source === Qt.MouseEventNotSynthesized)
-                           contextMenu.popup()
+                           if (mouse.source === Qt.MouseEventNotSynthesized){
+                                contextMenu.popup();
+                           }
+                           mouse.accepted=false;
+
                        }
 
-        CActionsMenu {
-            id: contextMenu
-            modal: true
-            dim: false
-            actions:tableView.actions
-            permissionProvider: tableView.permissionProvider
-        }
+
     } //end MouseArea
 
+    CActionsMenu {
+        id: contextMenu
+        modal: true
+        dim: false
+        actions:tableView.actions
+        permissionProvider: tableView.permissionProvider
+    }
 
+//    SelectionRectangle {
+//        target: tableView
+//        selectionMode: SelectionRectangle.Drag
+//        topLeftHandle: Rectangle {
+//            width: 20
+//            height: 20
+//            visible: SelectionRectangle.control.active
+//            radius: height
+//        }
+
+//        bottomRightHandle: Rectangle {
+//            width: 20
+//            height: 20
+//            visible: SelectionRectangle.control.active
+//            radius: height
+
+//        }
+
+//    }
 }
 

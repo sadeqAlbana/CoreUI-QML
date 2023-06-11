@@ -9,38 +9,56 @@ import QtQuick;
 import QtQuick.Controls.Basic;
 import QtQuick.Controls
 import CoreUI
-ItemDelegate {
+Control {
     id: control
     clip: true
-    property bool  isCurrentItem : TableView.view.hoveredRow===model.row
-    property color backgroundColor: model.row%2==0 ? palette.base : palette.alternateBase;
+    required property bool selected
+    required property bool current
+    property string text: model.display?? ""
 
-    display: AbstractButton.TextUnderIcon
-    implicitHeight: 60
+    TableView.editDelegate: TextField {
+        width: control.width
+        height: control.height
+        text: model.display
 
-    text: model.display? model.display : ""
-
-    hoverEnabled: true
-    highlighted: TableView.view.selectedRow===model.row;
-    onClicked: {TableView.view.selectedRow=model.row; forceActiveFocus();}
-
-    onHoveredChanged: {
-        if(hovered){
-            TableView.view.hoveredRow=model.row;
+        TableView.onCommit: {
+            model.display = text
         }
     }
+    implicitHeight: 60
 
+    contentItem: Text{
+        font: control.font
+        text: control.text
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
 
-    onPressAndHold: CoreUI.copyToClipBoard(control.text)
+    }
 
     background: Rectangle{
+        color: switch(control.TableView.view.selectionBehavior){
+               case TableView.SelectCells : {
+                   control.current? control.palette.active.highlight :
+                                    control.TableView.view.alternatingRows?
+                                        row%2==0? control.palette.alternateBase : control.palette.base :
+                   control.palette.base
+               }break;
+               case TableView.SelectRows :{
+                   control.TableView.view.currentRow===model.row?control.palette.active.highlight : control.TableView.view.alternatingRows? model.row%2==0? control.palette.alternateBase : control.palette.base :
+                   control.palette.base;
+               }break;
+               case TableView.SelectColumns :{
+                   control.TableView.view.currentColumn===model.column?control.palette.active.highlight : control.TableView.view.alternatingRows? model.row%2==0? control.palette.alternateBase : control.palette.base :
+                   control.palette.base;
+               }
+               break;
+               case TableView.SelectionDisabled: {control.palette.base;} break;
 
-        color: control.highlighted? control.palette.active.highlight :
-                                      control.isCurrentItem? //hovered?
-                                      control.palette.dark
-        : model.row%2==0?
-                               palette.alternateBase : palette.base
+               }
+
         border.color: control.palette.shadow
-        border.width: 0
+        border.width: control.TableView.view.selectionBehavior===TableView.SelectCells? control.current? 1 : 0 : 0
     }
+
+
 }

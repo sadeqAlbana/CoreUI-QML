@@ -31,7 +31,7 @@ TableView{
     property bool headerVisible: true
     property list<Action> actions
     property var hiddenColumns: []
-//    property int __lastImplicitWidth: 0;
+    property int hoveredRow:-1;
     property alias headerDelegate: horizontalHeaderView.delegate
     property var permissionProvider: undefined
 
@@ -122,9 +122,7 @@ TableView{
         return Math.max(implicitColumnWidth(column),horizontalHeaderView.implicitColumnWidth(column))
     }
 
-//    function getImplicitWidth() {
 
-//    }
 
     function isColumnHidden(column){
         for(let i=0; i<tableView.hiddenColumns.length; i++){

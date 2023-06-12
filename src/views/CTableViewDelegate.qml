@@ -27,6 +27,14 @@ Control {
     }
     implicitHeight: 60
 
+    onHoveredChanged:{
+//        if(TableView.view instanceof CTableView){
+            if(hovered){
+                TableView.view.hoveredRow=row;
+            }
+//        }
+    }
+
     contentItem: Text{
         font: control.font
         text: control.text
@@ -44,7 +52,7 @@ Control {
                    control.palette.base
                }break;
                case TableView.SelectRows :{
-                   !control.hovered? //fix
+                   !(control.TableView.view.hoveredRow===row) || (row===control.TableView.view.currentRow)? //fix
                    control.TableView.view.currentRow===model.row?control.palette.active.highlight : control.TableView.view.alternatingRows? model.row%2==0? control.palette.alternateBase : control.palette.base :
                    control.palette.base : control.palette.shadow
                }break;

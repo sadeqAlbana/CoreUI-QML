@@ -34,7 +34,7 @@ T.MenuBarItem {
     enabled: control.menu? control.menu.count : true
     contentItem: IconLabel {
 
-        readonly property real indicatorPadding: control.indicator ? control.indicator.width
+        readonly property real indicatorPadding: control.indicator?.visible ? control.indicator.width
                                                                      + control.spacing : 0
         leftPadding: control.mirrored ? indicatorPadding : 0
         rightPadding: control.mirrored ? 0 : indicatorPadding
@@ -56,7 +56,7 @@ T.MenuBarItem {
         x: control.mirrored ? control.leftPadding : control.width - width - control.rightPadding
         y: control.topPadding + (control.availableHeight - height) / 2
 
-        visible: true
+        visible: control.menu? control.menu.count : 0
         mirror: control.mirrored
         name: "cis-triangle"
         rotation: 180

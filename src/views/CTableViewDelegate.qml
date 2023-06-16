@@ -20,7 +20,8 @@ Control {
         width: control.width
         height: control.height
         text: model.display
-
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
         TableView.onCommit: {
             model.display = text
         }
@@ -46,7 +47,7 @@ Control {
     background: Rectangle{
         color: switch(control.TableView.view.selectionBehavior){
                case TableView.SelectCells : {
-                   control.current? control.palette.active.highlight :
+                   control.hovered? control.palette.active.highlight :
                                     control.TableView.view.alternatingRows?
                                         row%2==0? control.palette.alternateBase : control.palette.base :
                    control.palette.base

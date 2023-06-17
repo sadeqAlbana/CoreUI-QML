@@ -19,7 +19,7 @@ Control {
     TableView.editDelegate: TextField {
         width: control.width
         height: control.height
-        text: model.display
+        text: model.display?? ""
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         TableView.onCommit: {

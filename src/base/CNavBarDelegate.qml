@@ -77,6 +77,8 @@ CItemDelegate {
 
 
     background: Rectangle {
+//        visible: control.hovered || control.expanded || control.highlighted
+
         opacity: enabled ? 1 : 0.3
         layer.enabled: false
         color: control.expanded?  control.palette.inactive.button :

@@ -29,6 +29,14 @@ Drawer {
 
     background: Rectangle{
         color: drawer.palette.window
+
+//        gradient: Gradient{
+//            stops: [
+//                GradientStop{position: 0;color: "#212333";},
+//                GradientStop{position: 1;color: "#3c4b64";}
+
+//            ]
+//        }
     }
 
     ListView {

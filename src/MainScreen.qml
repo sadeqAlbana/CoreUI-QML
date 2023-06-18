@@ -184,15 +184,15 @@ Item {
         implicitHeight: stack.implicitHeight
         contentHeight: stack.implicitHeight
         clip: true
-        width: drawerAboveContent ? rootItem.width -10 : drawer.opened ? rootItem.width - drawer.width -40  : rootItem.width -40
-         height: rootItem.height - toolBar.height - breadCrumbToolBar.height - (20 * 2)
+        width: drawerAboveContent ? rootItem.width -10 : drawer.opened ? rootItem.width - drawer.width -20  : rootItem.width -20
+         height: rootItem.height - toolBar.height - breadCrumbToolBar.height - (10 * 2)
 
-        x: LayoutMirroring.enabled? drawerAboveContent? 5 : 20
+        x: LayoutMirroring.enabled? drawerAboveContent? 5 : 10
 
 
-             :drawerAboveContent ? 5 : drawer.opened ? drawer.width + 20 : 20
+             :drawerAboveContent ? 5 : drawer.opened ? drawer.width + 10 : 10
 
-        y: toolBar.height + breadCrumbToolBar.height + 20
+        y: toolBar.height + breadCrumbToolBar.height + 10
 
         StackView {
             id: stack
@@ -202,6 +202,7 @@ Item {
             LayoutMirroring.childrenInherit: true
             anchors.fill: parent
             clip:true
+            padding: 0
             implicitWidth: currentItem ? currentItem.implicitWidth  : 100
 //            implicitHeight: currentItem ? currentItem.implicitHeight : 100
 

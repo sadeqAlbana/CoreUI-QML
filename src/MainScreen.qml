@@ -152,6 +152,7 @@ Item {
     CToolBar {
         id: breadCrumbToolBar
         y: toolBar.height - 1
+        visible: !window.mobileLayout
         width: drawerAboveContent ? rootItem.width : drawer.opened ? rootItem.width
                                                                      - drawer.width : rootItem.width
         anchors.left: rootItem.left
@@ -185,14 +186,16 @@ Item {
         contentHeight: stack.implicitHeight
         clip: true
         width: drawerAboveContent ? rootItem.width -10 : drawer.opened ? rootItem.width - drawer.width -20  : rootItem.width -20
-         height: rootItem.height - toolBar.height - breadCrumbToolBar.height - (10 * 2)
+         height: rootItem.height - toolBar.height - (
+                     breadCrumbToolBar.visible? breadCrumbToolBar.height : 0) - (10 * 2)
 
         x: LayoutMirroring.enabled? drawerAboveContent? 5 : 10
 
 
              :drawerAboveContent ? 5 : drawer.opened ? drawer.width + 10 : 10
 
-        y: toolBar.height + breadCrumbToolBar.height + 10
+        y: toolBar.height + (
+               breadCrumbToolBar.visible? breadCrumbToolBar.height : 0) + 10
 
         StackView {
             id: stack

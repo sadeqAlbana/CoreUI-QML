@@ -23,7 +23,7 @@ Control {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         TableView.onCommit: {
-            model.display = text
+            model.edit = text
         }
     }
     implicitHeight: 60

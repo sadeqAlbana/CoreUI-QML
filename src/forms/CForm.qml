@@ -48,12 +48,21 @@ QtObject {
 
             if (initialValues.hasOwnProperty(key)) {
                 data = initialValues[key]
+            }else{
+                continue;
             }
 
             if (item instanceof TextInput || item instanceof TextEdit) {
                 item.text = data
             } else if (item instanceof T.ComboBox) {
                 item.currentIndex = item.indexOfValue(data)
+
+                if(item.model instanceof AbstractItemModel){
+                    item.model.onModelReset.connect(function(){
+                        item.currentIndex = initialValues[item.objectName]
+                    })
+                }
+
             } else if (item instanceof T.SpinBox) {
                 item.value = data
             } else if (item instanceof T.Slider) {

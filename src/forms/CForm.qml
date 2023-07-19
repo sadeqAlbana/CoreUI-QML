@@ -10,7 +10,7 @@ QtObject {
     property string url
     required property var applyHandler
     Component.onCompleted: setInitialValues()
-
+    onInitialValuesChanged: setInitialValues();
     function apply() {
         if (form.url) {
             form.applyHandler(url, method, data())

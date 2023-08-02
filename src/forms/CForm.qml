@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Templates as T
-
+ import QtQuick.Dialogs
 QtObject {
     id: form
     required property list<Item> items
@@ -72,7 +72,7 @@ QtObject {
                 item.position = data ? 1 : 0
             } else if (item instanceof T.Dial) {
                 item.value = data
-            } else if (item instanceof CheckableListView) {
+            }else if (item instanceof CheckableListView) {
 
                 //TODO: rewrite the below piece
                 let itemModel= item.model
@@ -115,6 +115,17 @@ QtObject {
                 data = item.position === 1
             } else if (item instanceof T.Dial) {
                 data = item.value
+            }
+
+            else if (item instanceof FileInput) {
+                            let dlg=item.dialog
+                            switch(dlg.fileMode){
+                            case FileDialog.OpenFile: data=dlg.selectedFile; break;
+                            case FileDialog.OpenFiles: data=dlg.selectedFiles; break;
+                            default: break;
+
+                            }
+
             }
 
             else if (item instanceof CheckableListView) {

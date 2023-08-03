@@ -2,9 +2,10 @@
 #define COREUI_H
 
 #include <QObject>
+#include <QQuickAttachedPropertyPropagator>
 #include <QQmlEngine>
 #include <QColor>
-class CoreUI : public QObject
+class CoreUI : public QQuickAttachedPropertyPropagator
 {
     Q_OBJECT
     QML_ELEMENT

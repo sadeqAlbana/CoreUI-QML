@@ -5,7 +5,7 @@
 #include <QGuiApplication>
 QUrl CoreUI::m_userIcon;
 CoreUI::CoreUI(QObject *parent)
-    : QObject{parent}
+    : QQuickAttachedPropertyPropagator{parent}
 {
     m_primary=QRgb(CoreUI::Primary);
     m_success=QRgb(CoreUI::Success);
@@ -15,6 +15,8 @@ CoreUI::CoreUI(QObject *parent)
     m_accordionBorderFocus=QRgb(CoreUI::AccordionFocusBorder);
     m_accordionActive=QRgb(CoreUI::AccordionActive);
     m_boxShadow = color(CoreUI::BoxShadow);
+
+    initialize();
 
 }
 

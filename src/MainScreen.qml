@@ -24,6 +24,8 @@ import "nav.js" as NavJS
 
 Item {
     id: rootItem
+
+    property list<CAction> menuActions;
     implicitWidth: mainFlickable.implicitWidth
     implicitHeight: mainFlickable.implicitHeight
 
@@ -123,13 +125,7 @@ Item {
                     id: menu
                     parent: ctrl
                     y: parent.height
-                    actions: [
-                        CAction {
-                            text: qsTr("Logout")
-                            icon.name: "cil-account-logout"
-                            onTriggered: AuthManager.logout()
-                        }
-                    ]
+                    actions: rootItem.menuActions
                 }
 
                 layer.effect: OpacityMask {

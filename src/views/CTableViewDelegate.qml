@@ -16,16 +16,10 @@ Control {
     required property bool current
     property string text: model.display?? ""
     hoverEnabled: true
-    TableView.editDelegate: TextField {
-        width: control.width
-        height: control.height
-        text: model.display?? ""
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        TableView.onCommit: {
-            model.edit = text
-        }
+    TableView.editDelegate: CTableViewEditDelegate{
+
     }
+
     implicitHeight: 60
 
     onHoveredChanged:{

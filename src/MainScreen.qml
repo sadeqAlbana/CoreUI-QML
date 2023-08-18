@@ -156,9 +156,28 @@ Item {
         height: 60
         leftPadding: 20
         rightPadding: 20
+
+        CToolButton {
+            id: backButton
+            icon.name: "cil-accordion-arrow"
+            icon.width: 23
+            icon.height: 23
+            rotation: 90
+            display: AbstractButton.IconOnly
+            background: Item {}
+            visible: Router.paths.length>1
+            onClicked: Router.back(-1);
+            anchors.left: parent.left
+            anchors.verticalCenter: parent.verticalCenter
+        }
+
+
         Breadcrumb {
             id: breadCrumb
-            anchors.fill: parent
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            anchors.left: backButton.visible? backButton.right : parent.left
             Component.onCompleted: model = Router.paths
             onClicked:(index)=> Router.back(index)
 

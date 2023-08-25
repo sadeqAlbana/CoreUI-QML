@@ -42,6 +42,7 @@ Control {
         color: switch(control.TableView.view.selectionBehavior){
                case TableView.SelectCells : {
                    control.hovered? control.palette.active.highlight :
+                                    control.TableView.view.currentRow===row? control.palette.inactive.highlight:
                                     control.TableView.view.alternatingRows?
                                         row%2==0? control.palette.alternateBase : control.palette.base :
                    control.palette.base

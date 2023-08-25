@@ -34,6 +34,7 @@ TableView{
     property int hoveredRow:-1;
     property alias headerDelegate: horizontalHeaderView.delegate
     property var permissionProvider: undefined
+    palette.    inactive.highlight: "#D8DBE0"
 
     Rectangle{
         parent: tableView

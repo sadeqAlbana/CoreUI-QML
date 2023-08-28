@@ -114,6 +114,10 @@ public:
     QColor success() const;
     void setSuccess(const QColor &newSuccess);
 
+
+protected:
+    void attachedParentChange(QQuickAttachedPropertyPropagator *newParent, QQuickAttachedPropertyPropagator *oldParent);
+
 signals:
     void borderWidthChanged();
 
@@ -139,7 +143,7 @@ private:
     int m_borderWidth=1;
     int m_borderRadius=6;
 
-    Theme m_there=ThemeLight;
+    Theme m_theme=ThemeLight;
 
     QColor m_primary;
     QColor m_danger;

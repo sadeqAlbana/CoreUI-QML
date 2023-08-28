@@ -172,4 +172,20 @@ void CoreUI::setSuccess(const QColor &newSuccess)
     emit successChanged();
 }
 
+void CoreUI::attachedParentChange(QQuickAttachedPropertyPropagator *newParent, QQuickAttachedPropertyPropagator *oldParent)
+{
+    Q_UNUSED(oldParent);
+    CoreUI *attachedParentStyle = qobject_cast<CoreUI *>(newParent);
+    if (attachedParentStyle) {
+        //inheritTheme(attachedParentStyle->theme());
+        // Do any other inheriting here...
+        this->setBorderRadius(attachedParentStyle->borderRadius());
+        this->setBorderWidth(attachedParentStyle->borderWidth());
+        this->setBoxShadow(attachedParentStyle->boxShadow());
+        this->setPrimary(attachedParentStyle->primary());
+        this->setSuccess(attachedParentStyle->success());
+
+    }
+}
+
 

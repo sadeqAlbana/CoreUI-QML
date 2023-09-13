@@ -36,7 +36,7 @@ ListView{
                 cursorShape: isLastElement()? Qt.ArrowCursor : Qt.PointingHandCursor
             }
 
-            contentItem:         Text{
+            contentItem: Text{
                 text: modelData.label;
                 color: isLastElement()? control.palette.text : control.palette.inactive.link
                 font.underline: !isLastElement();

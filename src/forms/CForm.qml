@@ -6,10 +6,36 @@ QtObject {
     id: form
     required property list<Item> items
     property var initialValues: null
-    property string method: "POST"
+    property string method: keyValue!==null? "GET" : "POST"
     property string url
-    required property var applyHandler
-    Component.onCompleted: setInitialValues()
+    property var keyValue : null //key value
+    property string dataKey: "id"; //query param key or json object key, default is id
+     property var applyHandler
+    Component.onCompleted: {
+        if(initialValues!==null){
+            setInitialValues();
+        }else if(keyValue!==null){
+            console.log("form method: " + form.method)
+            console.log("key value is not null: " + keyValue)
+            if(form.method==="GET"){
+                NetworkManager.get(form.url+'?'+dataKey+'='+keyValue).subscribe(function(response){
+                    console.log("res json: " + JSON.stringify(response.json('data')))
+                form.initialValues=response.json('data');
+                    setInitialValues();
+            });
+
+            }
+            else if(form.method=="POST"){
+                NetworkManager.post(form.url,{dataKey: keyValue}).subscribe(function(response){
+                form.initialValues=response.json('data');
+                    setInitialValues();
+
+            });
+
+            }
+        }
+    }
+
     onInitialValuesChanged: setInitialValues();
     function apply() {
         if (form.url) {

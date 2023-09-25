@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Templates as T
- import QtQuick.Dialogs
+import QtQuick.Dialogs
 QtObject {
     id: form
     required property list<Item> items
@@ -10,7 +10,8 @@ QtObject {
     property string url
     property var keyValue : null //key value
     property string dataKey: "id"; //query param key or json object key, default is id
-     property var applyHandler
+    property var applyHandler
+    property bool readOnly: false
     Component.onCompleted: {
         if(initialValues!==null){
             setInitialValues();
@@ -79,8 +80,10 @@ QtObject {
             }
 
             if (item instanceof TextInput || item instanceof TextEdit) {
-                item.text = data
+                item.text = data;
+                item.readOnly=form.readOnly;
             } else if (item instanceof T.ComboBox) {
+                    item.enabled=!form.readOnly;
                 item.currentIndex = item.indexOfValue(data)
 
                 if(item.model instanceof AbstractItemModel){
@@ -91,15 +94,19 @@ QtObject {
 
             } else if (item instanceof T.SpinBox) {
                 item.value = data
+                item.editable=!form.readOnly
             } else if (item instanceof T.Slider) {
                 item.value = data
+                item.enabled=!form.readOnly
             } else if (item instanceof T.Switch
                        || item instanceof T.SwitchDelegate) {
                 item.position = data ? 1 : 0
+                item.enabled=!form.readOnly
+
             } else if (item instanceof T.Dial) {
                 item.value = data
             }else if (item instanceof CheckableListView) {
-
+                item.enabled=!form.readOnly
                 //TODO: rewrite the below piece
                 let itemModel= item.model
                 if(itemModel?.checkable &&  typeof  item.model.toJsonArray ===  'function'){

@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Templates as T
 import QtQuick.Dialogs
+import CoreUI
 QtObject {
     id: form
     required property list<Item> items

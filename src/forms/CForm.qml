@@ -6,27 +6,44 @@ QtObject {
     id: form
     required property list<Item> items
     property var initialValues: null
-    property string method: keyValue!==null? "GET" : "POST"
+    property string fetchMethod: "GET"
+    property string method: keyValue!==null? "PUT" : "POST"
     property string url
     property var keyValue : null //key value
     property string dataKey: "id"; //query param key or json object key, default is id
-    property var applyHandler
+
+
+    property var applyHandler: function (url,method,data){
+                if(method==="POST"){
+                    NetworkManager.post(url,data).subscribe(function(res){
+                        if(res.json('status')===200){
+                            Router.back();
+                        }
+                    })
+                }else if(method==="PUT"){
+
+                    NetworkManager.put(url,data).subscribe(function(res){
+                        if(res.json('status')===200){
+                            Router.back();
+                        }
+                    })
+                }
+
+            }
+
     property bool readOnly: false
     Component.onCompleted: {
         if(initialValues!==null){
             setInitialValues();
         }else if(keyValue!==null){
-            console.log("form method: " + form.method)
-            console.log("key value is not null: " + keyValue)
-            if(form.method==="GET"){
+            if(form.fetchMethod==="GET"){
                 NetworkManager.get(form.url+'?'+dataKey+'='+keyValue).subscribe(function(response){
-                    console.log("res json: " + JSON.stringify(response.json('data')))
                 form.initialValues=response.json('data');
                     setInitialValues();
             });
 
             }
-            else if(form.method=="POST"){
+            else if(form.fetchMethod=="POST"){
                 NetworkManager.post(form.url,{dataKey: keyValue}).subscribe(function(response){
                 form.initialValues=response.json('data');
                     setInitialValues();
@@ -40,9 +57,9 @@ QtObject {
     onInitialValuesChanged: setInitialValues();
     function apply() {
         if (form.url) {
-            form.applyHandler(url, method, data())
+            form.applyHandler(form.url, form.method, form.data())
         } else {
-            form.applyHandler(data())
+            form.applyHandler(form.data())
         }
     }
 

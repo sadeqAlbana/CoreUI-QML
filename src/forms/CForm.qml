@@ -10,6 +10,8 @@ QtObject {
     property string fetchMethod: "GET"
     property string method: keyValue!==null? "PUT" : "POST"
     property string url
+    property string fetchUrl: form.url
+
     property var keyValue : null //key value
     property string dataKey: "id"; //query param key or json object key, default is id
 
@@ -19,6 +21,10 @@ QtObject {
                     NetworkManager.post(url,data).subscribe(function(res){
                         if(res.json('status')===200){
                             Router.back();
+                        }else{
+                            console.log("network error: " + res.status() + " "  + res.data())
+
+
                         }
                     })
                 }else if(method==="PUT"){
@@ -26,6 +32,8 @@ QtObject {
                     NetworkManager.put(url,data).subscribe(function(res){
                         if(res.json('status')===200){
                             Router.back();
+                        }else{
+                            console.log("network error: " + res.status() + " "  + res.data())
                         }
                     })
                 }
@@ -38,14 +46,14 @@ QtObject {
             setInitialValues();
         }else if(keyValue!==null){
             if(form.fetchMethod==="GET"){
-                NetworkManager.get(form.url+'?'+dataKey+'='+keyValue).subscribe(function(response){
+                NetworkManager.get(form.fetchUrl+'?'+dataKey+'='+keyValue).subscribe(function(response){
                 form.initialValues=response.json('data');
                     setInitialValues();
             });
 
             }
             else if(form.fetchMethod=="POST"){
-                NetworkManager.post(form.url,{dataKey: keyValue}).subscribe(function(response){
+                NetworkManager.post(form.fetchUrl,{dataKey: keyValue}).subscribe(function(response){
                 form.initialValues=response.json('data');
                     setInitialValues();
 
@@ -155,6 +163,12 @@ QtObject {
 
             if (item instanceof TextInput || item instanceof TextEdit) {
                 data = item.text
+
+                if(item instanceof CNumberInput){
+                    data=item.value();
+
+                }
+
             } else if (item instanceof T.ComboBox) {
                 data = item.currentValue
             } else if (item instanceof T.SpinBox) {

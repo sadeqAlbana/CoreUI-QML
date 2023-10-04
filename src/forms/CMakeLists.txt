@@ -22,6 +22,8 @@ set(qml_files
     "StyledComboBox.qml"
     "IconComboBox.qml"
     "CDialogButtonBox.qml"
+    "CNumberInput.qml"
+
 
 )
 

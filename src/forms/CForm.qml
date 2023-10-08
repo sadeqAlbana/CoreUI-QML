@@ -68,7 +68,9 @@ QtObject {
         if (form.url) {
             form.applyHandler(form.url, form.method, form.data())
         } else {
-            form.applyHandler(form.data())
+            let FormData=form.data();
+            let applye = form.applyHandler
+            applye(FormData)
         }
     }
 
@@ -130,8 +132,13 @@ QtObject {
                 item.enabled=!form.readOnly
 
             } else if (item instanceof T.Dial) {
-                item.value = data
-            }else if (item instanceof CheckableListView) {
+                item.value = data;
+            }
+            else if (item instanceof FolderInput) {
+                            item.dlg.selectedFolder = data;
+            }
+
+            else if (item instanceof CheckableListView) {
                 item.enabled=!form.readOnly
                 //TODO: rewrite the below piece
                 let itemModel= item.model
@@ -191,6 +198,10 @@ QtObject {
 
                             }
 
+            }
+
+            else if (item instanceof FolderInput) {
+                            data=item.dlg.selectedFolder;
             }
 
             else if (item instanceof CheckableListView) {

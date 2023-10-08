@@ -23,6 +23,7 @@ set(qml_files
     "IconComboBox.qml"
     "CDialogButtonBox.qml"
     "CNumberInput.qml"
+    "FolderInput.qml"
 
 
 )

@@ -15,26 +15,12 @@ StyledTextField {
         dlg.open();
     }
 
-    FileDialog{
+    FolderDialog{
         id: dlg
+        acceptLabel: qsTr("Select")
 
-        onAccepted: {
-            switch(fileMode){
-            case FileDialog.OpenFile: control.text=selectedFile; break;
-            case FileDialog.OpenFiles: {
-            let files=""
-
-                for(let i=0; i<selectedFiles.length; i++){
-                    files=files+selectedFiles[i]+","
-                }
-
-                files.slice(0,-1)
-
-                control.text=files;
-
-            } break;
-            default: break;
-            }
+        onSelectedFolderChanged: {
+            control.text=dlg.selectedFolder
         }
     }
 

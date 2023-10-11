@@ -65,12 +65,12 @@ QtObject {
 
     onInitialValuesChanged: setInitialValues();
     function apply() {
+        let handler=form.applyHandler;
         if (form.url) {
-            form.applyHandler(form.url, form.method, form.data())
+            handler(form.url, form.method, form.data())
         } else {
             let FormData=form.data();
-            let applye = form.applyHandler
-            applye(FormData)
+            handler(FormData)
         }
     }
 

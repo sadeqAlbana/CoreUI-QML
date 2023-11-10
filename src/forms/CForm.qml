@@ -43,20 +43,17 @@ QtObject {
     property bool readOnly: false
     Component.onCompleted: {
         if(initialValues!==null){
-            setInitialValues();
+          //  setInitialValues();
         }else if(keyValue!==null){
             if(form.fetchMethod==="GET"){
                 NetworkManager.get(form.fetchUrl+'?'+dataKey+'='+keyValue).subscribe(function(response){
                 form.initialValues=response.json('data');
-                    setInitialValues();
-            });
+                });
 
             }
             else if(form.fetchMethod=="POST"){
                 NetworkManager.post(form.fetchUrl,{dataKey: keyValue}).subscribe(function(response){
                 form.initialValues=response.json('data');
-                    setInitialValues();
-
             });
 
             }
@@ -91,6 +88,16 @@ QtObject {
         return valid
     }
 
+    function indexOfValue(comboBox, value){
+        for(var i=0; i<comboBox.count; i++){
+            if(comboBox.valueAt(i)===value){
+                return i;
+
+            }
+        }
+        return -i;
+    }
+
     function setInitialValues() {
         if (initialValues == null)
             return
@@ -110,13 +117,17 @@ QtObject {
             if (item instanceof TextInput || item instanceof TextEdit) {
                 item.text = data;
                 item.readOnly=form.readOnly;
-            } else if (item instanceof T.ComboBox) {
-                    item.enabled=!form.readOnly;
-                item.currentIndex = item.indexOfValue(data)
+            }
+            else if (item instanceof T.ComboBox) {
+                if(form.readOnly){
+                    item.enabled=false; //dont ever use enabled=!form.readOnly
+                }
+                let formValue=initialValues[item.objectName];
+                item.currentIndex=indexOfValue(item,formValue);
 
                 if(item.model instanceof AbstractItemModel){
                     item.model.onModelReset.connect(function(){
-                        item.currentIndex = initialValues[item.objectName]
+                    item.currentIndex=indexOfValue(item,formValue);
                     })
                 }
 

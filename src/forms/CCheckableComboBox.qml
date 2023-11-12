@@ -23,7 +23,7 @@ CComboBox{
         palette.highlight: "#0078D7"
         palette.light: "#0078D7"
         palette.midlight: "#0078D7"
-
+        checkState: model.checkState
         onCheckStateChanged: model.checkState=checkState
     }
 

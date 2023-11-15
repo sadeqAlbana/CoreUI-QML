@@ -164,6 +164,9 @@ QtObject {
 
                 //TODO: get checked items
             }
+            else if(item instanceof T.CheckBox){
+                item.checked=data;
+            }
         }
     }
 
@@ -222,6 +225,9 @@ QtObject {
                         data=item.model.toJsonArray();
                     }
                 }
+            }else if(item instanceof T.CheckBox){
+                console.log("item is checked: " + item.checked)
+                data=item.checked;
             }
 
             if (data !== null) {

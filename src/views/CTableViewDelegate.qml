@@ -52,7 +52,7 @@ Control {
                }break;
                case TableView.SelectRows :{
                    !(control.TableView.view.hoveredRow===row) || (row===control.TableView.view.currentRow)? //fix
-                   control.TableView.view.currentRow===model.row?control.palette.active.highlight : control.TableView.view.alternatingRows? model.row%2==0? control.palette.alternateBase : control.palette.base :
+                   control.TableView.view.currentRow===model.row? control.palette.active.highlight : control.TableView.view.alternatingRows? model.row%2==0? control.palette.alternateBase : control.palette.base :
                    control.palette.base : control.palette.shadow
                }break;
                case TableView.SelectColumns :{

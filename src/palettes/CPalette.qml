@@ -11,6 +11,6 @@ Palette {
     link: "#2819AF"
     linkVisited: "#2C384A"
     disabled.base: "#d8dbe0"
-
-//    inactive.highlight: "#9da5b1"
+    active.highlight: "#3399ff"
+    inactive.highlight: "#3399ff"
 }

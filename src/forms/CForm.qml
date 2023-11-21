@@ -144,12 +144,12 @@ QtObject {
                 item.value = data
             } else if (item instanceof FolderInput) {
                 item.dlg.selectedFolder = data
-            } else if (item instanceof CheckableListView) {
+            } else if (item instanceof ListView || item instanceof TableView) {
                 item.enabled = !form.readOnly
                 //TODO: rewrite the below piece
-                let itemModel = item.model
+                let itemModel = item.model;
                 if (itemModel?.checkable
-                        && typeof item.model.toJsonArray === 'function') {
+                        && typeof itemModel.toJsonArray === 'function') {
                     itemModel.uncheckAll()
                     itemModel.matchChecked(initialValues[key], item.matchKey,
                                            item.matchKey)
@@ -160,6 +160,10 @@ QtObject {
                                                    item.matchKey, item.matchKey)
                         })
                     }
+                }
+
+                if(typeof itemModel.toJsonArray === 'function'){
+                    itemModel.records=initialValues[key];
                 }
 
                 //TODO: get checked items

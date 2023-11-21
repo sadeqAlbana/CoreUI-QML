@@ -211,7 +211,7 @@ QtObject {
                 }
             } else if (item instanceof FolderInput) {
                 data = item.dlg.selectedFolder
-            } else if (item instanceof ListView) {
+            } else if (item instanceof ListView || item instanceof TableView) {
 
                 if (item instanceof CheckableListView) {
                     let itemModel = item.model

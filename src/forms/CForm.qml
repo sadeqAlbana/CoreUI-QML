@@ -79,7 +79,7 @@ QtObject {
         for (var i = 0; i < items.length; i++) {
             let item = items[i]
 
-            if (item instanceof TextInput || item instanceof TextEdit
+            if (item instanceof TextInput
                     || item instanceof T.ComboBox) {
                 if (!item.acceptableInput) {
                     valid = false

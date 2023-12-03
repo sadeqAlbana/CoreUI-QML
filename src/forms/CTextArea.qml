@@ -6,8 +6,8 @@
  */
 
 import QtQuick;
-import QtQuick.Controls.Basic;
 import QtQuick.Controls
+import QtQuick.Controls.Basic;
 import Qt5Compat.GraphicalEffects
 import CoreUI.Impl
 import CoreUI
@@ -16,20 +16,20 @@ TextArea {
     selectByMouse: true
     implicitHeight: 150
 
-    background: RoundedRect{
-        //border.width: 3
+    background: Rectangle{
         implicitHeight: 45
         implicitWidth: 200
         color : control.enabled? control.palette.base : control.palette.disabled.base
-        border.color:  control.palette.shadow
+        border.color: control.validator? control.acceptableInput? CoreUI.success : CoreUI.danger :
+                                                                        control.palette.shadow
         radius: CoreUI.borderRadius
         layer.enabled: control.activeFocus
         layer.effect: Glow {
             spread: 1
-            color: CoreUI.boxShadow
+            color: control.validator? control.acceptableInput? CoreUI.rgba(CoreUI.success,64) :
+                                                               CoreUI.rgba(CoreUI.danger,64) : CoreUI.boxShadow
             transparentBorder: true
             cached: true
-
         }
     }//background
 }

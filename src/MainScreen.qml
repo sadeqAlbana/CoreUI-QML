@@ -238,11 +238,11 @@ Item {
                         stack.replace(null, path, params)
                         Router.paths = []
                         Router.paths.push({"label": stack.currentItem? stack.currentItem.title ?? "Unknown" : "Unknown", "path": path})
-                        Router.pathsChanged()
+                        Router.reloadPaths()
                     } else {
                         stack.push(path, params)
                         Router.paths.push({"label": stack.currentItem? stack.currentItem.title ?? "Unknown" : "Unknown", "path": path})
-                        Router.pathsChanged()
+                        Router.reloadPaths()
                     }
                 }
 
@@ -261,7 +261,7 @@ Item {
 
                         }
                     }
-                    Router.pathsChanged();
+                    Router.reloadPaths();
                 }
             }
 

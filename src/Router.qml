@@ -10,6 +10,9 @@ QtObject {
     property var paths:[]
     signal navigateRequested(var path, var params, var root)
     signal backRequested(var index)
+    function reloadPaths(){
+         pathsChanged();
+    }
 
     function navigate(path,params, root){
         navigateRequested(path,params, root);

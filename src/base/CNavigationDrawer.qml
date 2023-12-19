@@ -30,13 +30,13 @@ Drawer {
     background: Rectangle{
         color: drawer.palette.window
 
-//        gradient: Gradient{
-//            stops: [
-//                GradientStop{position: 0;color: "#212333";},
-//                GradientStop{position: 1;color: "#3c4b64";}
+       gradient: Gradient{
+           stops: [
+               GradientStop{position: 0;color: "#212333";},
+               GradientStop{position: 1;color: "#3c4b64";}
 
-//            ]
-//        }
+           ]
+       }
     }
 
     ListView {
@@ -55,6 +55,7 @@ Drawer {
         header: CButton{
             id: control
             radius: 0
+            z: 3
             width: parent.width
             height: toolBar.height
             checkable: false
@@ -69,6 +70,7 @@ Drawer {
         footer: CButton {
             text: "‹"
             radius: 0
+            z: 3
             font.pointSize: 30
             rotation: LayoutMirroring.enabled ? 180 : 0
             width: parent.width

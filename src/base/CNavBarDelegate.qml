@@ -77,7 +77,7 @@ CItemDelegate {
 
 
     background: Rectangle {
-//        visible: control.hovered || control.expanded || control.highlighted
+        visible: control.hovered || (control.expanded && control.ListView.isCurrentItem) || control.highlighted
 
         opacity: enabled ? 1 : 0.3
         layer.enabled: false

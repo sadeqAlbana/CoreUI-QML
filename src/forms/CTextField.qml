@@ -13,6 +13,7 @@ import CoreUI.Impl
 import QtQuick.Controls.impl as Impl
 import QtQuick.Layouts
 import CoreUI
+import CoreUI.Palettes
 TextField {
     id:control
     selectByMouse: true
@@ -25,6 +26,8 @@ TextField {
             __firstTimeFocus=true
         }
     }
+    palette: CPalette {}
+
     background: Rectangle{
         implicitHeight: 45
         implicitWidth: 200

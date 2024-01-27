@@ -8,6 +8,9 @@ set(qml_files
     "CBasicTableView.qml"
     "CTabView.qml"
     "CTableViewEditDelegate.qml"
+    "CTreeView.qml"
+    "CTreeViewDelegate.qml"
+
 )
 qt_add_library(coreuiviews STATIC)
 qt_add_qml_module(coreuiviews

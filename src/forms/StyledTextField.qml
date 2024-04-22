@@ -152,7 +152,7 @@ CTextField {
         anchors.bottom: control.bottom
         anchors.left: control.left
         anchors.right: control.right
-        visible: control.helpBlock.visible;
+        visible: control.helpBlock.visible && text.length
         topPadding: 5
         font.pixelSize: 14
         font.italic: true

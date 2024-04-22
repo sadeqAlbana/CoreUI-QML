@@ -125,11 +125,13 @@ QtObject {
                 let formValue = initialValues[item.objectName]
                 item.currentIndex = indexOfValue(item, formValue)
 
-                if (item.model instanceof AbstractItemModel) {
-                    item.model.onModelReset.connect(function () {
-                        item.currentIndex = indexOfValue(item, formValue)
-                    })
-                }
+
+                //a trick to set the value on asynchronous models
+                item.onCountChanged.connect(function onCbCountChanged() {
+                    item.currentIndex = indexOfValue(item, formValue)
+                    item.onCountChanged.disconnect(onCbCountChanged);
+                })
+
             } else if (item instanceof T.SpinBox) {
                 item.value = data
                 item.editable = !form.readOnly

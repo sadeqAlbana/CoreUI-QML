@@ -31,7 +31,29 @@ T.ComboBox {
     rightPadding: padding + (control.mirrored || !indicator
                              || !indicator.visible ? 0 : indicator.width + spacing)
 
+    property string placeholderText: ""
     palette: CPalette {}
+
+    Label {
+        id: placeholderLabel
+        text: control.placeholderText
+        color: "#888" // Color for placeholder text
+        visible: !control.currentText && !control.activeFocus && !control.editText
+        anchors {
+            left: contentItem.left
+            verticalCenter: parent.verticalCenter
+
+        }
+
+        leftPadding: !control.mirrored ? 12 : control.editable
+                                         && activeFocus ? 3 : 1
+        rightPadding: control.mirrored ? 12 : control.editable
+                                         && activeFocus ? 3 : 1
+        topPadding: 6 - control.padding
+        bottomPadding: 6 - control.padding
+        font.pixelSize: control.font.pixelSize
+        font.family: control.font.family
+    }
     flat: true
     background: Rectangle {
         implicitHeight: 45
@@ -49,6 +71,9 @@ T.ComboBox {
 
 
     }
+
+    property bool valid: currentText === editText
+
 
     delegate: CItemDelegate {
         width: control.width

@@ -13,4 +13,6 @@ Palette {
     disabled.base: "#d8dbe0"
     active.highlight: "#3399ff"
     inactive.highlight: "#3399ff"
+    placeholderText: "#80000000"
+
 }

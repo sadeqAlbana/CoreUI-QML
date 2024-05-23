@@ -84,11 +84,16 @@ Item {
 
 
             CToolButton {
+                id: menuButton
                 icon.name: "cil-menu"
                 icon.width: 23
                 icon.height: 23
                 display: AbstractButton.IconOnly
                 background: Item {}
+                // styleColor: "#000015"
+                font.bold: true
+                opacity: hovered? 1: 0.75
+
                 onClicked: drawer.opened ? drawer.close() : drawer.open()
             }
 

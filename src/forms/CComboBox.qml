@@ -32,6 +32,7 @@ T.ComboBox {
                              || !indicator.visible ? 0 : indicator.width + spacing)
 
     property string placeholderText: ""
+    property bool initialized: false;
     palette: CPalette {}
 
     Label {

@@ -20,7 +20,7 @@ Control {
 
     }
 
-    implicitHeight: 60
+    implicitHeight: 50
 
     onHoveredChanged:{
 //        if(TableView.view instanceof CTableView){

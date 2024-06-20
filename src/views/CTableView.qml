@@ -59,15 +59,15 @@ TableView{
         visible: headerVisible
         reuseItems: false
         syncView: tableView
-        implicitHeight: 60
+        implicitHeight: 50
         parent: tableView
         anchors.left: parent.left
         anchors.right: parent.right
-        height: 60
+        height: 50
         clip: tableView.clip
         boundsBehavior: tableView.boundsBehavior
         delegate: CHorizontalHeaderDelegate{}
-        rowHeightProvider: function(){return 60}
+        rowHeightProvider: function(){return 50}
 
     }
     topMargin: horizontalHeaderView.visible? horizontalHeaderView.implicitHeight : 0

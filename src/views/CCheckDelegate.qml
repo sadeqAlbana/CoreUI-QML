@@ -7,5 +7,6 @@ CTableViewDelegate {
 
     contentItem: CheckBox{
         text: model.display
+        onCheckStateChanged: model.checkState=checkState
     }
 }

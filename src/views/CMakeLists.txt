@@ -10,6 +10,7 @@ set(qml_files
     "CTableViewEditDelegate.qml"
     "CTreeView.qml"
     "CTreeViewDelegate.qml"
+    "CCheckDelegate.qml"
 
 )
 qt_add_library(coreuiviews STATIC)

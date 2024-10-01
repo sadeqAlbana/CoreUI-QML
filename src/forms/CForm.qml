@@ -4,6 +4,8 @@ import QtQuick.Templates as T
 import QtQuick.Dialogs
 import CoreUI
 import JsonModels
+import QtQuick.Layouts
+
 QtObject {
     id: form
     required property list<Item> items
@@ -74,13 +76,22 @@ QtObject {
     }
 
     function validate() {
+        return validateForContainer(items)
+    }
+
+    function validateForContainer(container) {
 
         let valid = true
-        for (var i = 0; i < items.length; i++) {
-            let item = items[i]
+        for (var i = 0; i < container.length; i++) {
+            let item = container[i]
 
-            if (item instanceof TextInput
-                    || item instanceof T.ComboBox) {
+            if(item instanceof Layout){
+                if(!validateForContainer(item.children)){
+                    valid=false;
+                }
+            }
+
+            if (item instanceof TextInput || item instanceof T.ComboBox) {
                 if (!item.acceptableInput) {
                     valid = false
                 }
@@ -100,11 +111,15 @@ QtObject {
     }
 
     function setInitialValues() {
+        setInitialValuesForContainer(items)
+    }
+
+    function setInitialValuesForContainer(container) {
         if (initialValues == null)
             return
 
-        for (var i = 0; i < items.length; i++) {
-            let item = items[i]
+        for (var i = 0; i < container.length; i++) {
+            let item = container[i]
             let key = item.objectName
 
             let data = null
@@ -112,7 +127,11 @@ QtObject {
             if (initialValues.hasOwnProperty(key)) {
                 data = initialValues[key]
             } else {
-                continue
+                if (item instanceof Layout) {
+                    setInitialValuesForContainer(item.children)
+                } else {
+                    continue
+                }
             }
 
             if (item instanceof TextInput || item instanceof TextEdit) {
@@ -125,13 +144,11 @@ QtObject {
                 let formValue = initialValues[item.objectName]
                 item.currentIndex = indexOfValue(item, formValue)
 
-
                 //a trick to set the value on asynchronous models
                 item.onCountChanged.connect(function onCbCountChanged() {
                     item.currentIndex = indexOfValue(item, formValue)
-                    item.onCountChanged.disconnect(onCbCountChanged);
+                    item.onCountChanged.disconnect(onCbCountChanged)
                 })
-
             } else if (item instanceof T.SpinBox) {
                 item.value = data
                 item.editable = !form.readOnly
@@ -149,7 +166,7 @@ QtObject {
             } else if (item instanceof ListView || item instanceof TableView) {
                 item.enabled = !form.readOnly
                 //TODO: rewrite the below piece
-                let itemModel = item.model;
+                let itemModel = item.model
                 if (itemModel?.checkable
                         && typeof itemModel.toJsonArray === 'function') {
                     itemModel.uncheckAll()
@@ -164,27 +181,36 @@ QtObject {
                     }
                 }
 
-                if(typeof itemModel.toJsonArray === 'function'){
-                    itemModel.records=initialValues[key];
+                if (typeof itemModel.toJsonArray === 'function') {
+                    itemModel.records = initialValues[key]
                 }
 
                 //TODO: get checked items
-            }
-            else if(item instanceof T.CheckBox){
-                item.checked=data;
+            } else if (item instanceof T.CheckBox) {
+                item.checked = Boolean(Number(data))
             }
         }
     }
 
     function data() {
+
+        return grabDataFromContainer(items)
+    }
+
+    function grabDataFromContainer(container) {
         //returns form data
         let formData = initialValues ?? {}
 
-        for (var i = 0; i < items.length; i++) {
-            let item = items[i]
+        for (var i = 0; i < container.length; i++) {
+            let item = container[i]
             let key = item.objectName
 
             let data = null
+
+            if(item instanceof Layout){
+                let childrenData=grabDataFromContainer(item.children);
+                formData = Object.assign({}, formData, childrenData);
+            }
 
             if (item instanceof TextInput || item instanceof TextEdit) {
                 data = item.text
@@ -224,16 +250,15 @@ QtObject {
                     if (itemModel?.checkable
                             && typeof item.model["toJsonArray"] === 'function') {
 
-                        data = itemModel.toJsonArray(Qt.Checked);
+                        data = itemModel.toJsonArray(Qt.Checked)
                     }
-                }else{
-                    if(typeof item.model["toJsonArray"] === 'function'){
-                        data=item.model.toJsonArray();
+                } else {
+                    if (typeof item.model["toJsonArray"] === 'function') {
+                        data = item.model.toJsonArray()
                     }
                 }
-            }else if(item instanceof T.CheckBox){
-                console.log("item is checked: " + item.checked)
-                data=item.checked;
+            } else if (item instanceof T.CheckBox) {
+                data = item.checked
             }
 
             if (data !== null) {

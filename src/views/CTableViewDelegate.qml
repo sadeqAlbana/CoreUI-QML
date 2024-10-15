@@ -9,6 +9,7 @@ import QtQuick;
 import QtQuick.Controls.Basic;
 import QtQuick.Controls
 import CoreUI
+
 Control {
     id: control
     clip: true
@@ -40,6 +41,12 @@ Control {
 
 
 
+    MouseArea{
+        anchors.fill: parent;
+        onPressAndHold: {
+            CoreUI.copyToClipBoard(model.edit)
+        }
+    }
 
     background: Rectangle{
         color: switch(control.TableView.view.selectionBehavior){

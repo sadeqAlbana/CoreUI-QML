@@ -43,8 +43,18 @@ Control {
 
     MouseArea{
         anchors.fill: parent;
+        acceptedButtons: Qt.LeftButton
+        onPressed:(mouse)=> {
+            mouse.accepted=false;
+        }
+
+        onClicked:(mouse)=> {
+            mouse.accepted=false;
+        }
         onPressAndHold: {
             CoreUI.copyToClipBoard(model.edit)
+            mouse.accepted=false;
+
         }
     }
 

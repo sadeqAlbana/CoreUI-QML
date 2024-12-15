@@ -6,7 +6,7 @@ import CoreUI.Base
 import CoreUI
 CPage {
     id: control
-    default property alias content: stack.data
+    default property alias content: stack.data //data is used instead of children in case if you want to put non gui items
     palette.window: CoreUI.color(CoreUI.Tab)
     padding: 20
     header: CTabBar{

@@ -5,7 +5,7 @@ import QtQuick.Dialogs
 import CoreUI
 import JsonModels
 import QtQuick.Layouts
-
+import CoreUI.Base
 QtObject {
     id: form
     required property list<Item> items
@@ -85,8 +85,13 @@ QtObject {
         for (var i = 0; i < container.length; i++) {
             let item = container[i]
 
-            if(item instanceof Layout){
+            if(item instanceof Layout || item instanceof CPage){
                 if(!validateForContainer(item.children)){
+                    valid=false;
+                }
+            }
+            if(item instanceof CPage){
+                if(!validateForContainer(item.contentData)){
                     valid=false;
                 }
             }
@@ -127,9 +132,13 @@ QtObject {
             if (initialValues.hasOwnProperty(key)) {
                 data = initialValues[key]
             } else {
-                if (item instanceof Layout) {
+                if (item instanceof Layout ) {
                     setInitialValuesForContainer(item.children)
-                } else {
+                }else if(item instanceof CPage){
+                    setInitialValuesForContainer(item.contentData)
+                }
+
+                else {
                     continue
                 }
             }
@@ -193,7 +202,6 @@ QtObject {
     }
 
     function data() {
-
         return grabDataFromContainer(items)
     }
 
@@ -207,8 +215,15 @@ QtObject {
 
             let data = null
 
+
+
+
             if(item instanceof Layout){
                 let childrenData=grabDataFromContainer(item.children);
+                formData = Object.assign({}, formData, childrenData);
+            }
+            else if(item instanceof CPage){
+                let childrenData=grabDataFromContainer(item.contentData);
                 formData = Object.assign({}, formData, childrenData);
             }
 
@@ -254,7 +269,7 @@ QtObject {
                     }
                 } else {
                     if (typeof item.model["toJsonArray"] === 'function') {
-                        data = item.model.toJsonArray()
+                        data = item.model.toJsonArray();
                     }
                 }
             } else if (item instanceof T.CheckBox) {

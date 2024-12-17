@@ -191,7 +191,7 @@ QtObject {
                 }
 
                 if (typeof itemModel.toJsonArray === 'function') {
-                    itemModel.records = initialValues[key]
+                    itemModel.records = initialValues[key]??[] //the ?? is used to supress a warning !
                 }
 
                 //TODO: get checked items

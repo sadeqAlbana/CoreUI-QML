@@ -49,6 +49,22 @@ QColor CoreUI::rgba(const QColor &color, const int alpha)
     return QColor(color.red(),color.green(),color.blue(),alpha);
 }
 
+QColor CoreUI::blend(const QColor &a, const QColor &b, qreal factor) const
+{
+    if (factor <= 0.0)
+        return a;
+    if (factor >= 1.0)
+        return b;
+
+    const auto rgbA = a.toRgb();
+    const auto rgbB = b.toRgb();
+    QColor color;
+    color.setRedF(rgbA.redF() * (1.0 - factor) + rgbB.redF() * factor);
+    color.setGreenF(rgbA.greenF() * (1.0 - factor) + rgbB.greenF() * factor);
+    color.setBlueF(rgbA.blueF() * (1.0 - factor) + rgbB.blueF() * factor);
+    return color;
+}
+
 
 const QColor &CoreUI::primary() const
 {

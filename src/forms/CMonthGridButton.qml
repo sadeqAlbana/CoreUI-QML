@@ -5,7 +5,7 @@ import QtQuick.Layouts
 import CoreUI.Palettes
 import CoreUI.Buttons
 import QtQuick.Templates as T
-
+import CoreUI
 Button {
     id: control
 
@@ -19,7 +19,7 @@ Button {
         implicitWidth: 100
         implicitHeight: 45
         visible: !control.flat || control.down || control.checked || control.highlighted
-        color: Color.blend(control.checked ? control.palette.dark :  control.highlighted? control.palette.mid:
+        color: CoreUI.blend(control.checked ? control.palette.dark :  control.highlighted? control.palette.mid:
                                              control.palette.button,
                                                                     control.palette.mid, control.down ? 0.5 : 0.0)
         border.color: control.palette.highlight

@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls.impl
 import QtQuick.Templates as T
-
+import CoreUI
 T.ItemDelegate {
     id: control
 
@@ -36,7 +36,7 @@ T.ItemDelegate {
         implicitWidth: 100
         implicitHeight: 40
         visible: control.down || control.highlighted || control.visualFocus
-        color: Color.blend(control.down ? control.palette.midlight : control.palette.light,
+        color: CoreUI.blend(control.down ? control.palette.midlight : control.palette.light,
                                           control.palette.highlight, control.visualFocus ? 0.15 : 0.0)
     }
 

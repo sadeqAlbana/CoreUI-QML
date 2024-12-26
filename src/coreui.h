@@ -85,7 +85,7 @@ public:
 
     Q_INVOKABLE QColor color(const CoreUI::Color clr);
     Q_INVOKABLE QColor rgba(const QColor &color, const int alpha);
-
+    Q_INVOKABLE QColor blend(const QColor &a, const QColor &b, qreal factor) const;
     const QColor &primary() const;
     void setPrimary(const QColor &newPrimary);
     void resetPrimary();

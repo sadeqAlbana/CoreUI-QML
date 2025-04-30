@@ -77,9 +77,9 @@ T.ComboBox {
 
 
     delegate: CItemDelegate {
+
         width: control.width
-        text: control.textRole ? (Array.isArray(
-                                      control.model) ? modelData[control.textRole] : model[control.textRole]) : modelData
+        text: control.textRole ? (control.model instanceof Array ? modelData[control.textRole] : model[control.textRole]) : modelData
         font.weight: control.currentIndex === index ? Font.DemiBold : Font.Normal
         font.family: control.font.family
         font.pointSize: control.font.pointSize

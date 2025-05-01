@@ -14,5 +14,6 @@ Palette {
     active.highlight: "#3399ff"
     inactive.highlight: "#3399ff"
     placeholderText: "#80000000"
+    buttonText: "#f22c384a"
 
 }

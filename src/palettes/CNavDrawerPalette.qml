@@ -11,4 +11,5 @@ CPalette {
     highlight: "#46546c"
     base: "#46546c"
     inactive.base: "#46546c"
+    brightText: "#ffffff"
 }

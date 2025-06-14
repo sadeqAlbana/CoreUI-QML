@@ -21,7 +21,7 @@ import CoreUI
 //these methods are use to calculate columns width
 TableView{
     id: tableView
-    interactive: false
+    interactive: true
     boundsBehavior: Flickable.StopAtBounds
     alternatingRows: true
     pointerNavigationEnabled: true

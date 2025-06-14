@@ -21,6 +21,10 @@ Control {
 
     }
 
+    // onSelectedChanged: {
+    //     console.log("selected : " + model.display + selected);
+    // }
+
     implicitHeight: 50
 
     onHoveredChanged:{
@@ -69,7 +73,7 @@ Control {
                }break;
                case TableView.SelectRows :{
 
-                   model.checkState===Qt.Checked? control.palette.active.highlight :(
+                   control.selected? control.palette.active.highlight :(
                    !(control.TableView.view.hoveredRow===row) || (row===control.TableView.view.currentRow)? //fix
                    control.TableView.view.currentRow===model.row? control.palette.active.highlight : control.TableView.view.alternatingRows? model.row%2==0? control.palette.alternateBase : control.palette.base :
                    control.palette.base : control.palette.shadow)

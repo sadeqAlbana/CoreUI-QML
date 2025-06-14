@@ -21,7 +21,7 @@ import CoreUI
 //these methods are use to calculate columns width
 TableView{
     id: tableView
-    interactive: true
+    interactive: false
     boundsBehavior: Flickable.StopAtBounds
     alternatingRows: true
     pointerNavigationEnabled: true
@@ -48,8 +48,11 @@ TableView{
 
     selectionModel: ItemSelectionModel{
 
-
+        // onSelectedIndexesChanged: {
+        //     console.log(selectedIndexes)
+        // }
     }
+
 
 
     ScrollBar.vertical: ScrollBar { }
@@ -184,7 +187,9 @@ TableView{
         actions:tableView.actions
         permissionProvider: tableView.permissionProvider
     }
-
+    SelectionRectangle {
+        target: tableView
+    }
 //    SelectionRectangle {
 //        target: tableView
 //        selectionMode: SelectionRectangle.Drag

@@ -48,9 +48,9 @@ TableView{
 
     selectionModel: ItemSelectionModel{
 
-        // onSelectedIndexesChanged: {
-        //     console.log(selectedIndexes)
-        // }
+        onSelectedIndexesChanged: {
+            console.log(selectedIndexes)
+        }
     }
 
 

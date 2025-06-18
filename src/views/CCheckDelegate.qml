@@ -9,7 +9,6 @@ CTableViewDelegate {
         Material.accent: Material.Blue
         text: model.display
         onCheckStateChanged: {
-
             // console.log("checkstate changed")
             if(checkState===Qt.Checked){
                 if(!control.selected){
@@ -24,12 +23,5 @@ CTableViewDelegate {
         }
         checked: control.selected
     }
-
-    function select(selectionOption){
-        if(TableView.view.selectionModel){
-            TableView.view.selectionModel.select(TableView.view.model.index(row,column),selectionOption)
-        }
-    }
-
 
 }

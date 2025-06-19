@@ -44,15 +44,24 @@ Control {
         anchors.fill: parent
         acceptedButtons: Qt.LeftButton
         onPressed: mouse => {
+
+                       //if you accepted mouse then no context menu but checking works
+                       //if you reject mouse then context menu but double checkbox
                        console.log("pressed")
-                       mouse.accepted = false
 
-                       // if(control.selected){
-                       //     control.select(ItemSelectionModel.Clear)
-                       // }else{
-                       //     control.select(ItemSelectionModel.Select)
+                       if(mouse.button==Qt.LeftButton){
+                           mouse.accepted = true
+                           if(control.selected){
+                               control.select(ItemSelectionModel.Clear)
+                           }else{
+                               control.select(ItemSelectionModel.Select)
+                           }
+                       }else{
+                           console.log("mouse not accepted")
+                           mouse.accepted=false;
+                       }
 
-                       // }
+
                    }
 
         onClicked: mouse => {
@@ -104,15 +113,13 @@ Control {
     property var select: function (selectionOption) {
         if (TableView.view.selectionModel) {
             if (TableView.view.selectionBehavior == TableView.SelectRows) {
-
-                TableView.view.selectionModel.select(
-                            TableView.view.model.index(row, column),
-                            selectionOption)
+                // TableView.view.selectionModel.select(
+                //             TableView.view.model.index(row, column),
+                //             selectionOption)
                 for (var i = 0; i < TableView.view.columns; i++) {
-
-                    // TableView.view.selectionModel.select(
-                    //             TableView.view.model.index(row, i),
-                    //             selectionOption)
+                    TableView.view.selectionModel.select(
+                                TableView.view.model.index(row, i),
+                                selectionOption)
                 }
             } else if (TableView.view.selectionBehavior == TableView.SelectColumns) {
                 for (var j = 0; j < TableView.view.rows; j++) {

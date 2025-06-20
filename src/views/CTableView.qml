@@ -160,7 +160,7 @@ TableView{
         anchors.fill: parent
         parent: tableView
         acceptedButtons: Qt.RightButton
-        enabled: tableView.currentRow>=0
+        // enabled: tableView.currentRow>=0
         propagateComposedEvents: true
 
         onClicked:(mouse)=> {

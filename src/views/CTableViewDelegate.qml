@@ -45,11 +45,16 @@ Control {
         acceptedButtons: Qt.LeftButton
         onPressed: mouse => {
 
-                       //if you accepted mouse then no context menu but checking works
-                       //if you reject mouse then context menu but double checkbox
-                       console.log("pressed")
 
-                       if(mouse.button==Qt.LeftButton){
+                       if(mouse.button===Qt.RightButton || mouse.button===Qt.MiddleButton){
+                           mouse.accepted=false;
+                       }
+
+                   }
+
+        onClicked: mouse => {
+                       // control.select(ItemSelectionModel.Select)
+                       if(mouse.button===Qt.LeftButton && mouse.modifiers & Qt.ControlModifier){
                            mouse.accepted = true
                            if(control.selected){
                                control.select(ItemSelectionModel.Clear)
@@ -57,17 +62,8 @@ Control {
                                control.select(ItemSelectionModel.Select)
                            }
                        }else{
-                           console.log("mouse not accepted")
                            mouse.accepted=false;
                        }
-
-
-                   }
-
-        onClicked: mouse => {
-                       console.log("clicked")
-                       // control.select(ItemSelectionModel.Select)
-                       mouse.accepted = false
 
                    }
         onPressAndHold: {

@@ -48,6 +48,10 @@ TableView{
 
     selectionModel: ItemSelectionModel{
 
+        onCurrentChanged: {
+            console.log("current changed")
+        }
+
         // onSelectedIndexesChanged: {
         //     console.log(selectedIndexes)
         // }

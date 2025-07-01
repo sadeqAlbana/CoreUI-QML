@@ -45,16 +45,21 @@ TableView{
     }
 
 
+    Keys.onPressed: (event) => {
+        if (event.key === Qt.Key_Control) {
+            tableView.interactive=false
+            event.accepted = false
+        }
+    }
+    Keys.onReleased: (event) => {
+        if (event.key === Qt.Key_Control) {
+            tableView.interactive=true
+            event.accepted = false
+        }
+    }
+
 
     selectionModel: ItemSelectionModel{
-
-        onCurrentChanged: {
-            console.log("current changed")
-        }
-
-        // onSelectedIndexesChanged: {
-        //     console.log(selectedIndexes)
-        // }
     }
 
 

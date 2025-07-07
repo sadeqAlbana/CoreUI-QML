@@ -24,6 +24,7 @@ qt_add_qml_module(coreuibase
     VERSION 1.0
     QML_FILES
         ${qml_files}
+        QML_FILES CDialog.qml
 )
 
 target_link_libraries(coreuibase PRIVATE Qt6::Charts)

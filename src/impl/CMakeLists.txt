@@ -17,6 +17,7 @@ qt_add_qml_module(coreuiimpl
     VERSION 1.0
     QML_FILES
         ${qml_files}
+        QML_FILES CHorizontalSeperator.qml
 )
 
 

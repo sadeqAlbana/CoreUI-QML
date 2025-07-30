@@ -40,7 +40,7 @@ Rectangle{
         State{
             name: "primary"
             PropertyChanges {target: badge; textColor: "#fff";}
-            PropertyChanges {target: badge; color: "#321fdb";}
+            PropertyChanges {target: badge; color: "#5856d6";}
         },
         State{
             name: "secondary"

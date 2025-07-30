@@ -46,9 +46,9 @@ public:
         Gray800 = 0x636f83,
         Gray900 = 0x4f5d73,
 
-       Primary = 0x321fdb,
-       Secondary = 0x9da5b1,
-       Success = 0x2eb85c,
+       Primary = 0x5856d6,
+       Secondary = 0x6b7785,
+       Success = 0x1b9e3e,
        Info = 0x39f,
        Warning = 0xf9b115,
        Danger = 0xe55353,

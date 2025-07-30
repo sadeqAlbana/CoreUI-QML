@@ -1,10 +1,12 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Basic;
-
+import CoreUI.Palettes
 CheckBox {
     id: control
     property int radius: 0
+
+    palette: BrandSecondary{}
     background: Rectangle {
         implicitWidth: 100
         implicitHeight: 50

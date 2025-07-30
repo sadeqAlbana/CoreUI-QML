@@ -9,12 +9,12 @@ import CoreUI
 
 CPalette{
     id: pal
-    button: "#321fdb" //same for all states
+    button: "#5856d6" //same for all states
     active.button: "#5b4ce2"
 
     buttonText: "#deffffff" //final
 
-    active.highlight: "#321fdb"
+    active.highlight: "#5856d6"
     inactive.highlight: "#D8DBE0"
     active.windowText: "#fff"
     inactive.windowText: "#4f5d73"

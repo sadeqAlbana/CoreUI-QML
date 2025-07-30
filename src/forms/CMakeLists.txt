@@ -34,4 +34,6 @@ qt_add_qml_module(coreuiforms
     VERSION 1.0
     QML_FILES
         ${qml_files}
+        QML_FILES
+        QML_FILES CSpinBox.qml
 )

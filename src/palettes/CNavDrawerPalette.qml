@@ -1,8 +1,8 @@
 import QtQuick
 
 CPalette {
-    window: "#3c4b64"
-    inactive.button: "#303c54"
+    window: "#212631"
+    inactive.button: "#212631"
     active.button: "#2a3446"
     inactive.buttonText: "#afb5c0"
     active.buttonText: "#fff"

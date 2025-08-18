@@ -47,7 +47,7 @@ TableViewDelegate {
     //                }
 
     //     onClicked: mouse => {
-    //                    // control.select(ItemSelectionModel.Select)
+    //                     // control.select(ItemSelectionModel.Select)
 
 
     //                    if(mouse.button===Qt.LeftButton && mouse.modifiers & Qt.ControlModifier){
@@ -63,6 +63,26 @@ TableViewDelegate {
 
     //                }
     //     onPressAndHold: {
+    //         CoreUI.copyToClipBoard(model.edit)
+    //         mouse.accepted = false
+    //     }
+    // }
+
+
+    // MouseArea{
+    //     anchors.fill: parent
+    //     acceptedButtons: Qt.LeftButton
+    //     onPressed:(mouse)=> {
+    //         mouse.accepted=false;
+
+    //     }
+
+    //     onClicked:(mouse)=> {
+    //         mouse.accepted=false;
+    //     }
+
+    //     onPressAndHold:(mouse)=> {
+    //         console.log("copied to cliboard")
     //         CoreUI.copyToClipBoard(model.edit)
     //         mouse.accepted = false
     //     }

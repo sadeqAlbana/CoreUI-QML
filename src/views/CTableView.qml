@@ -34,6 +34,7 @@ TableView{
     property int hoveredRow:-1;
     property alias headerDelegate: horizontalHeaderView.delegate
     property var permissionProvider: undefined
+    selectionMode: TableView.SingleSelection
 
     Rectangle{
         parent: tableView
@@ -60,7 +61,12 @@ TableView{
 
 
     selectionModel: ItemSelectionModel{
+
+        // onCurrentChanged: {
+        //     console.log("current: " + current)
+        // }
     }
+
 
 
 

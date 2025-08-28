@@ -7,26 +7,22 @@
 
 import QtQuick;
 import QtQuick.Controls
-
 import QtQuick.Controls.Basic;
 import Qt5Compat.GraphicalEffects
 import CoreUI.Impl
 import CoreUI
 import CoreUI.Views
-
+import CoreUI.Palettes
 CListView{
     id: control
-    clip: true
     property string matchKey;
-    component CListViewCheckDelegate: CheckDelegate{
-        width: ListView.view.width-(x*2)
-        x: CoreUI.borderWidth
-
-
-        checkState: model.checkState
-        onCheckStateChanged: model.checkState=checkState
+    delegate: CheckDelegate{
+        width: ListView.view.width
         highlighted: ListView.isCurrentItem;
-        onClicked: {
+        text: model.display
+        checkState: model.checkState
+        onToggled: {
+            model.checkState=checkState
             ListView.view.forceActiveFocus();
             if (ListView.view.currentIndex !== index) {
                 ListView.view.currentIndex = index

@@ -15,5 +15,6 @@ Palette {
     inactive.highlight: "#3399ff"
     placeholderText: "#80000000"
     buttonText: "#f22c384a"
-
+    light: "#3399ff"
+    midlight: "#297acc"
 }
